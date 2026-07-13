@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope Kids 台中分部 · 服事夥伴專區</title>
+<meta name="description" content="Hope Kids 台中分部 服事夥伴專區：服事總表、訂餐、詩歌、課程教材，一頁到齊。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffc33b;          /* 品牌黃 */
+    --sun-deep:#f2a900;     /* 深一階，文字用 */
+    --ink:#4a3b22;          /* 暖棕墨色 */
+    --muted:#a08d6a;
+    --bg:#fffdf6;
+    --card:#ffffff;
+    --line:#f3e6c8;
+    --coral:#ff7a59;
+    --teal:#2bb3a3;
+    --shadow:0 10px 26px rgba(242,169,0,.16);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; color:var(--ink);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    background:
+      radial-gradient(900px 420px at 50% -120px, #fff3d1, transparent 72%),
+      var(--bg);
+    min-height:100dvh;
+  }
+  .page{max-width:500px; margin:0 auto; padding:34px 20px 46px;}
+
+  /* ---------- hero：logo 筆刷字標 ---------- */
+  .hero{text-align:center; padding:6px 0 8px;}
+  .logomark{
+    width:230px; max-width:70vw; display:block; margin:0 auto;
+    filter:drop-shadow(0 6px 14px rgba(242,169,0,.25));
+    user-select:none;
+  }
+  .wordmark{
+    font-family:"Chewy","Noto Sans TC",cursive;
+    font-weight:400; color:var(--sun); line-height:.98; margin:0;
+    text-shadow:0 2px 0 rgba(242,169,0,.2);
+    user-select:none;
+  }
+  .wordmark .row{display:block; font-size:4.3rem; letter-spacing:.03em;}
+  .wordmark .row+.row{font-size:4.6rem; margin-top:-6px;}
+  /* 字母高低錯落，貼近原字標的手寫節奏 */
+  .wordmark i{font-style:normal; display:inline-block;}
+  .wordmark i:nth-child(1){transform:rotate(-6deg) translateY(2px);}
+  .wordmark i:nth-child(2){transform:rotate(4deg) translateY(-2px);}
+  .wordmark i:nth-child(3){transform:rotate(-3deg) translateY(3px);}
+  .wordmark i:nth-child(4){transform:rotate(5deg) translateY(-3px);}
+
+  .squiggle{width:150px; margin:8px auto 0; display:block;}
+
+  .badge-tc{
+    display:inline-block; margin-top:14px;
+    font-weight:900; font-size:1.05rem; color:#fff; background:var(--ink);
+    padding:5px 18px; border-radius:999px; transform:rotate(-2deg);
+    box-shadow:0 4px 10px rgba(74,59,34,.22);
+  }
+  .tagline{font-weight:700; margin:12px 0 0; font-size:1.05rem;}
+
+  /* ---------- section ---------- */
+  .group{margin-top:28px;}
+  .tab{
+    display:inline-flex; align-items:center; gap:7px;
+    font-weight:900; font-size:.95rem; color:#fff;
+    padding:6px 16px; border-radius:12px 12px 12px 3px;
+    transform:rotate(-1.4deg); box-shadow:0 4px 10px rgba(0,0,0,.12); margin:0 0 12px 4px;
+  }
+  .t-sun{background:var(--sun); color:#5a4200;}
+  .t-coral{background:var(--coral);}
+  .t-teal{background:var(--teal);}
+
+  /* ---------- link card ---------- */
+  .link{
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit;
+    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:13px 14px; margin-bottom:11px; box-shadow:var(--shadow);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s;
+  }
+  .link:hover,.link:focus-visible{
+    transform:translateY(-2px) rotate(-.3deg);
+    box-shadow:0 16px 30px rgba(242,169,0,.24); border-color:var(--sun); outline:none;
+  }
+  .link:focus-visible{outline:3px solid var(--sun-deep); outline-offset:2px;}
+  .tile{
+    width:46px; height:46px; flex:none; border-radius:13px; display:flex; align-items:center;
+    justify-content:center; font-size:1.5rem;
+  }
+  .g-sun .tile{background:#fff0c6;} .g-coral .tile{background:#ffe3da;} .g-teal .tile{background:#d5f2ee;}
+  .meta{flex:1; min-width:0;}
+  .meta b{display:block; font-weight:700; font-size:1rem; line-height:1.25;}
+  .meta span{display:block; color:var(--muted); font-size:.8rem; margin-top:2px;}
+  .arw{color:var(--sun-deep); font-size:1.15rem; font-weight:900; flex:none;}
+  .soon{
+    font-size:.66rem; font-weight:700; color:#a8842c; background:#fdf1cf;
+    border-radius:6px; padding:2px 7px; flex:none; white-space:nowrap;
+  }
+
+  /* ---------- 收合區（歌曲太多時摺疊） ---------- */
+  details.fold summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    background:var(--card); border:1.5px dashed var(--coral); border-radius:18px;
+    padding:13px 14px; margin-bottom:11px; box-shadow:var(--shadow);
+    font-weight:700; color:var(--ink);
+    transition:transform .16s ease, border-color .16s;
+  }
+  details.fold summary::-webkit-details-marker{display:none;}
+  details.fold summary:hover{transform:translateY(-2px); border-color:#e35a3a;}
+  details.fold summary .tile{background:#ffe3da;}
+  details.fold summary .caret{margin-left:auto; color:var(--coral); font-weight:900; transition:transform .2s;}
+  /* 湖綠區的收合框 */
+  .g-teal details.fold summary{border-color:var(--teal);}
+  .g-teal details.fold summary:hover{border-color:#1e8a7d;}
+  .g-teal details.fold summary .tile{background:#d5f2ee;}
+  .g-teal details.fold summary .caret{color:var(--teal);}
+  details.fold[open] summary .caret{transform:rotate(180deg);}
+  details.fold[open] summary{border-style:solid;}
+
+  footer{text-align:center; margin-top:36px; color:var(--muted); font-size:.82rem;}
+  footer a{color:var(--sun-deep); font-weight:700; text-decoration:none;}
+  footer .brand{font-family:"Chewy",cursive; font-size:1.1rem; color:var(--sun-deep);}
+
+  @media (max-width:380px){ .wordmark .row{font-size:3.9rem;} .wordmark .row+.row{font-size:4.2rem;} }
+  @media (prefers-reduced-motion:reduce){ .link{transition:none;} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ HERO：Hope Kids 筆刷字標（同 logo 字體） ============ -->
+  <header class="hero">
+    <!-- 原版 logo：把字標圖存成本資料夾的 logo.png 即自動顯示 -->
+    <img class="logomark" src="logo.png" alt="Hope Kids"
+         onerror="this.style.display='none';document.getElementById('wm-fallback').style.display='block';">
+    <h1 class="wordmark" id="wm-fallback" style="display:none" aria-label="Hope Kids">
+      <span class="row"><i>H</i><i>o</i><i>p</i><i>e</i></span>
+      <span class="row"><i>K</i><i>i</i><i>d</i><i>s</i></span>
+    </h1>
+    <svg class="squiggle" viewBox="0 0 150 14" aria-hidden="true">
+      <path d="M4 9 Q 24 2 44 8 T 84 8 T 124 8 T 146 6"
+            fill="none" stroke="#ffc33b" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div><span class="badge-tc">台中分部</span></div>
+    <p class="tagline">服事夥伴專區</p>
+  </header>
+
+  <!-- ============ 所有服事夥伴 ============ -->
+  <section class="group g-sun">
+    <div class="tab t-sun">🗂️ 所有服事夥伴</div>
+
+    <a class="link" href="https://docs.google.com/spreadsheets/d/1MXU_6ISfuda6CbLE7QsI29Zuq6EZlU32QKyYt10-9cI/edit?usp=sharing" target="_blank" rel="noopener">
+      <span class="tile">🗓️</span>
+      <span class="meta"><b>服事總表 2.0</b></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://sundaylunchtc.paperform.co/" target="_blank" rel="noopener">
+      <span class="tile">🍱</span>
+      <span class="meta"><b>主日訂餐</b><span>當週三截止</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://docs.google.com/spreadsheets/d/1wpNO7vT3uDRrcvN3KL8ruvyiph3PqI7IknFEqSz6440/edit?usp=sharing" target="_blank" rel="noopener">
+      <span class="tile">🙋</span>
+      <span class="meta"><b>每月不可服事表</b></span>
+      <span class="arw">↗</span>
+    </a>
+  </section>
+
+  <!-- ============ 歌曲連結 ============ -->
+  <section class="group g-coral">
+    <div class="tab t-coral">🎵 歌曲連結</div>
+
+    <details class="fold">
+      <summary>
+        <span class="tile">🎬</span>
+        <span>詩歌清單（12 首）</span>
+        <span class="caret">▼</span>
+      </summary>
+
+    <a class="link" href="https://m.youtube.com/watch?v=Ja1LiptYv_c&ra=m" target="_blank" rel="noopener">
+      <span class="tile">🧺</span>
+      <span class="meta"><b>尼羅河上的蒲草籃</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://m.youtube.com/watch?v=v0EHaBsS75s&pp=0gcJCWQCo7VqN5tD&ra=m" target="_blank" rel="noopener">
+      <span class="tile">🔥</span>
+      <span class="meta"><b>燃燒的荊棘</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://www.youtube.com/watch?si=P06eIP86XRnydX_R&v=uPseThZULw0&feature=youtu.be" target="_blank" rel="noopener">
+      <span class="tile">⛰️</span>
+      <span class="meta"><b>上去下來</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://www.youtube.com/watch?si=h8qAxyyCgaCR1o_J&v=Ns5dbF7uSLo&feature=youtu.be" target="_blank" rel="noopener">
+      <span class="tile">🧭</span>
+      <span class="meta"><b>信實帶領的神</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/hL9l99WnLOk?si=4QhdZYNwOS5RyZgs" target="_blank" rel="noopener">
+      <span class="tile">📣</span>
+      <span class="meta"><b>呼召的神</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/sMB8tOPY-BQ?si=JdYqhWPM8Bks15CI" target="_blank" rel="noopener">
+      <span class="tile">👑</span>
+      <span class="meta"><b>王之谷</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://www.youtube.com/watch?v=wSYIP-acISA" target="_blank" rel="noopener">
+      <span class="tile">🌟</span>
+      <span class="meta"><b>應許之子與血氣之子</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/nvm5qB21_KQ?si=Bj8_DIb9q8R8WXe-" target="_blank" rel="noopener">
+      <span class="tile">🐑</span>
+      <span class="meta"><b>荊棘的羔羊</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/j1kyou2pdeE?si=01n10i5WNSDdVe3d" target="_blank" rel="noopener">
+      <span class="tile">🍲</span>
+      <span class="meta"><b>紅豆湯</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/9Fism3nfvhI?si=Ox2DzWiXEUwDnx8E" target="_blank" rel="noopener">
+      <span class="tile">🌍</span>
+      <span class="meta"><b>萬物歌頌你聖名</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/7yUxSoU7IDs?si=XNMegeuIQ22_Js6C" target="_blank" rel="noopener">
+      <span class="tile">⏳</span>
+      <span class="meta"><b>從起初到未來</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    <a class="link" href="https://youtu.be/fBSgbQaPuCw?si=X9t5GcvnRO3NYCgp" target="_blank" rel="noopener">
+      <span class="tile">✨</span>
+      <span class="meta"><b>星空下的應許</b><span>YouTube</span></span>
+      <span class="arw">↗</span>
+    </a>
+    </details>
+  </section>
+
+  <!-- ============ 課程團隊 ============ -->
+  <section class="group g-teal">
+    <div class="tab t-teal">🧩 課程團隊</div>
+
+    <details class="fold">
+      <summary>
+        <span class="tile">📚</span>
+        <span>課程清單（7 項）</span>
+        <span class="caret">▼</span>
+      </summary>
+
+    <a class="link" href="https://www.canva.com/design/DAHKNRS0SpY/zmYz36b9KKIMXJ5UIVFSLw/view?utm_content=DAHKNRS0SpY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h49cb714b83" target="_blank" rel="noopener">
+      <span class="tile">🖼️</span>
+      <span class="meta"><b>3-3 埃及十災：法老與上帝的對抗</b></span>
+      <span class="arw">↗</span>
+    </a>
+    <!-- 換成 3-4 Canva 連結 -->
+    <a class="link" href="#">
+      <span class="tile">🐑</span>
+      <span class="meta"><b>3-4 逾越節與長子之死：越過審判</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <!-- 換成 3-5 Canva 連結 -->
+    <a class="link" href="#">
+      <span class="tile">🌊</span>
+      <span class="meta"><b>3-5 過紅海：創造、混沌與新生</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <!-- 換成 3-6 Canva 連結 -->
+    <a class="link" href="#">
+      <span class="tile">🏜️</span>
+      <span class="meta"><b>3-6 曠野的日子：試煉與供應</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <!-- 換成故事PPT連結 -->
+    <a class="link" href="#">
+      <span class="tile">📖</span>
+      <span class="meta"><b>故事PPT</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <!-- 換成奉獻經文連結 -->
+    <a class="link" href="#">
+      <span class="tile">🙏</span>
+      <span class="meta"><b>奉獻經文</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <a class="link" href="https://joeyoung6406.github.io/hopekids/" target="_blank" rel="noopener">
+      <span class="tile">🗺️</span>
+      <span class="meta"><b>埃及十災 · 闖關示意圖</b></span>
+      <span class="arw">↗</span>
+    </a>
+    </details>
+  </section>
+
+  <!-- ============ 美術團隊 ============ -->
+  <section class="group g-sun">
+    <div class="tab t-sun">🎨 美術團隊</div>
+    <!-- 換成勞作PPT連結 -->
+    <a class="link" href="#">
+      <span class="tile">🖌️</span>
+      <span class="meta"><b>勞作PPT</b></span>
+      <span class="soon">待設定</span>
+    </a>
+  </section>
+
+  <!-- ============ 親子友善空間 ============ -->
+  <section class="group g-coral">
+    <div class="tab t-coral">🏠 親子友善空間</div>
+    <!-- 換成佈置與收拾SOP連結 -->
+    <a class="link" href="#">
+      <span class="tile">🧹</span>
+      <span class="meta"><b>佈置與收拾SOP</b></span>
+      <span class="soon">待設定</span>
+    </a>
+  </section>
+
+  <!-- ============ Lead Host 團隊 ============ -->
+  <section class="group g-teal">
+    <div class="tab t-teal">🎤 Lead Host 團隊</div>
+    <!-- 換成排班系統連結 -->
+    <a class="link" href="#">
+      <span class="tile">📋</span>
+      <span class="meta"><b>排班系統（服事夥伴名單）</b></span>
+      <span class="soon">待設定</span>
+    </a>
+    <!-- 換成 Rally & Debrief 連結 -->
+    <a class="link" href="#">
+      <span class="tile">📣</span>
+      <span class="meta"><b>Rally &amp; Debrief</b></span>
+      <span class="soon">待設定</span>
+    </a>
+  </section>
+
+  <!-- ============ 家長專區 ============ -->
+  <section class="group g-sun">
+    <div class="tab t-sun">👨‍👩‍👧 家長專區</div>
+    <!-- 換成家長溝通語言連結 -->
+    <a class="link" href="#">
+      <span class="tile">💬</span>
+      <span class="meta"><b>家長溝通語言</b></span>
+      <span class="soon">待設定</span>
+    </a>
+  </section>
+
+  <footer>
+    <p><span class="brand">Hope Kids</span> 台中分部</p>
+  </footer>
+
+</div>
+</body>
+</html>
