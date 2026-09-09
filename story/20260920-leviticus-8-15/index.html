@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：利未記 8-15《走到營外》，依課程範例主軸編寫，含 20 幀分鏡台詞與 20 分鐘流程。">
+<title>走到營外｜利未記 8-15 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:22em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+/* ---------- 主軸鏈 ---------- */
+.axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;
+  padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
+.axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+
+.message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85}
+
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{display:grid;grid-template-columns:96px 104px 76px 1fr;gap:18px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.offering .key{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.06em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ember);
+  display:block;margin-bottom:10px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 反差對照 ---------- */
+.contrast{display:grid;gap:0}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.crow:first-child{border-top:1px solid var(--rule)}
+.crow p{margin:0;font-size:14.5px;line-height:1.8}
+.crow .said{color:var(--ink-3)}
+.crow .said b,.crow .truth b{display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.crow .said b{color:var(--ink-3)}
+.crow .truth b{color:var(--scarlet)}
+.crow .truth{color:var(--ink)}
+
+/* ---------- 帶走的話 ---------- */
+.takeaways{display:grid;gap:14px}
+.take{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:baseline;
+  padding:18px 24px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+.take span{font-family:var(--mono);font-size:13px;color:var(--ember)}
+.take p{font-family:var(--serif);font-size:17.5px;line-height:1.7;margin:0}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+  border-bottom:1px solid var(--rule-2)}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule)}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.axis-tag{border-color:var(--indigo);color:var(--indigo)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px}
+.guard{border-left:2px solid var(--scarlet);background:var(--surface-2);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
+.guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:80px 1fr;row-gap:4px}
+  .offering .key{grid-column:2}
+  .offering .q{grid-column:1/-1}
+  .crow{grid-template-columns:1fr;gap:12px}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note,.take{break-inside:avoid}
+}
+</style>
+<style>
+  .terms{width:100%;border-collapse:collapse;font-size:14.5px}
+  .terms th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+    border-bottom:1px solid var(--rule-2)}
+  .terms td{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.7}
+  .terms td:last-child{padding-right:0}
+  .terms .t{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap;width:88px}
+  .terms .no{color:var(--ink-3)}
+  .terms .no b{color:var(--scarlet);font-weight:600}
+  .bigline{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.6;
+    padding:24px 28px;margin-top:26px;background:var(--ember-bg);
+    border-left:3px solid var(--ember);border-radius:0 12px 12px 0}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);
+  text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;
+  transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+</style>
+</head>
+<body>
+
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.09.20</span>
+    <h1>走到營外</h1>
+    <p class="deck">利未記 8-15｜界線不是只有排除，也包含回來的路</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>人數</dt><dd>20 人</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>經文</dt><dd>利未記 8-15</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>20 幀</dd></div>
+    </dl>
+
+    <div class="axis">
+      <em>本課主軸</em>
+      <b>分別</b><i>→</i><b>分辨</b><i>→</i><b>等待</b><i>→</i><b>潔淨</b><i>→</i><b>恢復</b>
+    </div>
+
+    <p class="message">神設立界線，也設立回來的路。<mark>一個人暫時不能進來，不代表他是一個不好的人</mark>——而且時間到了，會有人走出去接他。</p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 核心問題 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>核心問題</h2><span class="eyebrow">利未記 8-15 在回答什麼</span></div>
+    <div class="prose">
+      <p class="verse key">當聖潔的神住在群體中間，祭司與百姓要如何分辨「聖／俗、潔淨／不潔」，保護聖所的界線，也讓暫時不潔的人重新回到共同生活？<span class="src">課程範例《利未記》8-15章</span></p>
+      <p style="margin-top:22px">這段<strong>不是</strong>一套「哪些東西很髒、哪些不能碰」的規則。它在建立一個以神的臨在為中心的生活秩序：<mark>誰可以接近 → 什麼狀態需要暫停 → 誰來判定 → 如何潔淨 → 何時恢復。</mark></p>
+      <p>整卷書的位置也很清楚：利 1-7 回答「祭物要怎麼獻？」，利 8-10 回答「<strong>誰來管理這套秩序？</strong>」，利 11-15 回答「<strong>百姓每天生活中，哪些狀態需要被辨認？</strong>」，接著利 16 回答「當污染累積在聖所，要怎麼處理？」</p>
+    </div>
+  </section>
+
+  <!-- ============ 四個詞 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>先分清楚四個詞</h2><span class="eyebrow">利 10:10 · 祭司要分辨的</span></div>
+    <div class="runwrap">
+      <table class="terms">
+        <thead><tr><th>詞</th><th>大意</th><th>不代表</th></tr></thead>
+        <tbody>
+          <tr><td class="t">聖</td><td>被分別、專屬於神</td><td class="no">比別人更<b>善良</b></td></tr>
+          <tr><td class="t">俗／普通</td><td>日常、沒有被特別分別為聖</td><td class="no"><b>邪惡</b></td></tr>
+          <tr><td class="t">潔淨</td><td>可以正常參與祭儀與群體生活</td><td class="no">比別人更<b>好</b></td></tr>
+          <tr><td class="t">不潔</td><td>暫時受到限制，需要等待或潔淨</td><td class="no"><b>犯罪、壞人</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="bigline">不潔 ≠ 犯罪。<br><span style="font-size:16px;font-weight:400;font-family:var(--sans);line-height:1.85;display:block;margin-top:10px;color:var(--ink-2)">生產會造成不潔，卻不是犯罪。月經會造成不潔，卻不是犯罪。接觸屍體會造成不潔，也不表示這個人道德敗壞。<strong>教學時絕對不能把「需要潔淨」講成「神覺得這個人很髒、很壞」。</strong></span></p>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>知道利 8-10 是<strong>祭司上任</strong>、利 11-15 是<strong>日常生活的辨認</strong>，兩段合起來在回答「誰管理秩序、什麼狀態要暫停」。</p>
+        <p>認識「聖／俗、潔淨／不潔」四個詞的意思，以及它們<strong>各自不代表什麼</strong>。</p>
+        <p>知道潔淨有一套程序：察看 → 洗濯 → 等待 → 再察看 → 第八天獻祭 → 恢復。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p>描述一個人的<strong>狀態</strong>，不等於判定一個人的<strong>價值</strong>。</p>
+        <p>被託付得越多、位置越靠近中心的人，<strong>責任越大，不是越自由</strong>。</p>
+        <p>說「先不要」的時候，也要說得出「什麼時候可以回來」。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>神是聖潔的，所以我們學習分辨。</mark></p>
+        <p><mark class="warm">一個人需要幫助或暫時被限制，不代表他是一個不好的人。</mark></p>
+        <p>神不只設立界線，也預備讓人重新回來的道路——而且是<strong>有權判定的人走出去</strong>。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 三節點 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程三節點</h2><span class="eyebrow">依課程範例</span></div>
+    <div class="nodes">
+      <div class="node">
+        <span class="num">節點一 · 分別</span>
+        <h3>神設立祭司<br><span style="font-size:13px;font-weight:400;color:var(--ink-2)">利未記 8-9 章</span></h3>
+        <ul>
+          <li>祭司<strong>不是先得到權力，而是先被放進神的規範</strong>：洗濯、穿衣、膏抹、抹血、留在門口七天。</li>
+          <li>第八天亞倫<strong>先為自己獻祭</strong>，再為百姓——他也不是站在制度外的人。</li>
+          <li>孩子要看見：<strong>越被託付，責任越大。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點二 · 分辨</span>
+        <h3>祭司要學會分辨<br><span style="font-size:13px;font-weight:400;color:var(--ink-2)">利未記 10-13 章</span></h3>
+        <ul>
+          <li>拿答、亞比戶獻上神沒有吩咐的火——<strong>神聖不是可以任意對待的</strong>。</li>
+          <li>利 10:10 是整段的轉軸：祭司要分辨聖與俗、潔淨與不潔，<strong>並教導百姓</strong>。</li>
+          <li>孩子要看見：<strong>分辨一件事情的狀態，不等於判定一個人的價值。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點三 · 潔淨 → 恢復</span>
+        <h3>神也預備回來的道路<br><span style="font-size:13px;font-weight:400;color:var(--ink-2)">利未記 14-15 章</span></h3>
+        <ul>
+          <li>祭司<strong>走到營外</strong>查看——不是要求那個人先自己闖回來。</li>
+          <li>潔淨不是一秒鐘的事，是一個<strong>安全、清楚、有程序</strong>的恢復過程。</li>
+          <li>孩子要看見：<strong>界線不是只有排除，也包含恢復。</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2></div>
+    <div class="verses">
+      <p class="verse key">使你們可以將聖的、俗的，潔淨的、不潔淨的，分別出來；又使你們可以將耶和華藉摩西曉諭以色列人的一切律例教訓他們。<span class="src">利未記 10:10-11</span></p>
+      <p class="verse">你們要成為聖潔，因為我是聖潔的。<span class="src">利未記 11:44</span></p>
+      <p class="verse">祭司要出到營外察看。<span class="src">利未記 14:3</span></p>
+      <p class="verse">你們要這樣使以色列人與他們的污穢隔絕，免得他們玷污我的帳幕，就因自己的污穢死亡。<span class="src">利未記 15:31</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 反差對照 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>屬靈反差與真理對照</h2><span class="eyebrow">這一課最容易講歪的五處</span></div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="said"><b>常見的想法</b><p>「不潔的人就是做了壞事的人。」</p></div>
+        <div class="truth"><b>利未記呈現</b><p>生產、月經、接觸屍體都會造成禮儀性不潔，<strong>但都不是犯罪</strong>。不潔是狀態，不是人格判決。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>常見的想法</b><p>「聖潔就是比較乾淨、比較有道德。」</p></div>
+        <div class="truth"><b>利未記呈現</b><p>聖潔首先是<strong>被分別、專屬於神</strong>。器皿、日子、地方都可以是聖的。聖潔不等於優越。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>常見的想法</b><p>「這些食物規定，是神早就知道哪些不健康。」</p></div>
+        <div class="truth"><b>利未記呈現</b><p>經文的語言不是營養學。這些規定<strong>建立以色列作為神百姓的身份與界線</strong>——連吃東西都在提醒「我們是屬神的人」。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>常見的想法</b><p>「被送到營外，就是被丟掉了。」</p></div>
+        <div class="truth"><b>利未記呈現</b><p>營外是<strong>暫時</strong>的。利 14 章一開頭就寫：祭司要出到營外察看他。<mark>界線不等於永久排除。</mark></p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>常見的想法</b><p>「所以我們今天也要照這樣隔離人。」</p></div>
+        <div class="truth"><b>利未記呈現</b><p>現代醫療與公衛要依可靠的醫學知識。<strong>我們學的是神聖、界線、責任、分辨與恢復的原則，不是照搬古代制度。</strong></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p>利 8 章其實是在實行出埃及記 29 章早已吩咐的承接聖職禮：會幕蓋好、祭祀制度說明完畢，現在<strong>祭司正式上任</strong>。摩西洗濯他們、穿上聖服、膏抹、獻祭，並把血抹在右耳垂、右手拇指與右腳大拇趾上，最後他們要留在會幕門口七天。這一連串動作的重點是：<mark>祭司不是先得到權力，而是先被放進神的規範。</mark></p>
+      <p>血抹耳、手、腳常被延伸應用成「聽神、服事神、走神的道路」。這是後來的靈修式理解，<strong>不是經文本身明說的象徵意思</strong>；比較穩妥的原意是：祭司整個人被納入承接聖職的神聖儀式。講給孩子時可以提到那個延伸，但要說清楚那是「我們後來的體會」。</p>
+      <p>第 9 章與第 10 章形成全段最有力的對照：同樣是<strong>神的火出來</strong>——9 章燒盡祭物，百姓歡呼俯伏；10 章燒滅祭司，故事陷入危機。同樣的神聖臨在，一邊帶來祝福，一邊顯出危險。經文只明確指出拿答、亞比戶獻上「耶和華沒有吩咐」的火；至於是不是火源錯誤、時間錯誤、或喝醉，<strong>經文沒有明說</strong>，所以不要把後面禁止祭司值勤飲酒的規定直接講成「他們一定是喝醉才死」——那只是推測。</p>
+      <p>第 10 章真正的轉折在神接著說的那句話：祭司要分辨聖與俗、潔淨與不潔，並教導百姓。這句直接帶出 11-15 章——<strong>祭司不只是獻祭的人，也是負責分辨的人。</strong>而第 13 章的 ṣāraʿat（傳統譯「大痲瘋」）涵蓋範圍很廣，甚至出現在衣物和房屋上，<strong>不宜直接等同現代漢生病</strong>；比較好的說法是「某種需要祭司判定的異常表徵」。祭司做的不是診斷病名、開藥、治療，而是<strong>判定這個人在祭儀與群體生活中的狀態</strong>。</p>
+      <p>整段最值得孩子記住的畫面在第 14 章：一個曾被判定不潔的人狀況恢復了，祭司要<strong>走到營外</strong>查看他。不是要求那個人先自己闖回來，而是<strong>有權判定的人走出去</strong>。確認之後才開始察看 → 洗濯 → 剃毛 → 等待 → 再洗 → 第八天獻祭 → 恢復群體資格。這形成整堂課最重要的牧養信息：<mark>好的界線，不只知道什麼時候說「先不要」，也知道什麼時候、用什麼方法說「你可以回來了」。</mark></p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'00"</td><td class="unit">開場提問</td>
+          <td>
+            <ul>
+              <li>「假設班上有一個同學，今天早上在教室吐了，老師請他先去保健室，別人先不要靠近。」</li>
+              <li>問：<strong>「那個同學，是不是做錯事了？」</strong>讓幾個人講，先不給答案。</li>
+              <li>接：「今天要看的利未記 8 到 15 章，就在講這件事——<mark>『先不要』跟『你很糟糕』，是完全不同的兩件事。</mark>」</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:00</td><td class="dur">10'00"</td><td class="unit">經文故事<br><span class="mono" style="font-size:11px;color:var(--ink-3)">20 幀分鏡</span></td>
+          <td>
+            <ul>
+              <li>依序播放 20 幀，台詞見下方，每幀標了時間預算與主軸位置。</li>
+              <li><strong>四個必停的互動點：</strong>#11（拿答亞比戶）、#14（生產是犯罪嗎）、#16（在營外等的人）、#17（誰走出去）。</li>
+              <li>來不及時砍 #03、#09、#19（共省 60 秒）。<strong>#16、#17 是一組，絕對不能拆開或砍掉。</strong></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">11:00</td><td class="dur">1'30"</td><td class="unit">遊戲規則</td>
+          <td>
+            <ul>
+              <li>遊戲：<strong>「先不要，和你可以回來了」</strong>。20 人分 4 組，每組拿到一疊〈狀況卡〉。</li>
+              <li>每張卡是一個狀況，組員要一起決定這個人現在是<strong>①「先等一下」</strong>還是<strong>②「可以現在就一起」</strong>。</li>
+              <li>選①的，<strong>一定要說得出「等到什麼時候／什麼條件，他就可以回來」</strong>。說不出來就不算完成。</li>
+              <li><mark>唯一的禁令：不可以說「他很糟糕」「他很奇怪」。只能描述狀態，不能評價人。</mark>老師先示範一次錯的和對的。</li>
+              <li>每組上台講一張，台下當「祭司團」判兩件事：有沒有只講狀態？有沒有說出回來的條件？</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">12:30</td><td class="dur">4'30"</td><td class="unit">遊戲進行</td>
+          <td>
+            <ul>
+              <li><strong>狀況卡（前三張要等，後三張是陷阱題）：</strong>
+                <ul>
+                  <li>有人腸胃炎一直吐。</li>
+                  <li>有人打球一直故意犯規，別人都不想玩了。</li>
+                  <li>有人昨天跟你吵架，你現在還很生氣。</li>
+                  <li><strong>陷阱：</strong>有人剛剪頭髮，剪得很醜。</li>
+                  <li><strong>陷阱：</strong>有人腳受傷打石膏，不能跑。</li>
+                  <li><strong>陷阱：</strong>有人是這禮拜才來的，大家都還不認識他。</li>
+                </ul>
+              </li>
+              <li>三張陷阱題是全遊戲的重點——讓孩子自己發現：<mark class="warm">「需要等一下」和「這個人不好」是兩件事，而且很多情況根本不需要等。</mark></li>
+              <li>第三張（吵架）也很重要：<strong>「我需要一點時間」是合理的界線</strong>，但一樣要說得出回來的條件。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">17:00</td><td class="dur">3'00"</td><td class="unit">反思總結</td>
+          <td>
+            <ul>
+              <li>哪一張卡最難決定？有沒有哪一張，你們一開始覺得要等，後來發現其實不用？</li>
+              <li><strong>「他現在需要先等一下」和「他是一個不好的人」，一樣嗎？</strong></li>
+              <li>如果有一天是<strong>你</strong>在外面等，你希望誰為你做什麼？→ 回到第 17 幀：<mark>祭司走出去了。不是叫他自己闖回來。</mark></li>
+              <li>唸出〈三句可以帶走的話〉作結。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">道具：狀況卡 ×6（可多備）、計時器</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">20 幀 · 10:00</span></div>
+
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/01_tabernacle_among_the_people.jpg" alt="會幕立在營地正中央，榮光柱直上天際，百姓在四周觀看">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:20</span><span class="tag axis-tag">前情</span></div>
+          <h3>神已經住進來了</h3>
+          <p>還記得上一次嗎？神說了五種祭，教他們做錯了怎麼回來。</p>
+          <p>現在把鏡頭拉遠一點。會幕在營地正中央，光從上面下來。<strong>神真的住進來了。</strong></p>
+          <p>可是住進來之後，馬上有一個很實際的問題：<mark>這麼多人、這麼多狀況，誰來管這件事？</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02_moses_gathers_aarons_family.jpg" alt="摩西召集亞倫和四個兒子，桌上擺著聖衣、膏油和器皿">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:25</span><span class="tag axis-tag">分別</span></div>
+          <h3>摩西把亞倫全家叫出來</h3>
+          <p>摩西站在全會眾面前，把亞倫和他的四個兒子叫出來。</p>
+          <p>你看桌上擺了什麼——摺好的衣服、油、金的器皿。今天要辦一件事：<strong>祭司上任。</strong></p>
+          <p>注意一件事：他們五個人，是站在<strong>全部人的面前</strong>被叫出來的。這不是私下的安排。</p>
+          <p class="cite">利未記 8 章（承接出埃及記 29 章）</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03_washing_for_service.jpg" alt="摩西倒水，亞倫在銅盆前洗手，兒子們在後排等候">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:20</span><span class="tag axis-tag">分別</span><span class="tag">可略</span></div>
+          <h3>第一件事：洗</h3>
+          <p>上任的第一個動作不是給他權力，是<strong>洗</strong>。</p>
+          <p>摩西親手倒水，亞倫低著頭洗手。後面四個兒子安靜排隊等。</p>
+          <p>你有沒有注意到——<mark>他們還什麼都還沒做，就先被洗了。</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04_aaron_wears_priestly_garments.jpg" alt="摩西為亞倫穿上鑲寶石的胸牌與冠冕">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:25</span><span class="tag axis-tag">分別</span></div>
+          <h3>穿上不是自己挑的衣服</h3>
+          <p>接下來，摩西幫亞倫穿上祭司的衣服：鑲著十二顆寶石的胸牌、頭上的冠冕。</p>
+          <p>這件衣服<strong>不是亞倫自己挑的</strong>，是神規定的樣式。</p>
+          <p>胸牌上的十二顆寶石代表以色列十二個支派。意思是：<strong>他每天工作的時候，整個群體都掛在他胸前。</strong></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05_anointing_aaron_and_sanctuary.jpg" alt="摩西把膏油從角器倒在亞倫頭上">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:25</span><span class="tag axis-tag">分別</span></div>
+          <h3>膏抹：被分別出來</h3>
+          <p>摩西拿起裝油的角，把油倒在亞倫頭上。</p>
+          <p>而且不只人——旁邊那個金色的壇、那些器皿，<strong>也一樣被抹上油</strong>。</p>
+          <p>這就是「聖」的意思。<mark>不是「這個人道德比較好」，是「這個被分別出來，專門屬於神」。</mark></p>
+          <p>所以杯子可以是聖的，桌子可以是聖的，日子也可以是聖的。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06_ordination_marks.jpg" alt="摩西把血抹在亞倫的右耳垂上，亞倫伸出右手與右腳">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:30</span><span class="tag axis-tag">分別</span></div>
+          <h3>耳朵、手、腳</h3>
+          <p>再來這個動作很特別。摩西把血抹在亞倫的<strong>右耳垂、右手大拇指、右腳大拇趾</strong>上。</p>
+          <p>你看他的手掌，還有一點紅紅的；他的腳也伸出來了。</p>
+          <p>後來的人常說：耳朵是聽神、手是服事神、腳是走神的路。那是我們後來的體會，很美，但<strong>經文自己沒有這樣說</strong>。</p>
+          <p>經文自己的重點比較單純：<mark>從頭到腳，整個人都被放進這個儀式裡。沒有一部分是「不算」的。</mark></p>
+          <p class="guard"><b>教學界線</b>「耳/手/腳＝聽神/服事/行走」是靈修式延伸，不是經文明說的象徵。可以講，但要說清楚那是後人的體會。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07_seven_days_at_the_entrance.jpg" alt="夜晚，亞倫和四個兒子圍著火盆坐在會幕門口，摩西在圍欄外">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:25</span><span class="tag axis-tag">分別</span></div>
+          <h3>在門口坐七天</h3>
+          <p>穿好了、抹好了，是不是就可以開始工作了？</p>
+          <p>還不行。神說：<strong>要留在會幕門口，七天。</strong></p>
+          <p>你看這張圖——星星出來了，全營都睡了，他們五個人還坐在門口。摩西在遠處看著。</p>
+          <p>七天，什麼事都不做，就是等。<mark>被託付一件大事之前，先學會等。</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08_aarons_first_offering.jpg" alt="第八天，亞倫在壇前處理祭物，摩西在旁，旁邊有山羊與餅">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:30</span><span class="tag axis-tag">分別</span></div>
+          <h3>第八天，他先為自己獻祭</h3>
+          <p>第八天到了。亞倫終於開始工作。</p>
+          <p>他做的第一件事是什麼？<strong>先為自己獻祭。</strong></p>
+          <p>不是先為百姓，是先處理自己。</p>
+          <p>這一點很重要：<mark>祭司不是站在制度外面、已經很完美的人。他也在裡面。</mark></p>
+          <p class="cite">利未記 9 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09_aaron_blesses_the_people.jpg" alt="亞倫在台階上舉起雙手為百姓祝福，摩西在旁，百姓歡呼">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:20</span><span class="tag">可略</span></div>
+          <h3>然後他舉起手</h3>
+          <p>處理完自己，也為百姓獻完祭，亞倫走上台階，舉起雙手祝福大家。</p>
+          <p>你看下面的人——有人拍手，有人抬頭，小朋友笑著。</p>
+          <p>這是一個很好的時刻。<strong>等了七天，終於等到了。</strong></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10_glory_and_fire_appear.jpg" alt="火從天而降燒盡壇上的祭物，百姓舉手歡呼俯伏">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:25</span><span class="tag axis-tag">分別</span></div>
+          <h3>神的火出來了</h3>
+          <p>然後，耶和華的榮耀向百姓顯現。<strong>火從神面前出來，把壇上的祭物燒盡。</strong></p>
+          <p>百姓的反應是：歡呼，然後俯伏在地。</p>
+          <p>你先把這個畫面記在腦子裡——<mark>神的火出來 → 燒盡祭物 → 百姓歡呼。</mark></p>
+          <p>因為下一張，同樣的事會再發生一次。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11_nadab_and_abihu_warning.jpg" alt="拿答與亞比戶手持香爐在強光中，百姓摀嘴驚恐，亞倫與摩西表情凝重">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:45</span><span class="tag star">★ 必停</span><span class="tag axis-tag">分辨</span></div>
+          <h3>同樣的火，不一樣的結果</h3>
+          <p>亞倫的兩個兒子，拿答和亞比戶，拿著香爐<strong>獻上了神沒有吩咐的火</strong>。</p>
+          <p>火從耶和華面前出來——這次燒滅的是他們。</p>
+          <p class="ask">★ 第 10 張跟這一張，發生的是同一件事嗎？<br>（神的火出來 → 燒盡祭物 → 歡呼　／　神的火出來 → 燒滅祭司 → 全場安靜）</p>
+          <p>同樣是神的臨在，一邊帶來祝福，一邊顯出危險。<mark>神聖，不是可以任意對待的東西。</mark></p>
+          <p class="guard"><b>教學界線</b>經文只說他們獻上「耶和華沒有吩咐」的火。是不是火源錯、時間錯、還是喝醉，<b>經文沒有明說</b>。不要講成「他們一定是喝醉才死」——那只是推測。</p>
+          <p class="cite">利未記 10:1-2</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12_learning_to_distinguish.jpg" alt="亞倫手持器皿教導百姓，地上排列著各種器皿與工具，摩西在旁">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:35</span><span class="tag axis-tag">分辨</span></div>
+          <h3>整段故事的轉軸</h3>
+          <p>出了這麼大的事，神接下來說了什麼？</p>
+          <p>神說：祭司要<strong>分辨</strong>聖的和俗的、潔淨的和不潔淨的，<strong>並且教導百姓</strong>。</p>
+          <p>這句話是整段故事的轉軸。從這裡開始，祭司的工作變了——</p>
+          <p><mark>他不只是獻祭的人，他還是負責「分辨」和「教」的人。</mark></p>
+          <p>你看他手上拿著器皿，地上排了一整排東西。他在上課。</p>
+          <p class="cite">利未記 10:10-11</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13_clean_and_unclean_animals.jpg" alt="摩西在百姓中間，一邊是羊與羚羊，另一邊是駱駝、豬、蜥蜴、魚與貝類">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">0:30</span><span class="tag axis-tag">分辨</span></div>
+          <h3>連吃東西都要分辨</h3>
+          <p>第一課從最日常的事開始：<strong>吃</strong>。</p>
+          <p>你看左邊：羊、山羊、羚羊。右邊：駱駝、豬、蜥蜴、還有那些貝類。神說哪些可以吃、哪些不可以。</p>
+          <p>很多人會說：「神早就知道哪些食物不健康。」——但<strong>經文不是這樣講的</strong>。</p>
+          <p>這些規定是在說一件事：<mark>你們是屬神的一群人。連吃東西都在提醒你們這件事。</mark></p>
+          <p>聖潔不是只有走進會幕才開始。</p>
+          <p class="cite">利未記 11 章；11:44</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14_mother_and_newborn_rest.jpg" alt="帳篷內，母親抱著新生兒休息，丈夫遞上碗，年長婦人在旁照顧">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:40</span><span class="tag star">★ 必停</span><span class="tag axis-tag">分辨</span></div>
+          <h3>生孩子，是犯罪嗎？</h3>
+          <p>下一課更需要小心。這位媽媽剛生完孩子。爸爸遞水給她，婆婆在旁邊幫忙。</p>
+          <p>利未記說：生產之後，有一段時間她處在「不潔」的狀態，需要等待和潔淨。</p>
+          <p class="ask">★ 所以我問你們一個問題：<strong>生孩子，是不是做錯事？</strong></p>
+          <p>（等回答）<strong>不是。</strong>絕對不是。</p>
+          <p><mark>「不潔」是一種狀態，不是一個罪名。</mark>身體自然發生的事——生產、流血、生病——會讓一個人暫時不能照平常的方式進會幕，但那跟「他做壞事」完全是兩回事。</p>
+          <p class="guard"><b>教學界線</b>男嬰女嬰潔淨期不同，<b>經文本身沒有解釋原因</b>，不要教成「女孩子比較不潔」。另外利 12 章也寫了：家裡經濟不夠，可以用兩隻鳥代替羊。</p>
+          <p class="cite">利未記 12 章；參 15 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15_priest_examines_skin_patch.jpg" alt="祭司仔細察看男子手臂上的斑點，家人在旁等候">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">0:35</span><span class="tag axis-tag">分辨</span></div>
+          <h3>祭司在做的，是判定不是治療</h3>
+          <p>這位叔叔手臂上出現了一塊斑。祭司彎下腰，很仔細地看。</p>
+          <p>他會做什麼？<strong>觀察 → 等七天 → 再看一次 → 才判定。</strong></p>
+          <p>注意，祭司不是醫生。他<strong>不開藥、不治療</strong>。他做的是判定：這個人現在<strong>在群體生活裡是什麼狀態</strong>。</p>
+          <p>而且他很謹慎——<mark>要等七天再看一次。他不急著下結論。</mark></p>
+          <p class="guard"><b>教學界線</b>ṣāraʿat 傳統譯「大痲瘋」，但這個字也用在衣服和房屋上，<b>不宜直接等同現代漢生病</b>。比較好的說法：某種需要祭司判定的異常表徵。</p>
+          <p class="cite">利未記 13 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/16_waiting_outside_the_camp.jpg" alt="男子獨自坐在營地邊緣的帳篷旁，遠遠望著營內，妻子抱著嬰兒向他揮手">
+        <div>
+          <div class="fmeta"><span class="fnum">16</span><span class="ftc">0:40</span><span class="tag star">★ 必停</span><span class="tag axis-tag">等待</span></div>
+          <h3>他被判定了，要住到營外</h3>
+          <p>判定的結果是：他現在不潔，要<strong>暫時住到營外</strong>。</p>
+          <p>看這張圖。他一個人坐在那裡，抱著膝蓋。遠遠的，太太抱著寶寶跟他揮手。</p>
+          <p>你有沒有發現，這件事的影響<strong>不只是宗教上的</strong>？他吃不到晚餐、抱不到孩子、聽不到大家在笑什麼。<mark>他暫時離開了正常的生活圈。</mark></p>
+          <p class="ask">★ 如果坐在那裡的人是你，你最希望有人為你做什麼？</p>
+          <p>（等回答）記住你們剛剛講的話。下一張圖就是答案。</p>
+          <p class="cite">利未記 13:46</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/17_priest_goes_out_to_confirm.jpg" alt="祭司蹲在營外，握著男子的手臂仔細察看，家人在帳篷邊等候">
+        <div>
+          <div class="fmeta"><span class="fnum">17</span><span class="ftc">0:45</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">潔淨</span></div>
+          <h3>祭司走到營外</h3>
+          <p>過了一段時間，他的狀況好了。那接下來呢？</p>
+          <p>他是不是要自己想辦法衝回營裡，跟大家說「我好了你們讓我進去」？</p>
+          <p><strong>不是。</strong>利未記 14 章第一句就寫著：<mark>祭司要出到營外察看他。</mark></p>
+          <p class="ask">★ 你們看清楚了嗎——是<strong>誰</strong>走出去？</p>
+          <p>（等回答）是那個有權判定的人，自己走出去。他蹲下來，握住那隻手臂，仔細看。</p>
+          <p><strong>這就是這堂課最重要的一句話：好的界線，不只知道什麼時候說「先不要」，也知道什麼時候、用什麼方法說「你可以回來了」。</strong></p>
+          <p class="cite">利未記 14:3</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/18_washing_and_cleansing_rite.jpg" alt="男子在水邊洗身，祭司拿著牛膝草灑水，旁邊籃中有兩隻鳥">
+        <div>
+          <div class="fmeta"><span class="fnum">18</span><span class="ftc">0:30</span><span class="tag axis-tag">潔淨</span></div>
+          <h3>回來，是一段程序</h3>
+          <p>確認之後，開始潔淨。你看：他在洗，祭司拿著一把草灑水，旁邊籃子裡有兩隻鳥。</p>
+          <p>整個程序是這樣：<strong>察看 → 洗濯 → 剃毛 → 等待 → 再洗一次 → 第八天獻祭 → 恢復。</strong></p>
+          <p>所以「回來」不是一秒鐘的事。<mark>它是一個安全的、清楚的、有步驟的過程。</mark></p>
+          <p>而且每一步他都知道自己走到哪裡了——這很重要。</p>
+          <p class="cite">利未記 14 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/19_inspecting_the_house.jpg" alt="祭司在屋內察看牆上的斑紋，工人正在挖除石塊，屋主一家在旁">
+        <div>
+          <div class="fmeta"><span class="fnum">19</span><span class="ftc">0:20</span><span class="tag">可略</span></div>
+          <h3>連房子也要看</h3>
+          <p>還沒完。如果房子的牆上出現奇怪的斑紋，祭司也要來查看。</p>
+          <p>必要的話：封屋、等待、挖掉那幾塊石頭、刮掉灰泥。如果一直反覆出現，甚至可能整棟拆掉。</p>
+          <p>所以這套秩序不只管人的身體，也管<strong>衣服、房子、生活空間</strong>。</p>
+          <p><mark>在祭司的世界裡，信仰不是只有內心的事，它碰觸整個生活。</mark></p>
+          <p class="cite">利未記 14 章後半</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/20_restored_to_the_community.jpg" alt="男子回到營中擁抱妻兒，孩子們歡呼，祭司與摩西在旁，遠方會幕煙柱升起">
+        <div>
+          <div class="fmeta"><span class="fnum">20</span><span class="ftc">0:35</span><span class="tag axis-tag">恢復</span><span class="tag">收尾</span></div>
+          <h3>你可以回來了</h3>
+          <p>最後一張。他回來了。抱著太太和孩子，旁邊的小孩在拍手。祭司站在一邊，遠方會幕的煙還在升。</p>
+          <p>利未記 8 到 15 章，講了祭司上任、講了火、講了食物、講了身體、講了房子——但整段真正關心的<strong>從來不是「找出誰很髒」</strong>。</p>
+          <p>它關心的是：<mark>怎麼維持界線，同時讓暫時被限制的人，有一條清楚的路可以回來。</mark></p>
+          <p>所以請記住這三句話：<strong>神是聖潔的，所以我們學習分辨。一個人需要幫助或暫時被限制，不代表他是一個不好的人。神不只設立界線，也預備讓人重新回來的道路。</strong></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 三句帶走的話 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>三句可以帶走的話</h2><span class="eyebrow">取自課程範例</span></div>
+    <div class="takeaways">
+      <div class="take"><span>01</span><p>神是聖潔的，所以我們學習分辨。</p></div>
+      <div class="take"><span>02</span><p>一個人需要幫助或暫時被限制，不代表他是一個不好的人。</p></div>
+      <div class="take"><span>03</span><p>神不只設立界線，也預備讓人重新回來的道路。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2><span class="eyebrow">含教材的四個神學界線</span></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>整堂課的第一界線：不潔 ≠ 犯罪。</b>這是課程範例反覆強調的一條。第 14、15、16 幀都要守住——講的是<b>狀態</b>，不是人格。只要有一次講成「神覺得這個人很髒」，整堂課就歪了。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>第 16、17 幀是一組，不能拆開。</b>先讓孩子感受營外那個人的孤單（#16），問他們「你希望有人為你做什麼」，再揭曉答案是祭司自己走出去（#17）。順序反了就沒有力道。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>拿答、亞比戶不要加戲（第 11 幀）。</b>經文只說他們獻上「耶和華沒有吩咐」的火。喝醉、火源錯誤、時間錯誤都只是推測，<b>不要當成事實講</b>。重點在第 9 章與第 10 章的對照：同樣的火，不同的結果。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>ṣāraʿat 不要講成漢生病（第 15 幀）。</b>這個字也用在衣服和房屋上，範圍比任何一種現代疾病都廣。講成「某種需要祭司判定的異常表徵」就好。也不要讓孩子把它跟班上任何人的皮膚狀況連起來。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>聖潔不等於優越（第 05 幀）。</b>器皿、日子、地方都可以是「聖」的——這個例子最好用，因為杯子不會道德比較高。越靠近神聖中心的人，承擔的責任越高，不是地位越高。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>不要把古代規定直接搬到今天。</b>如果有孩子推論「所以生病的人就該被隔離」，要當場處理：現代醫療、公共衛生要依可靠的醫學知識。<b>我們學的是分辨與恢復的原則，不是照搬古代隔離制度。</b></p></div>
+      <div class="note"><span class="n mono">07</span><p><b>第 06 幀的耳/手/腳要誠實標記。</b>「聽神、服事神、走神的路」是後來的靈修式理解，很美，可以講，但要加一句「這是我們後來的體會」。經文自己的重點是：整個人都被放進這個儀式。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>遊戲的三張陷阱卡是全課的落點。</b>剪頭髮、打石膏、新同學——這三張都不需要等。如果四組全都答對，那很好，直接問：「你們怎麼知道這三張不用等？」讓他們自己講出「因為那不是會影響別人的狀態」。</p></div>
+      <div class="note"><span class="n mono">09</span><p><b>「我需要一點時間」也是合理的界線。</b>吵架那張卡不要導向「你應該馬上原諒」。可以說「先不要」，但一樣要說得出回來的條件——這跟上一週（利 1-7）第 19 幀的界線是同一條。</p></div>
+      <div class="note"><span class="n mono">10</span><p><b>時間快超過時的取捨順序：</b>先砍第 03、09、19 幀（共省 60 秒），再把遊戲上台組數從 4 組減到 3 組（但陷阱卡至少要出現一張）。<b>不要砍第 16、17 幀，也不要砍反思總結。</b></p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 利未記 8-15 · 2026.09.20</span>
+    <span>分別 → 分辨 → 等待 → 潔淨 → 恢復</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'leviticus-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>

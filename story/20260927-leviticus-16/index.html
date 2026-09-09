@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：利未記 16《越走越遠》，依課程範例主軸編寫，含 20 幀分鏡台詞與 20 分鐘流程。">
+<title>越走越遠｜利未記 16 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:22em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+/* ---------- 主軸鏈 ---------- */
+.axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;
+  padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
+.axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+
+.message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85}
+
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{display:grid;grid-template-columns:96px 104px 76px 1fr;gap:18px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.offering .key{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.06em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ember);
+  display:block;margin-bottom:10px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 反差對照 ---------- */
+.contrast{display:grid;gap:0}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.crow:first-child{border-top:1px solid var(--rule)}
+.crow p{margin:0;font-size:14.5px;line-height:1.8}
+.crow .said{color:var(--ink-3)}
+.crow .said b,.crow .truth b{display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.crow .said b{color:var(--ink-3)}
+.crow .truth b{color:var(--scarlet)}
+.crow .truth{color:var(--ink)}
+
+/* ---------- 帶走的話 ---------- */
+.takeaways{display:grid;gap:14px}
+.take{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:baseline;
+  padding:18px 24px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+.take span{font-family:var(--mono);font-size:13px;color:var(--ember)}
+.take p{font-family:var(--serif);font-size:17.5px;line-height:1.7;margin:0}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+  border-bottom:1px solid var(--rule-2)}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule)}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.axis-tag{border-color:var(--indigo);color:var(--indigo)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px}
+.guard{border-left:2px solid var(--scarlet);background:var(--surface-2);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
+.guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:80px 1fr;row-gap:4px}
+  .offering .key{grid-column:2}
+  .offering .q{grid-column:1/-1}
+  .crow{grid-template-columns:1fr;gap:12px}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note,.take{break-inside:avoid}
+}
+</style>
+<style>
+  .twopic{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .pic{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+  .pic .dir{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    display:block;margin-bottom:10px}
+  .pic.inward .dir{color:var(--indigo)}
+  .pic.outward .dir{color:var(--scarlet)}
+  .pic h3{font-size:18px;line-height:1.5;margin-bottom:12px}
+  .pic p{font-size:14.5px;line-height:1.8;color:var(--ink-2);margin:0}
+  .qa{display:grid;gap:0}
+  .qrow{padding:16px 0;border-bottom:1px solid var(--rule)}
+  .qrow:first-child{border-top:1px solid var(--rule)}
+  .qrow .q{font-family:var(--serif);font-size:16px;font-weight:700;margin:0 0 7px}
+  .qrow .a{font-size:14.5px;line-height:1.8;color:var(--ink-2);margin:0;padding-left:1.2em;
+    border-left:2px solid var(--rule-2)}
+  @media(max-width:860px){.twopic{grid-template-columns:1fr}}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);
+  text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;
+  transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+</style>
+</head>
+<body>
+
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.09.27</span>
+    <h1>越走越遠</h1>
+    <p class="deck">利未記 16｜贖罪日：血潔淨聖所，活羊把罪帶離營地</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>人數</dt><dd>20 人</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>經文</dt><dd>利未記 16</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>20 幀</dd></div>
+    </dl>
+
+    <div class="axis">
+      <em>本課主軸</em>
+      <b>界線</b><i>→</i><b>預備</b><i>→</i><b>向內潔淨</b><i>→</i><b>向外移除</b><i>→</i><b>恢復</b>
+    </div>
+
+    <p class="message">神是聖潔的，但祂沒有把不完全的人趕走；<mark>祂主動預備潔淨與贖罪，使罪被帶走、關係被恢復。</mark></p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 兩個核心畫面 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>兩個核心畫面</h2><span class="eyebrow">兩隻羊不是做同一件事</span></div>
+    <div class="twopic">
+      <div class="pic inward">
+        <span class="dir">↓ 向內 · 第一隻羊</span>
+        <h3>血潔淨聖所</h3>
+        <p>「歸耶和華」的公山羊被獻上，牠的血被<strong>帶進聖所</strong>，用來潔淨至聖所、會幕與祭壇。處理的是<strong>神聖空間被罪與不潔影響的問題</strong>。</p>
+      </div>
+      <div class="pic outward">
+        <span class="dir">→ 向外 · 第二隻羊</span>
+        <h3>活羊把罪帶走</h3>
+        <p>亞倫把百姓的罪孽、過犯與罪<strong>承認在活羊頭上</strong>，羊被送出營地、進到曠野。重點<strong>不是死亡，是移除</strong>——罪從群體中被帶離。</p>
+      </div>
+    </div>
+    <p class="bigline" style="font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.7;padding:22px 26px;margin-top:22px;background:var(--ember-bg);border-left:3px solid var(--ember);border-radius:0 12px 12px 0">一個動作處理「污染」，一個動作處理「罪的移除」。最後，神的百姓不是因為自己突然變成完美的人，而是神設立禮儀，使祂仍然可以住在他們中間。</p>
+  </section>
+
+  <!-- ============ 核心問題 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>核心問題</h2><span class="eyebrow">利未記 16 在回答什麼</span></div>
+    <div class="prose">
+      <p class="verse key">聖潔的神住在一群會犯罪、也會經歷不潔的百姓中間；罪與不潔所造成的污染要怎麼被處理，使神的同在可以繼續在他們中間？<span class="src">課程範例《利未記》16 章</span></p>
+      <p style="margin-top:22px">這一章<strong>不是</strong>「以色列人犯了很多罪，所以找兩隻羊來替他們贖罪」。它是前面整段祭司敘事與潔淨條例，一路累積到這裡的回答——</p>
+      <p>神吩咐建造會幕、選擇住在百姓中間 → 利 1-7 設立祭物與獻祭秩序 → 利 8 祭司承接聖職 → 利 9 榮耀顯現 → 利 10 拿答、亞比戶擅自獻凡火而死 → 利 11-15 教導分辨潔淨與不潔 → <strong>但罪與不潔仍會出現在共同體中</strong> → 那麼，聖潔的神要怎麼繼續住在百姓中間？→ <mark>神設立贖罪日。</mark></p>
+      <p>所以本章的高潮不只是「一隻羊被送到曠野」，而是<strong>神主動設立贖罪與潔淨的秩序</strong>：聖所被潔淨、罪被帶離共同體，神仍然與祂的百姓同住。</p>
+    </div>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>知道贖罪日有<strong>兩隻羊、兩個方向</strong>：一隻的血向內潔淨聖所，一隻活著向外把罪帶離營地。</p>
+        <p>知道連<strong>大祭司自己也需要先贖罪</strong>，他不是站在制度之外的人。</p>
+        <p>知道這是<strong>一年一次的全面潔淨</strong>，不是「神一年只肯原諒一次」。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p>做錯事情之後，最自然的反應常常是<strong>否認、找理由、怪別人、藏起來</strong>——但罪不是靠否認被處理的。</p>
+        <p>亞倫是先<strong>把百姓的罪說出來</strong>，才把羊送走。</p>
+        <p>沒有人可以說「我夠好了，我不需要神處理我的問題」。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>神沒有放棄我們；祂願意處理罪所造成的問題，讓我們可以重新來到祂面前。</mark></p>
+        <p><mark class="warm">被處理的罪，不是要讓人永遠停在羞恥裡。</mark></p>
+        <p>贖罪日每年都要重來；《希伯來書》說，耶穌<strong>一次完成</strong>救贖。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 三節點 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程三節點</h2><span class="eyebrow">依課程範例</span></div>
+    <div class="nodes">
+      <div class="node">
+        <span class="num">節點一 · 界線</span>
+        <h3>神的同在<br>不能被隨便靠近</h3>
+        <ul>
+          <li>拿答、亞比戶的死亡成為故事背景（利 16:1）。</li>
+          <li>神願意住在人中間，但祂是聖潔的，<strong>人不能按照自己的方式隨意接近</strong>。</li>
+          <li>孩子可以記得：<strong>神是聖潔的。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點二 · 潔淨與移除</span>
+        <h3>神主動潔淨，<br>並把罪帶走</h3>
+        <ul>
+          <li>神沒有把百姓趕走，而是<strong>設立贖罪日</strong>。</li>
+          <li>第一隻羊的血潔淨神聖空間；第二隻活羊把罪帶離共同體。</li>
+          <li>孩子可以記得：<strong>神願意處理罪所造成的問題。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點三 · 恢復</span>
+        <h3>共同生活<br>被恢復</h3>
+        <ul>
+          <li>祭司、聖所與共同體得到潔淨，這套禮儀<strong>每年重新舉行</strong>。</li>
+          <li>到了《希伯來書》，這個年度重複的背景被用來說明耶穌<strong>一次完成</strong>的救贖。</li>
+          <li>孩子可以記得：<strong>神沒有放棄祂的百姓；在耶穌裡，我們可以來到神面前。</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2></div>
+    <div class="verses">
+      <p class="verse">要告訴你哥哥亞倫，不可隨時進聖所的幔子內、到櫃上的施恩座前。<span class="src">利未記 16:2</span></p>
+      <p class="verse key">兩手按在羊頭上，承認以色列人諸般的罪孽、過犯，就是他們一切的罪愆，把這罪都歸在羊的頭上，藉著所派之人的手，送到曠野去。要把這羊放在曠野；這羊要擔當他們一切的罪孽，帶到無人之地。<span class="src">利未記 16:21-22</span></p>
+      <p class="verse">這要作你們永遠的定例：每逢七月初十日，要刻苦己心，甚麼工都不可做。<span class="src">利未記 16:29</span></p>
+      <p class="verse">凡祭司天天站著事奉神，屢次獻上一樣的祭物，這祭物永不能除罪。但基督獻了一次永遠的贖罪祭，就在神的右邊坐下了。<span class="src">希伯來書 10:11-12</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 反差對照 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>故事中的四組重要反差</h2><span class="eyebrow">不是二選一，是同時保留</span></div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="said"><b>一邊</b><p>神住在人中間。</p></div>
+        <div class="truth"><b>另一邊</b><p>人不能隨便靠近神。<strong>利未記把兩件事同時保留下來</strong>——神願意與百姓同住，祂的同在卻不能被隨便操作。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>一邊</b><p>百姓並沒有因為有了祭司制度就變完美，罪與不潔仍然出現。</p></div>
+        <div class="truth"><b>另一邊</b><p>但神沒有離開，而是<strong>設立年度潔淨</strong>。神認真看待問題，也主動處理問題。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>向內</b><p>血被帶向聖所<strong>內部</strong>，潔淨神聖空間。</p></div>
+        <div class="truth"><b>向外</b><p>活羊被帶向營地<strong>之外</strong>，移除罪。<mark>兩個方向構成全章最有力的空間圖像。</mark></p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>年度重複</b><p>贖罪日每一年都要再做一次。</p></div>
+        <div class="truth"><b>《希伯來書》</b><p>耶穌<strong>一次完成</strong>，不需要年年重新獻上自己。這一組要<strong>放在最後</strong>講——先讓孩子知道贖罪日本來就是年度制度。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p>利未記 16 章開頭特別回到拿答、亞比戶死亡的事件，然後神說：「不可隨時進聖所的幔子內。」這不是要把神講成「不想讓人靠近的神」，而是先建立整章最大的張力：<mark>神已經選擇住在百姓中間，但神的同在是聖潔的，人不能按照自己的方式隨意進入。</mark></p>
+      <p>接著神沒有把人永遠擋在外面，而是<strong>清楚規定亞倫要怎麼預備</strong>：帶著祭牲、洗身、穿上指定的細麻布聖服，並先為自己和本家獻贖罪祭。這個細節很重要——<strong>即使是大祭司，他本身也不是無罪的人</strong>。他不能站在百姓面前說「你們都有問題，我來替你們處理」。</p>
+      <p>然後是本章最容易講歪的地方。第 11-19 節<strong>不能只講成「動物代替罪人被處罰」</strong>。經文最明顯的動作，是祭牲的血被帶到神聖空間，對至聖所、會幕與祭壇<strong>進行潔淨</strong>。孩子可能以為「只有人需要被洗乾淨」，但經文突然告訴我們：連聖所和祭壇都需要被潔淨。罪與不潔不是假裝沒發生就消失，它們會使神聖秩序需要被重新潔淨。</p>
+      <p>第二隻羊也一樣。牠的核心<strong>不是死亡，而是移除</strong>——牠把百姓的罪帶離共同體。英文的 scapegoat 後來發展出「替罪羊／被迫替別人承擔責任的人」的意思，但利 16 章中活羊最重要的禮儀功能，是把罪帶到共同體之外。至於「阿撒瀉勒」這個希伯來詞，<strong>學術界對它的意思仍有爭議</strong>（曠野中的超自然存在、荒野地點、與「移除」有關的詞源都有人主張），兒童課程不需要把任何一種假說當作定論。</p>
+      <p>最後，這套禮儀被規定為每年七月初十日的定例。<strong>這不是說「神一年只願意原諒一次」</strong>——前面的利未記已經有日常祭祀與潔淨制度；16 章特別設立的是一年一次、針對整個神聖空間與共同體的<strong>全面性</strong>贖罪與潔淨。而正是這個「每年都要再來一次」的背景，讓《希伯來書》9-10 章可以用大祭司、聖所、血與年度重複的意象，重新理解耶穌<strong>一次完成</strong>的救贖。順序不能顛倒：<mark>先把利未記自己的故事說完整，再進入新約的福音連結。</mark></p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'00"</td><td class="unit">開場提問</td>
+          <td>
+            <ul>
+              <li>老師先問：<strong>「你做錯事情之後，最自然的第一個反應是什麼？」</strong>給選項：否認、找理由、怪別人、偷偷藏起來、還是承認。</li>
+              <li>不要評價答案，就讓幾個人誠實講。（老師可以先自己承認一個。）</li>
+              <li>接：「今天這一章，神教以色列人做的事，剛好跟『藏起來』相反——<mark>祂要他們把罪說出來，然後看著它被帶走。</mark>」</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:00</td><td class="dur">10'00"</td><td class="unit">經文故事<br><span class="mono" style="font-size:11px;color:var(--ink-3)">20 幀分鏡</span></td>
+          <td>
+            <ul>
+              <li>依序播放 20 幀，台詞見下方。</li>
+              <li><strong>四個必停的互動點：</strong>#03（連亞倫都不能進，為什麼）、#06（大祭司自己也要贖罪）、#12（你以為接下來要洗誰）、#16（牠把什麼帶走了）。</li>
+              <li>來不及時砍 #07、#17（共省 40 秒）。<strong>#16 是全章高潮，要慢，絕對不能砍。</strong></li>
+              <li><strong>#19 之前不要提耶穌</strong>——先把利未記自己的故事講完。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">11:00</td><td class="dur">1'30"</td><td class="unit">遊戲規則</td>
+          <td>
+            <ul>
+              <li>遊戲：<strong>「背包，和帶出去的人」</strong>。教室中央放一個背包。</li>
+              <li>老師<strong>預先寫好</strong>一疊紙條：說謊、自私、講難聽的話、忌妒、假裝沒看到、推卸責任、故意冷落人……每張一個詞，折起來。</li>
+              <li>另外備幾張<strong>空白紙條</strong>給想自己寫的孩子。<mark>明確承諾：不會打開、不會念出來、結束後直接銷毀。</mark>老師一定要做到。</li>
+              <li>分 4 組輪流上前，把紙條投進背包。<strong>投完後讓 3-4 個孩子輪流背背看</strong>——「有沒有變重？」</li>
+              <li>然後指定一位孩子當<strong>「所派之人」</strong>，把整個背包背出教室門外，走遠一點放下，<strong>空手回來</strong>。</li>
+              <li>全班一起看那個空掉的位置。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">12:30</td><td class="dur">4'30"</td><td class="unit">遊戲進行</td>
+          <td>
+            <ul>
+              <li>投紙條要慢，讓每個人都真的把手伸進背包。</li>
+              <li>背包被背出去的時候，<strong>全班要安靜看著他走</strong>，一直看到他走出門、看不見為止。這是遊戲的重點，不要趕。</li>
+              <li>他空手回來後，老師問第一句：<strong>「剛剛那些紙條，還在這個教室裡嗎？」</strong></li>
+              <li>再問：<strong>「那隻羊做錯了什麼？為什麼是牠被送走？」</strong>→ 帶出：牠不是被處罰的倒楣鬼，<mark>牠的工作是「帶走」</mark>。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">17:00</td><td class="dur">3'00"</td><td class="unit">反思總結</td>
+          <td>
+            <ul>
+              <li>剛剛背包被帶出去的時候，你心裡有什麼感覺？</li>
+              <li><strong>為什麼亞倫不是只說一句「大家被赦免了」，而要讓百姓親眼「看見」羊被帶走？</strong></li>
+              <li>快問快答（範例的 Storytelling Cue 4）：<strong>「今年做完了，明年呢？」</strong>→「再來一次！」→「後年呢？」→「再來一次！」→ 那<strong>為什麼要一次又一次</strong>？</li>
+              <li>接第 19 幀收尾：《希伯來書》說，耶穌<strong>一次完成</strong>，不需要年年重來。</li>
+              <li>最後一句：<mark>神沒有放棄我們；祂願意處理我們的罪，讓我們可以重新來到祂面前。</mark></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">道具：背包 ×1、預寫紙條 ×20-25、空白紙條 ×5</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">20 幀 · 10:00</span></div>
+
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/01.jpg" alt="一家人站在高處遠望營地中央的會幕，煙柱直上">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:20</span><span class="tag axis-tag">前情</span></div>
+          <h3>神還在那裡</h3>
+          <p>先把整件事想一遍。神吩咐蓋會幕、住進營地正中央；祂教了五種祭；祂讓亞倫一家當祭司；祂教百姓分辨潔淨和不潔。</p>
+          <p>你看這一家人站在山坡上望過去——會幕還在，煙還在升。</p>
+          <p>可是問題還沒解決：<mark>百姓還是會犯錯，還是會有不潔的狀況。那神要怎麼繼續住下去？</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02.jpg" alt="摩西向神情擔憂的亞倫說話，地上躺著兩個燒黑的香爐">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:30</span><span class="tag axis-tag">界線</span></div>
+          <h3>地上那兩個香爐</h3>
+          <p>看這張圖的右下角——地上有兩個香爐，翻倒的，燒黑了。</p>
+          <p>那是拿答和亞比戶的。上禮拜我們講過，他們獻上神沒有吩咐的火。</p>
+          <p>利未記 16 章的第一句話，就是從這裡開始的。神在這個背景之下，對摩西說話。</p>
+          <p>亞倫的表情你看到了嗎？他剛失去兩個兒子。<strong>接下來的規定，是說給他聽的。</strong></p>
+          <p class="cite">利未記 16:1</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03.jpg" alt="大祭司站在繡有基路伯的幔子前伸出手，但沒有進去">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:40</span><span class="tag star">★ 必停</span><span class="tag axis-tag">界線</span></div>
+          <h3>連他也不能想進就進</h3>
+          <p>這道厚厚的幔子後面，是會幕最裡面的「至聖所」，裡面放著約櫃。</p>
+          <p>你看亞倫的手——伸出去了，但他沒有掀開。</p>
+          <p>神說的第一句話是：<strong>「不可隨時進聖所的幔子內。」</strong></p>
+          <p>就連大祭司也不能說：「我是大祭司，我有 VIP 卡。」</p>
+          <p class="ask">★ 神不是愛百姓嗎？為什麼又不能隨便靠近祂？<br>你猜神接下來會說「那你們全部離我遠一點」，還是會給一個方法？</p>
+          <p class="guard"><b>教學界線</b>不要把神講成「不想讓人靠近的神」。這一段是<b>建立張力</b>，不是結論——結論在下一幀。</p>
+          <p class="cite">利未記 16:2</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04.jpg" alt="摩西捧著摺好的白色細麻布衣服，指示亞倫，桌上有水盆與水壺">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:25</span><span class="tag axis-tag">預備</span></div>
+          <h3>神給了方法</h3>
+          <p>答案是：神給了方法。</p>
+          <p>你看摩西手上捧著什麼——<strong>摺得整整齊齊的白色細麻布衣服</strong>。旁邊是水盆和水壺。</p>
+          <p>神一條一條說清楚：要帶什麼祭牲、要怎麼洗、要穿什麼、要先做什麼。</p>
+          <p><mark>不是人自己發明一條靠近神的路，是神主動規定人怎麼進來。</mark></p>
+          <p class="cite">利未記 16:3-4</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05.jpg" alt="亞倫在銅盆前洗手，旁邊桌上放著華麗的彩色聖衣">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:25</span><span class="tag axis-tag">預備</span></div>
+          <h3>脫下漂亮的，換上白的</h3>
+          <p>亞倫在洗。你看他旁邊桌上——那件金色藍色、鑲滿寶石的大祭司禮服，摺好放在那裡。</p>
+          <p>今天他<strong>不穿那件</strong>。</p>
+          <p>今天他要穿的是最簡單的白色細麻布。</p>
+          <p>這一天他進去，<strong>不是以「最大的那個人」的身分進去的。</strong></p>
+          <p class="guard"><b>教學界線</b>經文沒有說「細麻布＝基督的義」。不要把衣服做成固定的一對一預表。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06.jpg" alt="亞倫穿白衣低頭合掌禱告，身旁站著一頭公牛">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:40</span><span class="tag star">★ 必停</span><span class="tag axis-tag">預備</span></div>
+          <h3>他先為自己</h3>
+          <p>在為全國的百姓做任何事之前，亞倫要先做一件事。</p>
+          <p>你看他旁邊那頭公牛——那是<strong>為他自己和他家人</strong>準備的。</p>
+          <p>他不能走到百姓面前說：「你們都有問題，我來幫你們處理。」</p>
+          <p class="ask">★ 連大祭司都需要先為自己贖罪——那這個世界上，<strong>有沒有人可以說「我夠好了，我不需要神處理我」</strong>？</p>
+          <p>（等回答）他低著頭，手合起來。這一刻他不是大祭司，他就是一個需要被赦免的人。</p>
+          <p class="cite">利未記 16:6, 11</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07.jpg" alt="亞倫站在兩隻公山羊中間，一隻白色一隻棕色">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:20</span><span class="tag axis-tag">預備</span><span class="tag">可略</span></div>
+          <h3>兩隻羊</h3>
+          <p>接下來，百姓要交出兩隻公山羊。</p>
+          <p>看清楚——<strong>兩隻</strong>。一隻白的，一隻棕的。牠們現在站在一起，長得差不多，都很健康。</p>
+          <p>可是等一下，這兩隻羊會走上完全不同的路。</p>
+          <p class="cite">利未記 16:5, 7</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08.jpg" alt="亞倫手中拿著兩支籤，兩隻山羊在旁看著">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:25</span><span class="tag axis-tag">預備</span></div>
+          <h3>拈鬮</h3>
+          <p>誰決定哪一隻走哪一條路？</p>
+          <p>不是亞倫挑的。你看他手上——兩支籤。<strong>他要拈鬮。</strong></p>
+          <p>一支寫著「歸耶和華」，另一支寫著送到曠野去。</p>
+          <p>亞倫不是在挑「我比較喜歡哪一隻」。<mark>這整件事從頭到尾，都不是人自己安排的。</mark></p>
+          <p class="cite">利未記 16:8</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09.jpg" alt="亞倫捧著冒煙的香爐站在約櫃前，香煙遮住贖罪蓋上的基路伯">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:30</span><span class="tag axis-tag">向內</span></div>
+          <h3>先進去的是煙</h3>
+          <p>亞倫終於要進去了。可是他手上先拿的不是血，是<strong>香爐</strong>。</p>
+          <p>他從壇上取了火炭，放上香，煙升起來——你看，煙慢慢遮住約櫃上那個金色的蓋子。</p>
+          <p>經文說，這樣做是<strong>「免得他死亡」</strong>。</p>
+          <p>他站在那裡，抬頭看。這是全以色列只有一個人、一年只有一天可以看見的畫面。</p>
+          <p class="cite">利未記 16:12-13</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10.jpg" alt="亞倫用手指把血彈灑在約櫃的贖罪蓋前">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:30</span><span class="tag axis-tag">向內</span></div>
+          <h3>血，彈在蓋子前面</h3>
+          <p>然後他拿出公牛的血，用手指彈灑在贖罪蓋的前面。</p>
+          <p>注意他在做什麼——他不是把血抹在<strong>人</strong>身上。他是把血用在<strong>這個地方</strong>。</p>
+          <p>這是這一章一直在做的事：<mark>潔淨神聖的空間。</mark></p>
+          <p class="cite">利未記 16:14</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11.jpg" alt="亞倫背影，端著一碗血穿過分開的幔子走進至聖所">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:25</span><span class="tag axis-tag">向內</span></div>
+          <h3>他又進去了一次</h3>
+          <p>做完公牛的，他出來，宰了那隻「歸耶和華」的公山羊，然後<strong>端著羊的血再走進去一次</strong>。</p>
+          <p>看這個背影——幔子被撥開一條縫，裡面是金色的光。他一個人走進去。</p>
+          <p>經文特別說明為什麼：<strong>因為以色列人的不潔、過犯和一切的罪。</strong></p>
+          <p class="cite">利未記 16:15-16</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12.jpg" alt="亞倫在外院的銅壇邊，用手指把血抹在祭壇的角上">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:40</span><span class="tag star">★ 必停</span><span class="tag axis-tag">向內</span></div>
+          <h3>你以為接下來要洗誰？</h3>
+          <p class="ask">★ 至聖所處理完了。你覺得接下來，是要把<strong>百姓</strong>洗乾淨嗎？</p>
+          <p>（等回答，讓他們猜）</p>
+          <p>都不是。你看他走到外院來，蹲在祭壇旁邊，把血抹在<strong>祭壇的角</strong>上。</p>
+          <p>經文說：至聖所要潔淨、<strong>會幕</strong>要潔淨、<strong>祭壇</strong>也要潔淨。</p>
+          <p><mark>原來需要被清乾淨的，不只是人，還有這些「地方」和「東西」。</mark></p>
+          <p>因為罪不會只留在做錯的那個人身上——它會影響到整個地方。</p>
+          <p class="cite">利未記 16:16-19</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13.jpg" alt="亞倫伸手按在棕色山羊頭上，百姓在圍欄外合掌觀看">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">0:25</span><span class="tag axis-tag">向外</span></div>
+          <h3>第二隻羊被牽過來</h3>
+          <p>裡面的事都做完了。現在輪到第二隻——那隻活著的羊。</p>
+          <p>亞倫把手放在牠頭上。你看外面圍欄邊，百姓全部站著在看，小朋友把手合起來。</p>
+          <p><strong>這件事是做給全部人看的。</strong>不是關起門來偷偷處理。</p>
+          <p class="cite">利未記 16:20-21</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14.jpg" alt="亞倫雙手按在山羊頭上，百姓在後方低頭">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:35</span><span class="tag axis-tag">向外</span></div>
+          <h3>他把話說出來</h3>
+          <p>注意這裡——他是<strong>兩隻手</strong>都按在羊頭上。</p>
+          <p>然後他做了一件事：他<strong>開口，把百姓的罪一件一件說出來。</strong></p>
+          <p>不是心裡想一想，是說出來，大聲說，讓大家聽見。</p>
+          <p>你看後面那些人，都低著頭。</p>
+          <p><mark>罪不是靠假裝沒發生被處理掉的。要先說出來。</mark></p>
+          <p class="cite">利未記 16:21</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15.jpg" alt="一個人牽著山羊走出營地，家人在帳篷邊看著，亞倫在遠處會幕前">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">0:25</span><span class="tag axis-tag">向外</span></div>
+          <h3>有一個人負責帶牠出去</h3>
+          <p>說完了，有一個人被指派，牽起繩子。</p>
+          <p>他開始走。經過帳篷、經過在看的人、經過小朋友。</p>
+          <p>經文叫他<strong>「所派之人」</strong>——這是他今天唯一的工作：把這隻羊帶出去。</p>
+          <p class="cite">利未記 16:21</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/16.jpg" alt="遼闊曠野中，那人牽著羊沿著小路往遠方走去，背影漸小">
+        <div>
+          <div class="fmeta"><span class="fnum">16</span><span class="ftc">0:50</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">向外</span></div>
+          <h3>越走越遠</h3>
+          <p>（這一段慢慢講，不要趕）</p>
+          <p>他走過營地的最後一個帳篷……</p>
+          <p>走出圍欄……</p>
+          <p>走上曠野的小路……</p>
+          <p>越走越遠……越走越遠……人變得好小好小……</p>
+          <p>一直走到<strong>再也看不見</strong>。</p>
+          <p class="ask">★ 牠把什麼帶走了？</p>
+          <p>（等回答）經文說：這羊要擔當他們一切的罪孽，<strong>帶到無人之地</strong>。</p>
+          <p class="guard"><b>教學界線</b>羊不是因為自己做錯事被趕出去，也不要把曠野講成「魔鬼住的地方」。重點只有一個：<b>罪被帶離了這個群體</b>。「阿撒瀉勒」的意思學者仍有爭議，不要當定論講。</p>
+          <p class="cite">利未記 16:22</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/17.jpg" alt="送羊的人回到營邊，蹲著在銅盆裡洗衣服，遠處祭壇的火燃燒">
+        <div>
+          <div class="fmeta"><span class="fnum">17</span><span class="ftc">0:20</span><span class="tag axis-tag">恢復</span><span class="tag">可略</span></div>
+          <h3>連他也要洗</h3>
+          <p>那個送羊的人回來了。他做的第一件事是：<strong>洗衣服、洗身體。</strong></p>
+          <p>你看他蹲在那裡搓衣服，臉上是輕鬆的。遠處祭壇的火還在燒。</p>
+          <p>亞倫也一樣——他回到會幕，脫下細麻布衣服，洗身，換回平常的衣服。</p>
+          <p><strong>每一個參與的人，都被納進這個潔淨的程序裡。</strong></p>
+          <p class="cite">利未記 16:23-28</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/18.jpg" alt="全營恢復日常，家庭坐在地上聊天，遠方會幕的煙柱升起">
+        <div>
+          <div class="fmeta"><span class="fnum">18</span><span class="ftc">0:25</span><span class="tag axis-tag">恢復</span></div>
+          <h3>營地回到原本的樣子</h3>
+          <p>做完了。你看整個營地——大人坐著聊天，小孩在玩，會幕的煙還在升。</p>
+          <p>故事沒有停在「有人被處罰」。它停在<strong>一個恢復了秩序、仍然以神的同在為中心的營地</strong>。</p>
+          <p>而且神規定：<strong>每年七月初十，都要再做一次。</strong>不是因為上次失敗了，而是這本來就是每年維持秩序的方式。</p>
+          <p class="cite">利未記 16:29-34</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/19.jpg" alt="耶穌坐在樹下與孩子和大人說話，遠方山丘上有十字架">
+        <div>
+          <div class="fmeta"><span class="fnum">19</span><span class="ftc">0:40</span><span class="tag axis-tag">恢復</span></div>
+          <h3>那，明年呢？</h3>
+          <p>今年做完了。明年呢？<strong>再來一次。</strong>後年呢？<strong>再來一次。</strong></p>
+          <p>一年、一年、又一年。</p>
+          <p>很久很久以後，聖經有一卷書叫《希伯來書》。它就是用贖罪日的這些話——大祭司、聖所、血、每年重複——來講一件事：</p>
+          <p><mark>耶穌是那位更好的大祭司。祂獻上自己，<strong>一次就完成了</strong>，不需要年年重來。</mark></p>
+          <p>所以現在我們可以直接來到神面前。</p>
+          <p class="guard"><b>教學界線</b>這是<b>第一次</b>提到耶穌，前面 18 幀都要忍住。也不要把每個細節做成一對一對應（第二隻羊≠耶穌）。《希伯來書》的類比集中在大祭司、聖所、血與「一次完成」。</p>
+          <p class="cite">希伯來書 9-10 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/20.jpg" alt="現代教室裡，一個孩子把木頭玩具車還給另一個孩子，牆上掛著十字架">
+        <div>
+          <div class="fmeta"><span class="fnum">20</span><span class="ftc">0:30</span><span class="tag axis-tag">恢復</span><span class="tag">收尾</span></div>
+          <h3>所以，今天呢？</h3>
+          <p>最後一張圖，時間跳到今天。</p>
+          <p>一個孩子把玩具還給另一個孩子。兩個人都在笑。旁邊有人在禱告，桌上放著聖經。</p>
+          <p>我們不用再找兩隻羊了。但這一章教我們的事沒有變——</p>
+          <p><strong>做錯了，不是躲起來，也不是假裝沒發生。是承認、是處理、是修好。</strong></p>
+          <p>然後記住最後這一句：<mark>神沒有放棄我們；祂願意處理我們的罪，讓我們可以重新來到祂面前。</mark></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 孩子可能會問 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>孩子可能會問什麼</h2><span class="eyebrow">先想好答案，臨場才不會亂</span></div>
+    <div class="qa">
+      <div class="qrow"><p class="q">「神不是愛人嗎？為什麼不能隨便進去？」</p><p class="a">神愛人，也願意住在人中間；但神是聖潔的，我們不能把祂當作自己想怎麼操作都可以的對象。所以神自己告訴祭司要怎麼進入。</p></div>
+      <div class="qrow"><p class="q">「不潔的人是不是做壞事？」</p><p class="a">不一定。利未記裡有些不潔是身體自然發生的狀態或接觸造成的，不代表那個人做錯事。（上一週的重點。）</p></div>
+      <div class="qrow"><p class="q">「為什麼連會幕和祭壇都要贖罪？」</p><p class="a">因為利未記 16 章把人的罪與不潔想像成會使神聖空間需要潔淨。這也是為什麼贖罪日不只是處理個人的罪。</p></div>
+      <div class="qrow"><p class="q">「那隻羊做錯什麼，為什麼要被送走？」</p><p class="a">羊不是因為自己做錯事被趕出去。這是神設立的象徵性禮儀：百姓承認的罪被放在羊頭上，羊把這些罪帶離共同體。</p></div>
+      <div class="qrow"><p class="q">「阿撒瀉勒是魔鬼嗎？」</p><p class="a">我們不知道這個字原本精確指什麼，學者有不同看法。對這個故事來說，最重要的是羊被送到曠野，把罪帶離營地。</p></div>
+      <div class="qrow"><p class="q">「為什麼要用血？」</p><p class="a">在利未記裡，血跟生命密切相關；贖罪日中，祭牲的血被用來潔淨至聖所、會幕和祭壇。</p></div>
+      <div class="qrow"><p class="q">「是不是一年只有這一天神才原諒人？」</p><p class="a">不是。以色列平常也有其他祭祀和潔淨制度。贖罪日特別是一年一次對整個聖所與共同體進行全面性的潔淨。</p></div>
+      <div class="qrow"><p class="q">「我們現在也要找兩隻羊嗎？」</p><p class="a">基督徒不再實行利未記的聖所祭祀制度。《希伯來書》告訴我們，耶穌一次完成救贖，使我們可以來到神面前。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2><span class="eyebrow">含教材的六條界線</span></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>這一課最容易掉進兩個坑。</b>第一個：「神很聖潔，所以小朋友不要犯罪」——只停在這裡，贖罪日就變成恐嚇式道德教育。第二個：「第二隻羊就是耶穌，耶穌代替我們被處罰」——這把整章講小了。<b>本章有兩個互補的圖像：血潔淨聖所、活羊移除罪。</b></p></div>
+      <div class="note"><span class="n mono">02</span><p><b>第 19 幀之前不要提耶穌。</b>先把利未記自己的故事說完整，再進入新約連結。而且《希伯來書》的類比集中在大祭司、聖所、血與「一次完成」——<b>不要把每個細節都變成耶穌的密碼</b>（細麻布、香爐、兩隻羊都不要做一對一對應）。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>第 16 幀要慢到讓孩子不耐煩為止。</b>這是全章高潮。不要三秒鐘講完「羊被送到曠野」——要一步一步描述：走過帳篷、走出圍欄、走上小路、越走越遠、看不見了。然後才問「牠把什麼帶走了？」</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>不要把阿撒瀉勒講成確定的「代罪羔羊」。</b>這個希伯來詞的意義仍有爭議。孩子只要知道：活羊被送到曠野，把百姓的罪帶離營地。同樣地，<b>不要把曠野簡化成「魔鬼住的地方」</b>——聖經其他地方的曠野也可以是遇見神的地方。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>不要把血講成「神一定要有人死才肯消氣」。</b>在利 16 章，血被用來<b>潔淨神聖空間</b>。可以談罪的嚴重，但不要把整個祭祀制度縮成單一的刑罰代替公式。第 12 幀（連祭壇也要潔淨）就是最好的反證。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>第 06 幀是這一課的謙卑點。</b>連大祭司都要先為自己贖罪。如果班上有孩子很習慣當「乖的那一個」，這一幀是講給他聽的：沒有人可以說「我夠好了，不需要神處理我」。</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>遊戲的承諾一定要守住。</b>紙條不打開、不念出來、結束後當著孩子的面銷毀。如果有孩子自己寫了東西又反悔，讓他當場拿回去，不要問為什麼。<b>這個信任比遊戲效果重要得多。</b></p></div>
+      <div class="note"><span class="n mono">08</span><p><b>「明年呢？」的快問快答不要省。</b>那個重複感是進入《希伯來書》唯一自然的橋。如果直接說「耶穌一次完成」，孩子感受不到「一次完成」有什麼了不起。</p></div>
+      <div class="note"><span class="n mono">09</span><p><b>不要用這一課製造羞恥。</b>被處理的罪，不是要讓人永遠停在羞恥裡；贖罪日的方向是<b>恢復</b>。這跟 9/13（責任感 vs 羞恥感）和 9/20（不潔 ≠ 犯罪）是同一條線，三週要一致。</p></div>
+      <div class="note"><span class="n mono">10</span><p><b>時間快超過時的取捨順序：</b>先砍第 07、17 幀（共省 40 秒），再把遊戲的「輪流背背看」從 4 人減到 2 人。<b>不要砍第 16 幀，也不要砍反思總結的「明年呢」。</b></p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 利未記 16 · 2026.09.27</span>
+    <span>界線 → 預備 → 向內潔淨 → 向外移除 → 恢復</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'leviticus-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>
