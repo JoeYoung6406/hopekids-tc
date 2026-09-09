@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：利未記 1-7《壇上的火》，20 幀分鏡台詞、課程指標與 20 分鐘流程。">
+<title>壇上的火｜利未記 1-7 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+/* ---------- 通用 ---------- */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+strong{font-weight:700}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{
+  font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em;
+  color:var(--ink);
+}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:20em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+.message{
+  margin:34px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85;
+}
+
+/* ---------- 模式切換 ---------- */
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s;
+}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{
+  display:grid;grid-template-columns:104px 88px 1fr;gap:20px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule);
+}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.02em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+.offering .q b{color:var(--ink);font-weight:600}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--serif);font-size:30px;line-height:1;color:var(--ember);display:block;margin-bottom:12px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);border-radius:0 10px 10px 0;
+  font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{
+  text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;border-bottom:1px solid var(--rule-2);
+}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{
+  display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule);
+}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.pace-slow{border-color:var(--scarlet);color:var(--scarlet)}
+.tag.pace-steady{border-color:var(--purple);color:var(--purple)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{
+  border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px;
+}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ---------- 開講模式 ---------- */
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:84px 1fr;row-gap:4px}
+  .offering .q{grid-column:1/-1}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note{break-inside:avoid}
+}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);
+  text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;
+  transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember);outline:none}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+</style>
+</head>
+<body>
+
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.09.13</span>
+    <h1>壇上的火</h1>
+    <p class="deck">利未記 1-7｜做錯了以後，還可以回到神面前嗎？</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>人數</dt><dd>20 人</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>經文</dt><dd>利未記 1-7</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>20 張</dd></div>
+    </dl>
+
+    <p class="message">壇上的火不熄滅——神為做錯的人留了一條回來的路：<mark>承認、歸還、加上五分之一，然後和好。</mark></p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 五祭一覽 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>五祭一覽</h2><span class="eyebrow">利 1-7 · 每一種在回答一個問題</span></div>
+    <div class="offerings">
+      <div class="offering">
+        <span class="name">燔祭</span><span class="ref">利 1</span>
+        <span class="q">整隻燒盡，不留一塊。<b>我整個人屬於誰？</b></span>
+      </div>
+      <div class="offering">
+        <span class="name">素祭</span><span class="ref">利 2</span>
+        <span class="q">細麵、油、乳香，要加鹽。<b>我每天的日常算不算數？</b></span>
+      </div>
+      <div class="offering">
+        <span class="name">平安祭</span><span class="ref">利 3</span>
+        <span class="q">獻完大家坐下來一起吃。<b>和好之後，長什麼樣子？</b></span>
+      </div>
+      <div class="offering">
+        <span class="name">贖罪祭</span><span class="ref">利 4-5:13</span>
+        <span class="q">誤犯、隱瞞、輕率起誓。<b>「我不是故意的」怎麼辦？</b></span>
+      </div>
+      <div class="offering">
+        <span class="name">贖愆祭</span><span class="ref">利 5:14-6:7</span>
+        <span class="q">如數歸還，另加五分之一。<b>我確實佔了人便宜，怎麼辦？</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>認識利未記 1-7 的五種祭：燔祭、素祭、平安祭、贖罪祭、贖愆祭，知道每一種在處理的是不同的狀況。</p>
+        <p>知道這七章不是「一堆規矩」，而是神親口說出來的一份<strong>回家路線圖</strong>。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p>做錯了，第一個反應不是躲起來、也不是找理由，而是<strong>承認</strong>。</p>
+        <p>不用「我又不是故意的」當作不處理的理由——不小心造成的傷害，一樣是真的傷害。</p>
+        <p>獻上的價值不是比大小；把自己「有的」真心拿出來，就蒙悅納。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>真正的道歉要多走五分之一：</mark>說完對不起不是結束，要讓對方比原本更好一點。</p>
+        <p><mark class="warm">神的接納不是看價錢：</mark>一頭牛、兩隻鴿子、一把細麵，在壇前是一樣被收下的。</p>
+        <p>火不熄滅——那扇門不是只在我表現好的時候才開著。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 簡介 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>簡介</h2></div>
+    <div class="prose">
+      <p>以色列人剛離開埃及，會幕才剛立起來，神的榮耀就住進營地正中央。問題來了：一群會犯錯的人，怎麼可能住在聖潔的神旁邊？利未記就是神給的答案。</p>
+      <p>神從會幕裡呼叫摩西，講的第一件事不是「你們不可以怎樣」，而是<mark>「你們可以來，要這樣來」</mark>。祂一種一種地說明白，而且每一種都留了窮人的版本——牽不出牛，可以帶鴿子；買不起鴿子，帶一把細麵也行。</p>
+      <p>最扎實的一段在利未記 6 章：如果你騙了鄰居、拿了不該拿的、撿到不還，神的規定是<mark class="warm">先如數歸還，再加上五分之一，然後才來獻祭</mark>。順序不能顛倒——<strong>先跟人和好，才來到神面前</strong>。</p>
+      <p>最後神交代祭司一句話，把整卷書的溫度定下來：「在壇上必有常常燒著的火，不可熄滅。」半夜三點沒有人在看的時候，火還燒著。那扇門一直開著。</p>
+    </div>
+  </section>
+
+  <!-- ============ 三節點 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程三節點</h2></div>
+    <div class="nodes">
+      <div class="node">
+        <span class="num">一</span>
+        <h3>神先開口：<br>「你可以來，這樣來」</h3>
+        <ul>
+          <li>不是人想辦法爬上去找神，是<strong>神先給了辦法</strong>。</li>
+          <li>神說的第一句話是邀請，不是責備（利 1:1-2）。</li>
+          <li>對孩子：你不需要先變好才能來——是先來，然後被修好。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">二</span>
+        <h3>神收的是「心」，<br>不是「價錢」</h3>
+        <ul>
+          <li>牛、羊、斑鳩、一把細麵——祭司接過來的動作都一樣（利 1:14；5:11）。</li>
+          <li>素祭用的是廚房裡本來要吃的麵粉：<strong>日常也可以是獻上</strong>。</li>
+          <li>對孩子：你能給的不多，不等於你的不算數。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">三</span>
+        <h3>和好要走完全程：<br>認 → 還 → 加五分之一</h3>
+        <ul>
+          <li>承認（利 5:5）→ 如數歸還 → 另加五分之一（利 6:4-5）→ 才來獻祭。</li>
+          <li>多加的那一份，是在補對方<strong>真實的損失和難過</strong>。</li>
+          <li>對孩子：說「對不起」是第一步，不是最後一步。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2></div>
+    <div class="verses">
+      <p class="verse key">在壇上必有常常燒著的火，不可熄滅。<span class="src">利未記 6:13</span></p>
+      <p class="verse">所以，你在祭壇上獻禮物的時候，若想起弟兄向你懷怨，就把禮物留在壇前，先去同弟兄和好，然後來獻禮物。<span class="src">馬太福音 5:23-24</span></p>
+      <p class="verse">主啊，我把所有的一半給窮人；我若訛詐了誰，就還他四倍。<span class="src">路加福音 19:8 · 撒該</span></p>
+      <p class="verse">我們若認自己的罪，神是信實的，是公義的，必要赦免我們的罪，洗淨我們一切的不義。<span class="src">約翰一書 1:9</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p>利未記常被當成「跳過去也沒關係的一卷」，因為滿滿都是祭牲、血和條例。可是換個角度看：<strong>這是一群剛脫離奴隸身分的人，第一次學習怎麼跟神同住。</strong>神沒有把祂的聖潔調低來遷就他們，也沒有把他們趕遠，而是給了一套「你可以走過來」的具體流程。這卷書的底色不是恐嚇，是<mark>神主動把回家的路標好</mark>。</p>
+      <p>特別要注意，神在每一種祭裡都寫了窮人條款（利 1:14、5:7、5:11）。<strong>從頭到尾，神沒有讓任何人因為付不起而進不來。</strong>這對常被「誰比較厲害、誰家比較有錢」比較著長大的中高年級孩子，是很直接的一句話。</p>
+      <p>最需要停下來講的是利未記 6:1-7。神把「欺騙鄰舍、搶奪、撿到不還」定義成<strong>得罪神</strong>，而不只是人跟人之間的小事；然後給了一個很不一樣的處理方式：<mark class="warm">如數歸還，另加五分之一，然後才獻贖愆祭</mark>。這個「多加的五分之一」是整堂課的鉤子——它承認了一件事：對方在這段時間裡的損失和難受是真的，光說對不起補不回來。順序也是刻意的：<strong>先去把人的關係修好，再來到壇前</strong>。耶穌在馬太福音 5:23-24 講的是同一個順序，撒該說「還他四倍」用的是同一個邏輯。</p>
+      <p>最後，利未記 6:13 那句「火不可熄滅」，是把神的接納從「一次性的事件」變成「持續的狀態」。孩子最常有的恐懼是：這次可以，下次呢？我又搞砸了怎麼辦？<strong>那把整夜有人添柴、沒有人在看也還燒著的火，就是答案。</strong>而這一切在新約有了終點——祭司天天獻、年年獻，基督卻是一次獻上，永遠有效（來 10:11-12）。</p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'30"</td><td class="unit">開場提問</td>
+          <td>
+            <ul>
+              <li>老師講一個 20 秒的小情境：「上禮拜我借了朋友一個東西，弄丟了。我跟他說『對不起啦』——然後就沒有然後了。你覺得他心裡舒服了嗎？」</li>
+              <li>拋出今天的問題：<strong>「說對不起，就等於把事情修好了嗎？」</strong>先不給答案，讓幾個人講就好，不要收斂。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:30</td><td class="dur">9'00"</td><td class="unit">經文故事<br><span class="mono" style="font-size:11px;color:var(--ink-3)">20 張分鏡</span></td>
+          <td>
+            <ul>
+              <li>依序播放 20 張圖，台詞見下方〈分鏡台詞〉，每張都標了時間預算。</li>
+              <li>只有<strong>三個必停的互動點</strong>：#02、#09、#14。其他不要問，會拖時間。</li>
+              <li>來不及時砍 #08、#10、#16（共省 65 秒）。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">10:30</td><td class="dur">2'00"</td><td class="unit">遊戲規則</td>
+          <td>
+            <ul>
+              <li>遊戲：<strong>「和好快遞 · 加五分之一」</strong>。20 人分 4 組，教室中央放一個紙箱當「祭壇」。</li>
+              <li>每組抽一張〈闖禍卡〉，組內討論 45 秒，要決定三件事：<br>
+                ① <strong>錯在哪</strong>（一句話，要具體，不可以說「我不乖」）<br>
+                ② <strong>要歸還什麼</strong>（東西或行動）<br>
+                ③ <strong>多加的五分之一是什麼</strong>（讓對方比原本更好一點的額外行動）</li>
+              <li>上台 30 秒演出來。台下是<strong>「祭司團」</strong>：三件都到 → 一起喊「蒙悅納！」該組拿一根柴放上祭壇。沒到的，老師補問一句讓他們補完。</li>
+              <li>全班目標是把柴堆滿、讓火不熄——<mark>合作，不是比賽，沒有輸的那一組。</mark></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">12:30</td><td class="dur">5'00"</td><td class="unit">遊戲進行</td>
+          <td>
+            <ul>
+              <li>闖禍卡（擇 4 張用）：
+                <ul>
+                  <li>你借了同學的東西弄丟了，說「我明天帶」，但已經過三個禮拜。</li>
+                  <li>分組報告你忘了做該做的部分，害全組被扣分。</li>
+                  <li>你轉述了一件關於某個同學的事，後來發現不是真的。</li>
+                  <li>打球撞到低年級的學弟，他哭了，你趕快跑掉。</li>
+                  <li>你弄壞教會的一個東西，放回架上假裝沒事。</li>
+                  <li>媽媽叫你顧弟弟，你一直看手機，弟弟跌倒了。</li>
+                </ul>
+              </li>
+              <li>每組上台後老師只補問一句：<strong>「那個『多加的五分之一』，對方收到會有感覺嗎？」</strong></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">17:30</td><td class="dur">2'30"</td><td class="unit">反思總結</td>
+          <td>
+            <ul>
+              <li>哪一組的「五分之一」讓你覺得「哇，這個真的有誠意」？（回收 1-2 個）</li>
+              <li><strong>「說對不起」和「把事情修好」，哪一個比較難？為什麼？</strong></li>
+              <li>神為什麼要規定加五分之一？→ 因為對方的損失和難過是真的，<mark class="warm">修復要比嘴巴多走一步</mark>。</li>
+              <li>指著祭壇上的柴收尾：「利未記 6:13 說，壇上的火不可熄滅。就算你這個禮拜又搞砸了——<mark>那扇門還開著，它在等你。</mark>」</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">道具：闖禍卡 ×6、紙捲柴 ×10、紙箱 ×1</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">20 幀 · 09:00</span></div>
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/01_tabernacle_glory.jpg" alt="會幕立在營地中央，榮光柱直上天際">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:20</span><span class="tag">快</span></div>
+          <h3>會幕的榮光</h3>
+          <p>來，把眼睛放到這片營地上。中間那頂帳篷，叫做「會幕」。</p>
+          <p>以色列人剛從埃及出來，走了好久好久的路，現在紮營在曠野。你看見從會幕上升起的那道光了嗎？那不是火把，那是<strong>神的榮耀</strong>。</p>
+          <p>神說了一句很不得了的話：「我要住在他們中間。」——神不是住在很遠很遠的天上，祂把家搬到營地的<strong>正中央</strong>。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02_god_calls_moses.jpg" alt="摩西站在會幕門口，光從幔子中間透出來">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:30</span><span class="tag">快</span><span class="tag star">★ 必停</span></div>
+          <h3>神呼叫摩西</h3>
+          <p>有一天，摩西站在會幕門口。他沒有走進去，因為裡面太聖潔了。</p>
+          <p>就在這時候，神從會幕裡面呼叫他：「摩西。」</p>
+          <p class="ask">★ 你猜，神接下來要說什麼？是要罵人嗎？還是要罰誰？</p>
+          <p>都不是。神要教他們一件很重要的事：<strong>人做錯了以後，怎麼還能回到神面前。</strong></p>
+          <p class="cite">利未記 1:1</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03_people_bring_offerings.jpg" alt="百姓牽著牛羊、抱著裝鴿子的籃子來到會幕前">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:15</span><span class="tag">快</span></div>
+          <h3>百姓帶祭物來</h3>
+          <p>摩西把神的話傳出去，整個營地就熱鬧起來了。有人牽牛、有人牽羊，還有小朋友抱著籃子，裡面裝了兩隻白鴿子。</p>
+          <p>注意看他們的臉，不是害怕的，是<strong>期待的</strong>。因為神說的第一句話不是「你們不可以來」，而是：<mark>「你們可以來，這樣來。」</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04_burnt_offering.jpg" alt="父親按手在羊頭上，祭司在燃燒的銅壇旁說明">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:25</span><span class="tag">中速</span><span class="tag">燔祭</span></div>
+          <h3>燔祭：整個我都給你</h3>
+          <p>第一種祭叫<strong>燔祭</strong>。看這位爸爸，他把手按在羊的頭上。這個動作的意思是：「這隻羊，代替我。」</p>
+          <p>然後祭司把牠整隻放在壇上燒——不留一塊肉、不留一張皮，<strong>全部</strong>燒給神。</p>
+          <p>燔祭在說一句話：「神啊，我不是給你我的一部分，我把整個我都給你。」</p>
+          <p class="cite">利未記 1 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05_offering_of_doves.jpg" alt="老婦人把裝著兩隻斑鳩的籃子遞給祭司">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:25</span><span class="tag">中速</span></div>
+          <h3>兩隻鴿子也可以</h3>
+          <p>可是，如果家裡很窮，牽不出一頭牛怎麼辦？神早就想到了。</p>
+          <p>你看這位老奶奶，她手上只有兩隻斑鳩。祭司彎下腰，雙手接過來——他用的力氣、他的表情，跟接一頭牛<strong>一模一樣</strong>。</p>
+          <p>在神面前，禮物的大小不是重點。<mark class="warm">神看的是：你有沒有把你「有的」，真心拿出來。</mark></p>
+          <p class="cite">利未記 1:14</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06_grain_offering.jpg" alt="一家人跪著獻上細麵，祭司撒鹽在祭物上">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:25</span><span class="tag">中速</span><span class="tag">素祭</span></div>
+          <h3>素祭：日常的細麵</h3>
+          <p>第二種祭叫<strong>素祭</strong>。不用動物，是細麵、油，還有乳香。</p>
+          <p>神特別交代：素祭要加鹽，不可以加酵和蜜。鹽代表「我們的約不會壞掉」。</p>
+          <p>這一家人獻的，是他們廚房裡本來要吃的麵粉。原來獻給神的，不一定是特別的東西——<strong>也可以是你每一天的日常。</strong></p>
+          <p class="cite">利未記 2 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07_peace_offering_meal.jpg" alt="眾人圍坐在壇前一起吃飯，祭司張開雙手">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:25</span><span class="tag">中速</span><span class="tag">平安祭</span></div>
+          <h3>平安祭：一起吃飯</h3>
+          <p>第三種祭最特別，叫<strong>平安祭</strong>。這種祭獻完以後，肉不是全燒掉，是<strong>大家坐下來一起吃</strong>。</p>
+          <p>你看，祭司、爸爸、媽媽、小孩，全部圍成一圈，笑著、吃著、講話。</p>
+          <p>平安祭在告訴他們一件事：跟神和好，最後會變成什麼樣子？會變成<mark>一頓大家一起吃的飯</mark>。</p>
+          <p class="cite">利未記 3 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08_teaching_holiness.jpg" alt="摩西與大祭司亞倫教導百姓，祭司在洗濯盆邊淨手">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:15</span><span class="tag">中速</span><span class="tag">可略</span></div>
+          <h3>摩西教導：什麼叫聖潔</h3>
+          <p>你看旁邊的祭司在洗手洗腳。他們不是因為髒才洗，是因為要進到神面前，<strong>每一件事都要用「分別出來」的心去做</strong>。</p>
+          <p>神說「你們要聖潔」，意思不是「你們要完美」，是<strong>「你們要屬於我」</strong>。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09_admitting_unintentional_wrong.jpg" alt="父親手放胸口低頭認錯，身旁牽著一隻山羊">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:40</span><span class="tag pace-slow">放慢</span><span class="tag star">★ 必停</span><span class="tag">贖罪祭</span></div>
+          <h3>我不是故意的，也要處理</h3>
+          <p>這位爸爸低著頭，手放在胸口。他做錯了一件事——而且他是<strong>不小心</strong>做的，做的當下自己都不知道。</p>
+          <p>神有沒有說「沒關係啦，你又不是故意的」？神說的是：<mark>知道了，就要處理。</mark></p>
+          <p>這叫<strong>贖罪祭</strong>。不是故意的錯，一樣會傷到人、一樣會弄髒關係，所以一樣要拿到神面前。</p>
+          <p class="ask">★ 你有沒有過「不是故意的，但還是害到別人」的經驗？</p>
+          <p class="cite">利未記 4 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10_purification_ritual.jpg" alt="祭司在壇角施行潔淨禮，旁邊是盛水的銅盆">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:30</span><span class="tag pace-slow">放慢</span><span class="tag">可略</span></div>
+          <h3>潔淨的儀式</h3>
+          <p>祭司照著神教的方法，把血抹在壇的角上，旁邊擺著一大盆水。</p>
+          <p>這些動作看起來好複雜，但它們從頭到尾在說同一件事：<strong>錯不會自己消失，需要有人付代價，把它洗乾淨。</strong></p>
+          <p>以色列人做這些的時候還不知道——很多很多年以後，真的有一位來付了這個代價。祂的名字叫<strong>耶穌</strong>。</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11_confessing_hidden_mistake.jpg" alt="婦人在眾人面前向摩西與祭司公開承認">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:30</span><span class="tag pace-slow">放慢</span></div>
+          <h3>說出來，比藏起來好</h3>
+          <p>再看這位媽媽。她站在摩西和祭司面前，<strong>當著大家的面</strong>說話。</p>
+          <p>神在利未記 5 章講了幾種罪：知道事情卻不說、亂發誓、碰了不該碰的。她犯了其中一樣——她本來可以偷偷藏著，沒有人會發現。</p>
+          <p>但是神說：「他要承認所犯的罪。」<mark>承認，是回來的第一步。藏起來的東西，不會自己不見。</mark></p>
+          <p class="cite">利未記 5:1-5</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12_flour_offering_for_poor.jpg" alt="貧窮的婦人獻上一小碗細麵，祭司雙手接過">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:20</span><span class="tag pace-slow">放慢</span></div>
+          <h3>十分之一伊法的細麵</h3>
+          <p>這位媽媽家裡真的很窮，窮到連兩隻鴿子都買不起。神說：那就拿一點點細麵來。</p>
+          <p>祭司接過那個小碗，一樣抓一把放到壇上，一樣宣告：你被神<strong>接納</strong>了。</p>
+          <p><mark class="warm">神從來不會因為你窮，就把你關在門外。</mark></p>
+          <p class="cite">利未記 5:11</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13_discovering_wrongfully_kept_goods.jpg" alt="男子抱著包袱與陶罐，想起那不是自己的東西">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">0:30</span><span class="tag pace-slow">放慢</span><span class="tag">贖愆祭</span></div>
+          <h3>家裡有一樣不該留的東西</h3>
+          <p>換一個故事。這位叔叔回到帳篷，手上抱著一個包袱和一個罐子。他忽然想起來——這不是他的。這是鄰居的，他當初說要還，後來就「忘記」了。</p>
+          <p>看他的表情。<strong>他心裡知道。</strong></p>
+          <p>利未記 6 章講的就是這種事：欺騙鄰舍、搶奪、撿到不還。神說，這種事<strong>不只是對人犯罪，也是對神犯罪。</strong></p>
+          <p class="cite">利未記 6:2</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14_return_and_compensation.jpg" alt="男子走到鄰居帳篷前歸還器物，並多帶了一籃穀物">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:45</span><span class="tag pace-slow">放慢</span><span class="tag star">★ 全課核心</span></div>
+          <h3>歸還，還要加五分之一</h3>
+          <p>所以他做了一件很不容易的事——他走去鄰居的帳篷，把東西還回去。</p>
+          <p>而且神的規定不只是「還」。神說：要<mark>如數歸還，另外再加上五分之一</mark>。</p>
+          <p class="ask">★ 為什麼要多加？</p>
+          <p>因為對方這段時間受的損失、心裡的難過，是<strong>真的存在</strong>的。<mark class="warm">真正的「對不起」，會做到讓對方比原本更好一點。</mark></p>
+          <p class="cite">利未記 6:4-5</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15_guilt_offering_and_reconciliation.jpg" alt="祭司把手放在獻公綿羊的男子肩上">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">0:30</span><span class="tag pace-slow">放慢</span></div>
+          <h3>贖愆祭：和好</h3>
+          <p>還完東西以後，他才牽了一隻公綿羊，來獻<strong>贖愆祭</strong>。</p>
+          <p>順序很重要，你有沒有發現？<mark>先去跟人和好，再來到神面前。</mark></p>
+          <p>祭司把手放在他的肩膀上——這個動作的意思是：「神收下了。<strong>你可以抬起頭了。</strong>」</p>
+          <p class="cite">利未記 6:6-7</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/16_priests_handle_offerings.jpg" alt="多位祭司在院中分工處理祭物、穀物與水盆">
+        <div>
+          <div class="fmeta"><span class="fnum">16</span><span class="ftc">0:20</span><span class="tag pace-steady">穩</span><span class="tag">可略</span></div>
+          <h3>祭司整天在忙什麼</h3>
+          <p>利未記後面幾章，神很仔細地教祭司：哪一份要燒、哪一份祭司可以吃、器皿要怎麼洗、灰要倒在哪裡。</p>
+          <p>看起來很瑣碎，對不對？可是每一個小動作，都在為同一件事服務：<strong>讓走進來的人，真的能被接納。</strong></p>
+          <p>你身邊也有這種人——為了讓聚會可以順利，默默在旁邊做很多小事的人。</p>
+          <p class="cite">利未記 6-7 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/17_altar_fire_through_night.jpg" alt="星空下，祭司在夜間為壇上的火添柴">
+        <div>
+          <div class="fmeta"><span class="fnum">17</span><span class="ftc">0:30</span><span class="tag pace-steady">穩</span></div>
+          <h3>夜裡，壇上的火</h3>
+          <p>天黑了，全營地的人都睡了。可是你看，還有一個祭司在壇邊加柴。</p>
+          <p>神特別交代過一句話：<mark>「在壇上必有常常燒著的火，不可熄滅。」</mark></p>
+          <p>半夜三點，沒有人在看，<strong>火還是燒著</strong>。</p>
+          <p class="cite">利未記 6:13</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/18_morning_fire_continues.jpg" alt="日出時分，祭司把一捆柴交給年輕的祭司">
+        <div>
+          <div class="fmeta"><span class="fnum">18</span><span class="ftc">0:25</span><span class="tag pace-steady">穩</span></div>
+          <h3>天亮了，火還在</h3>
+          <p>太陽出來，第一件事——把柴遞給下一個人，讓火繼續。</p>
+          <p>這把火，整個晚上沒有斷過。它在說一件事，我要你們記住：</p>
+          <p><mark class="warm">神接納你的那扇門，不是只有你表現好的時候才開著。你睡著的時候，它也開著。</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/19_relationships_restored.jpg" alt="兩個男人相擁和好，旁邊一家人坐著分餅">
+        <div>
+          <div class="fmeta"><span class="fnum">19</span><span class="ftc">0:25</span><span class="tag pace-steady">穩</span></div>
+          <h3>關係恢復了</h3>
+          <p>回到剛剛那位叔叔。你看見了嗎——他跟鄰居抱在一起了。</p>
+          <p>旁邊，一家人坐在地上分餅、吃水果，孩子在後面跑來跑去。</p>
+          <p>利未記講了整整七章的祭，講到最後，結局長這樣：<mark>不是有人被處罰，是關係被修好了。</mark></p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/20_restored_community_finale.jpg" alt="全營的人聚集在會幕前，壇上的火煙直上">
+        <div>
+          <div class="fmeta"><span class="fnum">20</span><span class="ftc">0:35</span><span class="tag pace-steady">穩</span><span class="tag">收尾</span></div>
+          <h3>整個群體，一起</h3>
+          <p>最後一張。整個營地都聚過來了：摩西、大祭司、大人、小孩、老人家。壇上的火冒著煙，直直往上升。</p>
+          <p>利未記 1 到 7 章，從頭到尾在說一件事：</p>
+          <p><strong>神先開了一條路，讓做錯的人可以回來；而回來的人，會把整個群體一起帶回來。</strong></p>
+          <p>下次你不小心弄壞了什麼、傷到了誰——記得這把火。<mark>它還燒著，它在等你。</mark></p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>第 09 張一定要停。</b>中高年級已經很會分辨「故意」和「不小心」，而且「我又不是故意的」是他們最常用的擋箭牌。這張圖是整堂課第一個鬆動點——不要急著往下講，等到有人願意講自己的例子再走。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>第 14 張是全課的核心，其他都是鋪陳。</b>「加五分之一」要用他們生活裡的單位講：不是「還你橡皮擦」，是「還你橡皮擦，而且我幫你跟老師解釋是我弄丟的」。抽象的補償孩子接不住，具體的行動才接得住。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>不要讓「賠償」變成「贖罪券」。</b>一定會有孩子推論成「那我只要賠得起，就可以一直做錯」。這是好問題，不要壓下去。回答的方向：神規定<b>要先真的去跟人和好</b>（利 6:4-5）——這件事假裝不來；而且結束一定要回到第 17、18 張：我們能回來，不是因為我們賠得起，是<b>因為神先留了路</b>。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>血和祭牲不要渲染。</b>不描述宰殺過程，重點放在「有一位代替、有人付了代價」。第 10 張帶到耶穌就好，不要展開成福音呼召，這堂課的落點是「回來的路」。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>窮人條款要講得夠明白（第 05、12 張）。</b>大班裡常有家庭狀況差距，這兩張是給那些「覺得自己能給的很少」的孩子聽的。祭司接兩隻鴿子和接一頭牛的動作一模一樣——這句話請照著講。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>遊戲要壓住競爭感。</b>「和好快遞」沒有輸贏、沒有計分，柴是全班一起堆的。如果有組別開始比誰的補償比較誇張，把問題拉回：「對方收到，真的會覺得被修好嗎？」</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>收尾不要落在「你要努力」。</b>結束句是火還燒著、門還開著。孩子帶回家的，要是「我可以回來」，不是「我要更乖」。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>時間快超過時的取捨順序：</b>先砍第 08、10、16 張（共省 65 秒），再把遊戲上台組數從 4 組減到 3 組。<b>不要砍反思總結</b>——那是整堂課落地的地方。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 利未記 1-7 · 2026.09.13</span>
+    <span>20 人 · 20 分鐘 · 20 幀</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'leviticus-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>
