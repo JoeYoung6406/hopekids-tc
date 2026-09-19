@@ -1,0 +1,49 @@
+name: 每月更新投影片PPT與課程範例
+
+on:
+  schedule:
+    # 每週六 UTC 00:23（台北 08:23）觸發；腳本只在台北時間「當月第三個週六」（15~21 號）才更新。
+    # 分鐘避開整點，減少 GitHub 排程延遲。
+    - cron: '23 0 * * 6'
+  workflow_dispatch:
+    inputs:
+      month:
+        description: '要上架的月份 YYYY-MM（留空＝下個月）'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 從教材連結表更新 index.html
+        env:
+          MONTH: ${{ inputs.month }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          args=()
+          if [ "$EVENT" = "schedule" ]; then args+=(--third-saturday-only); fi
+          if [ -n "$MONTH" ]; then args+=(--month "$MONTH"); fi
+          python3 .github/scripts/monthly_update.py "${args[@]}"
+
+      - name: Commit & push（GitHub Pages 會自動重新發布）
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "index.html 沒有變更，不需要 commit。"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "每月自動更新：投影片PPT與課程範例（$(TZ=Asia/Taipei date '+%Y-%m-%d')）"
+          git pull --rebase origin main
+          git push
