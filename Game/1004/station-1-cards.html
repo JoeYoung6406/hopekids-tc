@@ -19,7 +19,7 @@
     font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:900px; margin:0 auto; padding:32px 20px 64px;}
+  .wrap{max-width:960px; margin:0 auto; padding:32px 20px 64px;}
 
   .top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:6px}
   .eyebrow{font-weight:900; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--aqua-deep); margin:0 0 6px}
@@ -36,56 +36,106 @@
   .howto b{color:var(--aqua-deep)}
 
   h2.section{
-    font-size:1.1rem; font-weight:900; margin:40px 0 4px; padding-bottom:8px;
+    font-size:1.1rem; font-weight:900; margin:44px 0 4px; padding-bottom:8px;
     border-bottom:2px solid var(--ink);
   }
-  .sub{color:var(--muted); font-size:.86rem; margin:0 0 18px}
+  .sub{color:var(--muted); font-size:.86rem; margin:0 0 20px}
 
-  /* ---- card grid ---- */
+  /* ---- card grid (放大＋精緻版) ---- */
   .grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:6mm;
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:9mm;
     justify-items:center;
   }
   .card{
-    width:60mm; height:85mm; border:1.5px dashed #9fb8bf; border-radius:5mm;
-    padding:5mm; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; background:#fff; break-inside:avoid; page-break-inside:avoid;
+    width:78mm; height:112mm; border-radius:7mm;
+    break-inside:avoid; page-break-inside:avoid;
     position:relative; overflow:hidden;
+    box-shadow:0 3mm 6mm rgba(14,50,66,.22);
   }
-  .card .tag{
-    position:absolute; top:4mm; left:0; right:0; text-align:center;
-    font-weight:900; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
-    color:rgba(255,255,255,.85);
+  /* 外框＋內框，雙線裝飾邊 */
+  .card::before{
+    content:""; position:absolute; inset:3mm; border:.5mm solid rgba(255,255,255,.55);
+    border-radius:5mm; pointer-events:none;
   }
-  .card .icon{font-size:2.6rem; line-height:1; margin-bottom:3mm}
-  .card .en{font-weight:900; font-size:1.35rem; letter-spacing:.03em; color:#fff}
-  .card .zh{font-weight:700; font-size:1.05rem; margin-top:2mm; color:#fff}
-  .card .wave{
-    position:absolute; bottom:0; left:0; right:0; height:14mm;
-    background:rgba(255,255,255,.16);
-    clip-path:path('M0,14 C 15,4 25,20 40,10 C 55,0 65,16 80,8 L80,28 L0,28 Z');
+  .card::after{
+    content:""; position:absolute; inset:0; border-radius:7mm;
+    border:.6mm solid rgba(255,255,255,.28); pointer-events:none;
   }
-  .card .hk{
-    position:absolute; bottom:3mm; right:4mm; font-size:.58rem; font-weight:900;
-    color:rgba(255,255,255,.75); letter-spacing:.05em;
+  /* 底紋：斜向細波浪紋 */
+  .texture{
+    position:absolute; inset:0; opacity:.14;
+    background-image:repeating-linear-gradient(135deg, #fff 0 2px, transparent 2px 14px);
   }
 
-  .c-home{background:linear-gradient(160deg, var(--aqua), var(--aqua-deep))}
-  .c-school{background:linear-gradient(160deg, #4fb3d9, #1c7fa3)}
-  .c-friend{background:linear-gradient(160deg, #7fd0e0, #2e9ab8)}
-  .c-pray{background:linear-gradient(160deg, var(--pray), #5747b3)}
-  .c-care{background:linear-gradient(160deg, var(--care), #e0512e)}
-  .c-help{background:linear-gradient(160deg, var(--help), var(--aqua-deep))}
-  .c-invite{background:linear-gradient(160deg, var(--invite), #c98600)}
-  .c-share{background:linear-gradient(160deg, var(--share), #268049)}
+  .tag{
+    position:absolute; top:7mm; left:0; right:0; text-align:center; z-index:2;
+    font-weight:900; font-size:2.6mm; letter-spacing:.22em; text-transform:uppercase;
+    color:rgba(255,255,255,.92);
+  }
+  .medal{
+    position:absolute; top:20mm; left:50%; transform:translateX(-50%);
+    width:34mm; height:34mm; border-radius:50%;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 2mm 4mm rgba(0,0,0,.18), inset 0 0 0 .6mm rgba(255,255,255,.9);
+    display:flex; align-items:center; justify-content:center; z-index:2;
+  }
+  .medal svg{width:19mm; height:19mm}
+
+  .en{
+    position:absolute; top:58mm; left:0; right:0; text-align:center; z-index:2;
+    font-weight:900; font-size:6.4mm; letter-spacing:.04em; color:#fff;
+    text-shadow:0 .5mm 1mm rgba(0,0,0,.15);
+  }
+  .zh{
+    position:absolute; top:67mm; left:5mm; right:5mm; text-align:center; z-index:2;
+    font-weight:700; font-size:4.6mm; color:rgba(255,255,255,.96); line-height:1.35;
+  }
+
+  .footband{
+    position:absolute; bottom:0; left:0; right:0; height:20mm; z-index:1;
+    background:rgba(255,255,255,.14);
+    clip-path:path('M0,20 C 20,6 30,26 50,14 C 70,2 80,22 100,10 L100,40 L0,40 Z');
+  }
+  .corner-dot{position:absolute; width:1.6mm; height:1.6mm; border-radius:50%; background:rgba(255,255,255,.7); z-index:2}
+  .cd-tl{top:6.4mm; left:6.4mm} .cd-tr{top:6.4mm; right:6.4mm}
+  .cd-bl{bottom:6.4mm; left:6.4mm} .cd-br{bottom:6.4mm; right:6.4mm}
+
+  .hk{
+    position:absolute; bottom:6mm; left:0; right:0; text-align:center; z-index:2;
+    font-family:"Chewy","Noto Sans TC",cursive; font-size:4mm; letter-spacing:.05em;
+    color:rgba(255,255,255,.88);
+  }
+
+  .c-home{background:linear-gradient(160deg, #4fc3e0, #0e7f9c 70%)}
+  .c-school{background:linear-gradient(160deg, #5fb6dd, #1c6f96 70%)}
+  .c-friend{background:linear-gradient(160deg, #7fd0e0, #2687a8 70%)}
+  .c-pray{background:linear-gradient(160deg, #9b8fe8, #5747b3 70%)}
+  .c-care{background:linear-gradient(160deg, #ff9b7d, #e0512e 70%)}
+  .c-help{background:linear-gradient(160deg, #4fc3e0, #0e7f9c 70%)}
+  .c-invite{background:linear-gradient(160deg, #ffc55c, #c98600 70%)}
+  .c-share{background:linear-gradient(160deg, #6dcf94, #268049 70%)}
 
   /* ---- back (write-on) card ---- */
-  .card.back{background:#fff; border-color:#c9e3e8}
-  .card.back .wm{font-family:"Chewy","Noto Sans TC",cursive; color:var(--aqua-deep); font-size:1.05rem; margin-bottom:2mm}
-  .card.back .prompt{font-size:.78rem; color:var(--muted); font-weight:700; margin-bottom:5mm}
-  .card.back .lines{width:100%; flex:1; display:flex; flex-direction:column; justify-content:space-evenly}
-  .card.back .lines span{display:block; border-bottom:1px solid var(--line); height:1px; width:100%}
-  .card.back .foot{font-size:.68rem; color:var(--muted); margin-top:4mm}
+  .card.back{background:#fff; box-shadow:0 3mm 6mm rgba(14,50,66,.12)}
+  .card.back::before{border-color:var(--line)}
+  .card.back::after{border-color:var(--line)}
+  .card.back .wm{
+    position:absolute; top:14mm; left:0; right:0; text-align:center;
+    font-family:"Chewy","Noto Sans TC",cursive; color:var(--aqua-deep); font-size:6mm; z-index:2;
+  }
+  .card.back .prompt{
+    position:absolute; top:26mm; left:0; right:0; text-align:center;
+    font-size:3.6mm; color:var(--muted); font-weight:700; z-index:2;
+  }
+  .card.back .lines{
+    position:absolute; top:36mm; bottom:14mm; left:8mm; right:8mm; z-index:2;
+    display:flex; flex-direction:column; justify-content:space-evenly;
+  }
+  .card.back .lines span{display:block; border-bottom:.3mm solid var(--line); height:1px; width:100%}
+  .card.back .foot{
+    position:absolute; bottom:6mm; left:0; right:0; text-align:center;
+    font-size:3mm; color:var(--muted); z-index:2;
+  }
 
   footer.page-footer{text-align:center; margin-top:40px; color:var(--muted); font-size:.82rem}
   footer.page-footer a{color:var(--aqua-deep); font-weight:700; text-decoration:none}
@@ -94,10 +144,9 @@
     body{background:#fff !important}
     .wrap{max-width:none; padding:0}
     .printbtn, .howto, footer.page-footer{display:none}
-    .card{border-style:dashed}
     h2.section{break-before:page}
     h2.section:first-of-type{break-before:auto}
-    @page{size:A4; margin:12mm}
+    @page{size:A4; margin:10mm}
   }
 </style>
 </head>
@@ -107,16 +156,15 @@
   <div class="top">
     <div>
       <p class="eyebrow">Hope Kids 台中分部 · 10/4 闖關遊戲 · 關卡一</p>
-      <h1>任務卡／行動卡</h1>
+      <h1>任務卡／行動卡（精緻大圖版）</h1>
     </div>
     <button class="printbtn" onclick="window.print()">🖨️ 列印</button>
   </div>
 
   <div class="howto">
-    💡 <b>列印小提醒</b>：建議用 A4 厚磅紙（200g 以上）或印完護貝，沿虛線剪開。
-    「任務卡背面」是給孩子回家寫邀請的話用的，<b>建議單面列印任務卡正面即可</b>，
-    背面保留紙張原本的空白，或另外把下面「任務卡背面（寫字用）」那組印在任務卡背後。
-    行動卡只需要正面，不用印背面。
+    💡 <b>列印小提醒</b>：卡片尺寸放大到 78×112mm，每頁 2 張，建議用 A4 厚磅紙（200g 以上）或印完護貝，
+    沿卡片邊緣剪開即可（邊框本身就是裁切線）。「任務卡背面」是給孩子回家寫邀請話用的，
+    建議單面列印任務卡正面，背面另外印「任務卡背面（寫字用）」那組。行動卡只需要正面。
   </div>
 
   <h2 class="section">任務卡（正面）</h2>
@@ -136,37 +184,41 @@
 </div>
 
 <script>
+const ICONS = {
+  home: '<path d="M12 3.2 L3 11 H5.5 V20 H10 V14 H14 V20 H18.5 V11 H21 Z" fill="#0e7f9c"/>',
+  school: '<path d="M12 4 L22 9 L12 14 L2 9 Z" fill="#1c6f96"/><rect x="6" y="12.5" width="12" height="4" rx="1" fill="#1c6f96"/><line x1="19" y1="9" x2="19" y2="16" stroke="#1c6f96" stroke-width="1.4"/><circle cx="19" cy="17" r="1.3" fill="#1c6f96"/>',
+  friend: '<circle cx="8.3" cy="8" r="3" fill="#2687a8"/><circle cx="15.7" cy="8" r="3" fill="#2687a8"/><path d="M2.5 20 C2.5 15 5.2 13 8.3 13 C11.4 13 14.1 15 14.1 20 Z" fill="#2687a8"/><path d="M9.9 20 C9.9 15.4 12.4 13.3 15.3 13.3 C18.2 13.3 21.5 15.4 21.5 20 Z" fill="#2687a8" opacity=".85"/>',
+  pray: '<path d="M12 3 C9.5 8 9 15 11 21 C11.6 17 12 12 12 3 Z" fill="#5747b3"/><path d="M12 3 C14.5 8 15 15 13 21 C12.4 17 12 12 12 3 Z" fill="#5747b3" opacity=".8"/><path d="M6.5 6 C7 11 8.5 17 11 20.5 C9.5 16 8 10 8.6 5.6 Z" fill="#5747b3" opacity=".65"/><path d="M17.5 6 C17 11 15.5 17 13 20.5 C14.5 16 16 10 15.4 5.6 Z" fill="#5747b3" opacity=".65"/>',
+  care: '<path d="M12 21 C12 21 4 14 4 8.5 C4 5.5 6.5 3 9.5 3 C11 3 12 4 12 4 C12 4 13 3 14.5 3 C17.5 3 20 5.5 20 8.5 C20 14 12 21 12 21 Z" fill="#e0512e"/>',
+  help: '<circle cx="12" cy="12" r="9.2" fill="none" stroke="#0e7f9c" stroke-width="2.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="#0e7f9c" stroke-width="2.2"/><line x1="12" y1="2.8" x2="12" y2="8" stroke="#0e7f9c" stroke-width="2.2"/><line x1="12" y1="16" x2="12" y2="21.2" stroke="#0e7f9c" stroke-width="2.2"/><line x1="2.8" y1="12" x2="8" y2="12" stroke="#0e7f9c" stroke-width="2.2"/><line x1="16" y1="12" x2="21.2" y2="12" stroke="#0e7f9c" stroke-width="2.2"/>',
+  invite: '<rect x="2.5" y="5.5" width="19" height="13" rx="1.8" fill="#c98600"/><path d="M3.2 6.3 L12 13 L20.8 6.3" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>',
+  share: '<rect x="9.8" y="2" width="4.4" height="20" rx="1.4" fill="#268049"/><rect x="3" y="9" width="18" height="4.4" rx="1.4" fill="#268049"/>',
+};
+
 const DEST = [
-  {cls:"c-home", icon:"🏠", en:"HOME", zh:"家", n:6},
-  {cls:"c-school", icon:"🏫", en:"SCHOOL", zh:"學校", n:6},
-  {cls:"c-friend", icon:"👫", en:"FRIEND", zh:"朋友", n:6},
+  {cls:"c-home", icon:ICONS.home, en:"HOME", zh:"家", n:6},
+  {cls:"c-school", icon:ICONS.school, en:"SCHOOL", zh:"學校", n:6},
+  {cls:"c-friend", icon:ICONS.friend, en:"FRIEND", zh:"朋友", n:6},
 ];
 const ACTIONS = [
-  {cls:"c-pray", icon:"🙏", en:"PRAY", zh:"為他禱告"},
-  {cls:"c-care", icon:"💛", en:"CARE", zh:"主動關心"},
-  {cls:"c-help", icon:"🤝", en:"HELP", zh:"幫助他"},
-  {cls:"c-invite", icon:"📣", en:"INVITE", zh:"邀請他來 Hope Kids"},
-  {cls:"c-share", icon:"✝️", en:"SHARE", zh:"跟他分享耶穌"},
+  {cls:"c-pray", icon:ICONS.pray, en:"PRAY", zh:"為他禱告"},
+  {cls:"c-care", icon:ICONS.care, en:"CARE", zh:"主動關心"},
+  {cls:"c-help", icon:ICONS.help, en:"HELP", zh:"幫助他"},
+  {cls:"c-invite", icon:ICONS.invite, en:"INVITE", zh:"邀請他來<br>Hope Kids"},
+  {cls:"c-share", icon:ICONS.share, en:"SHARE", zh:"跟他分享耶穌"},
 ];
 
-function frontCard(d){
+function frontCard(d, tagLabel){
   return `<div class="card ${d.cls}">
-    <span class="tag">目的地</span>
-    <span class="icon">${d.icon}</span>
+    <div class="texture"></div>
+    <span class="corner-dot cd-tl"></span><span class="corner-dot cd-tr"></span>
+    <span class="corner-dot cd-bl"></span><span class="corner-dot cd-br"></span>
+    <span class="tag">${tagLabel}</span>
+    <div class="medal"><svg viewBox="0 0 24 24">${d.icon}</svg></div>
     <span class="en">${d.en}</span>
     <span class="zh">${d.zh}</span>
-    <span class="wave"></span>
-    <span class="hk">HOPE KIDS</span>
-  </div>`;
-}
-function actionCard(a){
-  return `<div class="card ${a.cls}">
-    <span class="tag">行動卡</span>
-    <span class="icon">${a.icon}</span>
-    <span class="en">${a.en}</span>
-    <span class="zh">${a.zh}</span>
-    <span class="wave"></span>
-    <span class="hk">HOPE KIDS</span>
+    <span class="footband"></span>
+    <span class="hk">Hope Kids</span>
   </div>`;
 }
 function backCard(){
@@ -179,13 +231,13 @@ function backCard(){
 }
 
 const destFront = document.getElementById("dest-front");
-DEST.forEach(d => { for (let i=0;i<d.n;i++) destFront.insertAdjacentHTML("beforeend", frontCard(d)); });
+DEST.forEach(d => { for (let i=0;i<d.n;i++) destFront.insertAdjacentHTML("beforeend", frontCard(d, "目的地")); });
 
 const destBack = document.getElementById("dest-back");
 for (let i=0;i<18;i++) destBack.insertAdjacentHTML("beforeend", backCard());
 
 const actionFront = document.getElementById("action-front");
-ACTIONS.forEach(a => { for (let i=0;i<2;i++) actionFront.insertAdjacentHTML("beforeend", actionCard(a)); });
+ACTIONS.forEach(a => { for (let i=0;i<2;i++) actionFront.insertAdjacentHTML("beforeend", frontCard(a, "行動卡")); });
 </script>
 </body>
 </html>
