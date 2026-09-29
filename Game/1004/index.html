@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 10/4 闖關遊戲 總覽：各關卡教案、服事夥伴與教材清單。">
+<title>10/4 闖關遊戲</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c3f52; --muted:#5c7d8c; --bg:#f2fbfc; --card:#ffffff; --line:#dcecef;
+    --aqua:#1fa6c9; --aqua-deep:#0e7f9c; --coral:#ff7a59;
+    --shadow:0 10px 26px rgba(31,166,201,.14);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; color:var(--ink); background:
+      radial-gradient(900px 420px at 50% -140px, #d9f4f8, transparent 72%), var(--bg);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    line-height:1.7; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:640px; margin:0 auto; padding:40px 20px 72px;}
+  .eyebrow{
+    font-weight:900; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--aqua-deep); margin:0 0 10px;
+  }
+  h1{
+    font-family:"Chewy","Noto Sans TC",cursive; font-weight:400;
+    font-size:clamp(2rem,7vw,2.7rem); margin:0 0 30px; color:var(--aqua-deep);
+    text-shadow:0 2px 0 rgba(14,127,156,.15);
+  }
+  .stations{display:grid; gap:12px}
+  .station{
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit;
+    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:16px 18px; box-shadow:var(--shadow);
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s;
+  }
+  .station:hover, .station:focus-visible{
+    transform:translateY(-2px); border-color:var(--aqua); outline:none;
+    box-shadow:0 16px 30px rgba(31,166,201,.22);
+  }
+  .num{
+    flex:none; width:42px; height:42px; border-radius:13px; background:var(--aqua);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:1.1rem;
+  }
+  .meta{flex:1; min-width:0}
+  .meta b{display:block; font-weight:700; font-size:1.02rem}
+  .meta span{display:block; color:var(--muted); font-size:.82rem; margin-top:2px}
+  .arw{color:var(--coral); font-size:1.15rem; font-weight:900; flex:none}
+  .pending{
+    background:transparent; border:1.5px dashed var(--line); box-shadow:none; color:var(--muted);
+  }
+  footer{text-align:center; margin-top:40px; color:var(--muted); font-size:.82rem}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="eyebrow">Hope Kids 台中分部</p>
+  <h1>10/4 闖關遊戲</h1>
+
+  <div class="stations">
+    <a class="station" href="station-1.html">
+      <span class="num">1</span>
+      <span class="meta"><b>遊戲ㄔㄨㄢˊHOPE</b><span>Joe、Anita、賴賴、奕瑄</span></span>
+      <span class="arw">↗</span>
+    </a>
+  </div>
+
+  <footer>其他關卡陸續加入中</footer>
+
+</div>
+</body>
+</html>

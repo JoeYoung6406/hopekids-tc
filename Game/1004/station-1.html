@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 10/4 闖關遊戲 關卡一：遊戲ㄔㄨㄢˊHOPE，吹紙船闖關傳遞 Hope 的水池遊戲教案。">
+<title>關卡一｜遊戲ㄔㄨㄢˊHOPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffc33b; --sun-deep:#f2a900; --ink:#1c3f52; --muted:#5c7d8c;
+    --bg:#f2fbfc; --card:#ffffff; --line:#dcecef;
+    --aqua:#1fa6c9; --aqua-deep:#0e7f9c; --coral:#ff7a59;
+    --shadow:0 10px 26px rgba(31,166,201,.14);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; color:var(--ink); background:
+      radial-gradient(900px 420px at 50% -140px, #d9f4f8, transparent 72%), var(--bg);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:720px; margin:0 auto; padding:40px 20px 72px;}
+
+  .eyebrow{
+    font-weight:900; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--aqua-deep); margin:0 0 10px;
+  }
+  h1{
+    font-family:"Chewy","Noto Sans TC",cursive; font-weight:400;
+    font-size:clamp(2rem,7vw,2.9rem); line-height:1.15; margin:0 0 14px;
+    color:var(--aqua-deep); text-shadow:0 2px 0 rgba(14,127,156,.15);
+  }
+  .crew{
+    display:flex; flex-wrap:wrap; gap:8px; margin:0 0 28px;
+  }
+  .crew span{
+    background:var(--card); border:1.5px solid var(--line); border-radius:999px;
+    padding:5px 14px; font-weight:700; font-size:.88rem; box-shadow:var(--shadow);
+  }
+
+  .timebar{
+    display:flex; flex-wrap:wrap; gap:0; margin:0 0 36px;
+    border-top:1.5px solid var(--line); border-bottom:1.5px solid var(--line);
+  }
+  .timebar .seg{
+    flex:1 1 auto; min-width:70px; padding:12px 14px; border-right:1.5px solid var(--line);
+  }
+  .timebar .seg:last-child{border-right:0}
+  .timebar dt{font-size:.72rem; color:var(--muted); font-weight:700; letter-spacing:.04em}
+  .timebar dd{margin:2px 0 0; font-weight:900; font-size:1.05rem; color:var(--aqua-deep)}
+
+  h2{
+    display:flex; align-items:center; gap:10px;
+    font-size:1.05rem; font-weight:900; margin:0 0 14px;
+  }
+  h2 .num{
+    flex:none; width:30px; height:30px; border-radius:50%;
+    background:var(--aqua); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:.9rem;
+  }
+  section.phase{margin-top:30px}
+  .phase-time{
+    display:inline-block; margin-left:auto; font-weight:900; color:var(--coral);
+    font-size:.85rem; background:#fff0ea; padding:3px 11px; border-radius:999px;
+  }
+  .phase-head{display:flex; align-items:center; gap:10px; margin-bottom:14px}
+
+  .card{
+    background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+    padding:16px 18px; box-shadow:var(--shadow); margin-bottom:12px;
+  }
+  .card b.who{display:block; font-size:.95rem; margin-bottom:4px; color:var(--aqua-deep)}
+  .card p{margin:0}
+
+  ul.rules{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+  ul.rules li{
+    background:var(--card); border:1.5px solid var(--line); border-radius:14px;
+    padding:14px 16px; box-shadow:var(--shadow);
+  }
+  ul.rules b{display:block; font-size:.95rem; margin-bottom:3px}
+  ul.rules .note{color:var(--muted); font-size:.85rem; margin-top:4px}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+  .chip{
+    font-weight:900; font-size:.82rem; padding:5px 12px; border-radius:999px;
+    color:#fff; white-space:nowrap;
+  }
+  .chip.pray{background:#7b6cd9} .chip.care{background:#ff7a59}
+  .chip.help{background:#1fa6c9} .chip.invite{background:#f2a900}
+  .chip.share{background:#3fae6a}
+
+  .message{
+    margin-top:14px; padding:18px 20px; border-left:4px solid var(--coral);
+    background:#fff7f3; border-radius:0 14px 14px 0; font-weight:700;
+  }
+
+  table.materials{width:100%; border-collapse:collapse; margin-top:4px}
+  table.materials td{
+    padding:12px 10px; border-bottom:1px solid var(--line); vertical-align:top; font-size:.94rem;
+  }
+  table.materials td.n{
+    width:28px; font-weight:900; color:var(--aqua-deep); text-align:center;
+  }
+  table.materials tr:last-child td{border-bottom:0}
+
+  footer{text-align:center; margin-top:48px; color:var(--muted); font-size:.82rem}
+  footer a{color:var(--aqua-deep); font-weight:700; text-decoration:none}
+
+  @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="eyebrow">Hope Kids 台中分部 · 10/4 闖關遊戲 · 關卡一</p>
+  <h1>遊戲ㄔㄨㄢˊHOPE</h1>
+  <div class="crew">
+    <span>👤 Joe</span><span>👤 Anita</span><span>👤 賴賴</span><span>👤 奕瑄</span>
+  </div>
+
+  <dl class="timebar">
+    <div class="seg"><dt>前情提要</dt><dd>3 分</dd></div>
+    <div class="seg"><dt>規則講解</dt><dd>3 分</dd></div>
+    <div class="seg"><dt>遊戲進行</dt><dd>6 分</dd></div>
+    <div class="seg"><dt>對焦主題</dt><dd>3 分</dd></div>
+  </dl>
+
+  <section class="phase">
+    <div class="phase-head">
+      <h2><span class="num">1</span>前情提要</h2>
+      <span class="phase-time">3 min</span>
+    </div>
+    <div class="card">
+      <p>孩子來到關卡，簡單介紹前情提要：耶穌透過太監把信息（Hope）傳回原本來的地方，讓孩子理解傳福音的重要性，以及想像若是自己也可以怎麼做出傳福音的方式。</p>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <h2><span class="num">2</span>遊戲規則講解</h2>
+      <span class="phase-time">3 min</span>
+    </div>
+    <ul class="rules">
+      <li>
+        <b>小班</b>
+        抽目的卡：家 Home、學校 School、朋友 Friend，將紙船用吸管吹到目的地。
+        <div class="note">延伸：加入小積木作為路途障礙物，加深遊戲難度。</div>
+      </li>
+      <li>
+        <b>大班</b>
+        遊戲當中額外抽取行動卡，加深遊戲內容：
+        <div class="chips">
+          <span class="chip pray">PRAY｜為他禱告</span>
+          <span class="chip care">CARE｜主動關心</span>
+          <span class="chip help">HELP｜幫助他</span>
+          <span class="chip invite">INVITE｜邀請他來 Hope Kids</span>
+          <span class="chip share">SHARE｜跟他分享耶穌</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <h2><span class="num">3</span>遊戲進行</h2>
+      <span class="phase-time">6 min</span>
+    </div>
+    <div class="card">
+      <p>各老師協助孩子遵守規則秩序。</p>
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <h2><span class="num">4</span>對焦主題</h2>
+      <span class="phase-time">3 min</span>
+    </div>
+    <div class="message">
+      我們可以像太監一樣，將 Hope 透過很多方式傳給身邊的人。可以把任務卡拿走，回家後在背面寫上給那位朋友的一句話，邀請他來到教會接受福音。
+    </div>
+  </section>
+
+  <section class="phase">
+    <div class="phase-head">
+      <h2><span class="num">📦</span>教材清單</h2>
+    </div>
+    <table class="materials">
+      <tr><td class="n">1</td><td>大型淺水池（需 3–5 公分水深）</td></tr>
+      <tr><td class="n">2</td><td>紙船 × 6（底部蠟筆或膠帶增加防水性，中間需可放置行動卡）</td></tr>
+      <tr><td class="n">3</td><td>任務卡（大於孩子人數；目的地：家、學校、朋友。背面可印 Hope Kids 字樣，讓孩子當作邀請卡片邀請朋友）</td></tr>
+      <tr><td class="n">4</td><td>行動卡各 2 張（PRAY、CARE、HELP、INVITE、SHARE）</td></tr>
+      <tr><td class="n">5</td><td>粗吸管（大於孩子人數）</td></tr>
+      <tr><td class="n">6</td><td>小積木 or 乒乓球數個（水中障礙物）</td></tr>
+      <tr><td class="n">7</td><td>膠帶（固定字卡，貼在水池角落）</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    <a href="index.html">← 回 10/4 闖關遊戲總覽</a>
+  </footer>
+
+</div>
+</body>
+</html>
