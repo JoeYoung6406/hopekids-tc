@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教材清單｜關卡一 遊戲ㄔㄨㄢˊHOPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c3f52; --muted:#5c7d8c; --bg:#f2fbfc; --card:#ffffff; --line:#c9e3e8;
+    --aqua:#1fa6c9; --aqua-deep:#0e7f9c; --coral:#ff7a59;
+    --shadow:0 10px 26px rgba(31,166,201,.14);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; color:var(--ink); background:
+      radial-gradient(900px 420px at 50% -140px, #d9f4f8, transparent 72%), var(--bg);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:680px; margin:0 auto; padding:36px 24px 56px;}
+
+  .top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:8px}
+  .eyebrow{font-weight:900; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--aqua-deep); margin:0 0 6px}
+  h1{font-family:"Chewy","Noto Sans TC",cursive; font-weight:400; font-size:clamp(1.7rem,6vw,2.2rem); margin:0; color:var(--aqua-deep)}
+  .printbtn{
+    flex:none; border:0; border-radius:999px; background:var(--coral); color:#fff;
+    font-weight:900; font-size:.9rem; padding:10px 20px; cursor:pointer;
+    box-shadow:0 6px 16px rgba(255,122,89,.35);
+  }
+  .printbtn:hover{background:#ff6640}
+
+  .fillrow{display:flex; flex-wrap:wrap; gap:24px; margin:22px 0 28px; font-size:.92rem; color:var(--muted)}
+  .fillrow .f{display:flex; align-items:center; gap:8px}
+  .fillrow .line{display:inline-block; width:140px; border-bottom:1.5px solid var(--line); height:1.3em}
+
+  table.list{width:100%; border-collapse:collapse}
+  table.list th{
+    text-align:left; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted); font-weight:900; padding:0 10px 10px; border-bottom:2px solid var(--ink);
+  }
+  table.list th.c{text-align:center}
+  table.list td{
+    padding:14px 10px; border-bottom:1px solid var(--line); font-size:.98rem; vertical-align:top;
+  }
+  table.list td.n{width:26px; font-weight:900; color:var(--aqua-deep); text-align:center}
+  table.list td.qty{width:64px; text-align:center; color:var(--muted)}
+  table.list td.box{width:34px; text-align:center}
+  .box .sq{
+    display:inline-block; width:20px; height:20px; border:2px solid var(--ink); border-radius:5px;
+  }
+  table.list td.item b{display:block; font-weight:700}
+  table.list td.item span{display:block; color:var(--muted); font-size:.84rem; margin-top:3px}
+
+  .note{
+    margin-top:24px; padding:14px 16px; border-left:4px solid var(--aqua);
+    background:#eaf8fb; border-radius:0 12px 12px 0; font-size:.9rem; color:var(--ink);
+  }
+
+  footer{text-align:center; margin-top:36px; color:var(--muted); font-size:.8rem}
+  footer a{color:var(--aqua-deep); font-weight:700; text-decoration:none}
+
+  @media print{
+    body{background:#fff !important}
+    .page{max-width:none; padding:0}
+    .printbtn{display:none}
+    table.list td, table.list th{padding:9px 6px}
+    .note{background:#fff; border-left-color:#000}
+    footer{display:none}
+    @page{margin:16mm}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div>
+      <p class="eyebrow">Hope Kids 台中分部 · 10/4 闖關遊戲 · 關卡一</p>
+      <h1>教材採買清單</h1>
+    </div>
+    <button class="printbtn" onclick="window.print()">🖨️ 列印</button>
+  </div>
+
+  <div class="fillrow">
+    <span class="f">採買人：<span class="line"></span></span>
+    <span class="f">日期：<span class="line"></span></span>
+  </div>
+
+  <table class="list">
+    <tr>
+      <th class="c">#</th>
+      <th>教材</th>
+      <th class="c">數量</th>
+      <th class="c">✓</th>
+    </tr>
+    <tr>
+      <td class="n">1</td>
+      <td class="item"><b>大型淺水池</b><span>需 3–5 公分水深</span></td>
+      <td class="qty">1 個</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">2</td>
+      <td class="item"><b>紙船</b><span>底部用蠟筆或膠帶增加防水性，中間需可放置行動卡</span></td>
+      <td class="qty">6 艘</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">3</td>
+      <td class="item"><b>任務卡</b><span>目的地：家／學校／朋友；背面可印 Hope Kids 字樣當邀請卡</span></td>
+      <td class="qty">＞孩子人數</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">4</td>
+      <td class="item"><b>行動卡</b><span>PRAY、CARE、HELP、INVITE、SHARE 各 2 張</span></td>
+      <td class="qty">10 張</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">5</td>
+      <td class="item"><b>粗吸管</b><span>吹紙船用</span></td>
+      <td class="qty">＞孩子人數</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">6</td>
+      <td class="item"><b>小積木 or 乒乓球</b><span>作為水中障礙物</span></td>
+      <td class="qty">數個</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+    <tr>
+      <td class="n">7</td>
+      <td class="item"><b>膠帶</b><span>固定字卡，貼在水池角落</span></td>
+      <td class="qty">1 捲</td>
+      <td class="box"><span class="sq"></span></td>
+    </tr>
+  </table>
+
+  <div class="note">💧 提醒：水池需提前裝水，建議活動前 30 分鐘就位，讓水溫穩定、紙船防水處理有時間陰乾。</div>
+
+  <footer><a href="station-1.html">← 回關卡一教案</a></footer>
+
+</div>
+</body>
+</html>
