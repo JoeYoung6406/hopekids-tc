@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卡片列印｜關卡一 遊戲ㄔㄨㄢˊHOPE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c3f52; --muted:#5c7d8c; --bg:#f2fbfc; --line:#c9e3e8;
+    --aqua:#1fa6c9; --aqua-deep:#0e7f9c; --coral:#ff7a59;
+    --pray:#7b6cd9; --care:#ff7a59; --help:#1fa6c9; --invite:#f2a900; --share:#3fae6a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:32px 20px 64px;}
+
+  .top{display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:6px}
+  .eyebrow{font-weight:900; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--aqua-deep); margin:0 0 6px}
+  h1{font-family:"Chewy","Noto Sans TC",cursive; font-weight:400; font-size:clamp(1.7rem,6vw,2.2rem); margin:0; color:var(--aqua-deep)}
+  .printbtn{
+    flex:none; border:0; border-radius:999px; background:var(--coral); color:#fff;
+    font-weight:900; font-size:.9rem; padding:10px 20px; cursor:pointer;
+    box-shadow:0 6px 16px rgba(255,122,89,.35);
+  }
+  .howto{
+    margin:20px 0 34px; padding:14px 16px; border-left:4px solid var(--aqua);
+    background:#eaf8fb; border-radius:0 12px 12px 0; font-size:.88rem; line-height:1.7;
+  }
+  .howto b{color:var(--aqua-deep)}
+
+  h2.section{
+    font-size:1.1rem; font-weight:900; margin:40px 0 4px; padding-bottom:8px;
+    border-bottom:2px solid var(--ink);
+  }
+  .sub{color:var(--muted); font-size:.86rem; margin:0 0 18px}
+
+  /* ---- card grid ---- */
+  .grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:6mm;
+    justify-items:center;
+  }
+  .card{
+    width:60mm; height:85mm; border:1.5px dashed #9fb8bf; border-radius:5mm;
+    padding:5mm; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; background:#fff; break-inside:avoid; page-break-inside:avoid;
+    position:relative; overflow:hidden;
+  }
+  .card .tag{
+    position:absolute; top:4mm; left:0; right:0; text-align:center;
+    font-weight:900; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+    color:rgba(255,255,255,.85);
+  }
+  .card .icon{font-size:2.6rem; line-height:1; margin-bottom:3mm}
+  .card .en{font-weight:900; font-size:1.35rem; letter-spacing:.03em; color:#fff}
+  .card .zh{font-weight:700; font-size:1.05rem; margin-top:2mm; color:#fff}
+  .card .wave{
+    position:absolute; bottom:0; left:0; right:0; height:14mm;
+    background:rgba(255,255,255,.16);
+    clip-path:path('M0,14 C 15,4 25,20 40,10 C 55,0 65,16 80,8 L80,28 L0,28 Z');
+  }
+  .card .hk{
+    position:absolute; bottom:3mm; right:4mm; font-size:.58rem; font-weight:900;
+    color:rgba(255,255,255,.75); letter-spacing:.05em;
+  }
+
+  .c-home{background:linear-gradient(160deg, var(--aqua), var(--aqua-deep))}
+  .c-school{background:linear-gradient(160deg, #4fb3d9, #1c7fa3)}
+  .c-friend{background:linear-gradient(160deg, #7fd0e0, #2e9ab8)}
+  .c-pray{background:linear-gradient(160deg, var(--pray), #5747b3)}
+  .c-care{background:linear-gradient(160deg, var(--care), #e0512e)}
+  .c-help{background:linear-gradient(160deg, var(--help), var(--aqua-deep))}
+  .c-invite{background:linear-gradient(160deg, var(--invite), #c98600)}
+  .c-share{background:linear-gradient(160deg, var(--share), #268049)}
+
+  /* ---- back (write-on) card ---- */
+  .card.back{background:#fff; border-color:#c9e3e8}
+  .card.back .wm{font-family:"Chewy","Noto Sans TC",cursive; color:var(--aqua-deep); font-size:1.05rem; margin-bottom:2mm}
+  .card.back .prompt{font-size:.78rem; color:var(--muted); font-weight:700; margin-bottom:5mm}
+  .card.back .lines{width:100%; flex:1; display:flex; flex-direction:column; justify-content:space-evenly}
+  .card.back .lines span{display:block; border-bottom:1px solid var(--line); height:1px; width:100%}
+  .card.back .foot{font-size:.68rem; color:var(--muted); margin-top:4mm}
+
+  footer.page-footer{text-align:center; margin-top:40px; color:var(--muted); font-size:.82rem}
+  footer.page-footer a{color:var(--aqua-deep); font-weight:700; text-decoration:none}
+
+  @media print{
+    body{background:#fff !important}
+    .wrap{max-width:none; padding:0}
+    .printbtn, .howto, footer.page-footer{display:none}
+    .card{border-style:dashed}
+    h2.section{break-before:page}
+    h2.section:first-of-type{break-before:auto}
+    @page{size:A4; margin:12mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div>
+      <p class="eyebrow">Hope Kids 台中分部 · 10/4 闖關遊戲 · 關卡一</p>
+      <h1>任務卡／行動卡</h1>
+    </div>
+    <button class="printbtn" onclick="window.print()">🖨️ 列印</button>
+  </div>
+
+  <div class="howto">
+    💡 <b>列印小提醒</b>：建議用 A4 厚磅紙（200g 以上）或印完護貝，沿虛線剪開。
+    「任務卡背面」是給孩子回家寫邀請的話用的，<b>建議單面列印任務卡正面即可</b>，
+    背面保留紙張原本的空白，或另外把下面「任務卡背面（寫字用）」那組印在任務卡背後。
+    行動卡只需要正面，不用印背面。
+  </div>
+
+  <h2 class="section">任務卡（正面）</h2>
+  <p class="sub">小班遊戲用，抽卡決定紙船要吹去的目的地。每種建議至少 6 張，依孩子人數增減。</p>
+  <div class="grid" id="dest-front"></div>
+
+  <h2 class="section">任務卡（背面・寫字用）</h2>
+  <p class="sub">三種目的地共用同一款背面，孩子帶回家後在此寫一句話邀請朋友。</p>
+  <div class="grid" id="dest-back"></div>
+
+  <h2 class="section">行動卡</h2>
+  <p class="sub">大班遊戲用，過程中額外抽取，加深遊戲內容。每種 2 張，共 10 張。</p>
+  <div class="grid" id="action-front"></div>
+
+  <footer class="page-footer"><a href="station-1.html">← 回關卡一教案</a></footer>
+
+</div>
+
+<script>
+const DEST = [
+  {cls:"c-home", icon:"🏠", en:"HOME", zh:"家", n:6},
+  {cls:"c-school", icon:"🏫", en:"SCHOOL", zh:"學校", n:6},
+  {cls:"c-friend", icon:"👫", en:"FRIEND", zh:"朋友", n:6},
+];
+const ACTIONS = [
+  {cls:"c-pray", icon:"🙏", en:"PRAY", zh:"為他禱告"},
+  {cls:"c-care", icon:"💛", en:"CARE", zh:"主動關心"},
+  {cls:"c-help", icon:"🤝", en:"HELP", zh:"幫助他"},
+  {cls:"c-invite", icon:"📣", en:"INVITE", zh:"邀請他來 Hope Kids"},
+  {cls:"c-share", icon:"✝️", en:"SHARE", zh:"跟他分享耶穌"},
+];
+
+function frontCard(d){
+  return `<div class="card ${d.cls}">
+    <span class="tag">目的地</span>
+    <span class="icon">${d.icon}</span>
+    <span class="en">${d.en}</span>
+    <span class="zh">${d.zh}</span>
+    <span class="wave"></span>
+    <span class="hk">HOPE KIDS</span>
+  </div>`;
+}
+function actionCard(a){
+  return `<div class="card ${a.cls}">
+    <span class="tag">行動卡</span>
+    <span class="icon">${a.icon}</span>
+    <span class="en">${a.en}</span>
+    <span class="zh">${a.zh}</span>
+    <span class="wave"></span>
+    <span class="hk">HOPE KIDS</span>
+  </div>`;
+}
+function backCard(){
+  return `<div class="card back">
+    <span class="wm">Hope Kids</span>
+    <span class="prompt">給 ______ 的一句話</span>
+    <span class="lines"><span></span><span></span><span></span><span></span><span></span></span>
+    <span class="foot">— 邀請他一起來認識 Hope！</span>
+  </div>`;
+}
+
+const destFront = document.getElementById("dest-front");
+DEST.forEach(d => { for (let i=0;i<d.n;i++) destFront.insertAdjacentHTML("beforeend", frontCard(d)); });
+
+const destBack = document.getElementById("dest-back");
+for (let i=0;i<18;i++) destBack.insertAdjacentHTML("beforeend", backCard());
+
+const actionFront = document.getElementById("action-front");
+ACTIONS.forEach(a => { for (let i=0;i<2;i++) actionFront.insertAdjacentHTML("beforeend", actionCard(a)); });
+</script>
+</body>
+</html>
