@@ -115,26 +115,31 @@
   .c-invite{background:linear-gradient(160deg, #ffc55c, #c98600 70%)}
   .c-share{background:linear-gradient(160deg, #6dcf94, #268049 70%)}
 
-  /* ---- back (write-on) card ---- */
+  /* ---- back (預先印好邀請話，只留姓名空格) ---- */
   .card.back{background:#fff; box-shadow:0 3mm 6mm rgba(14,50,66,.12)}
   .card.back::before{border-color:var(--line)}
   .card.back::after{border-color:var(--line)}
   .card.back .wm{
-    position:absolute; top:14mm; left:0; right:0; text-align:center;
-    font-family:"Chewy","Noto Sans TC",cursive; color:var(--aqua-deep); font-size:6mm; z-index:2;
+    position:absolute; top:10mm; left:0; right:0; text-align:center;
+    font-family:"Chewy","Noto Sans TC",cursive; color:var(--aqua-deep); font-size:5.6mm; z-index:2;
   }
-  .card.back .prompt{
-    position:absolute; top:26mm; left:0; right:0; text-align:center;
-    font-size:3.6mm; color:var(--muted); font-weight:700; z-index:2;
+  .card.back .toline{
+    position:absolute; top:21mm; left:8mm; right:8mm; z-index:2;
+    font-size:3.4mm; color:var(--ink); font-weight:700;
   }
-  .card.back .lines{
-    position:absolute; top:36mm; bottom:14mm; left:8mm; right:8mm; z-index:2;
-    display:flex; flex-direction:column; justify-content:space-evenly;
+  .card.back .toline .blank{display:inline-block; min-width:26mm; border-bottom:.3mm solid var(--line)}
+  .card.back .msg{
+    position:absolute; top:31mm; left:8mm; right:8mm; bottom:22mm; z-index:2;
+    margin:0; font-size:3.7mm; line-height:1.85; color:var(--ink); font-weight:500;
   }
-  .card.back .lines span{display:block; border-bottom:.3mm solid var(--line); height:1px; width:100%}
+  .card.back .fromline{
+    position:absolute; bottom:12mm; left:8mm; right:8mm; text-align:right; z-index:2;
+    font-size:3.4mm; color:var(--ink); font-weight:700;
+  }
+  .card.back .fromline .blank{display:inline-block; min-width:20mm; border-bottom:.3mm solid var(--line)}
   .card.back .foot{
     position:absolute; bottom:6mm; left:0; right:0; text-align:center;
-    font-size:3mm; color:var(--muted); z-index:2;
+    font-size:2.8mm; color:var(--muted); z-index:2;
   }
 
   footer.page-footer{text-align:center; margin-top:40px; color:var(--muted); font-size:.82rem}
@@ -224,9 +229,16 @@ function frontCard(d, tagLabel){
 function backCard(){
   return `<div class="card back">
     <span class="wm">Hope Kids</span>
-    <span class="prompt">給 ______ 的一句話</span>
-    <span class="lines"><span></span><span></span><span></span><span></span><span></span></span>
-    <span class="foot">— 邀請他一起來認識 Hope！</span>
+    <span class="toline">致：<span class="blank">&nbsp;</span></span>
+    <p class="msg">嗨！我是 Hope Kids 的一份子。<br>
+      這裡有好玩的遊戲、<br>
+      好聽的故事，還有<br>
+      好多喜歡你的新朋友。<br><br>
+      我很想邀請你，<br>
+      禮拜天跟我一起來，<br>
+      一起認識這份 Hope！</p>
+    <span class="fromline">— <span class="blank">&nbsp;</span> 邀請你</span>
+    <span class="foot">Hope Kids 台中分部</span>
   </div>`;
 }
 
