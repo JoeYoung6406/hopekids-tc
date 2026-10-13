@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：撒母耳記上 18 – 撒母耳記下 2《不伸手》，主軸為害怕、克制、等候，含 15 幀分鏡台詞與 20 分鐘流程。">
+<title>不伸手｜撒上 18 – 撒下 2 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:22em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+/* ---------- 主軸鏈 ---------- */
+.axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;
+  padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
+.axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+
+.message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85}
+
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{display:grid;grid-template-columns:96px 104px 76px 1fr;gap:18px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.offering .key{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.06em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ember);
+  display:block;margin-bottom:10px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 反差對照 ---------- */
+.contrast{display:grid;gap:0}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.crow:first-child{border-top:1px solid var(--rule)}
+.crow p{margin:0;font-size:14.5px;line-height:1.8}
+.crow .said{color:var(--ink-3)}
+.crow .said b,.crow .truth b{display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.crow .said b{color:var(--ink-3)}
+.crow .truth b{color:var(--scarlet)}
+.crow .truth{color:var(--ink)}
+
+/* ---------- 帶走的話 ---------- */
+.takeaways{display:grid;gap:14px}
+.take{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:baseline;
+  padding:18px 24px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+.take span{font-family:var(--mono);font-size:13px;color:var(--ember)}
+.take p{font-family:var(--serif);font-size:17.5px;line-height:1.7;margin:0}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+  border-bottom:1px solid var(--rule-2)}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule)}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.axis-tag{border-color:var(--indigo);color:var(--indigo)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px}
+.guard{border-left:2px solid var(--scarlet);background:var(--surface-2);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
+.guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:80px 1fr;row-gap:4px}
+  .offering .key{grid-column:2}
+  .offering .q{grid-column:1/-1}
+  .crow{grid-template-columns:1fr;gap:12px}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note,.take{break-inside:avoid}
+}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+</style>
+</head>
+<body>
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.10.18</span>
+    <h1>不伸手</h1>
+    <p class="deck">撒母耳記上 18 – 撒母耳記下 2｜神掌權的等待：掃羅的追殺與大衛的登基</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>人數</dt><dd>20 人</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>經文</dt><dd>撒上 18 – 撒下 2</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>15 幀</dd></div>
+    </dl>
+
+    <div class="axis">
+      <em>本課主軸</em>
+      <b>害怕</b><i>→</i><b>克制</b><i>→</i><b>等候</b>
+    </div>
+
+    <p class="message">掃羅想靠自己的力量抓住王位，大衛卻學習不靠自己的方法奪取王位。<mark>因為神掌權，我不用靠傷害、報復或搶奪得到想要的；即使還在等待，我仍然可以相信神，選擇走對的路。</mark></p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 核心問題 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>核心問題</h2><span class="eyebrow">這十七章在講什麼</span></div>
+    <div class="prose">
+      <p class="verse key">這不是單純「好人 vs. 壞人」，也不是「只要忍耐，最後就會成功」的故事。<span class="src">10 月課程範例〈神掌權的等待〉</span></p>
+      <p style="margin-top:22px">真正的核心是：當掃羅想靠自己的力量抓住王位時，大衛卻學習不靠自己的方法奪取王位，而是在等待中相信神仍然掌權。大衛成為王是逐步發生的：<strong>撒上 16 章被膏立 → 18–30 章等待與逃亡 → 撒下 2 章作猶大王 → 撒下 5 章作全以色列王。</strong></p>
+      <p>課程範例給的正確方向是：<mark>信心不是忍耐到成功，而是相信神掌權，因此即使有理由、有機會，也不用靠搶奪、報復或控制得到神所應許的；等待中仍然可以求問、依靠神。</mark></p>
+    </div>
+  </section>
+
+  <!-- ============ 神與人 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>神的屬性與人的回應</h2><span class="eyebrow">取自課程範例四、五、六</span></div>
+    <div class="offerings">
+      <div class="offering">
+        <span class="name">神是掌權的</span><span class="ref">撒上 16 – 撒下 5</span><span class="key">屬性</span>
+        <span class="q">王位最終不是掃羅抓得住，也不是大衛搶得到的。<strong>真正決定王權的是神。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">神是信實的</span><span class="ref">撒上 16:13；撒下 2:4</span><span class="key">屬性</span>
+        <span class="q">神應許的事，不代表會立刻發生。<strong>從被膏立到作王，中間是很長的等待。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">神有祂的時間</span><span class="ref">撒上 26:9-11</span><span class="key">屬性</span>
+        <span class="q"><strong>神不只在乎結果，也在乎我們走向結果的方法。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">保守・帶領・成就</span><span class="ref">撒上 18 – 撒下 2</span><span class="key">作為</span>
+        <span class="q">大衛一次次被保守逃脫、一次次求問。<strong>最後不是大衛殺死掃羅。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">警覺・克制・等候</span><span class="ref">對應三節點</span><span class="key">回應</span>
+        <span class="q">留意自己是否因害怕而想抓住；有機會也不用錯的方法；<strong>把結果交給神，繼續走下一步。</strong></span>
+      </div>
+    </div>
+    <p style="margin-top:22px;color:var(--ink-2);font-size:14.5px;max-width:40em">15 張故事圖裡，幾乎每一張都看得到「手」：掃羅的手擲槍、下令；大衛的手只割衣角、擋住亞比篩、張開禱告。<strong>講故事時可以一直請孩子看「他的手在做什麼」。</strong></p>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>知道掃羅追殺大衛的起點是<strong>害怕失去</strong>，不只是嫉妒。</p>
+        <p>知道大衛兩次可以殺掃羅卻沒有動手（撒上 24、26）。</p>
+        <p>知道掃羅死後大衛先求問神，而且在撒下 2 章只作猶大的王。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p>別人被稱讚時，能辨認：<strong>「我是不是害怕自己不重要了？」</strong></p>
+        <p><strong>有機會做，不代表這件事就是對的。</strong></p>
+        <p>不報復，但會保護自己：離開、說「不要」、找可信任的大人。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>好的結果，也不能靠錯的方法得到。</mark></p>
+        <p><mark class="warm">不報復不等於不設界線。</mark></p>
+        <p>等待不是什麼都不做，而是在等待中繼續聽神、走下一步。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 三節點 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程三節點</h2><span class="eyebrow">取自課程範例二、三</span></div>
+    <div class="nodes">
+      <div class="node">
+        <span class="num">節點一 · 害怕｜撒上 18–20｜#01-05</span>
+        <h3>害怕使掃羅<br>想抓住、控制</h3>
+        <ul>
+          <li>路徑：<strong>害怕失去 → 嫉妒 → 想控制 → 傷害別人</strong>。</li>
+          <li>關鍵句：「大衛沒有攻擊掃羅，但掃羅卻開始把大衛當成敵人。」</li>
+          <li>結論：<strong>當我害怕失去時，我可能會開始用錯的方法保護自己。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點二 · 克制｜撒上 21–30｜#06-09</span>
+        <h3>大衛不靠錯的方法<br>搶奪</h3>
+        <ul>
+          <li>兩次重複：洞穴（24 章）與營中（26 章），<strong>有理由、有機會、有能力，仍然不動手</strong>。</li>
+          <li>關鍵句：「有機會做，不代表這件事情就是對的。」</li>
+          <li>結論：<strong>好的結果，也不能靠錯的方法得到。</strong></li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">節點三 · 等候｜撒上 31 – 撒下 2｜#10-15</span>
+        <h3>大衛繼續求問，<br>等神帶領</h3>
+        <ul>
+          <li>掃羅死了，大衛<strong>悲傷而不是高興</strong>；也沒有立刻自立為王，先求問神。</li>
+          <li>關鍵句：「大衛還在等候神下一步的帶領。」</li>
+          <li>結論：<strong>等待不是什麼都不做，而是在等待中繼續聽神、走下一步。</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2><span class="eyebrow">和合本 · 上課前請對照手邊譯本</span></div>
+    <div class="verses">
+      <p class="verse">從這日起，掃羅就怒視大衛。<span class="src">撒母耳記上 18:9</span></p>
+      <p class="verse key">願耶和華在你我中間判斷是非，在你身上為我伸冤，我卻不親手加害於你。<span class="src">撒母耳記上 24:12 · 課程範例關鍵經文</span></p>
+      <p class="verse">大衛對亞比篩說：「不可害死他；有誰伸手害耶和華的受膏者而無罪呢？」<span class="src">撒母耳記上 26:9</span></p>
+      <p class="verse">大衛卻倚靠耶和華他的神，心裡堅固。<span class="src">撒母耳記上 30:6</span></p>
+      <p class="verse">此後，大衛問耶和華說：「我上猶大的一個城去可以嗎？」<span class="src">撒母耳記下 2:1</span></p>
+      <p class="verse">他本有神的形像，不以自己與神同等為強奪的，反倒虛己……<span class="src">腓立比書 2:6-7 · 課程範例〈連結〉</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 教學界線 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>教學界線</h2><span class="eyebrow">課程範例列出的四個誤講方向</span></div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「只要耐心等待，最後就會成功。」</p></div>
+        <div class="truth"><b>正確方向</b><p>大衛作王是神救贖歷史中的特殊呼召，不能套成「你等一等就會得到你想要的」。<strong>即使結果還不知道，我們仍然可以選擇信靠神、走對的路。</strong></p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「基督徒被欺負都不能反抗。」</p></div>
+        <div class="truth"><b>正確方向</b><p>大衛沒有留下來讓掃羅一直攻擊，他逃跑，也保護自己。<mark class="warm">不報復不等於不設界線。</mark></p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「神把掃羅送給大衛殺。」</p></div>
+        <div class="truth"><b>正確方向</b><p>這是大衛身旁的人的解讀。故事正是要讓我們看見：<strong>一個看起來很好的機會，不一定代表神要我們這樣做。</strong></p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「大衛從來都不生氣，而且永遠做對。」</p></div>
+        <div class="truth"><b>正確方向</b><p>保留聖經對大衛複雜性的描述（21 章欺騙、25 章拿八、27 章投靠非利士人），<mark>這樣孩子最後信靠的對象才會是神，而不是大衛。</mark></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p><strong>節點一要講到「害怕」這一層。</strong>課程範例提醒：撒上 18 章多次提到掃羅懼怕大衛（18:12、15、29），嫉妒只是外面的表現，裡面是對失去權力、地位和控制的恐懼。對孩子來說，「他比我受歡迎，我是不是不重要了」比「嫉妒」更貼近，也比較不會被聽成是壞人才有的東西。</p>
+      <p><strong>節點二的重複是刻意的。</strong>洞穴（24 章）和營中（26 章）是同一個考題出兩次，兩次身邊都有人說「機會來了」。故事圖也給了兩張（#07、#09），請兩張都講。中間的 25 章（拿八與亞比該）沒有圖，我把它放在 #06 用口述帶過——課程範例的備課提醒要求不要把大衛講成完美的人，而 25 章正好說明：<mark>在同一段時間裡，大衛也差一點因憤怒動手，是被人攔下來的。</mark></p>
+      <p><strong>「耶和華的受膏者」需要小心講。</strong>大衛的意思是：掃羅的王位是神給的，所以結束它也是神的事，不是我用殺人來完成（26:10-11）。這不是在說「有權位的人不可以被質疑」——同一段敘事裡，約拿單公開違抗父親（19:4-5），大衛也當著眾人把掃羅做的事講出來（24:9-15）。台詞裡刻意不使用「受膏者」這個詞，改說「報仇不是我的工作」。</p>
+      <p><strong>節點三的重點是「還沒完」。</strong>撒下 2 章大衛只是猶大的王，北方仍有掃羅家的勢力，要到撒下 5 章才被全以色列承認。這一點讓第一條教學界線站得住：故事不是在保證「等久了就會成功」，而是在看一個人不知道結局時怎麼選。</p>
+      <p><strong>與耶穌的連結放在反思總結。</strong>課程範例第九段用腓立比書 2 章：耶穌本來與神同等，卻不以此為強奪的；祂可以用自己的能力脫離十字架，卻選擇順服父的時間。15 幀故事先讓大衛的敘事講完，最後三分鐘再接上。本課略過的段落：米甲的聘禮（18:20-27）、迦特裝瘋（21:10-15）、挪伯祭司被殺（22 章）、隱多珥（28 章）、報信者的下場（撒下 1:13-16）、押尼珥與約押的內戰（撒下 2:12-32）。</p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'00"</td><td class="unit">開場提問</td>
+          <td>
+            <ul>
+              <li>（課程範例〈生活應用〉第 1 題）「當別人比你受歡迎，或是你沒有被選上的時候，你心裡會怎麼想？」</li>
+              <li>讓幾個人講。老師可以先說一個自己的例子，孩子比較敢講。先不評論對錯。</li>
+              <li>接：「上禮拜大衛打贏了歌利亞。今天要看的是——有一個人因為這件事，心裡很不舒服。」</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:00</td><td class="dur">10'00"</td><td class="unit">經文故事<br><span class="mono" style="font-size:11px;color:var(--ink-3)">15 幀分鏡</span></td>
+          <td>
+            <ul>
+              <li>依序播放 15 張故事圖，台詞見下方，每幀標了時間預算與所屬節點。</li>
+              <li><strong>四個必停的互動點：</strong>#01（他在氣什麼）、#05（為什麼逃）、#07（如果是你）、#14（第一件事做什麼）。</li>
+              <li>來不及時砍 #02、#12（共省 60 秒）。<strong>#07 和 #08 不能砍。</strong></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">11:00</td><td class="dur">1'30"</td><td class="unit">遊戲規則</td>
+          <td>
+            <ul>
+              <li>遊戲：<strong>「衣角」</strong>。20 人分 4 組，每組發一條布條當衣角。</li>
+              <li>每組抽一張〈情境卡〉。討論 60 秒，交出<strong>三件事</strong>（對應害怕 → 克制 → 等候）：<br>
+                ① <strong>我在怕什麼？</strong>（怕失去什麼、怕自己不重要？誠實講）<br>
+                ② <strong>我「做得到」的是什麼？它是對的嗎？</strong><br>
+                ③ <strong>不伸手的話，我的手可以做什麼？</strong>（離開、說出來、找人、禱告、做該做的下一步）</li>
+              <li>上台 40 秒。三件都到，就把布條放到教室中央——意思是「我做得到，但我不做」。</li>
+              <li><mark class="warm">特別規則：抽到〈紅框卡〉的組，③ 一定要包含「離開」和「告訴一個可以信任的大人」。</mark></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">12:30</td><td class="dur">4'30"</td><td class="unit">遊戲進行</td>
+          <td>
+            <ul>
+              <li>情境卡（擇 4 張用，建議一定包含紅框卡；情境取自課程範例〈生活應用〉的三類例子）：
+                <ul>
+                  <li>你最好的朋友被老師稱讚，大家都圍著他，沒有人注意到你。</li>
+                  <li>選幹部你沒有被選上。有人告訴你當選那個人的一件糗事，講出去他會很丟臉。</li>
+                  <li>爸媽最近都在稱讚弟弟妹妹。今天他闖了一個禍，只有你看到。</li>
+                  <li>你很想玩的東西還沒輪到你。現在沒有人在看，你可以直接拿走。</li>
+                  <li>一直笑你的那個同學今天在全班面前出糗，大家都在笑，你也可以補一句。</li>
+                  <li><strong>〈紅框卡〉</strong>有一個比你大的人常常對你很兇、會弄痛你，你很怕他。</li>
+                </ul>
+              </li>
+              <li>老師每組只補問一句：<strong>「如果旁邊的人都說『沒關係啦，做啊』，你的答案會變嗎？」</strong>（對應大衛身邊的人）</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">17:00</td><td class="dur">3'00"</td><td class="unit">反思總結</td>
+          <td>
+            <ul>
+              <li><strong>「不報復」和「繼續待在他旁邊」是同一件事嗎？</strong>→ 回到 #05、#08：大衛逃了，也沒有跟掃羅回去。<mark class="warm">不報復不等於不設界線。</mark></li>
+              <li>大衛每一次都做對了嗎？（沒有，回到 #06）→ 所以我們最後信靠的不是大衛，是神。</li>
+              <li><strong>連結耶穌（課程範例第九段）：</strong>有一位真正的君王，本來與神同等，卻不用搶的。耶穌可以用自己的能力立刻離開十字架，祂卻選擇順服天父的時間。</li>
+              <li>所以最大的信心不是「我可以靠自己的方法提早討回公道」，而是：<mark>耶穌已經得勝，所以即使我還在等，我也可以選擇不搶奪、不報復，把時間交在天父手裡。</mark></li>
+              <li>指著中央那堆布條，全班一起唸三句：<strong>害怕時——不用抓住！受傷時——不用報復！等待時——仍然相信神！</strong></li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">道具：情境卡 ×6（其中一張紅框）、布條 ×4</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">15 幀 · 10:00</span></div>
+
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/01.jpg" alt="婦女打鼓撒花迎接大衛，掃羅騎在馬上臉色不悅">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:45</span><span class="tag star">★ 必停</span><span class="tag axis-tag">害怕</span></div>
+          <h3>一首歌</h3>
+          <p>大衛打敗歌利亞之後，又打了勝仗回來。城裡的婦女打著鼓出來唱：「掃羅殺死千千，大衛殺死萬萬！」</p>
+          <p>注意喔，這首歌<strong>有稱讚掃羅</strong>。可是你看馬上那個人的臉——他是掃羅王，他一點都不高興。</p>
+          <p class="ask">★ 掃羅明明也被稱讚了，他到底在氣什麼？</p>
+          <p>（等回答）他心裡在想的是：<strong>「如果大家都喜歡大衛，那我呢？我的王位會不會被他拿走？」</strong></p>
+          <p><mark>他不是氣「我沒有」，他是怕「我會失去」。</mark>聖經說，從這一天起，掃羅看大衛的眼光就變了。</p>
+          <p class="cite">撒母耳記上 18:6-9</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02.jpg" alt="大衛在士兵中間扶起同伴，掃羅遠遠站在山坡上看著">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:35</span><span class="tag">可略</span><span class="tag axis-tag">害怕</span></div>
+          <h3>他越做越好，掃羅越來越怕</h3>
+          <p>大衛有做錯什麼嗎？沒有。他照樣替掃羅打仗，每一次都做得很好，士兵喜歡他，百姓也喜歡他。</p>
+          <p>你看山坡上遠遠站著的那個人——掃羅一直在看。聖經在這一章說了好幾次：<strong>掃羅懼怕大衛。</strong></p>
+          <p><mark>大衛沒有攻擊掃羅，但掃羅卻開始把大衛當成敵人。</mark></p>
+          <p>記住這條路，等一下會一直看到：<strong>害怕失去 → 嫉妒 → 想控制 → 傷害別人。</strong></p>
+          <p class="cite">撒母耳記上 18:12-16, 28-30</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03.jpg" alt="掃羅從王座上擲出長槍，槍插進柱子，大衛抱著琴閃開">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:35</span><span class="tag axis-tag">害怕</span></div>
+          <h3>槍</h3>
+          <p>以前大衛是掃羅很喜歡的人，會彈琴給他聽。這一天大衛照樣在彈琴——掃羅手上拿著槍，丟了過去。</p>
+          <p>大衛躲開，槍插進柱子裡。而且不只一次。</p>
+          <p>你看，剛剛那條路走到最後一站了：<strong>一首歌，變成一個眼神，變成一把槍。</strong></p>
+          <p><mark>當我害怕失去的時候，我可能會開始用錯的方法保護自己。</mark></p>
+          <p class="cite">撒母耳記上 18:10-11；19:9-10</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04.jpg" alt="掃羅在王座上指著外面下令，約拿單站在一旁神情不安，大衛在遠處庭院">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:40</span><span class="tag axis-tag">害怕</span><span class="tag">約拿單</span></div>
+          <h3>王子站在另一邊</h3>
+          <p>槍沒丟中，掃羅乾脆下命令：叫所有的臣僕去殺大衛。</p>
+          <p>你看站在右邊那個年輕人。他是掃羅的兒子約拿單，是王子。照理說下一個王是他，最該怕大衛的人是他。</p>
+          <p>可是約拿單是大衛最好的朋友——他曾經把自己的王子外袍脫下來給大衛穿。這一天他對爸爸說：「大衛沒有得罪你，你為什麼要殺他？」然後偷偷去叫大衛快躲起來。</p>
+          <p><mark>同一件事，爸爸選擇握緊，兒子選擇放手。</mark></p>
+          <p class="cite">撒母耳記上 19:1-7；18:1-4</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05.jpg" alt="夜裡米甲用繩子把大衛從窗戶縋下城牆，巷子裡士兵舉著火把走來">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:35</span><span class="tag star">★ 必停</span><span class="tag axis-tag">害怕</span></div>
+          <h3>從窗戶下去</h3>
+          <p>掃羅派人半夜包圍大衛的家。大衛的太太米甲用繩子把他從窗戶縋下去。他逃了，從這一晚開始要逃很多年。</p>
+          <p class="ask">★ 大衛是打敗歌利亞的人。他為什麼不留下來跟掃羅打，而是逃走？</p>
+          <p>（等回答）因為他不要傷害掃羅——可是<strong>他也沒有留在那裡讓掃羅一直丟槍</strong>。</p>
+          <p><mark>不報復，不等於不保護自己。</mark>有人傷害你的時候，你可以離開、可以說「不要」、可以去告訴老師或爸媽。</p>
+          <p class="guard"><b>教學界線</b>「基督徒被欺負都不能反抗」是課程範例明列的誤講。大衛逃跑，也保護自己——這一句請照著講。</p>
+          <p class="cite">撒母耳記上 19:11-12</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06.jpg" alt="大衛帶著幾個人在曠野山壁間趕路，對面山脊上是掃羅的大隊軍兵">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:40</span><span class="tag axis-tag">克制</span></div>
+          <h3>曠野裡的大衛</h3>
+          <p>大衛躲進曠野，掃羅帶著軍隊在後面追——你看對面山上那一長排人。</p>
+          <p>這幾年大衛過得怎樣？老實說，不怎麼樣。他很害怕，為了拿到食物<strong>說過謊</strong>；有一次被人羞辱，他氣到帶著四百個人要去報仇，是一位叫亞比該的女士衝出來攔住他，他才停下來。</p>
+          <p>所以大衛不是從來不生氣、永遠做對的人。<strong>他會怕、會衝動、會犯錯。</strong></p>
+          <p>記住這一點，再看下一張——因為接下來這件事，他做對了。</p>
+          <p class="cite">撒母耳記上 21–23 章；25 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07.jpg" alt="山洞裡掃羅面向洞口站著，大衛蹲在他身後用小刀割下外袍一角，同伴在暗處屏息">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:55</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">克制</span><span class="tag">全課核心</span></div>
+          <h3>洞裡</h3>
+          <p>掃羅帶三千人追到隱基底，一個人走進山洞上廁所。他不知道——<strong>大衛和他的人就躲在洞的最裡面。</strong></p>
+          <p>大衛的朋友小聲說：「就是現在！把他殺掉，你就不用再逃了！而且你本來就會作王啊！」聽起來是不是很合理？</p>
+          <p class="ask">★ 有理由、有機會、也有能力——如果你是大衛，你會怎麼做？</p>
+          <p>（等回答）大衛悄悄過去，<strong>只割下掃羅外袍的一個角</strong>。連這樣，他事後心裡都很不安。</p>
+          <p><mark>有機會做，不代表這件事就是對的。</mark></p>
+          <p class="guard"><b>教學界線</b>「這是神把掃羅交給你」是大衛身邊的人說的，不是神說的。一個看起來很好的機會，不一定代表神要我們這樣做。</p>
+          <p class="cite">撒母耳記上 24:1-7</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08.jpg" alt="大衛站在洞外高舉一塊紅色布角，對面的掃羅和士兵停下來看著他">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:45</span><span class="tag">不可略</span><span class="tag axis-tag">克制</span><span class="tag">關鍵經文</span></div>
+          <h3>那一角布</h3>
+          <p>掃羅走出洞。大衛在後面喊他，舉起那一角布：「你看，我剛剛可以殺你，我沒有。」</p>
+          <p>然後他說了今天最重要的一節經文：<mark>「願耶和華在你我中間判斷，為我伸冤，我卻不親手加害於你。」</mark></p>
+          <p>意思是：誰對誰錯，神會處理。<strong>報仇不是我的工作。</strong></p>
+          <p>掃羅哭了，說「你比我公義」。可是你看最後——掃羅回家了，<strong>大衛沒有跟他回去</strong>，他回山上去了。不傷害他，不等於要回到他身邊。</p>
+          <p class="cite">撒母耳記上 24:8-22</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09.jpg" alt="夜裡掃羅熟睡，槍和水瓶在身旁，大衛伸手擋住指著掃羅的亞比篩">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:35</span><span class="tag axis-tag">克制</span></div>
+          <h3>又一次</h3>
+          <p>後來掃羅又來追。這天晚上掃羅睡著了，槍插在地上，水瓶在旁邊。大衛和亞比篩摸到他身邊。</p>
+          <p>亞比篩說：「讓我來，一下就好。」你看大衛的手——他擋住了。他只拿走槍和水瓶。</p>
+          <p><strong>同樣的考試考了第二次，他給了同樣的答案。</strong></p>
+          <p>大衛已經被選為王了，可是他沒有說「反正神選了我，我做什麼都可以」。<mark>好的結果，也不能靠錯的方法得到。</mark></p>
+          <p class="cite">撒母耳記上 26:7-12</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10.jpg" alt="大衛坐在山坡上仰頭張開雙手禱告，刀放在身旁地上，山下是營帳">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:40</span><span class="tag axis-tag">等候</span></div>
+          <h3>刀放在地上</h3>
+          <p>有一天大衛回到住的地方，發現城被燒了，家人被擄走，連跟隨他的人都氣到想拿石頭打他。這是他最慘的一天。</p>
+          <p>你看他在做什麼——刀放在地上，手是打開的。聖經說：<strong>「大衛卻倚靠耶和華他的神，心裡堅固。」</strong>然後他問神：「我該不該去追？」</p>
+          <p>等了這麼多年，什麼都還沒等到。<mark>等待的時候他沒有自己亂衝，他去問神。</mark>（後來，人全都救回來了。）</p>
+          <p class="cite">撒母耳記上 30:1-8, 18-19</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11.jpg" alt="基利波山上箭如雨下，掃羅持刀站立，約拿單舉盾護著受傷的士兵">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:30</span><span class="tag axis-tag">等候</span></div>
+          <h3>基利波山</h3>
+          <p>北邊的戰場上，以色列人和非利士人打仗，打輸了。掃羅死在戰場上，約拿單也是。</p>
+          <p>注意一件事：<strong>掃羅的王位不是被大衛拿走的。</strong>大衛兩次可以動手，兩次都沒有。</p>
+          <p>王位不是掃羅抓得住的，也不是大衛搶得來的。<mark>真正決定誰作王的，是神。</mark></p>
+          <p class="guard"><b>教學界線</b>只說「死在戰場上」，不描述死法。</p>
+          <p class="cite">撒母耳記上 31 章</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12.jpg" alt="一個人跪著把王冠和臂環捧到大衛面前，大衛掩口神情震驚">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:25</span><span class="tag">可略</span><span class="tag axis-tag">等候</span></div>
+          <h3>王冠送到他手上</h3>
+          <p>有個人從戰場跑來，把掃羅的王冠和臂環捧到大衛面前。他以為大衛會很高興。</p>
+          <p>追殺他這麼多年的人不在了，王冠就在眼前。<strong>你看大衛的表情——他高興嗎？</strong></p>
+          <p class="cite">撒母耳記下 1:1-10</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13.jpg" alt="大衛手握撕下的衣襟低頭站著，同伴掩面哀哭，石頭上放著王冠和一把弓">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">0:40</span><span class="tag axis-tag">等候</span></div>
+          <h3>他沒有歡呼</h3>
+          <p>大衛撕開自己的衣服，哭到晚上，跟他的人一起禁食。</p>
+          <p>他寫了一首歌，把掃羅和約拿單寫在一起：「英雄怎麼倒下了。」石頭上那把弓，是約拿單的。</p>
+          <p>他沒有說「活該」，也沒有說「太好了，終於」。</p>
+          <p><mark>受傷時不用報復——連敵人倒下的時候，他都沒有幸災樂禍。</mark></p>
+          <p class="cite">撒母耳記下 1:11-12, 17-27</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14.jpg" alt="大衛牽著驢走在前面，身後跟著家人和同伴，遠處是希伯崙城">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:45</span><span class="tag star">★ 必停</span><span class="tag axis-tag">等候</span></div>
+          <h3>先問，才出發</h3>
+          <p>王位空出來了。大衛已經等了好多年。</p>
+          <p class="ask">★ 敵人不在了，位子也空了。你猜大衛第一件事做什麼？</p>
+          <p>（等回答）他沒有衝出去宣布「現在我是王」。他<strong>先問神</strong>：「我可以上去嗎？」神說可以。「去哪裡？」「希伯崙。」</p>
+          <p>問完了，他才帶著家人和跟隨他的人出發。</p>
+          <p><mark>等待不是什麼都不做，是在等的時候繼續聽神、走下一步。</mark></p>
+          <p class="cite">撒母耳記下 2:1-3</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15.jpg" alt="希伯崙的長老把油倒在跪著的大衛頭上，百姓圍著歡喜觀看">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">0:55</span><span class="tag axis-tag">等候</span><span class="tag">收尾</span></div>
+          <h3>希伯崙</h3>
+          <p>希伯崙的人來了，把油倒在大衛頭上，立他作王。從放羊時被選上到這一天，他已經三十歲。</p>
+          <p>可是故事還沒完——現在只有猶大一個支派認他，他還要再等七年半，才成為全以色列的王。</p>
+          <p>所以這不是「忍一忍，最後就會成功」的故事。大衛在等的時候<strong>不知道</strong>結局，他只是每一次都選對的那條路。</p>
+          <p>他為什麼做得到？<mark>因為神掌權。所以我不用靠傷害、報復或搶奪得到想要的；就算還在等，我還是可以相信神，選擇走對的路。</mark></p>
+          <p>三句話帶回家：<strong>害怕時——不用抓住！受傷時——不用報復！等待時——仍然相信神！</strong></p>
+          <p class="cite">撒母耳記下 2:4, 8-11；5:4-5</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 給孩子的話 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給孩子的話</h2><span class="eyebrow">取自課程範例八、十一</span></div>
+    <div class="takeaways">
+      <div class="take"><span>01</span><p>害怕時——不用抓住！</p></div>
+      <div class="take"><span>02</span><p>受傷時——不用報復！</p></div>
+      <div class="take"><span>03</span><p>等待時——仍然相信神！</p></div>
+      <div class="take"><span>04</span><p>因為神掌權，我不用靠傷害、報復或搶奪得到想要的；即使還在等待，我仍然可以相信神，選擇走對的路。</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2><span class="eyebrow">含教材的教學界線</span></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>第 07 幀是全課的核心。</b>提問之後要真的等。孩子會分兩派，「他是壞人，應該殺」那一派請讓他們講完——那正是大衛朋友的立場，聽起來很合理。答案揭曉後回頭說一句：「你們剛剛講的，大衛的朋友也是這樣想的。」</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>第 08 幀不能砍，它帶著關鍵經文，也是第 07 幀的煞車。</b>最後一句「大衛沒有跟他回去」請照著講。只講「不親手加害」而不講這一句，孩子可能學到「別人對我不好，我只能忍」。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>「被欺負不能反抗」是課程範例明列的誤講（第 05 幀）。</b>大衛對危險的反應從頭到尾都是離開。如果班上有孩子正被大人或學長姐欺負，這一幀和遊戲的〈紅框卡〉是講給他聽的——紅框卡沒有「忍耐」這個選項。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>掃羅不要講成純粹的壞人（第 01-03 幀）。</b>課程範例開頭就說這不是「好人 vs. 壞人」。班上一定有孩子此刻就是掃羅的感受。請把它講成<b>一種需要被留意的害怕</b>，可以直接說：「這種感覺老師也有過。」</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>不要把結尾講成「等久了就會成功」（第 15 幀）。</b>這是課程範例的第一條界線。台詞用「他還要再等七年半」和「他在等的時候不知道結局」來擋，請不要為了收得漂亮而省略這兩句。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>大衛的錯要留著（第 06 幀）。</b>說謊和拿八兩件事沒有圖，只有口述，很容易被跳過。它們是讓孩子「最後信靠的對象是神而不是大衛」的關鍵。挪伯祭司被殺的後果這一課不講，孩子若追問說謊的結果，可以答：「有人因此受了很大的傷害，大衛後來承認是因為他。」</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>掃羅之死只說「死在戰場上」（第 11 幀）。</b>不描述自刎。若高年級孩子知道細節並當場說出來，簡短承認「對，經文是這樣寫的」，不延伸，也不對「這樣死的人會怎樣」下判斷，課後再個別談。第 12 幀同樣不講報信者後來被處死。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>約拿單只有第 04 幀有機會講。</b>圖裡站在右邊的年輕人可以當作他。重點是對比：他是唯一有資格跟大衛搶的人，卻選擇放手。第 11、13 幀提到他的死時，孩子才會有感覺。</p></div>
+      <div class="note"><span class="n mono">09</span><p><b>「惡魔從神那裡來」（18:10）不要主動打開。</b>台詞刻意略過。若孩子問，可以說：「聖經在描述掃羅的狀態越來越糟，這句話很難，大人也還在讀。」不要把掃羅的狀態講成精神疾病，也不要把精神疾病講成犯罪的結果。</p></div>
+      <div class="note"><span class="n mono">10</span><p><b>遊戲要壓住競爭感。</b>沒有輸贏、沒有計分，布條是全班一起堆的。第 ① 題「我在怕什麼」最難，孩子會想跳過直接講「正確答案」，請堅持先講 ①。</p></div>
+      <div class="note"><span class="n mono">11</span><p><b>時間快超過時的取捨順序：</b>先砍第 02、12 幀（共省 60 秒），再把遊戲上台組數從 4 組減到 3 組（紅框卡那組保留）。<b>不要砍第 07、08 幀，也不要砍反思總結裡連結耶穌的那一段。</b></p></div>
+      <div class="note"><span class="n mono">12</span><p><b>哪些是範例、哪些是我加的。</b>主軸、三節點、關鍵句、教學界線、給孩子的話、與耶穌的連結都取自 10 月課程範例。標題《不伸手》、「看他的手」的觀察角度、第 04 幀約拿單的對比、第 06 幀提到亞比該、遊戲「衣角」是依範例方向另外編的，可依需要調整。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 撒上 18 – 撒下 2 · 2026.10.18</span>
+    <span>害怕 → 克制 → 等候</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'samuel-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>
