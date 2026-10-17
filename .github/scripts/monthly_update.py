@@ -8,7 +8,7 @@
 資料來源：教材連結表，每月一個分頁（例如「十月份」），需維持「知道連結的人可檢視」
   https://docs.google.com/spreadsheets/d/1c-AOXwkfi-nXFNZnsHSaM35Azlshv9yUOKMYmoXkp1Q
   欄位：大／小班、日期（例：第二週 10/11）、聖經、教材 PPT、課程講義、故事圖、勞作素材
-  同一格「教材 PPT」有兩行連結時，依序為小班、大班（已用九月份分頁與實際連結核對）。
+  同一格「教材 PPT」有兩行連結時，依序為大班、小班（已用十月份分頁與使用者核對確認）。
 
 index.html 裡由本腳本管理的範圍：
   <!-- auto:slides ... --> … <!-- /auto:slides -->
@@ -38,7 +38,7 @@ from pathlib import Path
 SHEET_ID = "1c-AOXwkfi-nXFNZnsHSaM35Azlshv9yUOKMYmoXkp1Q"
 INDEX = Path(__file__).resolve().parents[2] / "index.html"
 KEEP_MONTHS = 3                      # 新月份 + 前兩個月
-PPT_ORDER = ["小班", "大班"]          # 同一格兩行連結的順序
+PPT_ORDER = ["大班", "小班"]          # 同一格兩行連結的順序
 TAIPEI = dt.timezone(dt.timedelta(hours=8))
 
 REGIONS = {
