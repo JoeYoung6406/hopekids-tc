@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>列印模板｜放下王冠 大班勞作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@700&display=swap">
+<style>
+  :root{ --ink:#1b1822; --mute:#7c7689; --rule:#cec9be; --ground:#ebe8e1; --ember:#b06410; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:"Noto Sans TC",-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+  .bar{max-width:820px;margin:0 auto;padding:28px 20px 8px}
+  .bar a{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;color:var(--mute);text-decoration:none}
+  .bar h1{font-family:"Noto Serif TC",serif;font-size:26px;margin:12px 0 10px}
+  .bar ol{margin:0 0 14px;padding-left:1.3em;font-size:14.5px;line-height:1.8;color:#4a4556}
+  .bar b{color:var(--ink)}
+  .bar button{border:0;border-radius:999px;background:var(--ember);color:#fff;font-size:14px;font-weight:700;padding:10px 22px;cursor:pointer}
+  .bar button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .sheets{overflow-x:auto;padding:16px 20px 60px}
+  .sheet{width:210mm;height:297mm;margin:18px auto;background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.15);
+    display:flex;align-items:center;justify-content:center;position:relative}
+  .sheet .lbl{position:absolute;top:6mm;left:12mm;font-family:"IBM Plex Mono",monospace;font-size:8.5pt;letter-spacing:.06em;color:var(--mute)}
+  svg text{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+  svg .serif{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:700}
+  svg .mono{font-family:"IBM Plex Mono",monospace}
+  @page{size:A4 portrait;margin:0}
+  @media print{
+    body{background:#fff}
+    .bar{display:none}
+    .sheets{padding:0;overflow:visible}
+    .sheet{margin:0;box-shadow:none;break-after:page;page-break-after:always}
+    .sheet:last-child{break-after:auto;page-break-after:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="./">← 回勞作教案</a>
+  <h1>放下王冠｜列印模板</h1>
+  <ol>
+    <li>共兩頁，都是 <b>A4 直向</b>。列印時縮放選 <b>「實際大小／100%」</b>，不要選「符合頁面」。</li>
+    <li><b>模板 1 印 200g 以上卡紙</b>（立牌本體），模板 2 印一般影印紙（口袋、小紙條、詞條）。</li>
+    <li>每位孩子各一張。實線剪、虛線摺；課前用沒水的原子筆先沿虛線壓一次。</li>
+  </ol>
+  <button type="button" onclick="window.print()">列印兩頁</button>
+</div>
+
+<div class="sheets">
+
+  <!-- ================= 模板 1：立牌本體 ================= -->
+  <div class="sheet">
+    <span class="lbl">模板 1｜立牌本體｜200g 卡紙</span>
+    <svg width="168mm" height="276mm" viewBox="0 0 168 276" role="img" aria-label="立牌本體：三個面板加黏貼邊，上緣王冠鋸齒">
+      <g transform="translate(168 0) rotate(90)">
+
+        <!-- 外框：王冠鋸齒＋黏貼邊 -->
+        <path d="M0 168 V28 L11 4 L22 28 L33 4 L44 28 L55 4 L66 28 L77 4 L88 28 L99 4 L110 28 L121 4 L132 28 L143 4 L154 28 L165 4 L176 28 L187 4 L198 28 L209 4 L220 28 L231 4 L242 28 L253 4 L264 28 L276 34 V162 L264 168 Z"
+              fill="none" stroke="#1b1822" stroke-width="0.5" stroke-linejoin="round"/>
+        <!-- 寶石 -->
+        <g fill="none" stroke="#1b1822" stroke-width="0.35">
+          <circle cx="11" cy="9.5" r="1.8"/><circle cx="33" cy="9.5" r="1.8"/><circle cx="55" cy="9.5" r="1.8"/><circle cx="77" cy="9.5" r="1.8"/>
+          <circle cx="99" cy="9.5" r="1.8"/><circle cx="121" cy="9.5" r="1.8"/><circle cx="143" cy="9.5" r="1.8"/><circle cx="165" cy="9.5" r="1.8"/>
+          <circle cx="187" cy="9.5" r="1.8"/><circle cx="209" cy="9.5" r="1.8"/><circle cx="231" cy="9.5" r="1.8"/><circle cx="253" cy="9.5" r="1.8"/>
+        </g>
+        <!-- 王冠帶 -->
+        <line x1="0" y1="32" x2="264" y2="32" stroke="#1b1822" stroke-width="0.3"/>
+        <!-- 摺線 -->
+        <g stroke="#7c7689" stroke-width="0.35" stroke-dasharray="2 1.6">
+          <line x1="88" y1="28" x2="88" y2="168"/>
+          <line x1="176" y1="28" x2="176" y2="168"/>
+          <line x1="264" y1="28" x2="264" y2="168"/>
+        </g>
+        <text x="270" y="98" font-size="2.6" fill="#7c7689" text-anchor="middle" transform="rotate(90 270 98)">雙面膠黏這裡</text>
+
+        <!-- ===== 第一面：祈求 ===== -->
+        <text class="mono" x="44" y="41" font-size="2.6" fill="#2b4577" text-anchor="middle" letter-spacing="0.4">01 · 祈求</text>
+        <text class="serif" x="44" y="53" font-size="8" text-anchor="middle">誰知道呢？</text>
+        <text x="44" y="59.5" font-size="2.5" fill="#7c7689" text-anchor="middle">撒母耳記下 12:22</text>
+        <text x="44" y="69" font-size="3.3" text-anchor="middle" font-weight="700">神啊，我真正希望的是……</text>
+        <text x="44" y="74.5" font-size="2.5" fill="#7c7689" text-anchor="middle">寫在小紙條上，摺好放進口袋</text>
+        <rect x="9" y="80" width="70" height="58" rx="1.5" fill="none" stroke="#cec9be" stroke-width="0.35" stroke-dasharray="1.5 1.2"/>
+        <text x="44" y="108" font-size="2.6" fill="#b7b1a6" text-anchor="middle">口袋黏這裡</text>
+        <text x="44" y="112.5" font-size="2.2" fill="#b7b1a6" text-anchor="middle">（只黏左、右、下三邊）</text>
+        <text class="serif" x="44" y="153" font-size="3.1" text-anchor="middle">難過的時候，</text>
+        <text class="serif" x="44" y="158" font-size="3.1" text-anchor="middle">我可以向神說真話。</text>
+
+        <!-- ===== 第二面：承認有限 ===== -->
+        <text class="mono" x="132" y="41" font-size="2.6" fill="#b06410" text-anchor="middle" letter-spacing="0.4">02 · 承認有限</text>
+        <text class="serif" x="132" y="53" font-size="6.8" text-anchor="middle">我能使他回來嗎？</text>
+        <text x="132" y="59.5" font-size="2.5" fill="#7c7689" text-anchor="middle">撒母耳記下 12:23</text>
+        <text x="111.5" y="69" font-size="3.2" font-weight="700" fill="#3f6b4f" text-anchor="middle">我可以做的</text>
+        <text x="152.5" y="69" font-size="3.2" font-weight="700" fill="#2b4577" text-anchor="middle">交給神的</text>
+        <line x1="132" y1="65" x2="132" y2="145" stroke="#cec9be" stroke-width="0.3"/>
+        <g fill="none" stroke="#cec9be" stroke-width="0.3" stroke-dasharray="1.2 1">
+          <rect x="93" y="73" width="37" height="9" rx="1"/><rect x="93" y="85" width="37" height="9" rx="1"/><rect x="93" y="97" width="37" height="9" rx="1"/>
+          <rect x="93" y="109" width="37" height="9" rx="1"/><rect x="93" y="121" width="37" height="9" rx="1"/><rect x="93" y="133" width="37" height="9" rx="1"/>
+          <rect x="134" y="73" width="37" height="9" rx="1"/><rect x="134" y="85" width="37" height="9" rx="1"/><rect x="134" y="97" width="37" height="9" rx="1"/>
+          <rect x="134" y="109" width="37" height="9" rx="1"/><rect x="134" y="121" width="37" height="9" rx="1"/><rect x="134" y="133" width="37" height="9" rx="1"/>
+        </g>
+        <text class="serif" x="132" y="153" font-size="3.1" text-anchor="middle">不是每件事都由我控制，</text>
+        <text class="serif" x="132" y="158" font-size="3.1" text-anchor="middle">不好的事不一定是我的錯。</text>
+
+        <!-- ===== 第三面：繼續 ===== -->
+        <text class="mono" x="220" y="41" font-size="2.6" fill="#3f6b4f" text-anchor="middle" letter-spacing="0.4">03 · 繼續</text>
+        <text class="serif" x="220" y="53" font-size="7" text-anchor="middle">起來・吃飯・敬拜</text>
+        <text x="220" y="59.5" font-size="2.5" fill="#7c7689" text-anchor="middle">撒母耳記下 12:20</text>
+        <g fill="none" stroke="#3f6b4f" stroke-width="0.4">
+          <circle cx="192" cy="71" r="6"/><circle cx="206" cy="71" r="6"/><circle cx="220" cy="71" r="6"/><circle cx="234" cy="71" r="6"/><circle cx="248" cy="71" r="6"/>
+        </g>
+        <g font-size="2.6" text-anchor="middle" fill="#1b1822">
+          <text x="192" y="72">起來</text><text x="206" y="72">洗澡</text><text x="220" y="72">換衣</text><text x="234" y="72">敬拜</text><text x="248" y="72">吃飯</text>
+        </g>
+        <text x="220" y="88" font-size="3.3" font-weight="700" text-anchor="middle">即使還有點難過，</text>
+        <text x="220" y="93.5" font-size="3.3" font-weight="700" text-anchor="middle">今天我還是可以：</text>
+        <g stroke="#cec9be" stroke-width="0.35">
+          <line x1="184" y1="104" x2="256" y2="104"/>
+          <line x1="184" y1="114" x2="256" y2="114"/>
+          <line x1="200" y1="134" x2="256" y2="134"/>
+        </g>
+        <text x="184" y="126" font-size="3" font-weight="700">難過時，我可以去找：</text>
+        <text class="serif" x="220" y="153" font-size="3.1" text-anchor="middle">我可以還是很難過，</text>
+        <text class="serif" x="220" y="158" font-size="3.1" text-anchor="middle">也可以慢慢繼續生活。</text>
+        <text class="mono" x="258" y="165" font-size="1.9" fill="#b7b1a6" text-anchor="end">HopeKids · 2026.11.01</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- ================= 模板 2：口袋、小紙條、詞條 ================= -->
+  <div class="sheet">
+    <span class="lbl">模板 2｜口袋・小紙條・詞條｜一般紙</span>
+    <svg width="186mm" height="270mm" viewBox="0 0 186 270" role="img" aria-label="口袋、小紙條與十二條詞條">
+
+      <!-- 口袋 -->
+      <text x="0" y="6" font-size="3.2" font-weight="700">口袋</text>
+      <text x="13" y="6" font-size="2.6" fill="#7c7689">剪實線，三邊虛線向後摺，黏在第一面</text>
+      <path d="M7 12 H77 L84 15 V70 L80 77 H4 L0 70 V15 Z" fill="none" stroke="#1b1822" stroke-width="0.4" stroke-linejoin="round"/>
+      <g stroke="#7c7689" stroke-width="0.35" stroke-dasharray="2 1.6">
+        <line x1="7" y1="12" x2="7" y2="70"/><line x1="77" y1="12" x2="77" y2="70"/><line x1="7" y1="70" x2="77" y2="70"/>
+      </g>
+      <text class="serif" x="42" y="40" font-size="7.5" text-anchor="middle">只給神看</text>
+      <text x="42" y="49" font-size="2.8" fill="#7c7689" text-anchor="middle">誰知道呢？撒下 12:22</text>
+
+      <!-- 小紙條 -->
+      <text x="98" y="6" font-size="3.2" font-weight="700">小紙條</text>
+      <text x="115" y="6" font-size="2.6" fill="#7c7689">寫完沿中線對摺，放進口袋</text>
+      <rect x="98" y="12" width="66" height="100" rx="1" fill="none" stroke="#1b1822" stroke-width="0.4"/>
+      <text class="serif" x="131" y="23" font-size="3.6" text-anchor="middle">神啊，我真正希望的是……</text>
+      <g stroke="#cec9be" stroke-width="0.35">
+        <line x1="104" y1="34" x2="158" y2="34"/><line x1="104" y1="44" x2="158" y2="44"/><line x1="104" y1="54" x2="158" y2="54"/>
+        <line x1="104" y1="72" x2="158" y2="72"/><line x1="104" y1="82" x2="158" y2="82"/><line x1="104" y1="92" x2="158" y2="92"/>
+      </g>
+      <line x1="98" y1="62" x2="164" y2="62" stroke="#7c7689" stroke-width="0.35" stroke-dasharray="2 1.6"/>
+      <text x="131" y="105" font-size="2.5" fill="#b7b1a6" text-anchor="middle">寫不出來，也可以只寫「神啊，我想跟你說話」</text>
+
+      <!-- 詞條 -->
+      <text x="0" y="132" font-size="3.2" font-weight="700">第二面詞條</text>
+      <text x="22" y="132" font-size="2.6" fill="#7c7689">剪下 12 條，分到「我可以做的」或「交給神的」，先排好再黏。空白的可以寫自己的事。</text>
+      <g fill="none" stroke="#1b1822" stroke-width="0.4">
+        <rect x="25" y="140" width="36" height="8.5" rx="1"/><rect x="75" y="140" width="36" height="8.5" rx="1"/><rect x="125" y="140" width="36" height="8.5" rx="1"/>
+        <rect x="25" y="158" width="36" height="8.5" rx="1"/><rect x="75" y="158" width="36" height="8.5" rx="1"/><rect x="125" y="158" width="36" height="8.5" rx="1"/>
+        <rect x="25" y="176" width="36" height="8.5" rx="1"/><rect x="75" y="176" width="36" height="8.5" rx="1"/><rect x="125" y="176" width="36" height="8.5" rx="1"/>
+        <rect x="25" y="194" width="36" height="8.5" rx="1"/><rect x="75" y="194" width="36" height="8.5" rx="1"/><rect x="125" y="194" width="36" height="8.5" rx="1"/>
+      </g>
+      <g font-size="3" text-anchor="middle" font-weight="700">
+        <text x="43" y="145.6">考試最後幾分</text>
+        <text x="93" y="145.6" font-size="2.7">陪生病的家人、為他禱告</text>
+        <text x="143" y="145.6">好好吃飯、好好睡覺</text>
+        <text x="43" y="163.6">朋友要不要原諒我</text>
+        <text x="93" y="163.6">把心裡的話告訴神</text>
+        <text x="143" y="163.6">難過什麼時候會過去</text>
+        <text x="43" y="181.6">認真準備考試</text>
+        <text x="93" y="181.6">家人的病會不會好</text>
+        <text x="143" y="181.6">先去跟朋友道歉</text>
+        <text x="43" y="199.6">神最後怎麼回答</text>
+      </g>
+      <text x="93" y="199.6" font-size="2.4" fill="#b7b1a6" text-anchor="middle">（自己寫）</text>
+      <text x="143" y="199.6" font-size="2.4" fill="#b7b1a6" text-anchor="middle">（自己寫）</text>
+
+      <text class="serif" x="93" y="236" font-size="4" text-anchor="middle">我可以把真正的盼望和難過告訴神；</text>
+      <text class="serif" x="93" y="243" font-size="4" text-anchor="middle">也可以知道，不是每一件事情都由我控制。</text>
+      <text class="mono" x="93" y="262" font-size="2" fill="#b7b1a6" text-anchor="middle">HopeKids 大班勞作 · 放下王冠 · 撒下 12:15-23</text>
+    </svg>
+  </div>
+
+</div>
+</body>
+</html>
