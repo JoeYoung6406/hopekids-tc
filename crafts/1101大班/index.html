@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hope Kids 台中分部 大班勞作教案：撒母耳記下 12:15-23《放下王冠》三面立牌，對應祈求、承認有限、繼續三節點，含 20 分鐘流程、步驟台詞與列印模板。">
+<meta name="description" content="Hope Kids 台中分部 大班勞作教案：撒母耳記下 12:15-23《放下王冠》摺紙皇冠＋三色便利貼，對應祈求、承認有限、繼續三節點，含 28 分鐘流程、摺法圖解與步驟台詞。">
 <title>放下王冠｜撒下 12:15-23 大班勞作</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,8 @@
   --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410; --sage:#3f6b4f;
   --ember-bg:#f7ead6; --sage-bg:#e4efe6; --indigo-bg:#e3e8f2; --mark:#fbeaa8; --mark-2:#f6d9b6;
   --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+  /* 便利貼本身的顏色，兩種主題都一樣 */
+  --note-y:#f7d65a; --note-b:#9cc6ee; --note-g:#a8d8a0; --note-ink:#1b1822;
 
   --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
   --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
@@ -48,6 +50,7 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
 p{margin:0 0 1.1em}
 p:last-child{margin-bottom:0}
 a{color:var(--indigo)}
+img{max-width:100%}
 mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
 mark.warm{background:var(--mark-2)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
@@ -69,9 +72,11 @@ mark.warm{background:var(--mark-2)}
 .spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
 .spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
 .axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
-.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
 .axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
 .axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.25);flex:none}
+.sw.y{background:var(--note-y)} .sw.b{background:var(--note-b)} .sw.g{background:var(--note-g)}
 .message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);font-family:var(--serif);font-size:18px;line-height:1.85}
 
 .modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
@@ -93,16 +98,14 @@ section{margin-top:76px}
 .figure{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:26px 24px 20px}
 .figure svg{display:block;width:100%;height:auto}
 .figure .cap{margin-top:14px;font-size:13.5px;color:var(--ink-3);line-height:1.7}
-.svg-ink{stroke:var(--ink);fill:none}
-.svg-rule{stroke:var(--rule-2)}
-.svg-text{fill:var(--ink);font-family:var(--serif)}
-.svg-mute{fill:var(--ink-3);font-family:var(--mono)}
+.figrow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;align-items:center}
+.figrow img{display:block;width:100%;height:auto;border-radius:8px}
 
-/* ---------- 三面對照 ---------- */
+/* ---------- 三張便利貼 ---------- */
 .faces{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.face{background:var(--surface);border-radius:12px;padding:24px 22px;box-shadow:var(--shadow);border-top:3px solid var(--indigo)}
-.face.f2{border-top-color:var(--ember)}
-.face.f3{border-top-color:var(--sage)}
+.face{background:var(--surface);border-radius:12px;padding:24px 22px;box-shadow:var(--shadow);border-top:6px solid var(--note-y)}
+.face.f2{border-top-color:var(--note-b)}
+.face.f3{border-top-color:var(--note-g)}
 .face .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ink-3);display:block;margin-bottom:8px}
 .face h3{font-size:22px;line-height:1.35;margin-bottom:4px}
 .face .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);display:block;margin-bottom:14px}
@@ -125,6 +128,7 @@ section{margin-top:76px}
 .mats td.q{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ember);width:84px}
 .mats td.item{font-weight:600;width:200px}
 .mats td.note{color:var(--ink-2)}
+.mats .total td{border-bottom:0;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
 .matwrap{overflow-x:auto}
 
 /* ---------- 流程表 ---------- */
@@ -135,24 +139,34 @@ section{margin-top:76px}
 .run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);white-space:nowrap;width:64px;font-size:13px}
 .run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);white-space:nowrap;width:52px;font-size:13px}
 .run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run .unit small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-3)}
 .run ul{margin:0;padding-left:1.1em}
 .run li{margin-bottom:7px}
 .run li:last-child{margin-bottom:0}
 .run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 摺法圖解 ---------- */
+.folds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;margin:0;padding:0;counter-reset:fold}
+.folds li{background:var(--surface);border-radius:10px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.folds img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--surface-2)}
+.folds .ft{padding:10px 13px 13px;font-size:13.5px;line-height:1.65}
+.folds .ft b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ember);font-weight:600;margin-bottom:2px}
+.folds li.hard{outline:2px solid var(--ember);outline-offset:-2px}
+.credit{margin-top:16px;font-size:12.5px;color:var(--ink-3)}
 
 /* ---------- 步驟 ---------- */
 .steps{display:grid}
 .step{display:grid;grid-template-columns:220px 1fr;gap:30px;align-items:start;padding:34px 0;border-bottom:1px solid var(--rule)}
 .step:first-child{border-top:1px solid var(--rule-2)}
 .step .pic{background:var(--surface);border-radius:10px;box-shadow:var(--shadow);padding:14px}
-.step .pic svg{display:block;width:100%;height:auto}
+.step .pic svg,.step .pic img{display:block;width:100%;height:auto;border-radius:6px}
 .fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
 .fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
 .ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;border:1px solid var(--rule-2);color:var(--ink-3)}
-.tag.n1{border-color:var(--indigo);color:var(--indigo)}
-.tag.n2{border-color:var(--ember);color:var(--ember)}
-.tag.n3{border-color:var(--sage);color:var(--sage)}
+.tag.n1,.tag.n2,.tag.n3{border:0;color:var(--note-ink);background:var(--note-y)}
+.tag.n2{background:var(--note-b)}
+.tag.n3{background:var(--note-g)}
 .step h3{font-size:21px;line-height:1.4;margin-bottom:14px}
 .step p{font-size:16px;line-height:1.92;margin-bottom:.85em}
 .do{list-style:none;margin:0 0 1em;padding:0;font-size:15px;line-height:1.8}
@@ -164,15 +178,15 @@ section{margin-top:76px}
 .guard{border-left:2px solid var(--scarlet);background:var(--surface-2);padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
 .guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
 
-/* ---------- 詞條配對 ---------- */
+/* ---------- 便利貼提示 ---------- */
 .pairs{display:grid;gap:0}
 .pair{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:22px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
 .pair:first-child{border-top:1px solid var(--rule)}
 .pair.head{padding:0 0 10px;border-top:0;border-bottom:1px solid var(--rule-2)}
 .pair.head span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.chip{display:inline-block;font-size:14.5px;font-weight:600;padding:5px 12px;border-radius:4px;line-height:1.5}
-.chip.can{background:var(--sage-bg);color:var(--sage)}
-.chip.give{background:var(--indigo-bg);color:var(--indigo)}
+.chip{display:inline-block;font-size:14.5px;font-weight:600;padding:5px 12px;border-radius:2px;line-height:1.5;color:var(--note-ink);box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.chip.give{background:var(--note-b)}
+.chip.can{background:var(--note-g)}
 .pair .why{font-size:14px;color:var(--ink-2);line-height:1.75}
 
 /* ---------- 經文 ---------- */
@@ -213,9 +227,12 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
 [data-mode="stage"] .say{font-size:19.5px}
 [data-mode="stage"] .ask{font-size:18.5px}
 [data-mode="stage"] .page{max-width:1040px}
+[data-mode="stage"] .folds .ft{font-size:15px}
 
 @media (max-width:860px){
   .cols,.faces{grid-template-columns:1fr;gap:24px}
+  .folds{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .figrow{grid-template-columns:1fr}
   .step,[data-mode="stage"] .step{grid-template-columns:1fr;gap:18px}
   .step .pic{max-width:260px}
   .pair{grid-template-columns:1fr 1fr}
@@ -229,7 +246,7 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
 @media print{
   .modebar,.backlink{display:none}
   body{background:#fff}
-  .step,.face,.verse,.note,.take,.pair{break-inside:avoid}
+  .step,.face,.verse,.note,.take,.pair,.folds li{break-inside:avoid}
 }
 </style>
 </head>
@@ -248,17 +265,17 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
     <dl class="specs">
       <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
       <div class="spec"><dt>人數</dt><dd>20 人</dd></div>
-      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>時間</dt><dd>28 分鐘（摺紙 15）</dd></div>
       <div class="spec"><dt>經文</dt><dd>撒下 12:15-23</dd></div>
-      <div class="spec"><dt>成品</dt><dd>三面王冠立牌</dd></div>
+      <div class="spec"><dt>成品</dt><dd>摺紙皇冠＋三色便利貼</dd></div>
     </dl>
 
     <div class="axis">
-      <em>立牌三面</em>
-      <b>祈求</b><i>→</i><b>承認有限</b><i>→</i><b>繼續</b>
+      <em>三張便利貼 · 三個位置</em>
+      <b><span class="sw y"></span>祈求｜貼在裡面</b><i>→</i><b><span class="sw b"></span>承認有限｜貼在尖角，放下皇冠</b><i>→</i><b><span class="sw g"></span>繼續｜貼在正面，拿起皇冠</b>
     </div>
 
-    <p class="message">一張 A4 卡紙剪出王冠邊、摺成會站的三角立牌，每一面就是大衛在這段故事裡做的一件事。<mark>我可以把真正的盼望和難過告訴神；也可以知道，不是每一件事情都由我控制。</mark>孩子帶回家的不是答案，而是一個提醒：即使是王，也有命令不了的事——<strong>而我不用把每個結果都扛在自己身上。</strong></p>
+    <p class="message">每個孩子用正方形色紙摺出一片一片的皇冠尖角，拼成一頂皇冠；最後在皇冠上貼三張不同顏色的小便利貼——<strong>一張藏在裡面、一張貼在尖角、一張貼在正面</strong>，跟著大衛在故事裡做的三件事。<mark>我可以把真正的盼望和難過告訴神；也可以知道，不是每一件事情都由我控制。</mark>即使是王，也有命令不了的事——<strong>而我不用把每個結果都扛在自己身上。</strong></p>
 
     <div class="modebar">
       <div class="seg" role="group" aria-label="閱讀模式">
@@ -266,101 +283,98 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
         <button type="button" id="btnStage" aria-pressed="false">開講</button>
       </div>
       <span class="modehint" id="hint">完整教案 · 備課用</span>
-      <a class="printlink" href="template.html">列印模板 ↗</a>
+      <a class="printlink" href="#fold">摺法圖解 ↓</a>
     </div>
   </div>
 
   <!-- ============ 設計理念 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>設計理念</h2><span class="eyebrow">為什麼是王冠、為什麼是三面</span></div>
+    <div class="sechead"><h2>設計理念</h2><span class="eyebrow">為什麼是皇冠、為什麼是三個位置</span></div>
     <div class="prose">
-      <p><strong>王冠，是這課最大的反差。</strong>課程範例第七段的第一組反差是「王的權力 vs. 人的有限」：前一課的大衛可以召人、發命令、調動軍隊，這一課他卻躺在地上，誰勸都不起來。王冠讓孩子一眼看見「他是王耶」，而立牌的三面寫的，全是王冠命令不了的事。</p>
-      <p><strong>三面，對應課程範例的三節點。</strong>「祈求—承認有限—繼續」放在立牌上，轉一圈就回到起點——課程範例特別提醒：這是對故事的整理，<mark>不是步驟公式，真實的悲傷不是直線</mark>。立牌是三面圍成一圈、沒有終點的形狀，剛好可以說明這件事。</p>
-      <p><strong>第二面用「成對的詞條」，是這份勞作給大班的難度。</strong>每一組詞條都是同一件事的兩半：考試我可以準備，但分數不是我決定；家人生病我可以陪伴禱告，但病會不會好不是我能控制的。孩子分類時會發現，幾乎每件事都有「我可以做的」和「交給神的」兩部分——這比單純把事情分成「可以控制／不能控制」更接近大衛的兩句話：「誰知道呢？」與「我能使他回來嗎？」</p>
-      <p><strong>「放下王冠」是比喻，經文沒有寫大衛拿下王冠。</strong>經文寫的是他不坐王位、躺在地上（12:16）。跟孩子講時請說「大衛沒有坐在王位上」，不要說成「大衛把王冠拿下來」。</p>
+      <p><strong>王冠，是這課最大的反差。</strong>課程範例第七段的第一組反差是「王的權力 vs. 人的有限」：前一課的大衛可以召人、發命令、調動軍隊，這一課他卻躺在地上，誰勸都不起來。孩子親手摺出一頂皇冠，一眼就知道「這是王的」；而貼在皇冠上的三張便利貼，寫的全是王冠命令不了的事。</p>
+      <p><strong>三張便利貼的「位置」本身就是內容。</strong>課程範例的三節點「祈求—承認有限—繼續」，不只是寫在三張紙上，而是貼在三個不同的地方、搭配三個動作：</p>
+      <p><span class="sw y" style="vertical-align:-2px"></span> <strong>祈求</strong>貼在皇冠<strong>裡面</strong>——那是只有自己和神知道的話，戴上時最靠近自己。<br>
+      <span class="sw b" style="vertical-align:-2px"></span> <strong>承認有限</strong>貼在<strong>最高的尖角</strong>，然後全班一起把皇冠<strong>放到桌上</strong>：連王也有決定不了的事。<br>
+      <span class="sw g" style="vertical-align:-2px"></span> <strong>繼續</strong>貼在<strong>正面</strong>，最後把皇冠<strong>拿起來</strong>——就像大衛「從地上起來」（12:20）。</p>
+      <p><strong>一片一片拼起來，也是一種提醒。</strong>皇冠不是一張紙剪出來的，是好幾片各自摺好、互相插在一起才站得住。課程範例特別提醒三節點<mark>不是步驟公式，真實的悲傷不是直線</mark>；皇冠是一個圈，沒有起點也沒有終點，難過的時候可以一再回到「把真話告訴神」。</p>
+      <p><strong>「放下王冠」是比喻，經文沒有寫大衛拿下王冠。</strong>經文寫的是他不坐王位、躺在地上（12:16）。跟孩子講時請說「大衛沒有坐在王位上」，不要說成「大衛把王冠拿下來」；把皇冠放到桌上，是我們自己的動作。</p>
     </div>
   </section>
 
   <!-- ============ 成品示意 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>成品示意</h2><span class="eyebrow">展開 → 摺成立牌</span></div>
+    <div class="sechead"><h2>成品示意</h2><span class="eyebrow">皇冠 × 三張便利貼</span></div>
     <div class="figure">
-      <svg viewBox="0 0 860 300" role="img" aria-label="左邊是展開的長條模板：三個面板加一條黏貼邊，上緣是王冠鋸齒；右邊是摺好站立的三角王冠立牌">
-        <!-- 展開 -->
-        <g class="svg-ink" stroke-width="2" stroke-linejoin="round">
-          <path d="M20 268 V112 L42 70 L64 112 L86 70 L108 112 L130 70 L152 112 L174 70 L196 112 L218 70 L240 112 L262 70 L284 112 L306 70 L328 112 L350 70 L372 112 L394 70 L416 112 L438 70 L460 112 V268 Z"/>
-          <path d="M460 112 L486 120 V260 L460 268" />
-        </g>
-        <g class="svg-rule" stroke-width="1.5" stroke-dasharray="6 5">
-          <line x1="166.7" y1="98" x2="166.7" y2="268"/>
-          <line x1="313.3" y1="98" x2="313.3" y2="268"/>
-          <line x1="460" y1="112" x2="460" y2="268"/>
-        </g>
-        <text class="svg-mute" x="93" y="150" text-anchor="middle" font-size="12" letter-spacing="1.5">01 祈求</text>
-        <text class="svg-text" x="93" y="182" text-anchor="middle" font-size="19">誰知道呢？</text>
-        <rect x="53" y="200" width="80" height="50" rx="3" fill="none" stroke-width="1.5" style="stroke:var(--indigo)"/>
-        <text class="svg-mute" x="93" y="230" text-anchor="middle" font-size="11">口袋</text>
-        <text class="svg-mute" x="240" y="150" text-anchor="middle" font-size="12" letter-spacing="1.5">02 承認有限</text>
-        <text class="svg-text" x="240" y="182" text-anchor="middle" font-size="16">我能使他回來嗎？</text>
-        <g fill="none" stroke-width="1.5">
-          <rect x="183" y="198" width="52" height="10" rx="2" style="stroke:var(--sage)"/><rect x="183" y="214" width="52" height="10" rx="2" style="stroke:var(--sage)"/><rect x="183" y="230" width="52" height="10" rx="2" style="stroke:var(--sage)"/>
-          <rect x="245" y="198" width="52" height="10" rx="2" style="stroke:var(--indigo)"/><rect x="245" y="214" width="52" height="10" rx="2" style="stroke:var(--indigo)"/><rect x="245" y="230" width="52" height="10" rx="2" style="stroke:var(--indigo)"/>
-        </g>
-        <text class="svg-mute" x="387" y="150" text-anchor="middle" font-size="12" letter-spacing="1.5">03 繼續</text>
-        <text class="svg-text" x="387" y="182" text-anchor="middle" font-size="17">起來・吃飯・敬拜</text>
-        <g class="svg-rule" stroke-width="1.2"><line x1="337" y1="214" x2="437" y2="214"/><line x1="337" y1="234" x2="437" y2="234"/></g>
-        <text class="svg-mute" x="473" y="200" text-anchor="middle" font-size="10" transform="rotate(90 473 200)">黏貼邊</text>
-        <text class="svg-mute" x="240" y="292" text-anchor="middle" font-size="12">A4 橫印 · 虛線向內摺</text>
-
-        <!-- 箭頭 -->
-        <path d="M512 190 H568" stroke-width="2" fill="none" style="stroke:var(--ember)"/>
-        <path d="M560 183 L570 190 L560 197" stroke-width="2" fill="none" style="stroke:var(--ember)"/>
-
-        <!-- 立牌 -->
-        <g stroke-linejoin="round" stroke-width="2">
-          <path d="M610 250 L710 272 L710 112 L698 84 L686 108 L674 80 L662 104 L650 76 L638 100 L626 72 L610 98 Z" style="fill:var(--ember-bg);stroke:var(--ink)"/>
-          <path d="M710 272 L800 246 L800 98 L788 70 L776 94 L764 66 L752 90 L740 62 L728 86 L718 60 L710 112 Z" style="fill:var(--surface-2);stroke:var(--ink)"/>
-          <path d="M610 98 L626 72 L638 100 L650 76 L662 104 L674 80 L686 108 L698 84 L710 112" fill="none" style="stroke:var(--ink)"/>
-        </g>
-        <text class="svg-text" x="660" y="190" text-anchor="middle" font-size="14">誰知道呢？</text>
-        <text class="svg-text" x="756" y="180" text-anchor="middle" font-size="13">起來・吃飯</text>
-        <text class="svg-mute" x="705" y="292" text-anchor="middle" font-size="12">三角立牌 · 轉一圈看三面</text>
-      </svg>
-      <p class="cap">模板上的王冠鋸齒要沿線剪下；三條虛線向內摺，最後一面的黏貼邊用雙面膠黏到第一面背後，就是一頂站得住的三角王冠。完成尺寸約 底邊 9 cm × 高 16 cm。</p>
+      <div class="figrow">
+        <img src="img/fold-14.jpg" alt="摺好的紙皇冠成品：五個尖角圍成一圈" width="640" height="631" loading="lazy">
+        <svg viewBox="0 0 420 300" role="img" aria-label="皇冠正面示意：黃色便利貼摺起來貼在內側，藍色便利貼貼在中間最高的尖角，綠色便利貼貼在正面的皇冠帶上">
+          <!-- 後排（內側可見） -->
+          <path d="M60 150 L110 60 L160 140 L210 40 L260 140 L310 60 L360 150" fill="none" stroke-width="2" stroke-linejoin="round" style="stroke:var(--ink-3)"/>
+          <!-- 黃：內側，摺起來 -->
+          <g transform="translate(268 104) rotate(6)">
+            <rect width="44" height="26" rx="2" stroke-width="1.5" stroke-dasharray="4 3" style="fill:var(--note-y);stroke:var(--ink-3)"/>
+          </g>
+          <!-- 前排 -->
+          <path d="M40 230 V160 L95 82 L150 160 L210 66 L270 160 L325 82 L380 160 V230 Z" stroke-width="2.2" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
+          <line x1="40" y1="190" x2="380" y2="190" stroke-width="1.5" style="stroke:var(--rule-2)"/>
+          <!-- 藍：尖角 -->
+          <g transform="translate(188 104) rotate(-3)">
+            <rect width="46" height="40" rx="2" style="fill:var(--note-b)"/>
+            <line x1="8" y1="15" x2="38" y2="15" stroke-width="2" style="stroke:rgba(0,0,0,.25)"/>
+            <line x1="8" y1="26" x2="32" y2="26" stroke-width="2" style="stroke:rgba(0,0,0,.25)"/>
+          </g>
+          <!-- 綠：正面帶 -->
+          <g transform="translate(176 194) rotate(2)">
+            <rect width="62" height="30" rx="2" style="fill:var(--note-g)"/>
+            <line x1="8" y1="12" x2="54" y2="12" stroke-width="2" style="stroke:rgba(0,0,0,.25)"/>
+            <line x1="8" y1="21" x2="44" y2="21" stroke-width="2" style="stroke:rgba(0,0,0,.25)"/>
+          </g>
+          <!-- 標示 -->
+          <g font-size="12.5" style="font-family:var(--serif);fill:var(--ink)">
+            <path d="M318 112 L352 96" stroke-width="1.2" fill="none" style="stroke:var(--ink-3)"/>
+            <text x="356" y="92">祈求</text><text x="356" y="108" font-size="10.5" style="fill:var(--ink-3);font-family:var(--mono)">內側·摺起來</text>
+            <path d="M188 118 L120 52" stroke-width="1.2" fill="none" style="stroke:var(--ink-3)"/>
+            <text x="64" y="38">承認有限</text><text x="64" y="54" font-size="10.5" style="fill:var(--ink-3);font-family:var(--mono)">最高的尖角</text>
+            <path d="M176 214 L120 262" stroke-width="1.2" fill="none" style="stroke:var(--ink-3)"/>
+            <text x="64" y="278">繼續</text><text x="98" y="278" font-size="10.5" style="fill:var(--ink-3);font-family:var(--mono)">正面皇冠帶</text>
+          </g>
+        </svg>
+      </div>
+      <p class="cap">左：照片中的成品（五片拼成）。右：便利貼的三個位置。15 cm 色紙摺出的是放在桌上的小皇冠；想要戴在頭上，要換更大的紙、增加片數——請課前先試摺一頂確認尺寸。</p>
     </div>
   </section>
 
-  <!-- ============ 三面對照 ============ -->
+  <!-- ============ 三張便利貼 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>立牌三面</h2><span class="eyebrow">取自課程範例六、十、十一</span></div>
+    <div class="sechead"><h2>三張便利貼</h2><span class="eyebrow">取自課程範例六、十、十一</span></div>
     <div class="faces">
       <div class="face f1">
-        <span class="num">第一面 · 節點一</span>
+        <span class="num">黃色 · 節點一 · 貼在裡面</span>
         <h3>誰知道呢？</h3>
         <span class="ref">撒下 12:16、22 · 祈求</span>
         <dl>
           <dt>經文</dt><dd>孩子還活著，大衛禁食、躺在地上向神懇求。</dd>
-          <dt>孩子做的事</dt><dd>在小紙條寫一句「神啊，我真正希望的是……」，摺好放進口袋。<strong>只給神看。</strong></dd>
+          <dt>孩子寫</dt><dd>「神啊，我真正希望的是……」或「神啊，我現在很擔心……」。寫完<strong>往上對摺，字藏在裡面</strong>，貼在皇冠內側。<strong>只給神看。</strong></dd>
           <dt>要帶走的</dt><dd>我可以把真正的盼望告訴神，不用假裝沒事。</dd>
         </dl>
       </div>
       <div class="face f2">
-        <span class="num">第二面 · 節點二</span>
+        <span class="num">藍色 · 節點二 · 貼在尖角</span>
         <h3>我能使他<br>回來嗎？</h3>
         <span class="ref">撒下 12:23 · 承認有限</span>
         <dl>
           <dt>經文</dt><dd>孩子死後，大衛承認：我不是掌管結果的那一位。</dd>
-          <dt>孩子做的事</dt><dd>把成對的詞條分到「我可以做的」與「交給神的」兩欄，貼上去。</dd>
+          <dt>孩子寫</dt><dd>一件「我很在乎、但不是我能決定的事」，貼在最高的尖角。貼好後，<strong>全班把皇冠放到桌上</strong>。</dd>
           <dt>要帶走的</dt><dd>不是每件事都由我控制；不好的結果不一定是我的錯。</dd>
         </dl>
       </div>
       <div class="face f3">
-        <span class="num">第三面 · 節點三</span>
+        <span class="num">綠色 · 節點三 · 貼在正面</span>
         <h3>起來・吃飯・<br>敬拜</h3>
         <span class="ref">撒下 12:20 · 繼續</span>
         <dl>
           <dt>經文</dt><dd>大衛起來、洗澡、換衣、進殿敬拜、回家吃飯。</dd>
-          <dt>孩子做的事</dt><dd>寫下「即使還有點難過，今天我還是可以＿＿」，和一位可以說話的大人。</dd>
+          <dt>孩子寫</dt><dd>「即使還有點難過，今天我還是可以＿＿」，和一位可以說話的大人。貼在正面，<strong>再把皇冠拿起來</strong>。</dd>
           <dt>要帶走的</dt><dd>難過和繼續生活可以同時存在，可以慢慢來。</dd>
         </dl>
       </div>
@@ -379,7 +393,7 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
       <div class="col a">
         <span class="eyebrow">態度</span>
         <p>願意寫下一句真正的盼望或擔心，<strong>不用寫「正確答案」</strong>。</p>
-        <p>分類詞條時，能分辨同一件事裡「我可以做的」和「不是我能決定的」。</p>
+        <p>能分辨同一件事裡「我可以做的」（綠）和「不是我能決定的」（藍）。</p>
       </div>
       <div class="col r">
         <span class="eyebrow">反思</span>
@@ -392,19 +406,18 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
 
   <!-- ============ 教材 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>教材清單</h2><span class="eyebrow">20 人份 · 含備品</span></div>
+    <div class="sechead"><h2>教材清單</h2><span class="eyebrow">20 人份 · 含備品 · 預算 NT$500 內</span></div>
     <div class="matwrap">
     <table class="mats">
       <thead><tr><th>數量</th><th>項目</th><th>說明</th></tr></thead>
       <tbody>
-        <tr><td class="q">24 張</td><td class="item">模板 1｜立牌本體</td><td class="note">A4 <strong>200g 以上卡紙、橫向</strong>列印。太薄站不住。</td></tr>
-        <tr><td class="q">24 張</td><td class="item">模板 2｜口袋＋詞條＋小紙條</td><td class="note">A4 一般影印紙、直向列印即可。</td></tr>
-        <tr><td class="q">20 把</td><td class="item">剪刀</td><td class="note">兩人共用一把也可以，但剪王冠那一步會變慢。</td></tr>
-        <tr><td class="q">10 支</td><td class="item">口紅膠</td><td class="note">黏口袋與詞條。</td></tr>
-        <tr><td class="q">3 捲</td><td class="item">雙面膠（寬 1 cm）</td><td class="note">黏貼邊用。口紅膠黏不住立牌，<strong>這一步一定要用雙面膠</strong>。</td></tr>
-        <tr><td class="q">每桌 1 盒</td><td class="item">彩色筆或蠟筆</td><td class="note">替王冠上色、畫寶石。</td></tr>
-        <tr><td class="q">20 支</td><td class="item">鉛筆</td><td class="note">寫小紙條和第三面。</td></tr>
-        <tr><td class="q">1 個</td><td class="item">老師示範成品</td><td class="note">課前先做一個完整的，開場用。</td></tr>
+        <tr><td class="q">150 張</td><td class="item">15 × 15 cm 色紙</td><td class="note">每人 6 張（摺 4–5 片＋1 張備用）。<strong>選單色、稍厚一點的</strong>，太薄的皇冠站不住；金色或深色最像皇冠。約 NT$100–200。</td></tr>
+        <tr><td class="q">各 1 本</td><td class="item">小便利貼 黃・藍・綠</td><td class="note">約 5 × 4 cm 的小尺寸，每人每色 1 張＋備用。若只買得到 7.6 cm 方形，課前對半剪開（保留有膠的那一邊）。約 NT$100–150。</td></tr>
+        <tr><td class="q">3 捲</td><td class="item">雙面膠（寬 1 cm）</td><td class="note">接合處插不緊時補一小段。也可用口紅膠。</td></tr>
+        <tr><td class="q">20 支</td><td class="item">細字筆或鉛筆</td><td class="note">便利貼很小，<strong>細字筆</strong>比彩色筆好寫。</td></tr>
+        <tr><td class="q">1 張</td><td class="item">大張示範紙</td><td class="note">35 cm 以上的正方形（壁報紙裁切），老師在前面示範時全班看得到摺痕。</td></tr>
+        <tr><td class="q">1 頂</td><td class="item">老師示範成品</td><td class="note">課前先摺好、三張便利貼都貼上，開場用。</td></tr>
+        <tr class="total"><td class="q">—</td><td colspan="2">估計 NT$250–400，依店家而異。剪刀不需要。</td></tr>
       </tbody>
     </table>
     </div>
@@ -414,202 +427,199 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
   <section class="prep">
     <div class="sechead"><h2>課前準備</h2><span class="eyebrow">前一週完成</span></div>
     <div class="notes">
-      <div class="note"><span class="n mono">01</span><p><b>列印模板。</b>開啟<a href="template.html">列印模板</a>，瀏覽器列印時選「實際大小／100%」，不要選「符合頁面」，否則尺寸會縮小、立牌會變矮。模板 1 印卡紙、模板 2 印一般紙。</p></div>
-      <div class="note"><span class="n mono">02</span><p><b>預先壓摺線。</b>用沒水的原子筆沿模板 1 的三條虛線壓一次，孩子摺的時候會整齊很多。20 張大約 10 分鐘。</p></div>
-      <div class="note"><span class="n mono">03</span><p><b>雙面膠先剪好。</b>每段約 14 cm，每人一段，貼在桌邊備用。課堂上撕雙面膠最花時間。</p></div>
-      <div class="note"><span class="n mono">04</span><p><b>做一個示範成品，並在小紙條寫上老師自己真的一句話。</b>開場時可以說「老師也寫了一句，但我不會給你們看，那是給神的」，孩子會比較敢寫。</p></div>
-      <div class="note"><span class="n mono">05</span><p><b>時間不夠的備案：</b>王冠鋸齒由老師課前先剪好（省 3 分鐘）。這是第一個可以砍的步驟——<b>不要砍第一面的小紙條和第二面的分類</b>，那是整份勞作的核心。</p></div>
+      <div class="note"><span class="n mono">01</span><p><b>老師自己先摺兩頂。</b>第一頂學摺法、第二頂計時——你摺一片要多久，三年級孩子大約要兩到三倍。用買來的那批色紙試，順便確認幾片拼起來最好看、站得最穩。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>決定片數：每人 4 片為基本，快的孩子可以做到 5–6 片。</b>15 分鐘摺 4 片對三年級來說偏緊，所以設計成「先一起摺第一片、之後自己重複」。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>示範成品的黃色便利貼，寫老師自己真的一句話。</b>開場時可以說「老師也寫了一句，貼在裡面，但我不會給你們看，那是給神的」，孩子會比較敢寫。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>便利貼依顏色分好，每桌一小疊。</b>課堂上一次只發一種顏色——寫完黃色才發藍色，孩子比較不會搶先寫、也比較跟得上故事。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>時間不夠的備案：</b>摺紙時間到了還沒完成的孩子，<b>先用已經摺好的片數拼起來</b>（3 片也可以是半頂皇冠），剩下的色紙帶回家摺。<b>不要砍三張便利貼</b>，那才是整份勞作的核心。</p></div>
     </div>
   </section>
 
   <!-- ============ 流程 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>勞作流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="sechead"><h2>勞作流程</h2><span class="eyebrow">28:00 總長</span></div>
     <div class="runwrap">
     <table class="run">
       <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
       <tbody>
         <tr>
-          <td class="tc">00:00</td><td class="dur">2'00"</td><td class="unit">開場<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 0</span></td>
+          <td class="tc">00:00</td><td class="dur">2'00"</td><td class="unit">開場<small>步驟 0</small></td>
           <td><ul>
-            <li>拿出示範成品讓它站在桌上：「這是誰的？」→ 王的。</li>
-            <li>快問快答：王可以命令誰？→ 讓孩子講。再問：<strong>「有沒有一件事，連王也命令不了？」</strong></li>
-            <li>銜接故事：大衛是王，但這一次，他沒有坐在王位上。</li>
+            <li>拿出示範皇冠：「這是誰的？」→ 王的。</li>
+            <li>快問快答：王可以命令誰？再問：<strong>「有沒有一件事，連王也命令不了？」</strong></li>
           </ul></td>
         </tr>
         <tr>
-          <td class="tc">02:00</td><td class="dur">3'00"</td><td class="unit">剪王冠<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 1</span></td>
+          <td class="tc">02:00</td><td class="dur">15'00"</td><td class="unit">摺皇冠<small>步驟 1</small></td>
           <td><ul>
-            <li>沿實線剪下立牌外框與王冠鋸齒，邊剪邊替寶石上色。</li>
-            <li>同時發模板 2，請孩子剪下口袋、小紙條和 12 條詞條（含 2 條空白）。</li>
+            <li><strong>02–07</strong>：老師用大張紙示範，全班<strong>一起</strong>摺第一片，每一步等大家跟上。</li>
+            <li><strong>07–14</strong>：自己重複摺第 2–4 片。摺得快的孩子當小幫手，或多摺 1–2 片。</li>
+            <li><strong>14–17</strong>：一片插進一片，最後頭尾接起來。插不緊的老師補雙面膠。</li>
           </ul></td>
         </tr>
         <tr>
-          <td class="tc">05:00</td><td class="dur">4'00"</td><td class="unit">第一面<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 2 · 祈求</span></td>
+          <td class="tc">17:00</td><td class="dur">3'00"</td><td class="unit">黃色<small>步驟 2 · 祈求</small></td>
           <td><ul>
-            <li>黏口袋（只黏左、右、下三邊）。</li>
-            <li>小紙條寫一句真正希望神知道的事，摺兩摺放進口袋。<strong>不分享、不檢查。</strong></li>
+            <li>講「誰知道呢？」，發黃色便利貼。</li>
+            <li>寫一句真正希望神知道的事，對摺藏字，貼在皇冠內側。<strong>不分享、不檢查。</strong></li>
           </ul></td>
         </tr>
         <tr>
-          <td class="tc">09:00</td><td class="dur">5'00"</td><td class="unit">第二面<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 3 · 承認有限</span></td>
+          <td class="tc">20:00</td><td class="dur">3'00"</td><td class="unit">藍色<small>步驟 3 · 承認有限</small></td>
           <td><ul>
-            <li>10 條詞條加 2 條空白，分兩欄：「我可以做的」/「交給神的」。先排好，老師巡一圈，再黏。</li>
-            <li>全班對答案只對一組：<mark>考試那一組</mark>——讓孩子發現同一件事被分成兩半。</li>
+            <li>講「我能使他回來嗎？」，發藍色便利貼，寫一件「我很在乎、但不是我能決定的事」，貼在最高的尖角。</li>
+            <li><mark>全班一起把皇冠放到桌上</mark>，安靜 10 秒，老師帶一句禱告。</li>
           </ul></td>
         </tr>
         <tr>
-          <td class="tc">14:00</td><td class="dur">3'00"</td><td class="unit">第三面<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 4 · 繼續</span></td>
+          <td class="tc">23:00</td><td class="dur">3'00"</td><td class="unit">綠色<small>步驟 4 · 繼續</small></td>
           <td><ul>
-            <li>寫「即使還有點難過，今天我還是可以＿＿」與一位可以說話的大人。</li>
-            <li>摺起來、用雙面膠黏成立牌。</li>
+            <li>講「起來、吃飯、敬拜」，發綠色便利貼，寫「即使還有點難過，今天我還是可以＿＿」＋一位可以說話的大人，貼在正面。</li>
+            <li>全班一起把皇冠<strong>拿起來</strong>。</li>
           </ul></td>
         </tr>
         <tr>
-          <td class="tc">17:00</td><td class="dur">3'00"</td><td class="unit">收尾<br><span class="mono" style="font-size:11px;color:var(--ink-3)">步驟 5</span></td>
+          <td class="tc">26:00</td><td class="dur">2'00"</td><td class="unit">收尾<small>步驟 5</small></td>
           <td><ul>
-            <li>自願的孩子分享<strong>第三面</strong>（不分享第一面）。</li>
-            <li>老師帶一句話禱告，結束在整課核心句。</li>
+            <li>自願的孩子分享<strong>綠色</strong>那一張（不分享黃色）。</li>
+            <li>老師帶禱告，結束在整課核心句。</li>
           </ul></td>
         </tr>
-        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">教材：模板 1（卡紙）、模板 2（一般紙）、剪刀、口紅膠、雙面膠、彩色筆、鉛筆、示範成品</td></tr>
+        <tr class="total"><td class="tc">28:00</td><td class="dur">—</td><td colspan="2">教材：15 cm 色紙、黃藍綠小便利貼、雙面膠、細字筆、大張示範紙、示範成品</td></tr>
       </tbody>
     </table>
     </div>
   </section>
 
+  <!-- ============ 摺法圖解 ============ -->
+  <section id="fold">
+    <div class="sechead"><h2>摺法圖解</h2><span class="eyebrow">一片＝一個尖角 · 重複 4–6 片</span></div>
+    <ol class="folds">
+      <li><img src="img/fold-02.jpg" alt="一張正方形色紙" width="640" height="631" loading="lazy"><div class="ft"><b>01</b>準備一張正方形色紙。</div></li>
+      <li><img src="img/fold-03.jpg" alt="打開後有十字摺痕的正方形" width="640" height="631" loading="lazy"><div class="ft"><b>02</b>邊對邊對折兩次再打開，壓出「十」字摺痕。</div></li>
+      <li><img src="img/fold-04.jpg" alt="一個角往中心點折" width="640" height="631" loading="lazy"><div class="ft"><b>03</b>四個角都往中心點折。</div></li>
+      <li><img src="img/fold-05.jpg" alt="打開後出現菱形摺痕" width="640" height="631" loading="lazy"><div class="ft"><b>04</b>再全部打開，紙上多了一圈菱形摺痕。</div></li>
+      <li class="hard"><img src="img/fold-06.jpg" alt="下方的角往上折到菱形摺痕" width="640" height="631" loading="lazy"><div class="ft"><b>05 · 難</b>把一個角往內折，<strong>尖端碰到菱形摺痕</strong>就好。</div></li>
+      <li class="hard"><img src="img/fold-07.jpg" alt="沿菱形摺痕再往內折一次" width="640" height="631" loading="lazy"><div class="ft"><b>06 · 難</b>沿著菱形摺痕，再往內折一次（捲兩次）。</div></li>
+      <li><img src="img/fold-08.jpg" alt="右邊的角也同樣捲兩次" width="640" height="631" loading="lazy"><div class="ft"><b>07</b>旁邊的角也一樣：先碰摺痕、再折一次。</div></li>
+      <li><img src="img/fold-09.jpg" alt="四個角都捲好的形狀" width="640" height="631" loading="lazy"><div class="ft"><b>08</b>剩下兩個角也一樣，四個角都捲進去。</div></li>
+      <li><img src="img/fold-10.jpg" alt="沿中線對折成長三角形" width="640" height="631" loading="lazy"><div class="ft"><b>09</b>沿對角的中線對折，變成一個長三角形。</div></li>
+      <li><img src="img/fold-11.jpg" alt="沿中線反折，中間立起尖角" width="640" height="631" loading="lazy"><div class="ft"><b>10</b>沿中線反方向再折一次，中間立起一個尖角——<strong>一片完成</strong>。</div></li>
+      <li><img src="img/fold-12.jpg" alt="四片摺好的尖角" width="640" height="631" loading="lazy"><div class="ft"><b>11</b>重複 01–10，摺 4–6 片。</div></li>
+      <li><img src="img/fold-13.jpg" alt="兩片已經拼在一起" width="640" height="631" loading="lazy"><div class="ft"><b>12</b>一片的一端插進下一片的夾層，拼成一長條。</div></li>
+      <li><img src="img/fold-14.jpg" alt="頭尾相接完成的皇冠" width="640" height="631" loading="lazy"><div class="ft"><b>13</b>最後頭尾相接，皇冠完成。</div></li>
+      <li><img src="img/fold-01.jpg" alt="完成的紙皇冠" width="640" height="631" loading="lazy"><div class="ft"><b>接著</b>貼上三張便利貼（步驟 2–4）。</div></li>
+    </ol>
+    <p class="credit">摺法照片取自小紅書 momo〈陈粒音乐节纸皇冠详细教程〉（2025/6/3）。框起來的 05、06 是孩子最容易卡住的地方：示範時放慢、多走一圈。</p>
+  </section>
+
   <!-- ============ 步驟台詞 ============ -->
   <section>
-    <div class="sechead"><h2>步驟與台詞</h2><span class="eyebrow">6 步 · 20:00</span></div>
+    <div class="sechead"><h2>步驟與台詞</h2><span class="eyebrow">6 步 · 28:00</span></div>
     <div class="steps">
 
       <article class="step">
-        <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="一頂三角王冠立牌站在桌上">
-            <line x1="20" y1="132" x2="180" y2="132" stroke-width="2" style="stroke:var(--rule-2)"/>
-            <path d="M62 128 L100 136 L100 66 L94 52 L88 64 L82 50 L76 62 L70 48 L62 60 Z" stroke-width="2" stroke-linejoin="round" style="fill:var(--ember-bg);stroke:var(--ink)"/>
-            <path d="M100 136 L140 126 L140 58 L134 44 L128 56 L122 42 L116 54 L110 40 L100 66 Z" stroke-width="2" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
-            <circle cx="82" cy="50" r="3" style="fill:var(--scarlet)"/><circle cx="122" cy="42" r="3" style="fill:var(--scarlet)"/>
-          </svg>
-        </div>
+        <div class="pic"><img src="img/fold-01.jpg" alt="摺好的紙皇冠" width="640" height="631" loading="lazy"></div>
         <div>
           <div class="fmeta"><span class="fnum">步驟 0</span><span class="ftc">00:00 – 02:00</span><span class="tag">開場</span></div>
           <h3>有一件事，連王也命令不了</h3>
-          <ul class="do"><li>把示範成品立在講桌上，先不要轉到第一面。</li></ul>
-          <p class="say"><b>老師可以說</b>這是什麼？對，一頂王冠。戴王冠的人可以做什麼？……可以命令軍隊、可以叫人預備食物、可以決定很多事情。</p>
+          <ul class="do"><li>拿出示範皇冠放在講桌上，便利貼那一面先不要對著孩子。</li></ul>
+          <p class="say"><b>老師可以說</b>這是什麼？對，一頂皇冠。戴皇冠的人可以做什麼？……可以命令軍隊、可以叫人預備食物、可以決定很多事情。</p>
           <p class="ask">有沒有一件事，是連王也沒辦法下命令的？</p>
-          <p class="say"><b>等孩子講完</b>大衛是王。可是有一次，他的孩子生了很重的病。大衛沒有坐在王位上——他躺在地上，七天不吃飯，一直向神求。今天這頂王冠的三面，寫的都是王命令不了的事。</p>
+          <p class="say"><b>等孩子講完</b>大衛是王。可是有一次，他的孩子生了很重的病。大衛沒有坐在王位上——他躺在地上，七天不吃飯，一直向神求。今天我們先摺一頂皇冠，等一下要在上面貼三張紙，寫的都是王命令不了的事。</p>
           <p class="guard"><b>界線</b>不說「大衛把王冠拿下來」，經文寫的是他不坐王位、躺在地上（12:16）。</p>
         </div>
       </article>
 
       <article class="step">
-        <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="剪刀沿著王冠鋸齒剪">
-            <path d="M14 120 V64 L30 34 L46 64 L62 34 L78 64 L94 34 L110 64 L126 34 L142 64 L158 34 L174 64 L186 52 V120 Z" fill="none" stroke-width="2" stroke-linejoin="round" stroke-dasharray="1 0" style="stroke:var(--ink)"/>
-            <circle cx="30" cy="40" r="3" style="fill:var(--scarlet)"/><circle cx="62" cy="40" r="3" style="fill:var(--indigo)"/><circle cx="94" cy="40" r="3" style="fill:var(--sage)"/>
-            <g transform="translate(118 74) rotate(-28)" stroke-width="2" fill="none" style="stroke:var(--ember)">
-              <circle cx="0" cy="22" r="7"/><circle cx="16" cy="22" r="7"/>
-              <path d="M4 16 L22 -16 M12 16 L-6 -16"/>
-            </g>
-          </svg>
-        </div>
+        <div class="pic"><img src="img/fold-13.jpg" alt="兩片尖角拼在一起" width="640" height="631" loading="lazy"></div>
         <div>
-          <div class="fmeta"><span class="fnum">步驟 1</span><span class="ftc">02:00 – 05:00</span><span class="tag">剪王冠</span></div>
-          <h3>剪出一頂王冠</h3>
+          <div class="fmeta"><span class="fnum">步驟 1</span><span class="ftc">02:00 – 17:00</span><span class="tag">摺皇冠</span></div>
+          <h3>一片一片，拼成一頂皇冠</h3>
           <ul class="do">
-            <li>模板 1 沿外框實線剪下，<strong>王冠鋸齒要一個一個剪</strong>，虛線不要剪。</li>
-            <li>剪好的孩子先替鋸齒尖端的寶石上色。</li>
-            <li>同時發模板 2：剪下口袋、小紙條、12 條詞條（含 2 條空白），詞條先放一邊不要黏。</li>
+            <li><strong>第一片全班一起摺</strong>：老師用大張紙，照<a href="#fold">摺法圖解</a> 01–10 一步一步來，每一步等全班跟上再往下。</li>
+            <li>第 2–4 片自己重複。摺得快的孩子去幫旁邊的人，或多摺 1–2 片。</li>
+            <li>最後 3 分鐘：一片插進一片，頭尾接起來。插不緊的，老師補一小段雙面膠。</li>
           </ul>
-          <p class="say"><b>老師可以說</b>王冠的尖角，就是大衛平常坐在王位上的樣子——很有能力、很多人聽他的。等一下你們會看到，這頂王冠裡面寫的，卻都是另一件事。</p>
-          <p class="guard"><b>時間</b>這一步最容易拖。3 分鐘到就往下走，沒剪完的回家再剪；或課前先由老師剪好鋸齒。</p>
+          <p class="say"><b>一邊摺一邊可以說</b>皇冠的每個尖角，都要摺好多次才會成形；一片一片插在一起，才站得起來。大衛平常坐在王位上，很多人聽他的。等一下你們會看到，這頂皇冠上要貼的，卻是另一件事。</p>
+          <p class="guard"><b>時間</b>17:00 一到就停。沒摺完的先用已完成的片數拼起來，剩下的色紙帶回家。<b>便利貼的三段不要砍。</b></p>
         </div>
       </article>
 
       <article class="step">
         <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="一張摺起來的小紙條被放進口袋">
-            <rect x="40" y="70" width="120" height="64" rx="4" stroke-width="2" style="fill:var(--indigo-bg);stroke:var(--indigo)"/>
-            <text x="100" y="110" text-anchor="middle" font-size="13" style="fill:var(--indigo);font-family:var(--serif)">只給神看</text>
-            <g transform="translate(76 22) rotate(-8)">
-              <rect width="48" height="58" rx="2" stroke-width="2" style="fill:var(--surface);stroke:var(--ink)"/>
-              <line x1="8" y1="16" x2="40" y2="16" stroke-width="2" style="stroke:var(--rule-2)"/><line x1="8" y1="28" x2="40" y2="28" stroke-width="2" style="stroke:var(--rule-2)"/><line x1="8" y1="40" x2="32" y2="40" stroke-width="2" style="stroke:var(--rule-2)"/>
+          <svg viewBox="0 0 200 150" role="img" aria-label="一張黃色便利貼往上對摺，字藏在裡面，貼在皇冠內側">
+            <path d="M20 120 V76 L55 34 L90 76 L125 34 L160 76 L180 60 V120 Z" stroke-width="2" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
+            <rect x="72" y="88" width="52" height="22" rx="2" stroke-width="1.5" stroke-dasharray="4 3" style="fill:var(--note-y);stroke:var(--ink-3)"/>
+            <text x="98" y="140" text-anchor="middle" font-size="11" style="fill:var(--ink-3);font-family:var(--mono)">內側 · 只給神看</text>
+            <g transform="translate(130 10) rotate(10)">
+              <rect width="44" height="36" rx="2" style="fill:var(--note-y)"/>
+              <line x1="0" y1="18" x2="44" y2="18" stroke-width="1.5" stroke-dasharray="3 3" style="stroke:rgba(0,0,0,.35)"/>
             </g>
-            <path d="M100 62 V76" stroke-width="2" style="stroke:var(--ember)"/><path d="M94 70 L100 78 L106 70" stroke-width="2" fill="none" style="stroke:var(--ember)"/>
+            <path d="M150 58 Q140 76 124 88" fill="none" stroke-width="2" style="stroke:var(--ember)"/>
           </svg>
         </div>
         <div>
-          <div class="fmeta"><span class="fnum">步驟 2</span><span class="ftc">05:00 – 09:00</span><span class="tag n1">第一面 · 祈求</span></div>
+          <div class="fmeta"><span class="fnum">步驟 2</span><span class="ftc">17:00 – 20:00</span><span class="tag n1">黃色 · 祈求</span></div>
           <h3>誰知道呢？</h3>
-          <ul class="do">
-            <li>把口袋黏在第一面下方的框裡，<strong>只黏左、右、下三邊</strong>，上面要留開口。</li>
-            <li>在小紙條寫一句：「神啊，我真正希望的是……」或「神啊，我現在很擔心……」。</li>
-            <li>摺兩摺，放進口袋。</li>
-          </ul>
           <p class="say"><b>老師可以說</b>孩子還活著的時候，大衛為什麼不吃飯、一直求？他說：「<strong>誰知道耶和華會不會恩待我，使孩子活著呢？</strong>」——事情還沒有結果，他就把心裡最想要的，真的告訴神。</p>
-          <p class="say"><b>接著</b>你們也有一件很希望神知道的事嗎？可以是希望事情不一樣，也可以是很害怕、很難過。寫在小紙條上，這張只給神看。老師不會收，也不會叫你唸出來。</p>
+          <ul class="do">
+            <li>發黃色便利貼。寫一句：「神啊，我真正希望的是……」或「神啊，我現在很擔心……」。</li>
+            <li>寫完把下半張<strong>往上對摺，字藏在裡面</strong>，用背後的膠貼在皇冠<strong>內側</strong>。</li>
+          </ul>
+          <p class="say"><b>接著</b>這張只給神看，所以貼在裡面。老師不會打開，也不會叫你唸出來。</p>
           <p class="ask">寫不出來也沒關係，可以只寫「神啊，我想跟你說話」。</p>
-          <p class="guard"><b>界線</b>不要講成「禱告夠認真，事情就會照你要的發生」。大衛說的是「誰知道呢」——<b>是祈求，不是要求。</b>老師巡桌時不要看孩子寫什麼。</p>
+          <p class="guard"><b>界線</b>不要講成「禱告夠認真，事情就會照你要的發生」。大衛說的是「誰知道呢」——<b>是祈求，不是要求。</b>巡桌時不要看孩子寫什麼。</p>
         </div>
       </article>
 
       <article class="step">
         <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="詞條分成兩欄：我可以做的、交給神的">
-            <text x="54" y="24" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--sage);font-family:var(--serif)">我可以做的</text>
-            <text x="146" y="24" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--indigo);font-family:var(--serif)">交給神的</text>
-            <line x1="100" y1="12" x2="100" y2="140" stroke-width="1.5" stroke-dasharray="4 4" style="stroke:var(--rule-2)"/>
-            <g stroke-width="2">
-              <rect x="16" y="38" width="76" height="16" rx="3" style="fill:var(--sage-bg);stroke:var(--sage)"/>
-              <rect x="16" y="62" width="76" height="16" rx="3" style="fill:var(--sage-bg);stroke:var(--sage)"/>
-              <rect x="16" y="86" width="76" height="16" rx="3" style="fill:var(--sage-bg);stroke:var(--sage)"/>
-              <rect x="108" y="38" width="76" height="16" rx="3" style="fill:var(--indigo-bg);stroke:var(--indigo)"/>
-              <rect x="108" y="62" width="76" height="16" rx="3" style="fill:var(--indigo-bg);stroke:var(--indigo)"/>
-              <rect x="108" y="86" width="76" height="16" rx="3" style="fill:var(--indigo-bg);stroke:var(--indigo)"/>
-            </g>
-            <path d="M54 46 Q100 30 146 46" fill="none" stroke-width="1.5" stroke-dasharray="3 3" style="stroke:var(--ember)"/>
-            <text x="100" y="128" text-anchor="middle" font-size="11" style="fill:var(--ink-3);font-family:var(--mono)">同一件事的兩半</text>
+          <svg viewBox="0 0 200 150" role="img" aria-label="藍色便利貼貼在尖角，皇冠被放到桌上">
+            <line x1="14" y1="128" x2="186" y2="128" stroke-width="2" style="stroke:var(--rule-2)"/>
+            <path d="M30 126 V88 L60 48 L90 88 L120 40 L150 88 L170 70 V126 Z" stroke-width="2" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
+            <rect x="106" y="58" width="28" height="24" rx="2" transform="rotate(-4 120 70)" style="fill:var(--note-b)"/>
+            <path d="M100 10 V28" stroke-width="2" style="stroke:var(--ember)"/><path d="M94 22 L100 30 L106 22" stroke-width="2" fill="none" style="stroke:var(--ember)"/>
+            <text x="100" y="145" text-anchor="middle" font-size="11" style="fill:var(--ink-3);font-family:var(--mono)">放到桌上</text>
           </svg>
         </div>
         <div>
-          <div class="fmeta"><span class="fnum">步驟 3</span><span class="ftc">09:00 – 14:00</span><span class="tag n2">第二面 · 承認有限</span></div>
+          <div class="fmeta"><span class="fnum">步驟 3</span><span class="ftc">20:00 – 23:00</span><span class="tag n2">藍色 · 承認有限</span></div>
           <h3>我能使他回來嗎？</h3>
           <p class="say"><b>老師可以說</b>到了第七天，孩子死了。臣僕都不敢告訴大衛……結果大衛自己起來了。臣僕問他為什麼，大衛說：「<strong>我能使他回來嗎？</strong>」——他承認，有一件事不是他能決定的，就算他是王。</p>
           <ul class="do">
-            <li>10 條詞條分成「我可以做的」和「交給神的」兩欄。<strong>先排好、不要急著黏。</strong></li>
-            <li>老師巡一圈，再讓孩子黏上去。兩條空白詞條可以寫自己的事。</li>
+            <li>發藍色便利貼。寫一件「<strong>我很在乎，但不是我能決定的事</strong>」，貼在皇冠最高的尖角。</li>
+            <li>寫不出來的，可以參考下方「藍、綠便利貼提示」裡的例子。</li>
+            <li>全班一起，<strong>雙手把皇冠放到桌上</strong>。安靜 10 秒。</li>
           </ul>
-          <p class="ask">只對一組答案：「認真準備考試」和「考試最後幾分」，你分到哪裡？為什麼它們是一對？</p>
-          <p class="say"><b>對完之後</b>你們發現了嗎？幾乎每件事都有兩半：有一半我可以做，有一半不是我能決定的。大衛的兩句話也是這樣——「誰知道呢」是我可以求；「我能使他回來嗎」是我承認，結果不是我掌管的。</p>
-          <p class="guard"><b>界線</b>分類不是考試，沒有扣分。孩子把「家人的病會不會好」放到「我可以做的」，不要糾正成錯，可以問：「你可以做的那一半是什麼？」——<b>陪他、為他禱告</b>；「會不會好」那一半，不用扛在你身上。</p>
+          <p class="say"><b>放下之後，老師帶一句</b>神啊，這件事不是我能決定的。我把它放在你面前。</p>
+          <p class="guard"><b>界線</b>孩子寫「家人的病會不會好」這類的事，不要評論。若孩子問「那我什麼都不能做嗎？」，回答：「有一半是你可以做的——等一下綠色那張就是。」<b>「會不會好」那一半，不用扛在你身上。</b></p>
         </div>
       </article>
 
       <article class="step">
         <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="五個圓點代表起來、洗澡、換衣、敬拜、吃飯，下方兩條書寫線">
-            <g font-size="11" text-anchor="middle" style="font-family:var(--serif);fill:var(--ink)">
-              <circle cx="24" cy="40" r="15" stroke-width="2" style="fill:var(--sage-bg);stroke:var(--sage)"/><text x="24" y="44">起來</text>
-              <circle cx="62" cy="40" r="15" stroke-width="2" style="fill:var(--sage-bg);stroke:var(--sage)"/><text x="62" y="44">洗澡</text>
-              <circle cx="100" cy="40" r="15" stroke-width="2" style="fill:var(--sage-bg);stroke:var(--sage)"/><text x="100" y="44">換衣</text>
-              <circle cx="138" cy="40" r="15" stroke-width="2" style="fill:var(--sage-bg);stroke:var(--sage)"/><text x="138" y="44">敬拜</text>
-              <circle cx="176" cy="40" r="15" stroke-width="2" style="fill:var(--sage-bg);stroke:var(--sage)"/><text x="176" y="44">吃飯</text>
+          <svg viewBox="0 0 200 150" role="img" aria-label="綠色便利貼貼在皇冠正面，皇冠被拿起來；上方五個字：起來、洗澡、換衣、敬拜、吃飯">
+            <g font-size="10" text-anchor="middle" style="font-family:var(--serif);fill:var(--ink-3)">
+              <text x="28" y="18">起來</text><text x="64" y="18">洗澡</text><text x="100" y="18">換衣</text><text x="136" y="18">敬拜</text><text x="172" y="18">吃飯</text>
             </g>
-            <line x1="20" y1="92" x2="180" y2="92" stroke-width="2" style="stroke:var(--rule-2)"/>
-            <line x1="20" y1="118" x2="180" y2="118" stroke-width="2" style="stroke:var(--rule-2)"/>
+            <path d="M30 120 V82 L60 42 L90 82 L120 34 L150 82 L170 64 V120 Z" stroke-width="2" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
+            <rect x="74" y="92" width="52" height="22" rx="2" style="fill:var(--note-g)"/>
+            <rect x="106" y="54" width="22" height="18" rx="2" transform="rotate(-4 117 63)" style="fill:var(--note-b)"/>
+            <path d="M186 120 V90" stroke-width="2" style="stroke:var(--ember)"/><path d="M180 96 L186 88 L192 96" stroke-width="2" fill="none" style="stroke:var(--ember)"/>
+            <text x="100" y="142" text-anchor="middle" font-size="11" style="fill:var(--ink-3);font-family:var(--mono)">拿起來</text>
           </svg>
         </div>
         <div>
-          <div class="fmeta"><span class="fnum">步驟 4</span><span class="ftc">14:00 – 17:00</span><span class="tag n3">第三面 · 繼續</span></div>
+          <div class="fmeta"><span class="fnum">步驟 4</span><span class="ftc">23:00 – 26:00</span><span class="tag n3">綠色 · 繼續</span></div>
           <h3>起來・吃飯・敬拜</h3>
           <p class="say"><b>老師可以說</b>大衛起來以後做了什麼？……起來、洗澡、換衣服、去敬拜神、回家吃飯。這是不是代表他已經不難過了？</p>
           <p class="ask">等一下——聖經有說他不難過了嗎？</p>
           <p class="say"><b>等孩子回答</b>沒有。他還是很難過，但是他知道孩子不會回來了，所以他開始做生活裡原本要做的事。<strong>難過，跟繼續生活，可以同時存在。</strong></p>
           <ul class="do">
-            <li>寫下：「即使還有點難過，今天我還是可以＿＿」（例：吃早餐、上學、找朋友玩、睡個好覺）。</li>
-            <li>寫下一位難過時可以說話的大人名字。</li>
-            <li>沿虛線向內摺，第三面的黏貼邊貼上雙面膠，黏到第一面背後——立牌完成。</li>
+            <li>發綠色便利貼。寫：「即使還有點難過，今天我還是可以＿＿」（例：吃早餐、上學、找朋友玩、睡個好覺）。</li>
+            <li>背面或空白處寫一位難過時可以說話的大人名字。</li>
+            <li>貼在皇冠<strong>正面</strong>，然後全班一起把皇冠<strong>拿起來</strong>——就像大衛「從地上起來」。</li>
           </ul>
           <p class="guard"><b>界線</b>不說「難過完要趕快振作」「有信心就不會難過」。可以說的是：「你可以難過」「你可以慢慢來」「很想念也沒有關係」。</p>
         </div>
@@ -617,54 +627,54 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
 
       <article class="step">
         <div class="pic">
-          <svg viewBox="0 0 200 150" role="img" aria-label="三角王冠立牌轉動，三面依序是祈求、承認有限、繼續">
+          <svg viewBox="0 0 200 150" role="img" aria-label="皇冠是一個圈，三個位置依序是祈求、承認有限、繼續">
             <circle cx="100" cy="78" r="52" fill="none" stroke-width="2" stroke-dasharray="5 5" style="stroke:var(--rule-2)"/>
             <path d="M146 54 L152 66 L139 64" fill="none" stroke-width="2" style="stroke:var(--ember)"/>
-            <g font-size="12" text-anchor="middle" style="font-family:var(--serif)">
-              <text x="100" y="30" style="fill:var(--indigo)">祈求</text>
-              <text x="152" y="118" style="fill:var(--ember)">承認有限</text>
-              <text x="48" y="118" style="fill:var(--sage)">繼續</text>
+            <rect x="88" y="16" width="24" height="16" rx="2" style="fill:var(--note-y)"/>
+            <rect x="146" y="104" width="24" height="16" rx="2" style="fill:var(--note-b)"/>
+            <rect x="30" y="104" width="24" height="16" rx="2" style="fill:var(--note-g)"/>
+            <g font-size="11" text-anchor="middle" style="font-family:var(--serif);fill:var(--ink)">
+              <text x="100" y="80">一個圈</text>
+              <text x="100" y="96" font-size="10" style="fill:var(--ink-3);font-family:var(--mono)">沒有終點</text>
             </g>
-            <path d="M84 96 L100 100 L100 62 L97 55 L94 61 L91 54 L88 60 L84 54 Z" stroke-width="1.5" stroke-linejoin="round" style="fill:var(--ember-bg);stroke:var(--ink)"/>
-            <path d="M100 100 L116 96 L116 54 L112 60 L109 53 L106 59 L103 52 L100 62 Z" stroke-width="1.5" stroke-linejoin="round" style="fill:var(--surface-2);stroke:var(--ink)"/>
           </svg>
         </div>
         <div>
-          <div class="fmeta"><span class="fnum">步驟 5</span><span class="ftc">17:00 – 20:00</span><span class="tag">收尾</span></div>
-          <h3>轉一圈，回到第一面</h3>
+          <div class="fmeta"><span class="fnum">步驟 5</span><span class="ftc">26:00 – 28:00</span><span class="tag">收尾</span></div>
+          <h3>皇冠是一個圈</h3>
           <ul class="do">
-            <li>請兩三位自願的孩子，<strong>只分享第三面</strong>。</li>
-            <li>請大家把立牌轉一圈：祈求 → 承認有限 → 繼續 → 又回到祈求。</li>
+            <li>請兩三位自願的孩子，<strong>只分享綠色那一張</strong>。</li>
+            <li>請大家用手指沿著皇冠繞一圈：裡面的黃 → 尖角的藍 → 正面的綠 → 又回到裡面。</li>
           </ul>
-          <p class="say"><b>老師可以說</b>為什麼做成三面、轉一圈又回到第一面？因為難過不是走完三步就結束。可能今天比較好，明天又很想哭；那也沒關係，你可以再回到第一面，再把心裡的話告訴神。</p>
+          <p class="say"><b>老師可以說</b>皇冠是一個圈，沒有最後一格。難過也不是走完三步就結束。可能今天比較好，明天又很想哭；那也沒關係，你可以再回到裡面那一張，再把心裡的話告訴神。</p>
           <p class="say"><b>帶一句話禱告</b>神啊，有些事情我真的很希望不一樣，謝謝你讓我可以跟你說真話。有些事情不是我能控制的，我把它交給你。就算還有點難過，也求你陪我慢慢繼續。奉主耶穌的名，阿們。</p>
-          <p class="say"><b>最後一句</b>把這頂王冠帶回家，放在書桌上。它提醒你：<strong>我可以把真正的盼望和難過告訴神；不是每件事都由我控制。</strong></p>
+          <p class="say"><b>最後一句</b>把這頂皇冠帶回家，放在書桌上。它提醒你：<strong>我可以把真正的盼望和難過告訴神；不是每件事都由我控制。</strong></p>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- ============ 詞條配對 ============ -->
+  <!-- ============ 便利貼提示 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>第二面詞條</h2><span class="eyebrow">5 組 + 2 條空白 · 模板上順序已打亂</span></div>
+    <div class="sechead"><h2>藍、綠便利貼提示</h2><span class="eyebrow">寫不出來時給孩子挑 · 同一件事的兩半</span></div>
     <div class="pairs">
-      <div class="pair head"><span>我可以做的</span><span>交給神的</span><span>這一組在練習什麼</span></div>
-      <div class="pair"><span><span class="chip can">認真準備考試</span></span><span><span class="chip give">考試最後幾分</span></span><span class="why">示範題。全班一起對這一組，讓孩子看見「同一件事有兩半」。</span></div>
-      <div class="pair"><span><span class="chip can">把心裡的話告訴神</span></span><span><span class="chip give">神最後怎麼回答</span></span><span class="why">對應大衛的「誰知道呢？」：禱告是我可以做的；結果不是我能要求的。</span></div>
-      <div class="pair"><span><span class="chip can">陪生病的家人、為他禱告</span></span><span><span class="chip give">家人的病會不會好</span></span><span class="why">最貼近經文、也最敏感的一組。對應課程範例 Q5：「家人的生命不是你的責任。」</span></div>
-      <div class="pair"><span><span class="chip can">先去跟朋友道歉</span></span><span><span class="chip give">朋友要不要原諒我</span></span><span class="why">大班最常遇到的「控制不了」——別人的選擇。</span></div>
-      <div class="pair"><span><span class="chip can">好好吃飯、好好睡覺</span></span><span><span class="chip give">難過什麼時候會過去</span></span><span class="why">直接銜接第三面：我可以繼續生活，但難過的長短，不用逼自己。</span></div>
+      <div class="pair head"><span>藍｜不是我能決定的</span><span>綠｜我還是可以做的</span><span>這一組在練習什麼</span></div>
+      <div class="pair"><span><span class="chip give">考試最後幾分</span></span><span><span class="chip can">認真準備考試</span></span><span class="why">最好懂的一組，開講時可以先舉這個例子，讓孩子看見「同一件事有兩半」。</span></div>
+      <div class="pair"><span><span class="chip give">神最後怎麼回答</span></span><span><span class="chip can">把心裡的話告訴神</span></span><span class="why">對應大衛的「誰知道呢？」：禱告是我可以做的；結果不是我能要求的。</span></div>
+      <div class="pair"><span><span class="chip give">家人的病會不會好</span></span><span><span class="chip can">陪生病的家人、為他禱告</span></span><span class="why">最貼近經文、也最敏感的一組。對應課程範例 Q5：「家人的生命不是你的責任。」</span></div>
+      <div class="pair"><span><span class="chip give">朋友要不要原諒我</span></span><span><span class="chip can">先去跟朋友道歉</span></span><span class="why">大班最常遇到的「控制不了」——別人的選擇。</span></div>
+      <div class="pair"><span><span class="chip give">難過什麼時候會過去</span></span><span><span class="chip can">好好吃飯、好好睡覺</span></span><span class="why">最接近大衛 12:20 的一組：我可以繼續生活，但難過的長短，不用逼自己。</span></div>
     </div>
   </section>
 
   <!-- ============ 關聯經文 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>關聯經文</h2><span class="eyebrow">和合本 · 立牌三面的出處</span></div>
+    <div class="sechead"><h2>關聯經文</h2><span class="eyebrow">和合本 · 三張便利貼的出處</span></div>
     <div class="verses">
-      <p class="verse">所以大衛為這孩子懇求神，而且禁食，進入內室，終夜躺在地上。<span class="src">撒母耳記下 12:16 · 第一面</span></p>
-      <p class="verse">大衛就從地上起來，沐浴，抹膏，換了衣裳，進耶和華的殿敬拜；然後回宮，吩咐人擺飯，他便吃了。<span class="src">撒母耳記下 12:20 · 第三面</span></p>
-      <p class="verse key">孩子還活著，我禁食哭泣；因為我想，或者耶和華憐恤我，使孩子不死，也未可知。孩子死了，我何必禁食，我豈能使他返回呢？<span class="src">撒母耳記下 12:22-23 · 第一、二面 · 課程範例最重要的兩句</span></p>
+      <p class="verse">所以大衛為這孩子懇求神，而且禁食，進入內室，終夜躺在地上。<span class="src">撒母耳記下 12:16 · 黃色</span></p>
+      <p class="verse">大衛就從地上起來，沐浴，抹膏，換了衣裳，進耶和華的殿敬拜；然後回宮，吩咐人擺飯，他便吃了。<span class="src">撒母耳記下 12:20 · 綠色</span></p>
+      <p class="verse key">孩子還活著，我禁食哭泣；因為我想，或者耶和華憐恤我，使孩子不死，也未可知。孩子死了，我何必禁食，我豈能使他返回呢？<span class="src">撒母耳記下 12:22-23 · 黃色、藍色 · 課程範例最重要的兩句</span></p>
     </div>
   </section>
 
@@ -678,11 +688,11 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
       </div>
       <div class="crow">
         <div class="said"><b>不要這樣講</b><p>「禱告夠認真，神就會照你要的做。」</p></div>
-        <div class="truth"><b>正確方向</b><p>大衛已經非常迫切，結果仍沒有照他的期待發生。<mark>禱告不是叫神一定要照我的方法做</mark>——這是第一、二面的詞條要守住的。</p></div>
+        <div class="truth"><b>正確方向</b><p>大衛已經非常迫切，結果仍沒有照他的期待發生。<mark>禱告不是叫神一定要照我的方法做</mark>——這是黃色和藍色兩張要一起守住的。</p></div>
       </div>
       <div class="crow">
         <div class="said"><b>不要這樣講</b><p>「大衛很快就振作起來了，我們難過完也要趕快站起來。」</p></div>
-        <div class="truth"><b>正確方向</b><p>經文沒有說大衛不難過了。第三面寫的是「<strong>即使還有點難過</strong>，今天我還是可以……」，不是「我已經好了」。</p></div>
+        <div class="truth"><b>正確方向</b><p>經文沒有說大衛不難過了。綠色寫的是「<strong>即使還有點難過</strong>，今天我還是可以……」，不是「我已經好了」。</p></div>
       </div>
       <div class="crow">
         <div class="said"><b>不要這樣講</b><p>「神一定有祂的美意，以後你就會知道為什麼。」</p></div>
@@ -693,7 +703,7 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
 
   <!-- ============ 給孩子的話 ============ -->
   <section class="prep">
-    <div class="sechead"><h2>給孩子的話</h2><span class="eyebrow">印在模板 1 底部</span></div>
+    <div class="sechead"><h2>給孩子的話</h2><span class="eyebrow">可以寫在白板上</span></div>
     <div class="takeaways">
       <div class="take"><span>01</span><p>難過的時候，我可以向神說真話。</p></div>
       <div class="take"><span>02</span><p>不是每件事都由我控制，不好的事不一定是我的錯。</p></div>
@@ -705,13 +715,14 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
   <section class="prep">
     <div class="sechead"><h2>給大班老師的提醒</h2><span class="eyebrow">這一課特別需要的</span></div>
     <div class="notes">
-      <div class="note"><span class="n mono">01</span><p><b>課前先問故事老師與小組長：班上最近有沒有孩子失去家人、寵物，或家人正在生病。</b>有的話，安排一位老師坐在他旁邊，不點他回答、不請他分享。第二面「家人的病會不會好」那一條，他可以選擇不貼。</p></div>
-      <div class="note"><span class="n mono">02</span><p><b>第一面的小紙條真的不看、不收。</b>巡桌時眼睛看口袋有沒有黏好就好。孩子主動拿給你看，可以說「謝謝你告訴我，要不要我陪你一起跟神說？」——但不要主動要求。</p></div>
-      <div class="note"><span class="n mono">03</span><p><b>孩子在課堂上哭，不要急著說「不要哭」。</b>可以說：「你可以難過，老師陪你。」這正是第三面要教的事，老師在當下做出來，比寫在立牌上更有用。課後請通知家長與小組長。</p></div>
-      <div class="note"><span class="n mono">04</span><p><b>第三面那一位「可以說話的大人」很重要。</b>如果有孩子寫不出任何一個人，課後請小組長留意，那可能比勞作本身更需要被看見。</p></div>
-      <div class="note"><span class="n mono">05</span><p><b>孩子問「為什麼是大衛犯錯，死的卻是孩子？」</b>課程範例說：老師不需要用「因為神有主權」就把問題快速結束。可以回答：「這是一段很困難的經文，大人讀了也會難過，我們不用假裝它很容易。」再把話題帶回第一面：大衛那時候做的，是把真話告訴神。</p></div>
-      <div class="note"><span class="n mono">06</span><p><b>時間快超過時的取捨順序：</b>先砍步驟 1 的上色（王冠回家再畫）、再由老師幫忙黏雙面膠。<b>不要砍步驟 2 的小紙條和步驟 3 的考試那一組</b>，那是第一、二節點唯一的動手時刻。</p></div>
-      <div class="note"><span class="n mono">07</span><p><b>哪些取自課程範例、哪些是另外設計的。</b>三節點、兩句關鍵經文、教學界線、Q&amp;A 的回答方向、「轉成孩子聽得懂的話」取自 11 月課程範例〈失去孩子〉。王冠立牌的形式、成對詞條、口袋小紙條與「轉一圈回到第一面」的收尾，是依範例方向另外設計的。</p></div>
+      <div class="note"><span class="n mono">01</span><p><b>課前先問故事老師與小組長：班上最近有沒有孩子失去家人、寵物，或家人正在生病。</b>有的話，安排一位老師坐在他旁邊，不點他回答、不請他分享。藍色那一張他可以選擇不寫，空白貼上去也可以。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>黃色便利貼真的不看、不打開。</b>巡桌時眼睛看皇冠有沒有站穩就好。孩子主動拿給你看，可以說「謝謝你告訴我，要不要我陪你一起跟神說？」——但不要主動要求。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>「放下皇冠」的 10 秒安靜，不要省。</b>那是整份勞作唯一沒有在動手的時刻，也是孩子最接近大衛「躺在地上」的時候。可以請孩子把手放在腿上、眼睛看著自己的皇冠。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>孩子在課堂上哭，不要急著說「不要哭」。</b>可以說：「你可以難過，老師陪你。」這正是綠色那一張要教的事，老師在當下做出來，比寫在便利貼上更有用。課後請通知家長與小組長。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>綠色那一位「可以說話的大人」很重要。</b>如果有孩子寫不出任何一個人，課後請小組長留意，那可能比勞作本身更需要被看見。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>孩子問「為什麼是大衛犯錯，死的卻是孩子？」</b>課程範例說：老師不需要用「因為神有主權」就把問題快速結束。可以回答：「這是一段很困難的經文，大人讀了也會難過，我們不用假裝它很容易。」再把話題帶回黃色那一張：大衛那時候做的，是把真話告訴神。</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>摺紙卡關的孩子，不要整片幫他摺完。</b>摺法 05、06 最容易卡，老師幫他壓好那一步、讓他自己摺完其他的。15 分鐘到了，用已完成的片數先拼起來就好。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>哪些取自課程範例、哪些是另外設計的。</b>三節點、兩句關鍵經文、教學界線、Q&amp;A 的回答方向、「轉成孩子聽得懂的話」取自 11 月課程範例〈失去孩子〉。摺紙皇冠、三色便利貼的位置與「放下／拿起」的動作，是依範例方向另外設計的。</p></div>
     </div>
   </section>
 
@@ -735,7 +746,7 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);display
     var stage = mode === 'stage';
     bp.setAttribute('aria-pressed', String(!stage));
     bs.setAttribute('aria-pressed', String(stage));
-    hint.textContent = stage ? '只留步驟台詞 · 放大字級' : '完整教案 · 備課用';
+    hint.textContent = stage ? '摺法＋步驟台詞 · 放大字級' : '完整教案 · 備課用';
     if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
   }
 
