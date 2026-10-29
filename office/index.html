@@ -11,12 +11,13 @@
 <style>
   :root{
     --ink:#2b2f36; --muted:#6b7280; --paper:#ffffff;
-    --frame:#4d5868; --stone:#c7cfd8;
+    --frame:#4d5868;
     --hk-wall:#fff4d1; --hk-floor:#ecd9a0;
     --ln-wall:#e2f5ea; --ln-floor:#bfe2cd;
+    --new-wall:#ece8f8; --new-floor:#cfc6ea;
     --srv-wall:#2c3646; --srv-floor:#1f2733;
-    --sun:#ffc33b; --teal:#2bb3a3; --coral:#ff7a59; --red:#e5484d; --amber:#f2a900; --green:#1aa36b;
-    --cork:#c99d66; --note:#fff1a6; --note-alert:#ffd4d0; --note-ok:#d6f3e3; --note-todo:#ffe6b8;
+    --sun:#ffc33b; --red:#e5484d; --amber:#f2a900; --green:#1aa36b;
+    --cork:#c99d66; --note:#fff1a6; --note-alert:#ffd4d0; --note-ok:#d6f3e3; --note-todo:#ffe6b8; --note-info:#dbe9ff;
     --sky-top:#1b2746; --sky-bot:#34477a; --sky-ink:#eef2fb;
     --hand:"LXGW WenKai TC","Noto Sans TC",serif;
     --sans:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
@@ -34,13 +35,13 @@
 
   /* ---------- 天空 ---------- */
   .sky{position:absolute; inset:0 0 auto 0; height:520px; overflow:hidden; pointer-events:none}
+  .stars{position:absolute; inset:0; opacity:0; transition:opacity .6s}
+  body.ph-night .stars{opacity:1}
+  .stars i{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%}
   .orb{position:absolute; right:3%; top:-4px; width:48px; height:48px; border-radius:50%}
   body.ph-day .orb{background:#ffd75a; box-shadow:0 0 50px 14px rgba(255,215,90,.55)}
   body.ph-dawn .orb,body.ph-dusk .orb{background:#ffb35a; box-shadow:0 0 50px 16px rgba(255,150,80,.5)}
   body.ph-night .orb{box-shadow:inset -13px 7px 0 0 #f3efe0; filter:drop-shadow(0 0 10px rgba(243,239,224,.4)); transform:rotate(-20deg)}
-  .stars{position:absolute; inset:0; opacity:0; transition:opacity .6s}
-  .sky.night .stars{opacity:1}
-  .stars i{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; opacity:.75}
 
   /* ---------- 頂部 ---------- */
   .top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px; color:var(--sky-ink); position:relative}
@@ -51,21 +52,23 @@
   .summary p{margin:0; font-size:1.05rem; font-weight:700}
   .fresh{display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin-top:8px; font-size:.85rem; opacity:.9}
   .fresh .warn{color:#ffd2cc; font-weight:700}
+  body.ph-day .fresh .warn,body.ph-dawn .fresh .warn{color:#a3191f}
   .btn-refresh{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); color:var(--sky-ink); border-radius:999px; padding:4px 14px; cursor:pointer; font-size:.85rem}
   .btn-refresh:hover{background:rgba(255,255,255,.26)}
-  body.daylight .btn-refresh{background:rgba(255,255,255,.55); border-color:rgba(43,47,54,.25)}
+  body.ph-day .btn-refresh,body.ph-dawn .btn-refresh{background:rgba(255,255,255,.55); border-color:rgba(43,47,54,.25)}
+  .oops{display:none; margin-top:12px; background:#ffd4d0; color:#8f1d22; border-radius:8px; padding:8px 12px; font-size:.88rem}
 
   /* ---------- 公告欄 ---------- */
   .board{position:relative; margin-top:22px; background:var(--cork); border:8px solid #8a6a43; border-radius:6px;
     padding:14px; display:flex; flex-wrap:wrap; gap:12px;
     background-image:radial-gradient(rgba(90,60,30,.18) 1px,transparent 1.5px); background-size:7px 7px}
   .board h2{margin:0; flex-basis:100%; font-family:var(--hand); font-weight:700; font-size:1.1rem; color:#4a3313}
-  .note{font-family:var(--hand); font-size:1rem; line-height:1.5; background:var(--note); padding:12px 14px 12px; border:0; text-align:left;
+  .note{font-family:var(--hand); font-size:1rem; line-height:1.5; background:var(--note); padding:12px 14px; border:0; text-align:left;
     flex:1 1 230px; max-width:360px; box-shadow:0 3px 6px rgba(60,40,20,.25); position:relative; cursor:pointer; color:#3a3326}
   .note::before{content:""; position:absolute; top:-6px; left:50%; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#d64545; box-shadow:0 2px 2px rgba(0,0,0,.3)}
   .note:nth-child(odd){transform:rotate(-1.2deg)} .note:nth-child(even){transform:rotate(1deg)}
-  .note.alert{background:var(--note-alert)} .note.ok{background:var(--note-ok); cursor:default} .note.todo{background:var(--note-todo)}
-  .note.ok::before{background:var(--green)}
+  .note.alert{background:var(--note-alert)} .note.ok{background:var(--note-ok); cursor:default} .note.todo{background:var(--note-todo)} .note.info{background:var(--note-info)}
+  .note.ok::before{background:var(--green)} .note.info::before{background:#3b82f6}
 
   /* ---------- 大樓 ---------- */
   .building{margin-top:34px; position:relative}
@@ -76,26 +79,27 @@
     box-shadow:0 0 0 3px rgba(255,195,59,.25), 0 6px 18px rgba(255,195,59,.35)}
   .sign::before,.sign::after{content:""; position:absolute; bottom:-19px; width:5px; height:16px; background:#6b5426}
   .sign::before{left:24%} .sign::after{right:24%}
-  .floors{border:6px solid var(--frame); border-top:0; border-radius:0 0 4px 4px; background:var(--frame); display:grid; gap:6px}
-  .floor{position:relative; padding:12px 14px 0; transition:filter .4s}
+  .floors{border:6px solid var(--frame); border-top:0; background:var(--frame); display:grid; gap:6px}
+  .floor{position:relative; padding:12px 14px 0; transition:filter .6s}
   .floor-hk{background:var(--hk-wall); box-shadow:inset 0 -10px 0 var(--hk-floor)}
   .floor-ln{background:var(--ln-wall); box-shadow:inset 0 -10px 0 var(--ln-floor)}
+  .floor-new{background:var(--new-wall); box-shadow:inset 0 -10px 0 var(--new-floor)}
   .floor-srv{background:var(--srv-wall); box-shadow:inset 0 -10px 0 var(--srv-floor); color:#e7ebf1}
   .floor.dim{filter:brightness(.9) saturate(.92)}
-  .floor.lit{filter:none}
   .floor-sign{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; font-family:var(--hand); font-weight:700; font-size:1.1rem}
   .floor-sign .lvl{font-family:var(--sans); font-weight:900; font-size:.8rem; background:var(--frame); color:#fff; border-radius:4px; padding:1px 7px}
   .floor-sign .sub{font-family:var(--sans); font-weight:400; font-size:.8rem; color:var(--muted)}
   .floor-srv .floor-sign .sub{color:#9aa6b6}
-  .stations{display:grid; grid-template-columns:repeat(auto-fill,minmax(205px,1fr)); gap:4px 10px; padding:6px 0 20px}
-  .street{background:#3b414c; border-top:14px solid #7d8593; padding-bottom:40px;
-    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 46px,transparent 46px 96px); background-size:100% 4px; background-repeat:no-repeat; background-position:0 22px}
-  .street .wrap{padding-top:44px}
+  .room{display:flex; gap:12px; align-items:flex-end; padding:6px 0 20px}
+  .desks{flex:1 1 auto; min-width:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(172px,1fr)); gap:4px 10px}
+  .lounge{flex:0 0 250px; align-self:flex-start; margin-top:4px}
+  .lounge svg{display:block; width:100%; height:auto; overflow:visible}
 
   /* ---------- 工位 ---------- */
   .station{background:none; border:0; padding:4px 4px 10px; text-align:left; cursor:pointer; border-radius:10px; display:flex; flex-direction:column; gap:1px}
   .station:hover{background:rgba(255,255,255,.35)}
   .floor-srv .station:hover{background:rgba(255,255,255,.06)}
+  .door-slot{cursor:default} .door-slot:hover{background:none!important}
   .scene{width:100%; height:auto; display:block; overflow:visible}
   .plate{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-top:2px}
   .nm{font-weight:900; font-size:1.02rem}
@@ -105,77 +109,135 @@
   .meta{font-size:.78rem; color:var(--muted)}
   .floor-srv .meta{color:#9aa6b6}
   .st-work .stat{color:var(--green)} .st-fail .stat,.st-miss .stat{color:var(--red)}
-  .st-soon .stat{color:#b07a00} .st-idle .stat{color:#5b6472} .st-unknown .stat{color:var(--muted)}
+  .st-soon .stat{color:#b07a00} .st-idle .stat,.st-leave .stat{color:#5b6472} .st-unknown .stat{color:var(--muted)}
   .floor-srv .st-idle .stat{color:#b9c4d2}
   .st-fail,.st-miss{box-shadow:inset 0 0 0 2px rgba(229,72,77,.55)}
 
-  /* SVG 場景元素 */
+  /* 桌子場景 */
   .glow{fill:#ffe28a; opacity:0; transition:opacity .4s}
   .chair rect{fill:#7b8594}
   .desk{fill:#a77b4f} .desk-leg{fill:#8a6440}
-  .mon-frame{fill:#3b4350} .mon-stand{fill:#3b4350}
-  .screen{fill:#1c222b}
+  .mon-frame,.mon-stand{fill:#3b4350}
+  .screen{fill:#1c222b; transition:fill .4s}
+  .code,.bang,.sticky,.leave-sign{display:none}
   .code rect{fill:#5ee0c7}
-  .code{display:none}
-  .bang,.qq{display:none; font-family:var(--sans); font-weight:900; font-size:22px; text-anchor:middle; fill:#fff}
-  .head,.body{fill:var(--c)}
-  .visor{fill:#1f2630}
-  .eyes-open rect{fill:#7ff5df}
-  .eyes-shut path,.eyes-x path{fill:none; stroke:#7ff5df; stroke-width:2.2; stroke-linecap:round}
-  .eyes-shut,.eyes-x{display:none}
-  .ant-line{stroke:#5b6472; stroke-width:2.5}
-  .ant{fill:#9aa3ae}
-  .arm{fill:var(--c)}
-  .zz{display:none; font-family:var(--sans); font-weight:700; fill:#7d8796; font-size:15px}
-  .zz2{font-size:11px}
-  .sticky{display:none}
+  .bang{font-family:var(--sans); font-weight:900; font-size:22px; text-anchor:middle; fill:#fff}
   .sticky rect{fill:#ffe45c}
-  .sticky text{font-family:var(--hand); font-size:11px; font-weight:700; fill:#7a1f1f; text-anchor:middle}
-  .alarm{display:none}
-  .alarm circle{fill:var(--red)} .alarm text{fill:#fff; font-family:var(--sans); font-weight:900; font-size:14px; text-anchor:middle}
-
+  .sticky text,.leave-sign text{font-family:var(--hand); font-size:11px; font-weight:700; fill:#7a1f1f; text-anchor:middle}
+  .leave-sign rect{fill:#f3f0e6; stroke:#9aa3ae}
+  .leave-sign text{fill:#4d5868}
   .st-work .glow{opacity:.55}
-  .st-work .code{display:inline}
-  .st-work .screen{fill:#10303a}
-  .st-work .ant{fill:#36d399}
-  .st-work .arm{animation:type .45s ease-in-out infinite alternate}
-  .st-work .code rect{animation:scroll 1.6s steps(4) infinite}
-
-  .st-idle .eyes-open{display:none} .st-idle .eyes-shut{display:inline} .st-idle .zz{display:inline}
-
-  .st-soon .screen{fill:#20406c} .st-soon .ant{fill:var(--amber)}
-
-  .st-fail .eyes-open{display:none} .st-fail .eyes-x{display:inline}
+  .st-work .code{display:inline} .st-work .screen{fill:#10303a}
+  .st-work .code rect{animation:flick 1.6s steps(4) infinite}
+  .st-soon .screen{fill:#20406c}
   .st-fail .screen{fill:#6b1f24} .st-fail .bang{display:inline}
-  .st-fail .ant{fill:var(--red)} .st-fail .alarm{display:inline}
-  .st-fail .ant{animation:blink 1s steps(2) infinite}
+  .st-miss .sticky{display:inline}
+  .st-leave .leave-sign{display:inline}
 
-  .st-miss .bot{display:none} .st-miss .sticky{display:inline}
+  /* 交誼廳 */
+  .win-frame{fill:#8a96a8} .win-sky{fill:var(--sky-top); transition:fill .6s}
+  .win-bar{stroke:#8a96a8; stroke-width:3}
+  .sofa-back{fill:#5f7ea8} .sofa-seat{fill:#7695bf} .sofa-arm{fill:#56739b} .sofa-leg{fill:#3d4a5c}
+  .counter{fill:#a77b4f} .machine{fill:#4d5868} .machine-led{fill:#36d399}
+  .cup{fill:#fffdf6}
+  .steam path{fill:none; stroke:rgba(255,255,255,.75); stroke-width:2; stroke-linecap:round; opacity:0}
+  .lounge.has-coffee .steam path{animation:steam 2.4s ease-out infinite}
+  .lounge.has-coffee .steam path+path{animation-delay:1.2s}
+  .plant-pot{fill:#c56a4a} .plant-leaf{fill:#3fa66b}
 
-  .st-unknown .bot{filter:grayscale(1); opacity:.45} .st-unknown .qq{display:inline}
-
-  @keyframes type{from{transform:translateY(0)} to{transform:translateY(3px)}}
-  @keyframes scroll{0%{opacity:1} 50%{opacity:.35} 100%{opacity:1}}
-  @keyframes blink{0%{opacity:1} 100%{opacity:.2}}
-
-  /* 打卡鐘與保險箱 */
+  /* 1F */
   .pc-body{fill:#c9d2dc} .pc-face{fill:#fffdf6; stroke:#4d5868; stroke-width:2.5}
   .pc-tick{stroke:#4d5868; stroke-width:1.6}
   .hand-h,.hand-m{stroke:#2b2f36; stroke-linecap:round; transform-origin:80px 40px}
   .hand-h{stroke-width:3.2} .hand-m{stroke-width:2}
   .pc-slot{fill:#4d5868} .pc-card{fill:#f6efe0; stroke:#b8ad96}
   .pc-led{fill:#36d399}
-  .st-miss .pc-led,.st-fail .pc-led{fill:var(--red); animation:blink 1s steps(2) infinite}
+  .st-miss .pc-led{fill:var(--red); animation:blink 1s steps(2) infinite}
   .st-unknown .pc-led{fill:#9aa3ae}
+  .st-work .pc-box{animation:ring .18s linear infinite; transform-box:fill-box; transform-origin:50% 100%}
   .shelf{fill:#4d5868}
-  .safe-body{fill:#5f6b7c; stroke:#8996a8; stroke-width:2}
-  .safe-door{fill:#6f7c8f}
-  .safe-dial{fill:#c9d2dc}
+  .safe-body{fill:#5f6b7c; stroke:#8996a8; stroke-width:2} .safe-door{fill:#6f7c8f} .safe-dial{fill:#c9d2dc}
   .tag{stroke:#8996a8; stroke-width:1}
   .tag-ok{fill:#d6f3e3} .tag-warn{fill:#ffe6b8} .tag-bad{fill:#ffd4d0}
   .tag-t{font-family:var(--sans); font-size:9.5px; font-weight:700; fill:#2b2f36}
+  .door-frame{fill:#8996a8} .door-glass{fill:#1a2230} .door-mat{fill:#a0522d} .door-mat-t{font-family:var(--sans); font-size:7px; font-weight:700; fill:#f6e7c8; text-anchor:middle; letter-spacing:.08em}
+  .door-sign{fill:var(--sun)} .door-sign-t{font-family:var(--hand); font-size:11px; font-weight:700; fill:#4a3510; text-anchor:middle}
+  .door-handle{fill:#c9d2dc}
 
-  /* ---------- 打卡紀錄 ---------- */
+  /* ---------- 機器人 ---------- */
+  .robots{position:absolute; inset:0; pointer-events:none; z-index:3}
+  .rb{position:absolute; left:0; top:0; padding:0; border:0; background:none; cursor:pointer; pointer-events:auto;
+    transition:transform var(--walk,2.4s) ease-in-out, opacity .45s ease}
+  .rb.hidden{opacity:0; pointer-events:none}
+  .rb.fade{opacity:0}
+  .rb svg{display:block; width:100%; height:100%; overflow:visible}
+  .rb.face-r svg{transform:scaleX(-1)}
+  .rb.pop svg{animation:pop .7s cubic-bezier(.3,1.6,.5,1) both; animation-delay:var(--delay,0s)}
+  .rb .head,.rb .body,.rb .arm{fill:var(--c)}
+  .rb .visor{fill:#1f2630}
+  .rb .eyes-open rect{fill:#7ff5df}
+  .rb .eyes-shut path,.rb .eyes-x path{fill:none; stroke:#7ff5df; stroke-width:2.2; stroke-linecap:round}
+  .rb .ant-line{stroke:#5b6472; stroke-width:2.5}
+  .rb .ant{fill:#9aa3ae}
+  .rb .leg{fill:#5b6472}
+  .rb .badge{font-family:var(--sans); font-weight:900; font-size:11px; fill:rgba(255,255,255,.95); text-anchor:middle}
+  .rb .mug rect{fill:#fffdf6} .rb .mug path{fill:none; stroke:#fffdf6; stroke-width:1.6}
+  .rb .zz text{font-family:var(--sans); font-weight:700; fill:#8a95a5; font-size:12px}
+  .rb .smoke circle{fill:#9aa3ae}
+  .rb .alarm circle{fill:var(--red)} .rb .alarm text,.rb .qmark text{font-family:var(--sans); font-weight:900; font-size:11px; fill:#fff; text-anchor:middle}
+  .rb .qmark circle{fill:#3b82f6}
+  .rb .spark path{fill:var(--sun)}
+  .zz,.smoke,.qmark,.alarm,.spark,.mug,.eyes-shut,.eyes-x{display:none}
+  .rb-inner,.head-g,.arm-l,.arm-r-g,.leg{transform-box:fill-box}
+  .rb-inner{transform-origin:50% 100%} .head-g{transform-origin:50% 100%}
+  .arm-l{transform-origin:100% 50%} .arm-r-g{transform-origin:0% 50%} .leg{transform-origin:50% 0%}
+  .pose-sit .legs{display:none}
+
+  .act-type .arm-l{animation:type .42s ease-in-out infinite alternate}
+  .act-type .ant{fill:#36d399}
+  .act-sleep .eyes-open{display:none} .act-sleep .eyes-shut{display:inline} .act-sleep .zz{display:inline}
+  .act-sleep .zz text{animation:zfloat 2.8s ease-in infinite} .act-sleep .zz text+text{animation-delay:1.4s}
+  .act-sleep .rb-inner{animation:breathe 3.4s ease-in-out infinite}
+  .act-coffee .mug{display:inline} .act-coffee .arm-r-g{animation:sip 5s ease-in-out infinite}
+  .act-relax .rb-inner{animation:sway 4.5s ease-in-out infinite}
+  .act-look .head-g{animation:lookup 7s ease-in-out infinite}
+  .act-panic .eyes-open{display:none} .act-panic .eyes-x,.act-panic .smoke,.act-panic .alarm{display:inline}
+  .act-panic .rb-inner{animation:shake .35s linear infinite} .act-panic .ant{fill:var(--red)}
+  .act-panic .smoke circle{animation:smoke 2s ease-out infinite} .act-panic .smoke circle+circle{animation-delay:1s}
+  .act-cheer .spark{display:inline} .act-cheer .rb-inner{animation:hop 1.3s ease-in-out infinite}
+  .act-cheer .arm-r-g{transform:rotate(-55deg)} .act-cheer .ant{fill:#36d399}
+  .act-lost .qmark{display:inline} .act-lost .head-g{animation:lookaround 3.2s ease-in-out infinite}
+  .act-ready .ant{fill:var(--amber); animation:blink 1s steps(2) infinite}
+  .act-ready .rb-inner{animation:stretch 3.6s ease-in-out infinite}
+  .act-grey{filter:grayscale(1); opacity:.5}
+  .walking .legs{display:inline}
+  .walking .leg-l{animation:leg .42s ease-in-out infinite alternate}
+  .walking .leg-r{animation:leg .42s ease-in-out infinite alternate-reverse}
+  .walking .rb-inner{animation:bob .42s ease-in-out infinite alternate}
+
+  @keyframes type{to{transform:translateY(2.5px)}}
+  @keyframes flick{50%{opacity:.35}}
+  @keyframes blink{100%{opacity:.2}}
+  @keyframes zfloat{0%{transform:translate(0,4px); opacity:0} 30%{opacity:1} 100%{transform:translate(6px,-10px); opacity:0}}
+  @keyframes breathe{50%{transform:scaleY(.965)}}
+  @keyframes sip{0%,35%,70%,100%{transform:rotate(0)} 45%,60%{transform:rotate(-40deg)}}
+  @keyframes sway{0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg)}}
+  @keyframes lookup{0%,60%,100%{transform:translateY(0)} 70%,90%{transform:translateY(-1.5px) rotate(-6deg)}}
+  @keyframes shake{25%{transform:translateX(-1.2px)} 75%{transform:translateX(1.2px)}}
+  @keyframes smoke{0%{transform:translateY(0) scale(.6); opacity:.85} 100%{transform:translateY(-14px) scale(1.5); opacity:0}}
+  @keyframes hop{0%,100%{transform:translateY(0)} 30%{transform:translateY(-8px)} 45%{transform:translateY(0)}}
+  @keyframes lookaround{0%,100%{transform:rotate(-9deg)} 50%{transform:rotate(9deg)}}
+  @keyframes stretch{0%,78%,100%{transform:scaleY(1)} 86%{transform:scaleY(1.06)}}
+  @keyframes leg{from{transform:rotate(-14deg)} to{transform:rotate(14deg)}}
+  @keyframes bob{to{transform:translateY(-2px)}}
+  @keyframes pop{from{transform:scale(.3); opacity:0} to{transform:scale(1); opacity:1}}
+  @keyframes steam{0%{opacity:0; transform:translateY(4px)} 30%{opacity:.8} 100%{opacity:0; transform:translateY(-10px)}}
+  @keyframes ring{25%{transform:rotate(-3deg)} 75%{transform:rotate(3deg)}}
+
+  /* ---------- 街道與打卡紀錄 ---------- */
+  .street{background:#3b414c; border-top:14px solid #7d8593; padding-bottom:40px;
+    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 46px,transparent 46px 96px); background-size:100% 4px; background-repeat:no-repeat; background-position:0 22px}
+  .street .wrap{padding-top:44px}
   .tape{background:#f7f4ec; border-radius:6px; padding:14px 16px 6px; color:var(--ink);
     background-image:repeating-linear-gradient(180deg,transparent 0 31px,rgba(77,88,104,.12) 31px 32px)}
   .tape h2{margin:0 0 6px; font-family:var(--hand); font-size:1.1rem}
@@ -185,13 +247,12 @@
   .tape a{color:inherit}
   .ok-t{color:var(--green); font-weight:700} .bad-t{color:var(--red); font-weight:700} .run-t{color:#b07a00; font-weight:700}
   .about{color:#d7dde6; font-size:.82rem; margin-top:18px; max-width:68ch}
-  .about a{color:#ffe08a}
 
   /* ---------- 詳細抽屜 ---------- */
-  .scrim{position:fixed; inset:0; background:rgba(20,26,36,.45); opacity:0; pointer-events:none; transition:opacity .2s}
+  .scrim{position:fixed; inset:0; background:rgba(20,26,36,.45); opacity:0; pointer-events:none; transition:opacity .2s; z-index:9}
   .scrim.open{opacity:1; pointer-events:auto}
   .drawer{position:fixed; top:0; right:0; bottom:0; width:min(440px,100%); background:var(--paper); color:var(--ink);
-    transform:translateX(102%); transition:transform .25s ease; overflow-y:auto; z-index:5;
+    transform:translateX(102%); transition:transform .25s ease; overflow-y:auto; z-index:10;
     padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(28px + env(safe-area-inset-bottom,0px));
     box-shadow:-12px 0 30px rgba(0,0,0,.25)}
   .drawer.open{transform:none}
@@ -200,7 +261,7 @@
   .drawer p{margin:0 0 6px}
   .chip{display:inline-block; font-size:.8rem; font-weight:700; padding:2px 10px; border-radius:999px; margin-top:6px; background:#eef0f3}
   .chip.st-work{background:#d6f3e3; color:#0f6b47} .chip.st-fail,.chip.st-miss{background:#ffd4d0; color:#8f1d22}
-  .chip.st-soon{background:#ffe6b8; color:#7a5300} .chip.st-idle{background:#eef0f3; color:#4d5868}
+  .chip.st-soon{background:#ffe6b8; color:#7a5300} .chip.st-idle,.chip.st-leave{background:#eef0f3; color:#4d5868}
   .dl{display:grid; grid-template-columns:5.5em 1fr; gap:4px 10px; font-size:.92rem}
   .dl dt{color:var(--muted)} .dl dd{margin:0}
   .runs{list-style:none; margin:0; padding:0; font-size:.88rem}
@@ -212,9 +273,11 @@
   .links a{display:inline-block; background:var(--ink); color:#fff; text-decoration:none; border-radius:8px; padding:7px 14px; font-size:.88rem; font-weight:700}
   .close{position:sticky; top:0; float:right; background:#eef0f3; border:0; border-radius:999px; width:36px; height:36px; font-size:1.2rem; cursor:pointer}
 
-  @media (max-width:560px){
+  @media (max-width:640px){
     body{font-size:14px}
-    .stations{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .room{flex-direction:column; align-items:stretch}
+    .desks{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .lounge{flex:none; width:100%; max-width:240px; align-self:center; margin-top:0}
     .floor-sign .sub{flex-basis:100%}
     .orb{width:40px; height:40px; right:2%}
     .tape li{grid-template-columns:1fr auto; gap:0 10px}
@@ -227,7 +290,7 @@
 </style>
 </head>
 <body>
-<div class="sky" id="sky" aria-hidden="true"><div class="stars" id="stars"></div></div>
+<div class="sky" aria-hidden="true"><div class="stars" id="stars"></div></div>
 
 <div class="wrap">
   <header class="top">
@@ -243,12 +306,14 @@
       </div>
     </div>
   </header>
+  <p class="oops" id="oops" role="alert"></p>
 
   <section class="board" id="board" aria-label="公告欄"><h2>公告欄</h2></section>
 
-  <div class="building">
+  <div class="building" id="building">
     <div class="roof"><div class="orb" aria-hidden="true"></div><div class="sign">Hope Kids 機器人大樓</div></div>
     <div class="floors" id="floors"></div>
+    <div class="robots" id="robots"></div>
   </div>
 </div>
 
@@ -258,11 +323,11 @@
     <h2>最近打卡紀錄</h2>
     <ol id="tape"><li><span>讀取中…</span></li></ol>
   </section>
-
   <p class="about">
-    每位機器人是一支 GitHub Actions 自動化工作，資料直接讀 GitHub 公開的執行紀錄，每分鐘更新一次。
-    1F 打卡鐘是 Cloudflare 上的排程，它本身的狀態讀不到，這裡是看機器人有沒有被準時叫醒來判斷：
-    該上工的時間過了 20 分鐘還沒有任何紀錄，就會標成「沒來上班」。
+    每位機器人是一支 GitHub Actions 自動化工作。員工名單和執行紀錄都直接讀 GitHub 公開的資料，
+    出勤平常每 10 分鐘更新，有機器人正在上工或快上工時每 30 秒更新；員工名單每 6 小時檢查一次，按「重新整理」會立刻全部重查。
+    在 GitHub 新增或停用自動化工作，這裡會自動多一位新員工或顯示請假。
+    1F 打卡鐘是 Cloudflare 上的排程，它本身的狀態讀不到，這裡是看機器人有沒有被準時叫醒來判斷。
   </p>
 </div>
 </div>
@@ -271,17 +336,24 @@
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" tabindex="-1"></aside>
 
 <script>
+window.addEventListener("error", e => {
+  const el = document.getElementById("oops");
+  if (el) { el.style.display = "block"; el.textContent = `頁面程式出錯：${e.message}。請把這行字截圖給 Claude。`; }
+});
 (() => {
   const OWNER = "JoeYoung6406";
   const API = "https://api.github.com";
   const RAW = "https://raw.githubusercontent.com";
-  const REPOS = ["hopekids-bot", "line-remind", "hopekids-tc"];
-  const POLL = 60e3;
+  // GitHub 不登入每小時只給 60 次查詢：平常每 10 分鐘更新一次，有機器人正在上工或快上工時，該部門每 30 秒更新
+  const FULL_EVERY = 10 * 60e3, HOT_EVERY = 30e3, DISCOVER_EVERY = 6 * 3600e3, ROSTER_KEY = "office-roster-v2";
   const MIN = 60e3, H = 3600e3, DAY = 864e5, TPE = 8 * H;
   const WEEK = "日一二三四五六";
   const FAIL = new Set(["failure", "timed_out", "startup_failure"]);
+  const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const DEMO = new URLSearchParams(location.search).has("demo");
+  const DEMO_SCENE = Number(new URLSearchParams(location.search).get("demo")) || 0;   // ?demo=1、?demo=2 固定某個情境
 
-  // ---------- 台北時間工具 ----------
+  // ---------- 台北時間 ----------
   const tp = d => { const t = new Date(d.getTime() + TPE);
     return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate(), dow: t.getUTCDay(), h: t.getUTCHours(), mi: t.getUTCMinutes(), s: t.getUTCSeconds() }; };
   const atTp = (y, m, d, h = 0, mi = 0) => new Date(Date.UTC(y, m - 1, d, h, mi) - TPE);
@@ -292,31 +364,75 @@
     const s = a < MIN ? "1 分鐘" : a < H ? `${Math.round(a / MIN)} 分鐘` : a < 2 * DAY ? `${Math.round(a / H)} 小時` : `${Math.round(a / DAY)} 天`;
     return diff >= 0 ? `${s}後` : `${s}前`; };
   const mondayAfterThirdSunday = (y, m) => { const f = new Date(Date.UTC(y, m - 1, 1)).getUTCDay(); return 1 + ((7 - f) % 7) + 15; };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  function slots(rule, from, to) {
-    const out = [], f = tp(from);
-    for (let ms = Date.UTC(f.y, f.m - 1, f.d); ms - TPE <= to.getTime(); ms += DAY) {
-      const dd = new Date(ms), y = dd.getUTCFullYear(), m = dd.getUTCMonth() + 1, d = dd.getUTCDate();
-      if (rule.on(y, m, d, dd.getUTCDay())) out.push(atTp(y, m, d, rule.h, rule.mi));
+  // ---------- 排程：某個台北日期有哪些上工時間 ----------
+  const tpeRule = (on, h, mi) => ({ day: (y, m, d, w) => on(y, m, d, w) ? [atTp(y, m, d, h, mi)] : [] });
+  function cronField(expr, min, max) {
+    if (expr === "*") return null;
+    const set = new Set();
+    for (const part of expr.split(",")) {
+      const [range, stepStr] = part.split("/"), step = stepStr ? +stepStr : 1;
+      let lo, hi;
+      if (range === "*") { lo = min; hi = max; }
+      else if (range.includes("-")) [lo, hi] = range.split("-").map(Number);
+      else { lo = +range; hi = stepStr ? max : lo; }
+      for (let v = lo; v <= hi; v += step) set.add(v);
     }
-    return out;
+    return set;
   }
-  function around(rule, now) {
+  function cronSched(expr) {
+    const f = String(expr).trim().split(/\s+/);
+    if (f.length !== 5) return null;
+    const mins = cronField(f[0], 0, 59), hours = cronField(f[1], 0, 23), dom = cronField(f[2], 1, 31), mon = cronField(f[3], 1, 12);
+    let dow = cronField(f[4], 0, 7);
+    if (dow && dow.has(7)) { dow.delete(7); dow.add(0); }
+    const all = (s, a, b) => s ? [...s].sort((x, y) => x - y) : Array.from({ length: b - a + 1 }, (_, i) => a + i);
+    const ML = all(mins, 0, 59), HL = all(hours, 0, 23);
+    const utcDay = (dt) => {
+      const Y = dt.getUTCFullYear(), M = dt.getUTCMonth() + 1, D = dt.getUTCDate(), W = dt.getUTCDay();
+      if (mon && !mon.has(M)) return [];
+      const domOk = !dom || dom.has(D), dowOk = !dow || dow.has(W);
+      if (!(dom && dow ? domOk || dowOk : domOk && dowOk)) return [];
+      const out = [];
+      for (const h of HL) for (const m of ML) out.push(new Date(Date.UTC(Y, M - 1, D, h, m)));
+      return out;
+    };
+    return { day: (y, m, d) => {
+      const start = atTp(y, m, d), end = start.getTime() + DAY;
+      return [...utcDay(start), ...utcDay(new Date(end - 1))].filter(t => t >= start && t < end);
+    } };
+  }
+  const unionSched = list => ({ day: (...a) => list.flatMap(s => s.day(...a)).sort((x, y) => x - y) });
+  function prevNext(sched, now) {
+    if (!sched) return { prev: null, next: null };
+    const t = tp(now), base = Date.UTC(t.y, t.m - 1, t.d);
+    const at = k => { const dd = new Date(base + k * DAY); return sched.day(dd.getUTCFullYear(), dd.getUTCMonth() + 1, dd.getUTCDate(), dd.getUTCDay()); };
     let prev = null, next = null;
-    for (const s of slots(rule, new Date(now - 70 * DAY), new Date(now.getTime() + 130 * DAY))) {
-      if (s <= now) prev = s; else { next = s; break; }
-    }
+    for (let k = 0; k <= 400 && !prev; k++) { const s = at(-k).filter(x => x <= now); if (s.length) prev = s[s.length - 1]; }
+    for (let k = 0; k <= 400 && !next; k++) { const s = at(k).filter(x => x > now); if (s.length) next = s[0]; }
     return { prev, next };
   }
+  function cronText(expr) {
+    const f = String(expr).trim().split(/\s+/);
+    if (f.length !== 5 || !/^\d+$/.test(f[0]) || !/^\d+$/.test(f[1]) || f[2] !== "*" || f[3] !== "*") return `cron「${expr}」（UTC）`;
+    let h = +f[1] + 8, shift = 0;
+    if (h >= 24) { h -= 24; shift = 1; }
+    const time = `${pad(h)}:${pad(+f[0])}`;
+    const set = cronField(f[4], 0, 7);
+    if (!set) return `每天 ${time}`;
+    const days = [...new Set([...set].map(d => (d % 7 + shift) % 7))].sort().map(d => WEEK[d]);
+    return `每週${days.join("、")} ${time}`;
+  }
 
-  // ---------- 員工名冊 ----------
+  // ---------- 已知員工（名字、工作說明、故障手冊） ----------
   const PATS = {
     hopekids: { secret: "GH_PAT", token: "hopekids-line-hook", serves: "小週、表單姐", expires: "2027-07-19" },
     remind: { secret: "GH_PAT_LINE_REMIND", token: "line-remind-dispatch", serves: "晨讀機、小聚", expires: "2027-10-13" },
   };
-  const JOBS = [
-    { id: "weekly", floor: "hk", repo: "hopekids-bot", file: "weekly.yml", name: "小週", role: "每週服事表推播", color: "#3b82f6",
-      work: { on: (y, m, d, w) => w === 3, h: 10, mi: 0 }, grace: 20, by: "clock", pat: "hopekids", line: true,
+  const KNOWN = {
+    "hopekids-bot|.github/workflows/weekly.yml": { name: "小週", char: "週", role: "每週服事表推播", color: "#3b82f6",
+      work: tpeRule((y, m, d, w) => w === 3, 10, 0), grace: 20, by: "clock", pat: "hopekids", line: true,
       duty: "每週三早上把「當週服事表」整理成卡片，推播到 Hope Kids 服事群組。",
       hours: "每週三 10:00，由 1F 打卡鐘準時叫醒。",
       manual: [
@@ -326,8 +442,8 @@
         "想讓某一週不發：把日期寫進 hopekids-bot 的 skip_dates.txt。",
         "補發：私訊 bot「本週服事夥伴」，或在 GitHub 這個工作的頁面按 Run workflow。",
       ] },
-    { id: "form", floor: "hk", repo: "hopekids-bot", file: "unavailable_form.yml", name: "表單姐", role: "無法服事日期表單提醒", color: "#ff7a59",
-      work: { on: (y, m, d, w) => m % 2 === 1 && w === 1 && d === mondayAfterThirdSunday(y, m), h: 10, mi: 0 }, grace: 20, by: "clock", pat: "hopekids", line: true,
+    "hopekids-bot|.github/workflows/unavailable_form.yml": { name: "表單姐", char: "表", role: "無法服事日期表單提醒", color: "#ff7a59",
+      work: tpeRule((y, m, d, w) => m % 2 === 1 && w === 1 && d === mondayAfterThirdSunday(y, m), 10, 0), grace: 20, by: "clock", pat: "hopekids", line: true,
       duty: "單數月提醒服事夥伴填「無法參與服事日期」表單，調查往後兩個月。",
       hours: "單數月第三個主日的隔天（週一）10:00，由 1F 打卡鐘叫醒。",
       manual: [
@@ -335,9 +451,9 @@
         "表單裡的日期選項要手動更新，機器人只負責發提醒。",
         "補發：在 GitHub 這個工作的頁面按 Run workflow。",
       ] },
-    { id: "monthly", floor: "hk", repo: "hopekids-tc", file: "monthly-update.yml", name: "月更君", role: "每月更新投影片與課程範例", color: "#2bb3a3",
-      work: { on: (y, m, d, w) => w === 6 && d >= 15 && d <= 21, h: 8, mi: 23 },
-      wake: { on: (y, m, d, w) => w === 6, h: 8, mi: 23 }, grace: 360, by: "github",
+    "hopekids-tc|.github/workflows/monthly-update.yml": { name: "月更君", char: "月", role: "每月更新投影片與課程範例", color: "#2bb3a3",
+      work: tpeRule((y, m, d, w) => w === 6 && d >= 15 && d <= 21, 8, 23), wakeFromCron: true,
+      wakeFallback: tpeRule((y, m, d, w) => w === 6, 8, 23), grace: 360, by: "github",
       duty: "每月第三個週六，從教材連結表抓下個月的投影片、課程講義和故事圖，更新到服事夥伴專區網站。",
       hours: "每週六 08:23 醒來點名，只有第三個週六真的動工。這是 GitHub 自己的排程，偶爾會晚幾個小時。",
       manual: [
@@ -345,13 +461,13 @@
         "教材連結表要維持「知道連結的人可檢視」，它才讀得到。",
         "它改好網站檔案後，由小頁接手發布上線。",
       ] },
-    { id: "pages", floor: "hk", repo: "hopekids-tc", file: "pages-build-deployment", name: "小頁", role: "網站發布", color: "#8b5cf6",
+    "hopekids-tc|dynamic/pages/pages-build-deployment": { name: "小頁", char: "頁", role: "網站發布", color: "#8b5cf6",
       work: null, by: "push",
       duty: "網站有新內容推上 GitHub，就把服事夥伴專區重新發布上線。",
       hours: "沒有固定時間，有新內容就上工。",
       manual: [ "失敗多半是 GitHub 暫時出狀況，在紀錄頁按 Re-run，或再推一次內容即可。" ] },
-    { id: "daily", floor: "ln", repo: "line-remind", file: "daily_plan.yml", name: "晨讀機", role: "每日靈修", color: "#f2a900",
-      work: { on: (y, m, d, w) => w >= 1 && w <= 5, h: 6, mi: 0 }, grace: 20, by: "clock", pat: "remind",
+    "line-remind|.github/workflows/daily_plan.yml": { name: "晨讀機", char: "晨", role: "每日靈修", color: "#f2a900",
+      work: tpeRule((y, m, d, w) => w >= 1 && w <= 5, 6, 0), grace: 20, by: "clock", pat: "remind",
       duty: "平日清晨截取當天的靈修內容，做成卡片發到小組群組。",
       hours: "週一到週五 06:00，由 1F 打卡鐘準時叫醒。",
       manual: [
@@ -359,8 +475,8 @@
         "截圖失敗：靈修內容來自外部網站，那個網站掛了這邊就拍不到。",
         "補發：在 GitHub 這個工作的頁面按 Run workflow；勾選 dry run 只截圖、不發 LINE。",
       ] },
-    { id: "remind", floor: "ln", repo: "line-remind", file: "remind.yml", name: "小聚", role: "聚會輪值提醒", color: "#06c755",
-      work: { on: (y, m, d, w) => w === 2, h: 19, mi: 0 }, grace: 20, by: "clock", pat: "remind",
+    "line-remind|.github/workflows/remind.yml": { name: "小聚", char: "聚", role: "聚會輪值提醒", color: "#06c755",
+      work: tpeRule((y, m, d, w) => w === 2, 19, 0), grace: 20, by: "clock", pat: "remind",
       duty: "每週二晚上查聚會輪值表，隔天有聚會就把帶點心、破冰、敬拜、代禱的人發到小組群組。",
       hours: "每週二 19:00，由 1F 打卡鐘叫醒。隔天沒聚會、或輪值表寫「暫停」就不發，但仍算成功。",
       manual: [
@@ -368,51 +484,116 @@
         "有成功紀錄但群組沒收到：檢查輪值表 Google Sheet 有沒有隔天的日期。",
         "補發：在 GitHub 這個工作的頁面按 Run workflow。",
       ] },
-  ];
-  const FLOORS = [
-    { id: "hk", lvl: "3F", name: "Hope Kids 事業部", sub: "服事群組與服事夥伴專區網站" },
-    { id: "ln", lvl: "2F", name: "小組部", sub: "小組 LINE 群組" },
-    { id: "srv", lvl: "1F", name: "機房", sub: "叫醒大家的打卡鐘與金鑰" },
-  ];
-  const byId = Object.fromEntries(JOBS.map(j => [j.id, j]));
+  };
+  const FLOOR_OF_REPO = { "hopekids-bot": "hk", "hopekids-tc": "hk", "line-remind": "ln" };
+  const FLOOR_INFO = {
+    hk: { name: "Hope Kids 事業部", sub: "服事群組與服事夥伴專區網站", cls: "hk" },
+    ln: { name: "小組部", sub: "小組 LINE 群組", cls: "ln" },
+    srv: { name: "機房", sub: "叫醒大家的打卡鐘、金鑰和大門", cls: "srv" },
+  };
+  const PALETTE = ["#e8590c", "#0ca678", "#7048e8", "#d6336c", "#1c7ed6", "#f08c00", "#2f9e44"];
+  const FALLBACK_ROSTER = Object.keys(KNOWN).map(k => { const [repo, path] = k.split("|"); return { repo, path, name: KNOWN[k].role, state: "active", crons: [] }; });
+  const hash = s => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
+
+  function makeJob(w) {
+    const id = `${w.repo}|${w.path}`, k = KNOWN[id] || {};
+    const crons = (w.crons || []).map(cronSched).filter(Boolean);
+    const cronU = crons.length ? unionSched(crons) : null;
+    const name = k.name || (w.name.length > 6 ? w.name.slice(0, 6) + "…" : w.name);
+    return {
+      id, repo: w.repo, path: w.path, auto: !KNOWN[id], leave: w.state !== "active", wfState: w.state,
+      floor: FLOOR_OF_REPO[w.repo] || `repo:${w.repo}`,
+      name, char: k.char || name[0], role: k.role || w.name, color: k.color || PALETTE[hash(id) % PALETTE.length],
+      work: "work" in k ? k.work : cronU,
+      wake: k.wakeFromCron ? (cronU || k.wakeFallback) : null,
+      grace: k.grace || 360, by: k.by || (cronU ? "github" : "manual"), pat: k.pat, line: k.line,
+      duty: k.duty || `GitHub 自動化工作「${w.name}」，在 ${w.repo} 這個 repo。新到職的員工，還沒有正式的工作說明。`,
+      hours: k.hours || ((w.crons || []).length ? `GitHub 排程：${w.crons.map(cronText).join("、")}。GitHub 排程偶爾會晚幾個小時。` : "沒有固定時間，要手動或由其他程式叫醒。"),
+      manual: k.manual || ["點下面的連結到 GitHub 看執行紀錄和錯誤訊息。", "想幫它取名字、寫工作說明和故障手冊，請 Claude 把它加進大樓名冊。"],
+    };
+  }
 
   // ---------- 資料 ----------
-  const state = { runs: {}, fetchedAt: null, error: null, rate: null, pauseUntil: 0, bMonths: [], skip: [], evals: {} };
+  const state = { roster: null, rosterAt: 0, runs: {}, fetchedAt: null, error: null, rate: null, pauseUntil: 0,
+    bMonths: [], skip: [], evals: {}, targets: {} };
+  let JOBS = [], byId = {}, builtSig = "";
 
-  async function fetchRepo(repo) {
-    const r = await fetch(`${API}/repos/${OWNER}/${repo}/actions/runs?per_page=100`, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
+  async function gh(path) {
+    const r = await fetch(API + path, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
     const rem = r.headers.get("x-ratelimit-remaining"), reset = r.headers.get("x-ratelimit-reset");
     if (rem !== null) state.rate = { rem: +rem, reset: +reset * 1000 };
     if ((r.status === 403 || r.status === 429) && rem === "0") { state.pauseUntil = +reset * 1000; throw new Error("rate"); }
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    state.runs[repo] = (await r.json()).workflow_runs || [];
+    return r.json();
   }
-  async function fetchList(path) {
-    try { const r = await fetch(`${RAW}/${OWNER}/${path}`, { cache: "no-cache" });
-      return r.ok ? (await r.text()).split(/\r?\n/).map(l => l.split("#")[0].trim()).filter(Boolean) : null;
-    } catch { return null; }
+  async function rawText(path) {
+    try { const r = await fetch(`${RAW}/${OWNER}/${path}`, { cache: "no-cache" }); return r.ok ? await r.text() : ""; } catch { return ""; }
+  }
+  const lines = t => t.split(/\r?\n/).map(l => l.split("#")[0].trim()).filter(Boolean);
+
+  function loadCachedRoster() {
+    try { const c = JSON.parse(localStorage.getItem(ROSTER_KEY) || "null"); if (c && Array.isArray(c.roster)) { state.roster = c.roster; state.rosterAt = c.at; } } catch {}
+  }
+  async function discover() {
+    const repos = await gh(`/users/${OWNER}/repos?per_page=100&sort=pushed`);
+    const recent = repos.filter(r => !r.archived && Date.now() - new Date(r.pushed_at) < 365 * DAY);
+    const res = await Promise.allSettled(recent.map(r => gh(`/repos/${OWNER}/${r.name}/actions/workflows?per_page=100`).then(j => ({ repo: r.name, wfs: j.workflows || [] }))));
+    if (res.every(x => x.status === "rejected")) throw new Error("discover");
+    const failed = new Set(recent.map(r => r.name).filter((_, i) => res[i].status === "rejected"));
+    const roster = (state.roster || []).filter(w => failed.has(w.repo));
+    for (const x of res) {
+      if (x.status !== "fulfilled") continue;
+      for (const wf of x.value.wfs) {
+        const id = `${x.value.repo}|${wf.path}`;
+        if (!KNOWN[id] && !wf.path.startsWith(".github/workflows/")) continue;   // 其他網站的發布機器人不列入
+        roster.push({ repo: x.value.repo, path: wf.path, name: wf.name, state: wf.state, crons: [] });
+      }
+    }
+    await Promise.all(roster.filter(w => w.path.startsWith(".github/workflows/")).map(async w => {
+      const txt = await rawText(`${w.repo}/HEAD/${w.path}`);
+      w.crons = txt.split(/\r?\n/).filter(l => !l.trim().startsWith("#"))
+        .map(l => (l.match(/cron:\s*['"]([^'"]+)['"]/) || [])[1]).filter(Boolean);
+    }));
+    state.roster = roster; state.rosterAt = Date.now();
+    try { localStorage.setItem(ROSTER_KEY, JSON.stringify({ at: state.rosterAt, roster })); } catch {}
+  }
+  function applyRoster() {
+    const roster = state.roster && state.roster.length ? state.roster : FALLBACK_ROSTER;
+    const order = id => KNOWN[id] ? Object.keys(KNOWN).indexOf(id) : 100;
+    JOBS = roster.map(makeJob).sort((a, b) => order(a.id) - order(b.id) || a.id.localeCompare(b.id));
+    byId = Object.fromEntries(JOBS.map(j => [j.id, j]));
   }
 
-  let lastFetch = 0, busy = false;
-  async function refresh() {
+  async function fetchRuns(repo) { state.runs[repo] = (await gh(`/repos/${OWNER}/${repo}/actions/runs?per_page=100`)).workflow_runs || []; }
+
+  let lastFull = 0, busy = false;
+  async function refresh(forceDiscover, only) {
     if (busy) return;
-    if (Date.now() < state.pauseUntil) { render(); return; }
-    busy = true; lastFetch = Date.now();
-    const res = await Promise.allSettled(REPOS.map(fetchRepo));
+    if (Date.now() < state.pauseUntil) { update(); return; }
+    busy = true;
+    if (!only) lastFull = Date.now();
+    let err = null;
+    if (forceDiscover || !state.roster || Date.now() - state.rosterAt > DISCOVER_EVERY) {
+      try { await discover(); } catch (e) { err = e.message === "rate" ? "rate" : "net"; }
+    }
+    applyRoster();
+    const repos = only || [...new Set(JOBS.map(j => j.repo))];
+    const res = await Promise.allSettled(repos.map(fetchRuns));
     const bad = res.filter(r => r.status === "rejected");
-    state.error = !bad.length ? null : bad.some(b => b.reason && b.reason.message === "rate") ? "rate" : "net";
-    if (bad.length < REPOS.length) state.fetchedAt = new Date();
-    const [b, s] = await Promise.all([fetchList("hopekids-bot/main/account_b_months.txt"), fetchList("hopekids-bot/main/skip_dates.txt")]);
-    if (b) state.bMonths = b;
-    if (s) state.skip = s;
+    if (bad.length) err = bad.some(b => b.reason && b.reason.message === "rate") ? "rate" : (err || "net");
+    if (bad.length < repos.length) state.fetchedAt = new Date();
+    state.error = err;
+    const [b, s] = await Promise.all([rawText("hopekids-bot/HEAD/account_b_months.txt"), rawText("hopekids-bot/HEAD/skip_dates.txt")]);
+    if (b) state.bMonths = lines(b);
+    if (s) state.skip = lines(s);
     busy = false;
-    render();
+    update();
   }
 
   // ---------- 判斷每位的狀態 ----------
   const runPath = r => (r.path || "").split("@")[0];
   function runsOf(job) {
-    return (state.runs[job.repo] || []).filter(r => runPath(r).endsWith(job.file))
+    return (state.runs[job.repo] || []).filter(r => runPath(r) === job.path)
       .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   }
   function evaluate(job, now) {
@@ -421,94 +602,100 @@
     const runs = runsOf(job);
     const active = runs.find(r => r.status !== "completed");
     const last = runs.find(r => r.status === "completed" && r.conclusion !== "cancelled" && r.conclusion !== "skipped");
-    const { prev, next } = job.work ? around(job.work, now) : {};
+    const { prev, next } = prevNext(job.work, now);
     let missedAt = null;
     const rule = job.wake || job.work;
-    if (rule && loaded) {
-      const p = around(rule, now).prev;
+    if (rule && loaded && !job.leave) {
+      const p = prevNext(rule, now).prev;
       const oldest = all.length ? new Date(all[all.length - 1].created_at) : now;
-      if (p && now - p > job.grace * MIN && (all.length < 100 || oldest < p)) {
-        if (!runs.some(r => new Date(r.created_at) >= p - 10 * MIN)) missedAt = p;
-      }
+      if (p && now - p > job.grace * MIN && (all.length < 100 || oldest < p) && !runs.some(r => new Date(r.created_at) >= p - 10 * MIN)) missedAt = p;
     }
     let st;
-    if (!loaded) st = "unknown";
+    if (job.leave) st = "leave";
+    else if (!loaded) st = "unknown";
     else if (active) st = "work";
     else if (missedAt) st = "miss";
     else if (last && FAIL.has(last.conclusion)) st = "fail";
     else if (!runs.length) st = "unknown";
     else if (next && next - now < 30 * MIN) st = "soon";
     else st = "idle";
-    return { st, runs, active, last, prev, next, missedAt };
+    const cheer = st === "idle" && last && last.conclusion === "success" && now - new Date(last.updated_at) < 10 * MIN;
+    return { st, runs, active, last, prev, next, missedAt, cheer };
   }
-  function evalClock(now) {
-    const jobs = JOBS.filter(j => j.by === "clock");
+  function evalClock() {
+    const jobs = JOBS.filter(j => j.by === "clock" && !j.leave);
     const ev = jobs.map(j => state.evals[j.id]);
-    const loaded = ev.every(e => e.st !== "unknown");
+    const loaded = ev.length && ev.every(e => e.st !== "unknown");
     const missed = jobs.filter(j => state.evals[j.id].st === "miss");
     const next = ev.map(e => e.next).filter(Boolean).sort((a, b) => a - b)[0] || null;
-    const lastPunch = ev.flatMap(e => e.runs).filter(r => r.event === "workflow_dispatch")
-      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
     const st = !loaded ? "unknown" : missed.length ? "miss" : ev.some(e => e.st === "work") ? "work" : "idle";
-    return { st, missed, next, lastPunch };
+    return { st, missed, next };
   }
   const daysLeft = (p, now) => Math.floor((atTp(...p.expires.split("-").map(Number)) - now) / DAY);
 
-  const label = { work: "上班中", miss: "沒來上班", fail: "上次失敗", soon: "準備上工", idle: "休息中", unknown: "讀不到狀態" };
+  const label = { work: "上班中", miss: "沒來上班", fail: "上次失敗", soon: "準備上工", idle: "休息中", unknown: "讀不到狀態", leave: "請假中" };
   const result = r => !r ? "" : r.status !== "completed" ? "進行中" : r.conclusion === "success" ? "成功" : FAIL.has(r.conclusion) ? "失敗" : r.conclusion === "cancelled" ? "取消" : r.conclusion || "";
   const resultCls = r => !r ? "" : r.status !== "completed" ? "run-t" : r.conclusion === "success" ? "ok-t" : FAIL.has(r.conclusion) ? "bad-t" : "";
-
   function statLine(job, e, now) {
     switch (e.st) {
       case "work": return `上班中，${rel(new Date(e.active.run_started_at || e.active.created_at), now)}開始`;
       case "miss": return `沒來上班：${fmt(e.missedAt)} 該上工`;
       case "fail": return `上次失敗：${fmt(new Date(e.last.created_at))}`;
       case "soon": return `準備上工，${rel(e.next, now)}`;
-      case "idle": return e.last ? `休息中，上次 ${fmt(new Date(e.last.created_at), false)}${result(e.last)}` : "休息中";
+      case "leave": return job.wfState === "disabled_inactivity" ? "請假中：repo 太久沒動靜，GitHub 停用了它" : "請假中：GitHub 上被停用了";
+      case "idle": return e.cheer ? "剛完成工作" : e.last ? `休息中，上次 ${fmt(new Date(e.last.created_at), false)}${result(e.last)}` : "休息中";
       default: return state.error ? "讀不到 GitHub" : "讀取中";
     }
   }
-  const nextLine = (job, e, now) => job.work ? (e.next ? `下次上工 ${fmt(e.next)}，${rel(e.next, now)}` : "") : "有新內容推上來才上工";
+  const nextLine = (job, e, now) => job.leave ? "" : job.work ? (e.next ? `下次上工 ${fmt(e.next)}，${rel(e.next, now)}` : "")
+    : job.by === "push" ? "有新內容推上來才上工" : "沒有固定上班時間";
 
-  // ---------- 畫面 ----------
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
-  const botSVG = () => `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+  // ---------- 場景 SVG ----------
+  const deskSVG = () => `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
     <ellipse class="glow" cx="80" cy="62" rx="74" ry="46"/>
     <g class="chair"><rect x="94" y="46" width="40" height="38" rx="9"/><rect x="110" y="84" width="8" height="26"/></g>
-    <g class="bot">
-      <line class="ant-line" x1="113" y1="20" x2="113" y2="10"/><circle class="ant" cx="113" cy="8" r="4.5"/>
-      <rect class="head" x="95" y="20" width="36" height="28" rx="9"/>
-      <rect class="visor" x="100" y="26" width="26" height="15" rx="5"/>
-      <g class="eyes-open"><rect x="105" y="30" width="5" height="7" rx="2.5"/><rect x="116" y="30" width="5" height="7" rx="2.5"/></g>
-      <g class="eyes-shut"><path d="M104 34 q3 3.5 6 0 M115 34 q3 3.5 6 0"/></g>
-      <g class="eyes-x"><path d="M104 30 l6 7 M110 30 l-6 7 M115 30 l6 7 M121 30 l-6 7"/></g>
-      <rect class="body" x="99" y="50" width="28" height="28" rx="8"/>
-      <rect class="arm" x="82" y="62" width="20" height="7" rx="3.5"/>
-      <text class="zz" x="136" y="20">z</text><text class="zz zz2" x="145" y="10">z</text>
-      <g class="alarm"><circle cx="140" cy="16" r="9"/><text x="140" y="21">!</text></g>
-    </g>
     <rect class="desk" x="12" y="76" width="136" height="8" rx="2"/>
     <rect class="desk-leg" x="20" y="84" width="6" height="28"/><rect class="desk-leg" x="134" y="84" width="6" height="28"/>
     <rect class="mon-frame" x="22" y="34" width="56" height="38" rx="4"/><rect class="mon-stand" x="46" y="72" width="8" height="4"/>
     <rect class="screen" x="26" y="38" width="48" height="30" rx="2"/>
     <g class="code"><rect x="30" y="43" width="22" height="3" rx="1.5"/><rect x="30" y="49" width="34" height="3" rx="1.5"/><rect x="34" y="55" width="18" height="3" rx="1.5"/><rect x="34" y="61" width="28" height="3" rx="1.5"/></g>
-    <text class="bang" x="50" y="61">!</text><text class="qq" x="113" y="70">?</text>
+    <text class="bang" x="50" y="61">!</text>
     <g class="sticky" transform="rotate(-7 50 53)"><rect x="31" y="40" width="38" height="26" rx="1.5"/><text x="50" y="51">今天</text><text x="50" y="62">沒來</text></g>
+    <g class="leave-sign"><rect x="96" y="52" width="36" height="20" rx="2"/><text x="114" y="66">請假</text></g>
+  </svg>`;
+
+  // 交誼廳：座位與站位（SVG 座標），依序分給休息中的機器人
+  const SPOTS = [
+    { x: 94, y: 72, pose: "sit", act: "relax" },
+    { x: 200, y: 114, pose: "stand", act: "coffee" },
+    { x: 144, y: 72, pose: "sit", act: "relax" },
+    { x: 32, y: 114, pose: "stand", act: "look" },
+  ];
+  const loungeSVG = () => `<svg viewBox="0 0 220 116" aria-hidden="true">
+    <rect class="win-frame" x="6" y="8" width="54" height="44" rx="3"/><rect class="win-sky" x="10" y="12" width="46" height="36"/>
+    <line class="win-bar" x1="33" y1="12" x2="33" y2="48"/>
+    <rect class="sofa-back" x="66" y="46" width="106" height="30" rx="10"/>
+    <rect class="sofa-seat" x="70" y="70" width="98" height="20" rx="6"/>
+    <rect class="sofa-arm" x="60" y="60" width="16" height="32" rx="7"/><rect class="sofa-arm" x="162" y="60" width="16" height="32" rx="7"/>
+    <rect class="sofa-leg" x="72" y="92" width="6" height="10"/><rect class="sofa-leg" x="160" y="92" width="6" height="10"/>
+    <rect class="counter" x="180" y="84" width="40" height="32" rx="2"/>
+    <rect class="machine" x="186" y="52" width="28" height="32" rx="4"/><circle class="machine-led" cx="208" cy="58" r="2"/>
+    <rect class="cup" x="194" y="74" width="9" height="10" rx="1.5"/>
+    <g class="steam"><path d="M196 70 q-3 -5 0 -10"/><path d="M201 70 q3 -5 0 -10"/></g>
+    <rect class="plant-pot" x="2" y="98" width="14" height="16" rx="2"/><path class="plant-leaf" d="M9 98 q-10 -14 -4 -26 q6 10 4 26 q2 -16 10 -22 q2 12 -10 22z"/>
   </svg>`;
 
   const clockSVG = () => { let ticks = "";
-    for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6, x1 = 80 + Math.sin(a) * 15, y1 = 40 - Math.cos(a) * 15, x2 = 80 + Math.sin(a) * 18, y2 = 40 - Math.cos(a) * 18;
-      ticks += `<line class="pc-tick" x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`; }
-    return `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+    for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6;
+      ticks += `<line class="pc-tick" x1="${(80 + Math.sin(a) * 15).toFixed(1)}" y1="${(40 - Math.cos(a) * 15).toFixed(1)}" x2="${(80 + Math.sin(a) * 18).toFixed(1)}" y2="${(40 - Math.cos(a) * 18).toFixed(1)}"/>`; }
+    return `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true"><g class="pc-box">
       <rect class="pc-body" x="50" y="12" width="60" height="86" rx="9"/>
       <circle class="pc-face" cx="80" cy="40" r="21"/>${ticks}
       <line class="hand-h" id="handH" x1="80" y1="40" x2="80" y2="29"/><line class="hand-m" id="handM" x1="80" y1="40" x2="80" y2="24"/>
       <rect class="pc-slot" x="62" y="70" width="36" height="6" rx="2"/>
       <rect class="pc-card" x="66" y="58" width="28" height="16" rx="1.5" transform="rotate(-4 80 66)"/>
-      <circle class="pc-led" cx="100" cy="88" r="4.5"/>
-      <rect class="shelf" x="36" y="98" width="88" height="8" rx="2"/>
-    </svg>`; };
+      <circle class="pc-led" cx="100" cy="88" r="4.5"/></g>
+      <rect class="shelf" x="36" y="98" width="88" height="8" rx="2"/></svg>`; };
 
   const safeSVG = now => { const tags = Object.values(PATS).map((p, i) => { const dl = daysLeft(p, now);
       const cls = dl < 0 ? "tag-bad" : dl <= 30 ? "tag-warn" : "tag-ok", y = 30 + i * 30;
@@ -520,119 +707,257 @@
       <circle class="safe-dial" cx="38" cy="61" r="11"/><line x1="38" y1="61" x2="38" y2="52" stroke="#5f6b7c" stroke-width="2.5"/>
       ${tags}<rect class="shelf" x="0" y="98" width="160" height="8" rx="2"/></svg>`; };
 
-  function stationHTML(job, e, now) {
-    return `<button type="button" class="station st-${e.st}" data-open="${job.id}" style="--c:${job.color}"
-        aria-label="${esc(job.name)}，${esc(job.role)}，${label[e.st]}。打開工作說明">
-      ${botSVG()}
-      <span class="plate"><span class="nm">${esc(job.name)}</span><span class="rl">${esc(job.role)}</span></span>
-      <span class="stat">${esc(statLine(job, e, now))}</span>
-      <span class="meta">${esc(nextLine(job, e, now))}</span>
-    </button>`;
+  const doorSVG = () => `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+    <rect class="door-sign" x="56" y="4" width="48" height="16" rx="3"/><text class="door-sign-t" x="80" y="16">大門</text>
+    <rect class="door-frame" x="48" y="22" width="64" height="92" rx="3"/>
+    <rect class="door-glass" x="53" y="27" width="26" height="87"/><rect class="door-glass" x="81" y="27" width="26" height="87"/>
+    <rect class="door-handle" x="74" y="64" width="3" height="14" rx="1.5"/><rect class="door-handle" x="83" y="64" width="3" height="14" rx="1.5"/>
+    <rect class="door-mat" x="40" y="110" width="80" height="6" rx="2"/>
+  </svg>`;
+
+  const robotSVG = ch => `<svg viewBox="0 0 50 80" aria-hidden="true"><g class="rb-inner">
+    <g class="zz"><text x="38" y="6">z</text><text x="45" y="-4">z</text></g>
+    <g class="smoke"><circle cx="19" cy="4" r="4"/><circle cx="30" cy="2" r="5"/></g>
+    <g class="alarm"><circle cx="44" cy="4" r="7"/><text x="44" y="8">!</text></g>
+    <g class="qmark"><circle cx="44" cy="2" r="7"/><text x="44" y="6">?</text></g>
+    <g class="spark"><path d="M3 6 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z"/><path d="M45 12 l1.5 3.5 l3.5 1.5 l-3.5 1.5 l-1.5 3.5 l-1.5 -3.5 l-3.5 -1.5 l3.5 -1.5z"/></g>
+    <g class="legs"><rect class="leg leg-l" x="15" y="60" width="7" height="18" rx="3"/><rect class="leg leg-r" x="28" y="60" width="7" height="18" rx="3"/></g>
+    <rect class="body" x="11" y="38" width="28" height="24" rx="8"/>
+    <text class="badge" x="25" y="54">${esc(ch)}</text>
+    <rect class="arm arm-l" x="1" y="43" width="11" height="6" rx="3"/>
+    <g class="arm-r-g"><rect class="arm" x="38" y="43" width="9" height="6" rx="3"/><g class="mug"><rect x="43" y="34" width="7" height="9" rx="1.5"/><path d="M50 36.5 h2.2 v4 h-2.2"/></g></g>
+    <g class="head-g">
+      <line class="ant-line" x1="25" y1="10" x2="25" y2="3"/><circle class="ant" cx="25" cy="3" r="3.5"/>
+      <rect class="head" x="7" y="10" width="36" height="27" rx="9"/>
+      <rect class="visor" x="12" y="16" width="26" height="14" rx="5"/>
+      <g class="eyes-open"><rect x="17" y="19" width="5" height="7" rx="2.5"/><rect x="28" y="19" width="5" height="7" rx="2.5"/></g>
+      <g class="eyes-shut"><path d="M16 23 q3 3.5 6 0 M27 23 q3 3.5 6 0"/></g>
+      <g class="eyes-x"><path d="M16 19 l6 7 M22 19 l-6 7 M27 19 l6 7 M33 19 l-6 7"/></g>
+    </g></g></svg>`;
+
+  // ---------- 蓋大樓（名單變了才重蓋） ----------
+  const floorsEl = document.getElementById("floors"), robotsEl = document.getElementById("robots"), building = document.getElementById("building");
+  let rbState = {}, rbEls = {};
+  function floorList() {
+    const ids = [...new Set(JOBS.map(j => j.floor))];
+    const rank = id => id === "ln" ? 0 : id === "hk" ? 1 : 2;
+    ids.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+    const floors = [{ id: "srv", ...FLOOR_INFO.srv }, ...ids.map(id => ({ id, ...(FLOOR_INFO[id] || { name: id.slice(5), sub: "新部門，從 GitHub 自動加入", cls: "new" }) }))];
+    floors.forEach((f, i) => { f.lvl = `${i + 1}F`; });
+    return floors.reverse();
   }
-  function srvHTML(now) {
-    const c = state.clock;
-    const stat = c.st === "miss" ? `叫不醒 ${c.missed.map(j => j.name).join("、")}` : c.st === "work" ? "剛叫醒機器人上工" : c.st === "unknown" ? (state.error ? "讀不到 GitHub" : "讀取中") : "準時打卡中";
-    const keyAlert = Object.values(PATS).some(p => daysLeft(p, now) <= 30);
-    return `<button type="button" class="station st-${c.st}" data-open="clock" aria-label="打卡鐘，${esc(stat)}。打開說明">
-        ${clockSVG()}
-        <span class="plate"><span class="nm">打卡鐘</span><span class="rl">Cloudflare 排程</span></span>
-        <span class="stat">${esc(stat)}</span>
-        <span class="meta">${c.next ? `下次響 ${fmt(c.next)}，${rel(c.next, now)}` : ""}</span>
-      </button>
-      <button type="button" class="station ${keyAlert ? "st-fail" : "st-idle"}" data-open="clock" aria-label="金鑰保險箱。打開說明">
-        ${safeSVG(now)}
-        <span class="plate"><span class="nm">金鑰保險箱</span><span class="rl">打卡鐘叫人用的 GitHub 金鑰</span></span>
-        <span class="stat">${keyAlert ? "有金鑰快到期了" : "兩把金鑰都還有效"}</span>
-        <span class="meta">${Object.values(PATS).map(p => `${p.secret} 到 ${p.expires.replace(/-/g, "/")}`).join("，")}</span>
-      </button>`;
+  const sel = v => `"${CSS.escape(v)}"`;
+  function build() {
+    const floors = floorList();
+    floorsEl.innerHTML = floors.map(f => {
+      const sign = `<h2 class="floor-sign"><span class="lvl">${f.lvl}</span>${esc(f.name)}<span class="sub">${esc(f.sub)}</span></h2>`;
+      if (f.id === "srv") return `<section class="floor floor-srv" data-floor="srv" aria-label="${f.lvl} ${f.name}">${sign}
+        <div class="room"><div class="desks">
+          <button type="button" class="station" id="clockSt" data-open="clock">${clockSVG()}
+            <span class="plate"><span class="nm">打卡鐘</span><span class="rl">Cloudflare 排程</span></span><span class="stat"></span><span class="meta"></span></button>
+          <button type="button" class="station" id="safeSt" data-open="clock"><span class="safe-art"></span>
+            <span class="plate"><span class="nm">金鑰保險箱</span><span class="rl">打卡鐘叫人用的 GitHub 金鑰</span></span><span class="stat"></span><span class="meta"></span></button>
+          <div class="station door-slot" id="doorSt">${doorSVG()}
+            <span class="plate"><span class="nm">大門</span><span class="rl">沒被叫醒的會在門口</span></span><span class="stat"></span><span class="meta"></span></div>
+        </div></div></section>`;
+      const jobs = JOBS.filter(j => j.floor === f.id);
+      return `<section class="floor floor-${f.cls}" data-floor="${esc(f.id)}" aria-label="${f.lvl} ${esc(f.name)}">${sign}
+        <div class="room"><div class="desks">${jobs.map(j => `<button type="button" class="station" data-desk="${esc(j.id)}" data-open="${esc(j.id)}" style="--c:${j.color}">${deskSVG()}
+            <span class="plate"><span class="nm">${esc(j.name)}</span><span class="rl">${esc(j.role)}</span></span><span class="stat"></span><span class="meta"></span></button>`).join("")}</div>
+          <div class="lounge" data-lounge="${esc(f.id)}" aria-hidden="true">${loungeSVG()}</div></div></section>`;
+    }).join("");
+    robotsEl.innerHTML = JOBS.map(j => `<button type="button" class="rb hidden" data-rb="${esc(j.id)}" data-open="${esc(j.id)}" style="--c:${j.color}" aria-label="${esc(j.name)}">${robotSVG(j.char)}</button>`).join("");
+    rbEls = Object.fromEntries(JOBS.map(j => [j.id, robotsEl.querySelector(`[data-rb=${sel(j.id)}]`)]));
+    rbState = {};
   }
 
+  // ---------- 每位機器人該去哪裡 ----------
+  function targets(night) {
+    const out = {}, used = {};
+    let doorN = 0;
+    for (const j of JOBS) {
+      if (j.leave) continue;
+      const e = state.evals[j.id];
+      let t;
+      if (e.st === "work") t = { at: "desk", pose: "sit", act: "type" };
+      else if (e.st === "fail") t = { at: "desk", pose: "sit", act: "panic" };
+      else if (e.st === "miss") t = { at: "door", n: doorN++, pose: "stand", act: "lost" };
+      else if (e.st === "soon") t = { at: "desk", pose: "sit", act: "ready" };
+      else if (e.st === "unknown") t = { at: "desk", pose: "sit", act: "grey" };
+      else if (e.cheer) t = { at: "desk", pose: "sit", act: "cheer" };
+      else {
+        const i = used[j.floor] = (used[j.floor] ?? -1) + 1;
+        if (i < SPOTS.length) { const s = SPOTS[i]; t = { at: "lounge", spot: i, pose: s.pose, act: night ? "sleep" : s.act }; }
+        else t = { at: "desk", pose: "sit", act: "sleep" };
+      }
+      out[j.id] = t;
+    }
+    return out;
+  }
+
+  function positionAll(instant) {
+    const b = building.getBoundingClientRect();
+    const hasData = Object.keys(state.runs).length > 0;
+    let k = 0;
+    for (const j of JOBS) {
+      const el = rbEls[j.id]; if (!el) continue;
+      const t = state.targets[j.id];
+      const desk = floorsEl.querySelector(`[data-desk=${sel(j.id)}] svg`);
+      if (!t || !hasData || !desk) { el.classList.add("hidden"); delete rbState[j.id]; continue; }
+      const dr = desk.getBoundingClientRect(), s = dr.width / 160;
+      if (!s) continue;
+      let x, y, floor = j.floor;
+      if (t.at === "desk") { x = dr.left - b.left + 114 * s; y = dr.top - b.top + 76 * s; }
+      else if (t.at === "lounge") {
+        const lv = floorsEl.querySelector(`[data-lounge=${sel(j.floor)}] svg`).getBoundingClientRect(), q = lv.width / 220, sp = SPOTS[t.spot];
+        x = lv.left - b.left + sp.x * q; y = lv.top - b.top + sp.y * q;
+      } else {
+        const dv = document.querySelector("#doorSt svg").getBoundingClientRect(), q = dv.width / 160;
+        x = dv.left - b.left + (80 + ((t.n % 3) - 1) * 36) * q; y = dv.top - b.top + 113 * q; floor = "srv";
+      }
+      move(j, el, { x: x - 25 * s, y: y - (t.pose === "sit" ? 62 : 78) * s, w: 50 * s, h: 80 * s,
+        key: `${t.at}:${t.spot ?? t.n ?? ""}`, floor, cls: `rb pose-${t.pose} act-${t.act}` }, instant, k++);
+    }
+  }
+  function move(j, el, p, instant, idx) {
+    const prev = rbState[j.id];
+    el.style.width = `${p.w}px`; el.style.height = `${p.h}px`;
+    el.setAttribute("aria-label", `${j.name}，${label[state.evals[j.id].st]}`);
+    const jump = () => { el.style.transition = "none"; el.style.transform = `translate(${p.x}px,${p.y}px)`; void el.offsetWidth; el.style.transition = ""; };
+    const settle = () => { el.className = p.cls + (Date.now() < (el._popUntil || 0) ? " pop" : ""); el._busy = false; };
+    if (!prev) {                                   // 第一次出現：在定位彈出來
+      clearTimeout(el._t); jump(); el._popUntil = Date.now() + 1500 + idx * 120;
+      el.style.setProperty("--delay", `${idx * 0.12}s`); settle();
+    } else if (instant || REDUCED || prev.key === p.key) {
+      if (instant || REDUCED) { clearTimeout(el._t); jump(); settle(); }
+      else { el.style.transform = `translate(${p.x}px,${p.y}px)`; if (!el._busy) settle(); else el._final = p.cls; }
+    } else if (prev.floor !== p.floor) {           // 換樓層：搭電梯（淡出、換位置、淡入）
+      clearTimeout(el._t); el._busy = true; el.className = "rb pose-stand fade";
+      el._t = setTimeout(() => { jump(); settle(); }, 480);
+    } else {                                       // 同樓層：走過去
+      clearTimeout(el._t); el._busy = true;
+      const dur = Math.min(4.5, Math.max(1.2, Math.hypot(p.x - prev.x, p.y - prev.y) / 70));
+      el.style.setProperty("--walk", `${dur}s`);
+      el.className = `rb pose-stand walking${p.x > prev.x ? " face-r" : ""}`;
+      el.style.transform = `translate(${p.x}px,${p.y}px)`;
+      el._final = p.cls;
+      el._t = setTimeout(() => { el.className = el._final || p.cls; el._final = null; el._busy = false; }, dur * 1000);
+    }
+    rbState[j.id] = { key: p.key, floor: p.floor, x: p.x, y: p.y };
+  }
+
+  // ---------- 公告、摘要、紀錄 ----------
   function notes(now) {
     const out = [], ev = state.evals;
     for (const j of JOBS) { const e = ev[j.id];
       if (e.st === "miss") out.push({ tone: "alert", target: j.by === "clock" ? "clock" : j.id,
         text: j.by === "clock"
-          ? `${j.name}（${j.role}）${fmt(e.missedAt)} 該上工，卻沒有任何紀錄。多半是打卡鐘的金鑰 ${PATS[j.pat].secret} 失效，點這裡看處理步驟。`
+          ? `${j.name}（${j.role}）${fmt(e.missedAt)} 該上工，卻沒有任何紀錄，現在站在 1F 大門口。多半是打卡鐘的金鑰 ${PATS[j.pat].secret} 失效，點這裡看處理步驟。`
           : `${j.name}（${j.role}）${fmt(e.missedAt)} 該醒來，還沒有紀錄。GitHub 排程常晚到，過幾小時還沒來就手動執行。` });
       if (e.st === "fail") out.push({ tone: "alert", target: j.id, text: `${j.name}（${j.role}）${fmt(new Date(e.last.created_at))} 執行失敗，點這裡看卡在哪一步。` });
+      if (e.st === "leave") out.push({ tone: "todo", target: j.id, text: `${j.name}（${j.role}）請假中：GitHub 上這個工作被停用了，要恢復就到它的 GitHub 頁面按 Enable workflow。` });
+      if (j.auto && !j.leave) out.push({ tone: "info", target: j.id, text: `新員工「${j.name}」到職（${j.repo}）。它還沒有正式名字和故障手冊，可以請 Claude 幫它補上。` });
     }
-    // 服事推播的 LINE 帳號換月提醒
     const t = tp(now), nm = t.m === 12 ? [t.y + 1, 1] : [t.y, t.m + 1];
     const cur = `${t.y}-${pad(t.m)}`, nxt = `${nm[0]}-${pad(nm[1])}`;
     const curB = state.bMonths.includes(cur), nxtB = state.bMonths.includes(nxt);
-    const monthEnd = atTp(nm[0], nm[1], 1);
-    if (curB !== nxtB && monthEnd - now <= 10 * DAY) {
-      const first = around(byId.weekly.work, new Date(monthEnd.getTime() - 1)).next;
-      out.push({ tone: "todo", target: "weekly", text: `服事推播本月用 ${curB ? "B" : "A"} 帳號，${nm[1]}/1 起改用 ${nxtB ? "B" : "A"} 帳號。${fmt(first, false)} 10:00 第一次推播前，要在服事群組把 ${curB ? "B" : "A"} 移出、把 ${nxtB ? "B" : "A"} 邀進來。` });
+    const monthEnd = atTp(nm[0], nm[1], 1), weekly = byId["hopekids-bot|.github/workflows/weekly.yml"];
+    if (weekly && curB !== nxtB && monthEnd - now <= 10 * DAY) {
+      const first = prevNext(weekly.work, new Date(monthEnd.getTime() - 1)).next;
+      out.push({ tone: "todo", target: weekly.id, text: `服事推播本月用 ${curB ? "B" : "A"} 帳號，${nm[1]}/1 起改用 ${nxtB ? "B" : "A"} 帳號。${fmt(first, false)} 10:00 第一次推播前，要在服事群組把 ${curB ? "B" : "A"} 移出、把 ${nxtB ? "B" : "A"} 邀進來。` });
     }
-    const wk = ev.weekly;
-    if (wk.next && state.skip.includes(ymd(wk.next))) out.push({ tone: "todo", target: "weekly", text: `${fmt(wk.next, false)} 的服事推播設定為停發，小週會醒來但不發訊息。` });
+    if (weekly) { const wk = ev[weekly.id];
+      if (wk.next && state.skip.includes(ymd(wk.next))) out.push({ tone: "todo", target: weekly.id, text: `${fmt(wk.next, false)} 的服事推播設定為停發，小週會醒來但不發訊息。` }); }
     for (const p of Object.values(PATS)) { const dl = daysLeft(p, now);
       if (dl <= 30) out.push({ tone: dl < 0 ? "alert" : "todo", target: "clock",
         text: dl < 0 ? `金鑰 ${p.secret} 已過期，${p.serves}都叫不醒。點這裡看怎麼換新。` : `金鑰 ${p.secret} 再 ${dl} 天到期，到期前重新產生並貼回 Cloudflare。` }); }
     if (!out.some(n => n.tone === "alert") && Object.keys(state.runs).length) out.unshift({ tone: "ok", text: "所有機器人都照表上工，沒有異常。" });
     return out;
   }
-
   function summaryText(now) {
-    const ev = state.evals;
+    const ev = state.evals, staff = JOBS.filter(j => !j.leave);
     if (!Object.keys(state.runs).length) return state.error === "rate" ? "GitHub 查詢次數暫時用完，稍後自動再試。" : state.error ? "連不上 GitHub，請確認網路後按重新整理。" : "正在向 GitHub 查詢每位機器人的出勤紀錄…";
-    const trouble = JOBS.filter(j => ["miss", "fail"].includes(ev[j.id].st));
+    const trouble = staff.filter(j => ["miss", "fail"].includes(ev[j.id].st));
     if (trouble.length) return `${trouble.length} 位需要處理：${trouble.map(j => `${j.name}${label[ev[j.id].st]}`).join("、")}。`;
-    const working = JOBS.filter(j => ev[j.id].st === "work");
-    if (working.length) return `${working.map(j => j.name).join("、")}正在上班，其他人都在休息。`;
-    const up = JOBS.filter(j => ev[j.id].next).sort((a, b) => ev[a.id].next - ev[b.id].next)[0];
-    return up ? `大家都在休息。下一位上工的是${up.name}，${fmt(ev[up.id].next)}（${rel(ev[up.id].next, now)}）。` : "大家都在休息。";
+    const working = staff.filter(j => ev[j.id].st === "work");
+    if (working.length) return `${working.map(j => j.name).join("、")}正在上班，其他人在交誼廳休息。`;
+    const up = staff.filter(j => ev[j.id].next).sort((a, b) => ev[a.id].next - ev[b.id].next)[0];
+    return up ? `大家都在交誼廳休息。下一位上工的是${up.name}，${fmt(ev[up.id].next)}（${rel(ev[up.id].next, now)}）。` : "大家都在交誼廳休息。";
   }
-
-  function tapeHTML(now) {
+  function tapeHTML() {
     const all = Object.values(state.runs).flat().sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 14);
     if (!all.length) return `<li><span>${state.error ? "讀不到紀錄" : "讀取中…"}</span></li>`;
     return all.map(r => {
-      const job = JOBS.find(j => j.repo === r.repository.name && runPath(r).endsWith(j.file));
-      const who = job ? `${job.name}（${job.role}）` : runPath(r).includes("watchdog") ? "前保全（已離職）" : r.name;
+      const job = byId[`${r.repository.name}|${runPath(r)}`];
+      const who = job ? `${job.name}（${job.role}）` : runPath(r).includes("watchdog") ? "前保全（已離職）" : `前員工（${r.name}，已離職）`;
       return `<li><time>${fmt(new Date(r.created_at))}</time><span>${esc(who)}</span>
         <a class="res ${resultCls(r)}" href="${esc(r.html_url)}" target="_blank" rel="noopener">${result(r)}</a></li>`;
     }).join("");
   }
+  function renderFresh(now) {
+    const parts = [];
+    if (state.fetchedAt) parts.push(`${rel(state.fetchedAt, now).replace("1 分鐘前", "剛剛")}更新`);
+    if (state.error === "rate") parts.push(`<span class="warn">GitHub 每小時免費查詢 60 次已用完，${fmt(new Date(state.pauseUntil))} 後恢復</span>`);
+    else if (state.error === "net") parts.push(`<span class="warn">有資料讀取失敗，顯示的是上次的資料</span>`);
+    else if (state.rate) parts.push(`GitHub 查詢額度剩 ${state.rate.rem} 次`);
+    document.getElementById("fresh").innerHTML = parts.join(`<span aria-hidden="true">／</span>`);
+  }
 
-  function render() {
+  // ---------- 更新畫面 ----------
+  function update() {
+    if (!JOBS.length) applyRoster();
+    const sig = JOBS.map(j => `${j.id}:${j.floor}:${j.leave}`).join(",");
+    if (sig !== builtSig) { build(); builtSig = sig; }
     if (!tick.phase) tick();
-    const now = new Date();
+    const now = new Date(), night = tick.phase === "night" || tick.phase === "dusk";
     for (const j of JOBS) state.evals[j.id] = evaluate(j, now);
     if (DEMO) demo(now);
-    state.clock = evalClock(now);
-    const floorsEl = document.getElementById("floors");
-    floorsEl.innerHTML = FLOORS.map(f => {
-      const jobs = JOBS.filter(j => j.floor === f.id);
-      const lit = jobs.some(j => state.evals[j.id].st === "work") || (f.id === "srv" && state.clock.st === "work");
-      const dark = !lit && (tick.phase === "night" || tick.phase === "dusk");
-      return `<section class="floor floor-${f.id} ${dark ? "dim" : "lit"}" aria-label="${f.lvl} ${f.name}">
-        <h2 class="floor-sign"><span class="lvl">${f.lvl}</span>${f.name}<span class="sub">${f.sub}</span></h2>
-        <div class="stations">${f.id === "srv" ? srvHTML(now) : jobs.map(j => stationHTML(j, state.evals[j.id], now)).join("")}</div>
-      </section>`;
-    }).join("");
+    state.clock = evalClock();
+    for (const j of JOBS) {
+      const el = floorsEl.querySelector(`[data-desk=${sel(j.id)}]`), e = state.evals[j.id];
+      if (!el) continue;
+      el.className = `station st-${e.st}`;
+      el.setAttribute("aria-label", `${j.name}，${j.role}，${label[e.st]}。打開工作說明`);
+      el.querySelector(".stat").textContent = statLine(j, e, now);
+      el.querySelector(".meta").textContent = nextLine(j, e, now);
+    }
+    const c = state.clock, clockSt = document.getElementById("clockSt");
+    if (clockSt) {
+      clockSt.className = `station st-${c.st}`;
+      clockSt.querySelector(".stat").textContent = c.st === "miss" ? `叫不醒 ${c.missed.map(j => j.name).join("、")}` : c.st === "work" ? "正在叫機器人上工" : c.st === "unknown" ? (state.error ? "讀不到 GitHub" : "讀取中") : "準時打卡中";
+      clockSt.querySelector(".meta").textContent = c.next ? `下次響 ${fmt(c.next)}，${rel(c.next, now)}` : "";
+      const keyAlert = Object.values(PATS).some(p => daysLeft(p, now) <= 30), safe = document.getElementById("safeSt");
+      safe.className = `station ${keyAlert ? "st-fail" : "st-idle"}`;
+      safe.querySelector(".safe-art").innerHTML = safeSVG(now);
+      safe.querySelector(".stat").textContent = keyAlert ? "有金鑰快到期了" : "兩把金鑰都還有效";
+      safe.querySelector(".meta").textContent = Object.values(PATS).map(p => `${p.secret} 到 ${p.expires.replace(/-/g, "/")}`).join("，");
+      const lost = JOBS.filter(j => state.evals[j.id].st === "miss"), door = document.getElementById("doorSt");
+      door.className = `station door-slot ${lost.length ? "st-miss" : "st-idle"}`;
+      door.querySelector(".stat").textContent = lost.length ? `${lost.map(j => j.name).join("、")}被關在門口` : "門口沒有人";
+      door.querySelector(".meta").textContent = lost.length ? "沒被打卡鐘叫醒，進不了辦公室" : "";
+    }
+    for (const f of floorsEl.querySelectorAll(".floor")) {
+      const id = f.dataset.floor, lit = JOBS.some(j => j.floor === id && state.evals[j.id].st === "work") || (id === "srv" && c.st === "work");
+      f.classList.toggle("dim", !lit && night);
+    }
+    state.targets = targets(night);
+    for (const l of floorsEl.querySelectorAll(".lounge")) {
+      const id = l.dataset.lounge;
+      l.classList.toggle("has-coffee", JOBS.some(j => j.floor === id && state.targets[j.id] && state.targets[j.id].act === "coffee"));
+    }
+    positionAll(false);
     const board = document.getElementById("board");
     board.innerHTML = `<h2>公告欄</h2>` + notes(now).map(n => n.target
-      ? `<button type="button" class="note ${n.tone}" data-open="${n.target}">${esc(n.text)}</button>`
+      ? `<button type="button" class="note ${n.tone}" data-open="${esc(n.target)}">${esc(n.text)}</button>`
       : `<div class="note ${n.tone}">${esc(n.text)}</div>`).join("");
     document.getElementById("summary").textContent = summaryText(now);
-    document.getElementById("tape").innerHTML = tapeHTML(now);
+    document.getElementById("tape").innerHTML = tapeHTML();
     renderFresh(now);
     tick();
     if (openId) fillDrawer(openId, false);
   }
 
-  function renderFresh(now) {
-    const parts = [];
-    if (state.fetchedAt) parts.push(`${rel(state.fetchedAt, now).replace("1 分鐘前", "剛剛")}更新`);
-    if (state.error === "rate") parts.push(`<span class="warn">GitHub 每小時免費查詢 60 次已用完，${fmt(new Date(state.pauseUntil))} 後恢復</span>`);
-    else if (state.error === "net") parts.push(`<span class="warn">有 repo 讀取失敗，顯示的是上次的資料</span>`);
-    else if (state.rate) parts.push(`GitHub 查詢額度剩 ${state.rate.rem} 次`);
-    document.getElementById("fresh").innerHTML = parts.join("<span aria-hidden=\"true\">／</span>");
-  }
-
-  // ---------- 時鐘與天空 ----------
+  // ---------- 時鐘與天色 ----------
   function tick() {
     const t = tp(new Date());
     document.getElementById("clock").innerHTML = `${pad(t.h)}:${pad(t.mi)}<small>${pad(t.s)}</small>`;
@@ -642,14 +967,14 @@
     const hour = t.h + t.mi / 60;
     const phase = hour >= 5 && hour < 6.5 ? "dawn" : hour >= 6.5 && hour < 16.5 ? "day" : hour >= 16.5 && hour < 18.5 ? "dusk" : "night";
     if (phase !== tick.phase) {
+      const first = !tick.phase;
       tick.phase = phase;
       const skies = { dawn: ["#f4a98a", "#a9c7e6", "#2b2f36"], day: ["#7fbde8", "#d4ebf8", "#22344a"], dusk: ["#3d4f86", "#f0a36c", "#fff6ea"], night: ["#141d36", "#33467a", "#eef2fb"] };
       const [a, b, ink] = skies[phase], root = document.documentElement.style;
       root.setProperty("--sky-top", a); root.setProperty("--sky-bot", b); root.setProperty("--sky-ink", ink);
-      document.getElementById("sky").className = `sky ${phase}`;
-      document.body.classList.toggle("daylight", phase === "day" || phase === "dawn");
       document.body.classList.remove("ph-dawn", "ph-day", "ph-dusk", "ph-night");
       document.body.classList.add(`ph-${phase}`);
+      if (!first && JOBS.length) update();          // 天亮或天黑時，休息的機器人換動作
     }
   }
   (function stars() { let h = "";
@@ -672,11 +997,10 @@
   const wakeLabel = (job, r) => {
     if (r.event === "schedule") return "GitHub 排程";
     if (r.event === "dynamic" || r.event === "push") return "內容更新";
-    if (job.by === "clock" && job.work) { const c = new Date(r.created_at), p = around(job.work, new Date(c.getTime() + MIN)).prev;
+    if (job.by === "clock" && job.work) { const c = new Date(r.created_at), p = prevNext(job.work, new Date(c.getTime() + MIN)).prev;
       return p && c - p >= -MIN && c - p < 10 * MIN ? "打卡鐘叫醒" : "手動執行"; }
     return "手動執行";
   };
-
   function fillDrawer(id, focus) {
     const now = new Date();
     let html = `<button class="close" type="button" aria-label="關閉" data-close>×</button>`;
@@ -685,11 +1009,11 @@
       html += `<h2 id="dTitle">打卡鐘</h2><span class="chip st-${c.st}">${c.st === "miss" ? "有機器人叫不醒" : c.st === "unknown" ? "讀不到狀態" : "準時打卡中"}</span>
         <h3>工作內容</h3><p>Cloudflare 上的排程（Worker：hopekids-line-hook）。每天 06:00、10:00、19:00 準時醒來，依星期幾叫醒晨讀機、小週、表單姐、小聚。GitHub 自己的排程常晚好幾個小時，所以改由它負責叫人。</p>
         <h3>最近叫醒情況</h3><ul class="runs">${JOBS.filter(j => j.by === "clock").map(j => { const e = state.evals[j.id];
-          return `<li><span>${j.name}　${e.missedAt ? `${fmt(e.missedAt)} 沒叫醒` : e.prev ? `${fmt(e.prev)} 有叫醒` : "還沒到上工日"}</span><span class="${e.missedAt ? "bad-t" : "ok-t"}">${e.missedAt ? "✗" : e.prev ? "✓" : ""}</span></li>`; }).join("")}</ul>
+          return `<li><span>${esc(j.name)}　${e.missedAt ? `${fmt(e.missedAt)} 沒叫醒` : e.prev ? `${fmt(e.prev)} 有叫醒` : "還沒到上工日"}</span><span class="${e.missedAt ? "bad-t" : "ok-t"}">${e.missedAt ? "✗" : e.prev ? "✓" : ""}</span></li>`; }).join("")}</ul>
         <h3>金鑰</h3><dl class="dl">${Object.values(PATS).map(p => { const dl = daysLeft(p, now);
           return `<dt>${p.secret}</dt><dd>GitHub 金鑰「${p.token}」，叫醒${p.serves}。${p.expires.replace(/-/g, "/")} 到期（${dl < 0 ? "已過期" : `剩 ${dl} 天`}）</dd>`; }).join("")}</dl>
         <h3>故障手冊</h3><ol class="manual">
-          <li>機器人「沒來上班」又完全沒有紀錄，多半是金鑰過期。到 GitHub 的 Fine-grained tokens 頁找對應的金鑰，按 Regenerate token，期限選最長，複製新金鑰。</li>
+          <li>機器人站在大門口、又完全沒有紀錄，多半是金鑰過期。到 GitHub 的 Fine-grained tokens 頁找對應的金鑰，按 Regenerate token，期限選最長，複製新金鑰。</li>
           <li>Cloudflare → Workers &amp; Pages → hopekids-line-hook → Settings → Variables and Secrets，編輯對應的 secret，貼上新金鑰後按 Deploy。</li>
           <li>金鑰沒過期但還是叫不醒：同一個 Worker 的 Settings → Trigger events，確認 0 22 * * *、0 2 * * *、0 11 * * * 三個排程都還在。</li>
           <li>漏掉的訊息可以在各機器人的 GitHub 工作頁按 Run workflow 補發。</li>
@@ -697,17 +1021,19 @@
         <div class="links"><a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">打開 GitHub 金鑰頁</a><a href="https://dash.cloudflare.com" target="_blank" rel="noopener">打開 Cloudflare</a></div>`;
     } else {
       const job = byId[id], e = state.evals[id];
-      const acct = job.line ? (state.bMonths.includes(`${tp(now).y}-${pad(tp(now).m)}`) ? "B 帳號（@605epctp）" : "A 帳號（原本那隻）") : null;
+      if (!job || !e) return;
+      const t = tp(now), acct = job.line ? (state.bMonths.includes(`${t.y}-${pad(t.m)}`) ? "B 帳號（@605epctp）" : "A 帳號（原本那隻）") : null;
       const recent = e.runs.slice(0, 8);
+      const wfUrl = job.path.startsWith(".github/workflows/") ? `/workflows/${job.path.split("/").pop()}` : "";
       html += `<h2 id="dTitle">${esc(job.name)}</h2><p style="margin:2px 0 0;color:var(--muted)">${esc(job.role)}</p>
         <span class="chip st-${e.st}">${esc(statLine(job, e, now))}</span>
         <h3>工作內容</h3><p>${esc(job.duty)}</p>
         <h3>上班時間</h3><p>${esc(job.hours)}</p>
-        <dl class="dl">${e.next ? `<dt>下次上工</dt><dd>${fmt(e.next)}（${rel(e.next, now)}）</dd>` : ""}${e.last ? `<dt>上次完成</dt><dd>${fmt(new Date(e.last.created_at))}，${result(e.last)}</dd>` : ""}${acct ? `<dt>LINE 帳號</dt><dd>本月用 ${acct}</dd>` : ""}</dl>
+        <dl class="dl">${e.next ? `<dt>下次上工</dt><dd>${fmt(e.next)}（${rel(e.next, now)}）</dd>` : ""}${e.last ? `<dt>上次完成</dt><dd>${fmt(new Date(e.last.created_at))}，${result(e.last)}</dd>` : ""}${acct ? `<dt>LINE 帳號</dt><dd>本月用 ${acct}</dd>` : ""}<dt>所在位置</dt><dd>${esc(job.repo)} / ${esc(job.path)}</dd></dl>
         <h3>最近紀錄</h3>${recent.length ? `<ul class="runs">${recent.map(r => `<li data-run="${r.id}"><span>${fmt(new Date(r.created_at))}　${wakeLabel(job, r)}</span>
           <a class="${resultCls(r)}" href="${esc(r.html_url)}" target="_blank" rel="noopener">${result(r)}</a>${FAIL.has(r.conclusion) ? `<span class="why">正在查卡在哪一步…</span>` : ""}</li>`).join("")}</ul>` : `<p>還沒有紀錄。</p>`}
         <h3>故障手冊</h3><ol class="manual">${job.manual.map(m => `<li>${esc(m)}</li>`).join("")}</ol>
-        <div class="links"><a href="https://github.com/${OWNER}/${job.repo}/actions${job.work ? `/workflows/${job.file}` : ""}" target="_blank" rel="noopener">在 GitHub 打開這個工作</a></div>`;
+        <div class="links"><a href="https://github.com/${OWNER}/${esc(job.repo)}/actions${wfUrl}" target="_blank" rel="noopener">在 GitHub 打開這個工作</a></div>`;
       recent.filter(r => FAIL.has(r.conclusion)).slice(0, 4).forEach(async r => {
         const s = await failedStep(r), el = drawer.querySelector(`[data-run="${r.id}"] .why`);
         if (el) el.textContent = s ? `卡在「${s}」這一步` : "沒查到是哪一步，點「失敗」看 GitHub 紀錄";
@@ -716,10 +1042,7 @@
     drawer.innerHTML = html;
     if (focus) drawer.querySelector("[data-close]").focus();
   }
-  function openDrawer(id) {
-    lastFocus = document.activeElement; openId = id; fillDrawer(id, true);
-    drawer.classList.add("open"); scrim.classList.add("open");
-  }
+  function openDrawer(id) { lastFocus = document.activeElement; openId = id; fillDrawer(id, true); drawer.classList.add("open"); scrim.classList.add("open"); }
   function closeDrawer() {
     openId = null; drawer.classList.remove("open"); scrim.classList.remove("open");
     if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
@@ -729,25 +1052,51 @@
     if (ev.target.closest("[data-close]") || ev.target === scrim) closeDrawer();
   });
   document.addEventListener("keydown", ev => { if (ev.key === "Escape" && openId) closeDrawer(); });
-  document.getElementById("refresh").addEventListener("click", () => refresh());
+  document.getElementById("refresh").addEventListener("click", () => refresh(true));
 
-  // 網址加 ?demo 可預覽每種狀態的樣子（不是真實資料）
-  const DEMO = new URLSearchParams(location.search).has("demo");
+  // ---------- 網址加 ?demo：輪流播放幾種情境（不是真實資料） ----------
   function demo(now) {
-    const e = state.evals, fake = { status: "in_progress", created_at: new Date(now - 2 * MIN).toISOString() };
-    if (e.weekly.runs.length) Object.assign(e.weekly, { st: "work", active: fake });
-    if (e.form.last) Object.assign(e.form, { st: "fail", last: { ...e.form.last, conclusion: "failure" } });
-    Object.assign(e.daily, { st: "miss", missedAt: e.daily.prev || new Date(now - H) });
-    Object.assign(e.pages, { st: "unknown" });
-    Object.assign(e.remind, { st: "soon", next: new Date(now.getTime() + 12 * MIN) });
+    const ids = Object.keys(KNOWN), e = state.evals;
+    const set = (i, patch) => { const x = e[ids[i]]; if (x) Object.assign(x, { cheer: false }, patch); };
+    const scene = DEMO_SCENE ? DEMO_SCENE % 3 : Math.floor(Date.now() / 8000) % 3;
+    for (const id of ids) if (e[id]) Object.assign(e[id], { st: "idle", cheer: false });
+    const fake = { status: "in_progress", created_at: new Date(now - 2 * MIN).toISOString() };
+    if (scene === 1) {
+      set(0, { st: "work", active: fake }); set(4, { st: "work", active: fake });
+      if (e[ids[1]] && e[ids[1]].last) set(1, { st: "fail", last: { ...e[ids[1]].last, conclusion: "failure" } });
+      set(5, { st: "soon", next: new Date(now.getTime() + 12 * MIN) }); set(3, { st: "idle", cheer: true });
+    }
+    if (scene === 2) { set(4, { st: "miss", missedAt: e[ids[4]] && e[ids[4]].prev || new Date(now - H) }); set(5, { st: "work", active: fake }); }
   }
 
   // ---------- 啟動 ----------
-  render(); refresh();
+  loadCachedRoster();
+  applyRoster();
+  update();
+  function hotRepos(now) {
+    const set = new Set();
+    for (const j of JOBS) { const e = state.evals[j.id]; if (!e || j.leave) continue;
+      if (e.st === "work" || (e.next && e.next - now < 3 * MIN)) set.add(j.repo);
+      const rule = j.wake || j.work, p = rule ? prevNext(rule, now).prev : null;
+      if (p && now - p < 12 * MIN && !e.runs.some(r => new Date(r.created_at) >= p - MIN)) set.add(j.repo);
+    }
+    return [...set];
+  }
+  async function poll() {
+    if (!document.hidden) {
+      const now = new Date(), hot = hotRepos(now);
+      if (Date.now() - lastFull >= FULL_EVERY) await refresh(false);
+      else if (hot.length) await refresh(false, hot);
+    }
+    setTimeout(poll, hotRepos(new Date()).length ? HOT_EVERY : 60e3);
+  }
+  refresh(false).then(() => setTimeout(poll, HOT_EVERY));
   setInterval(tick, 1000);
-  setInterval(() => { if (!document.hidden) render(); }, 30e3);
-  setInterval(() => { if (!document.hidden) refresh(); }, POLL);
-  document.addEventListener("visibilitychange", () => { if (!document.hidden && Date.now() - lastFetch > POLL / 2) refresh(); });
+  setInterval(() => { if (!document.hidden) update(); }, DEMO ? 8000 : 30e3);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && Date.now() - lastFull > FULL_EVERY / 2) refresh(false); });
+  let rsz;
+  new ResizeObserver(() => { clearTimeout(rsz); rsz = setTimeout(() => positionAll(true), 200); }).observe(building);
+  if (document.fonts) document.fonts.ready.then(() => positionAll(true));
 })();
 </script>
 </body>
