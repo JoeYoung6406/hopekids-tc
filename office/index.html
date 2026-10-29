@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>機器人大樓 · Hope Kids 自動化監控</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b2f36; --muted:#6b7280; --paper:#ffffff;
+    --frame:#4d5868; --stone:#c7cfd8;
+    --hk-wall:#fff4d1; --hk-floor:#ecd9a0;
+    --ln-wall:#e2f5ea; --ln-floor:#bfe2cd;
+    --srv-wall:#2c3646; --srv-floor:#1f2733;
+    --sun:#ffc33b; --teal:#2bb3a3; --coral:#ff7a59; --red:#e5484d; --amber:#f2a900; --green:#1aa36b;
+    --cork:#c99d66; --note:#fff1a6; --note-alert:#ffd4d0; --note-ok:#d6f3e3; --note-todo:#ffe6b8;
+    --sky-top:#1b2746; --sky-bot:#34477a; --sky-ink:#eef2fb;
+    --hand:"LXGW WenKai TC","Noto Sans TC",serif;
+    --sans:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; font-family:var(--sans); color:var(--ink); font-size:15px; line-height:1.55;
+    background:linear-gradient(180deg,var(--sky-top) 0,var(--sky-bot) 100%);
+    min-height:100dvh;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding-inline:16px; padding-block:22px 0; position:relative}
+  button{font:inherit; color:inherit}
+  :focus-visible{outline:3px solid var(--sun); outline-offset:3px; border-radius:6px}
+
+  /* ---------- 天空 ---------- */
+  .sky{position:absolute; inset:0 0 auto 0; height:520px; overflow:hidden; pointer-events:none}
+  .orb{position:absolute; right:3%; top:-4px; width:48px; height:48px; border-radius:50%}
+  body.ph-day .orb{background:#ffd75a; box-shadow:0 0 50px 14px rgba(255,215,90,.55)}
+  body.ph-dawn .orb,body.ph-dusk .orb{background:#ffb35a; box-shadow:0 0 50px 16px rgba(255,150,80,.5)}
+  body.ph-night .orb{box-shadow:inset -13px 7px 0 0 #f3efe0; filter:drop-shadow(0 0 10px rgba(243,239,224,.4)); transform:rotate(-20deg)}
+  .stars{position:absolute; inset:0; opacity:0; transition:opacity .6s}
+  .sky.night .stars{opacity:1}
+  .stars i{position:absolute; width:2px; height:2px; background:#fff; border-radius:50%; opacity:.75}
+
+  /* ---------- 頂部 ---------- */
+  .top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px 24px; color:var(--sky-ink); position:relative}
+  .clock-big{font-weight:900; font-size:clamp(2.6rem,7vw,3.6rem); line-height:1; letter-spacing:.01em; font-variant-numeric:tabular-nums}
+  .clock-big small{font-size:.42em; font-weight:700; opacity:.7; margin-left:.25em}
+  .clock-date{font-size:.95rem; opacity:.85; margin-top:6px}
+  .summary{flex:1 1 320px; max-width:560px}
+  .summary p{margin:0; font-size:1.05rem; font-weight:700}
+  .fresh{display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin-top:8px; font-size:.85rem; opacity:.9}
+  .fresh .warn{color:#ffd2cc; font-weight:700}
+  .btn-refresh{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); color:var(--sky-ink); border-radius:999px; padding:4px 14px; cursor:pointer; font-size:.85rem}
+  .btn-refresh:hover{background:rgba(255,255,255,.26)}
+  body.daylight .btn-refresh{background:rgba(255,255,255,.55); border-color:rgba(43,47,54,.25)}
+
+  /* ---------- 公告欄 ---------- */
+  .board{position:relative; margin-top:22px; background:var(--cork); border:8px solid #8a6a43; border-radius:6px;
+    padding:14px; display:flex; flex-wrap:wrap; gap:12px;
+    background-image:radial-gradient(rgba(90,60,30,.18) 1px,transparent 1.5px); background-size:7px 7px}
+  .board h2{margin:0; flex-basis:100%; font-family:var(--hand); font-weight:700; font-size:1.1rem; color:#4a3313}
+  .note{font-family:var(--hand); font-size:1rem; line-height:1.5; background:var(--note); padding:12px 14px 12px; border:0; text-align:left;
+    flex:1 1 230px; max-width:360px; box-shadow:0 3px 6px rgba(60,40,20,.25); position:relative; cursor:pointer; color:#3a3326}
+  .note::before{content:""; position:absolute; top:-6px; left:50%; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:#d64545; box-shadow:0 2px 2px rgba(0,0,0,.3)}
+  .note:nth-child(odd){transform:rotate(-1.2deg)} .note:nth-child(even){transform:rotate(1deg)}
+  .note.alert{background:var(--note-alert)} .note.ok{background:var(--note-ok); cursor:default} .note.todo{background:var(--note-todo)}
+  .note.ok::before{background:var(--green)}
+
+  /* ---------- 大樓 ---------- */
+  .building{margin-top:34px; position:relative}
+  .roof{position:relative; height:64px; display:flex; justify-content:center; align-items:flex-end}
+  .roof::before{content:""; position:absolute; left:6px; right:6px; bottom:0; height:16px; background:var(--frame); border-radius:6px 6px 0 0}
+  .sign{position:relative; z-index:1; margin-bottom:16px; background:var(--sun); color:#4a3510; font-family:var(--hand); font-weight:700;
+    font-size:clamp(1.15rem,3.6vw,1.6rem); padding:4px 22px 6px; border-radius:8px; border:3px solid #a8790a;
+    box-shadow:0 0 0 3px rgba(255,195,59,.25), 0 6px 18px rgba(255,195,59,.35)}
+  .sign::before,.sign::after{content:""; position:absolute; bottom:-19px; width:5px; height:16px; background:#6b5426}
+  .sign::before{left:24%} .sign::after{right:24%}
+  .floors{border:6px solid var(--frame); border-top:0; border-radius:0 0 4px 4px; background:var(--frame); display:grid; gap:6px}
+  .floor{position:relative; padding:12px 14px 0; transition:filter .4s}
+  .floor-hk{background:var(--hk-wall); box-shadow:inset 0 -10px 0 var(--hk-floor)}
+  .floor-ln{background:var(--ln-wall); box-shadow:inset 0 -10px 0 var(--ln-floor)}
+  .floor-srv{background:var(--srv-wall); box-shadow:inset 0 -10px 0 var(--srv-floor); color:#e7ebf1}
+  .floor.dim{filter:brightness(.9) saturate(.92)}
+  .floor.lit{filter:none}
+  .floor-sign{margin:0; display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; font-family:var(--hand); font-weight:700; font-size:1.1rem}
+  .floor-sign .lvl{font-family:var(--sans); font-weight:900; font-size:.8rem; background:var(--frame); color:#fff; border-radius:4px; padding:1px 7px}
+  .floor-sign .sub{font-family:var(--sans); font-weight:400; font-size:.8rem; color:var(--muted)}
+  .floor-srv .floor-sign .sub{color:#9aa6b6}
+  .stations{display:grid; grid-template-columns:repeat(auto-fill,minmax(205px,1fr)); gap:4px 10px; padding:6px 0 20px}
+  .street{background:#3b414c; border-top:14px solid #7d8593; padding-bottom:40px;
+    background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 46px,transparent 46px 96px); background-size:100% 4px; background-repeat:no-repeat; background-position:0 22px}
+  .street .wrap{padding-top:44px}
+
+  /* ---------- 工位 ---------- */
+  .station{background:none; border:0; padding:4px 4px 10px; text-align:left; cursor:pointer; border-radius:10px; display:flex; flex-direction:column; gap:1px}
+  .station:hover{background:rgba(255,255,255,.35)}
+  .floor-srv .station:hover{background:rgba(255,255,255,.06)}
+  .scene{width:100%; height:auto; display:block; overflow:visible}
+  .plate{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin-top:2px}
+  .nm{font-weight:900; font-size:1.02rem}
+  .rl{font-size:.8rem; color:var(--muted)}
+  .floor-srv .rl{color:#9aa6b6}
+  .stat{font-size:.86rem; font-weight:700}
+  .meta{font-size:.78rem; color:var(--muted)}
+  .floor-srv .meta{color:#9aa6b6}
+  .st-work .stat{color:var(--green)} .st-fail .stat,.st-miss .stat{color:var(--red)}
+  .st-soon .stat{color:#b07a00} .st-idle .stat{color:#5b6472} .st-unknown .stat{color:var(--muted)}
+  .floor-srv .st-idle .stat{color:#b9c4d2}
+  .st-fail,.st-miss{box-shadow:inset 0 0 0 2px rgba(229,72,77,.55)}
+
+  /* SVG 場景元素 */
+  .glow{fill:#ffe28a; opacity:0; transition:opacity .4s}
+  .chair rect{fill:#7b8594}
+  .desk{fill:#a77b4f} .desk-leg{fill:#8a6440}
+  .mon-frame{fill:#3b4350} .mon-stand{fill:#3b4350}
+  .screen{fill:#1c222b}
+  .code rect{fill:#5ee0c7}
+  .code{display:none}
+  .bang,.qq{display:none; font-family:var(--sans); font-weight:900; font-size:22px; text-anchor:middle; fill:#fff}
+  .head,.body{fill:var(--c)}
+  .visor{fill:#1f2630}
+  .eyes-open rect{fill:#7ff5df}
+  .eyes-shut path,.eyes-x path{fill:none; stroke:#7ff5df; stroke-width:2.2; stroke-linecap:round}
+  .eyes-shut,.eyes-x{display:none}
+  .ant-line{stroke:#5b6472; stroke-width:2.5}
+  .ant{fill:#9aa3ae}
+  .arm{fill:var(--c)}
+  .zz{display:none; font-family:var(--sans); font-weight:700; fill:#7d8796; font-size:15px}
+  .zz2{font-size:11px}
+  .sticky{display:none}
+  .sticky rect{fill:#ffe45c}
+  .sticky text{font-family:var(--hand); font-size:11px; font-weight:700; fill:#7a1f1f; text-anchor:middle}
+  .alarm{display:none}
+  .alarm circle{fill:var(--red)} .alarm text{fill:#fff; font-family:var(--sans); font-weight:900; font-size:14px; text-anchor:middle}
+
+  .st-work .glow{opacity:.55}
+  .st-work .code{display:inline}
+  .st-work .screen{fill:#10303a}
+  .st-work .ant{fill:#36d399}
+  .st-work .arm{animation:type .45s ease-in-out infinite alternate}
+  .st-work .code rect{animation:scroll 1.6s steps(4) infinite}
+
+  .st-idle .eyes-open{display:none} .st-idle .eyes-shut{display:inline} .st-idle .zz{display:inline}
+
+  .st-soon .screen{fill:#20406c} .st-soon .ant{fill:var(--amber)}
+
+  .st-fail .eyes-open{display:none} .st-fail .eyes-x{display:inline}
+  .st-fail .screen{fill:#6b1f24} .st-fail .bang{display:inline}
+  .st-fail .ant{fill:var(--red)} .st-fail .alarm{display:inline}
+  .st-fail .ant{animation:blink 1s steps(2) infinite}
+
+  .st-miss .bot{display:none} .st-miss .sticky{display:inline}
+
+  .st-unknown .bot{filter:grayscale(1); opacity:.45} .st-unknown .qq{display:inline}
+
+  @keyframes type{from{transform:translateY(0)} to{transform:translateY(3px)}}
+  @keyframes scroll{0%{opacity:1} 50%{opacity:.35} 100%{opacity:1}}
+  @keyframes blink{0%{opacity:1} 100%{opacity:.2}}
+
+  /* 打卡鐘與保險箱 */
+  .pc-body{fill:#c9d2dc} .pc-face{fill:#fffdf6; stroke:#4d5868; stroke-width:2.5}
+  .pc-tick{stroke:#4d5868; stroke-width:1.6}
+  .hand-h,.hand-m{stroke:#2b2f36; stroke-linecap:round; transform-origin:80px 40px}
+  .hand-h{stroke-width:3.2} .hand-m{stroke-width:2}
+  .pc-slot{fill:#4d5868} .pc-card{fill:#f6efe0; stroke:#b8ad96}
+  .pc-led{fill:#36d399}
+  .st-miss .pc-led,.st-fail .pc-led{fill:var(--red); animation:blink 1s steps(2) infinite}
+  .st-unknown .pc-led{fill:#9aa3ae}
+  .shelf{fill:#4d5868}
+  .safe-body{fill:#5f6b7c; stroke:#8996a8; stroke-width:2}
+  .safe-door{fill:#6f7c8f}
+  .safe-dial{fill:#c9d2dc}
+  .tag{stroke:#8996a8; stroke-width:1}
+  .tag-ok{fill:#d6f3e3} .tag-warn{fill:#ffe6b8} .tag-bad{fill:#ffd4d0}
+  .tag-t{font-family:var(--sans); font-size:9.5px; font-weight:700; fill:#2b2f36}
+
+  /* ---------- 打卡紀錄 ---------- */
+  .tape{background:#f7f4ec; border-radius:6px; padding:14px 16px 6px; color:var(--ink);
+    background-image:repeating-linear-gradient(180deg,transparent 0 31px,rgba(77,88,104,.12) 31px 32px)}
+  .tape h2{margin:0 0 6px; font-family:var(--hand); font-size:1.1rem}
+  .tape ol{list-style:none; margin:0; padding:0}
+  .tape li{display:grid; grid-template-columns:8.5em 1fr auto; gap:10px; align-items:baseline; min-height:32px; padding:4px 0; font-size:.88rem}
+  .tape time{font-variant-numeric:tabular-nums; color:var(--muted)}
+  .tape a{color:inherit}
+  .ok-t{color:var(--green); font-weight:700} .bad-t{color:var(--red); font-weight:700} .run-t{color:#b07a00; font-weight:700}
+  .about{color:#d7dde6; font-size:.82rem; margin-top:18px; max-width:68ch}
+  .about a{color:#ffe08a}
+
+  /* ---------- 詳細抽屜 ---------- */
+  .scrim{position:fixed; inset:0; background:rgba(20,26,36,.45); opacity:0; pointer-events:none; transition:opacity .2s}
+  .scrim.open{opacity:1; pointer-events:auto}
+  .drawer{position:fixed; top:0; right:0; bottom:0; width:min(440px,100%); background:var(--paper); color:var(--ink);
+    transform:translateX(102%); transition:transform .25s ease; overflow-y:auto; z-index:5;
+    padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(28px + env(safe-area-inset-bottom,0px));
+    box-shadow:-12px 0 30px rgba(0,0,0,.25)}
+  .drawer.open{transform:none}
+  .drawer h2{margin:0; font-size:1.35rem; font-weight:900}
+  .drawer h3{margin:20px 0 6px; font-size:.95rem; font-weight:900}
+  .drawer p{margin:0 0 6px}
+  .chip{display:inline-block; font-size:.8rem; font-weight:700; padding:2px 10px; border-radius:999px; margin-top:6px; background:#eef0f3}
+  .chip.st-work{background:#d6f3e3; color:#0f6b47} .chip.st-fail,.chip.st-miss{background:#ffd4d0; color:#8f1d22}
+  .chip.st-soon{background:#ffe6b8; color:#7a5300} .chip.st-idle{background:#eef0f3; color:#4d5868}
+  .dl{display:grid; grid-template-columns:5.5em 1fr; gap:4px 10px; font-size:.92rem}
+  .dl dt{color:var(--muted)} .dl dd{margin:0}
+  .runs{list-style:none; margin:0; padding:0; font-size:.88rem}
+  .runs li{padding:7px 0; border-bottom:1px solid #eceef1; display:grid; grid-template-columns:1fr auto; gap:2px 10px}
+  .runs .why{grid-column:1/-1; color:#8f1d22; font-size:.82rem}
+  .runs a{color:#2563eb}
+  .manual{margin:0; padding-left:1.2em; font-size:.92rem} .manual li{margin-bottom:6px}
+  .links{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .links a{display:inline-block; background:var(--ink); color:#fff; text-decoration:none; border-radius:8px; padding:7px 14px; font-size:.88rem; font-weight:700}
+  .close{position:sticky; top:0; float:right; background:#eef0f3; border:0; border-radius:999px; width:36px; height:36px; font-size:1.2rem; cursor:pointer}
+
+  @media (max-width:560px){
+    body{font-size:14px}
+    .stations{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .floor-sign .sub{flex-basis:100%}
+    .orb{width:40px; height:40px; right:2%}
+    .tape li{grid-template-columns:1fr auto; gap:0 10px}
+    .tape li time{grid-column:1/-1; font-size:.78rem}
+    .drawer{top:auto; height:86dvh; width:100%; border-radius:16px 16px 0 0; transform:translateY(102%)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important; transition:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"><div class="stars" id="stars"></div></div>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="clock-big" id="clock">--:--<small>--</small></div>
+      <div class="clock-date" id="clockDate">台北時間</div>
+    </div>
+    <div class="summary">
+      <p id="summary">正在向 GitHub 查詢每位機器人的出勤紀錄…</p>
+      <div class="fresh">
+        <span id="fresh"></span>
+        <button class="btn-refresh" id="refresh" type="button">重新整理</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="board" id="board" aria-label="公告欄"><h2>公告欄</h2></section>
+
+  <div class="building">
+    <div class="roof"><div class="orb" aria-hidden="true"></div><div class="sign">Hope Kids 機器人大樓</div></div>
+    <div class="floors" id="floors"></div>
+  </div>
+</div>
+
+<div class="street">
+<div class="wrap">
+  <section class="tape" aria-label="最近打卡紀錄">
+    <h2>最近打卡紀錄</h2>
+    <ol id="tape"><li><span>讀取中…</span></li></ol>
+  </section>
+
+  <p class="about">
+    每位機器人是一支 GitHub Actions 自動化工作，資料直接讀 GitHub 公開的執行紀錄，每分鐘更新一次。
+    1F 打卡鐘是 Cloudflare 上的排程，它本身的狀態讀不到，這裡是看機器人有沒有被準時叫醒來判斷：
+    該上工的時間過了 20 分鐘還沒有任何紀錄，就會標成「沒來上班」。
+  </p>
+</div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" tabindex="-1"></aside>
+
+<script>
+(() => {
+  const OWNER = "JoeYoung6406";
+  const API = "https://api.github.com";
+  const RAW = "https://raw.githubusercontent.com";
+  const REPOS = ["hopekids-bot", "line-remind", "hopekids-tc"];
+  const POLL = 60e3;
+  const MIN = 60e3, H = 3600e3, DAY = 864e5, TPE = 8 * H;
+  const WEEK = "日一二三四五六";
+  const FAIL = new Set(["failure", "timed_out", "startup_failure"]);
+
+  // ---------- 台北時間工具 ----------
+  const tp = d => { const t = new Date(d.getTime() + TPE);
+    return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate(), dow: t.getUTCDay(), h: t.getUTCHours(), mi: t.getUTCMinutes(), s: t.getUTCSeconds() }; };
+  const atTp = (y, m, d, h = 0, mi = 0) => new Date(Date.UTC(y, m - 1, d, h, mi) - TPE);
+  const pad = n => String(n).padStart(2, "0");
+  const fmt = (d, time = true) => { const t = tp(d); return `${t.m}/${t.d}（${WEEK[t.dow]}）` + (time ? ` ${pad(t.h)}:${pad(t.mi)}` : ""); };
+  const ymd = d => { const t = tp(d); return `${t.y}-${pad(t.m)}-${pad(t.d)}`; };
+  const rel = (d, now) => { const diff = d - now, a = Math.abs(diff);
+    const s = a < MIN ? "1 分鐘" : a < H ? `${Math.round(a / MIN)} 分鐘` : a < 2 * DAY ? `${Math.round(a / H)} 小時` : `${Math.round(a / DAY)} 天`;
+    return diff >= 0 ? `${s}後` : `${s}前`; };
+  const mondayAfterThirdSunday = (y, m) => { const f = new Date(Date.UTC(y, m - 1, 1)).getUTCDay(); return 1 + ((7 - f) % 7) + 15; };
+
+  function slots(rule, from, to) {
+    const out = [], f = tp(from);
+    for (let ms = Date.UTC(f.y, f.m - 1, f.d); ms - TPE <= to.getTime(); ms += DAY) {
+      const dd = new Date(ms), y = dd.getUTCFullYear(), m = dd.getUTCMonth() + 1, d = dd.getUTCDate();
+      if (rule.on(y, m, d, dd.getUTCDay())) out.push(atTp(y, m, d, rule.h, rule.mi));
+    }
+    return out;
+  }
+  function around(rule, now) {
+    let prev = null, next = null;
+    for (const s of slots(rule, new Date(now - 70 * DAY), new Date(now.getTime() + 130 * DAY))) {
+      if (s <= now) prev = s; else { next = s; break; }
+    }
+    return { prev, next };
+  }
+
+  // ---------- 員工名冊 ----------
+  const PATS = {
+    hopekids: { secret: "GH_PAT", token: "hopekids-line-hook", serves: "小週、表單姐", expires: "2027-07-19" },
+    remind: { secret: "GH_PAT_LINE_REMIND", token: "line-remind-dispatch", serves: "晨讀機、小聚", expires: "2027-10-13" },
+  };
+  const JOBS = [
+    { id: "weekly", floor: "hk", repo: "hopekids-bot", file: "weekly.yml", name: "小週", role: "每週服事表推播", color: "#3b82f6",
+      work: { on: (y, m, d, w) => w === 3, h: 10, mi: 0 }, grace: 20, by: "clock", pat: "hopekids", line: true,
+      duty: "每週三早上把「當週服事表」整理成卡片，推播到 Hope Kids 服事群組。",
+      hours: "每週三 10:00，由 1F 打卡鐘準時叫醒。",
+      manual: [
+        "沒發、而且這裡完全沒有紀錄：打卡鐘沒叫醒它，點 1F 打卡鐘看金鑰 GH_PAT 是否過期。",
+        "有紀錄但失敗：看下面紀錄卡在哪一步。常見是 LINE 本月額度用完，群組推播是按群組人數扣則數。",
+        "當月用 A 還是 B 帳號由 hopekids-bot 的 account_b_months.txt 決定，服事群組裡的 bot 要跟它一致。",
+        "想讓某一週不發：把日期寫進 hopekids-bot 的 skip_dates.txt。",
+        "補發：私訊 bot「本週服事夥伴」，或在 GitHub 這個工作的頁面按 Run workflow。",
+      ] },
+    { id: "form", floor: "hk", repo: "hopekids-bot", file: "unavailable_form.yml", name: "表單姐", role: "無法服事日期表單提醒", color: "#ff7a59",
+      work: { on: (y, m, d, w) => m % 2 === 1 && w === 1 && d === mondayAfterThirdSunday(y, m), h: 10, mi: 0 }, grace: 20, by: "clock", pat: "hopekids", line: true,
+      duty: "單數月提醒服事夥伴填「無法參與服事日期」表單，調查往後兩個月。",
+      hours: "單數月第三個主日的隔天（週一）10:00，由 1F 打卡鐘叫醒。",
+      manual: [
+        "跟小週共用打卡鐘和 LINE 帳號，沒發的查法一樣。",
+        "表單裡的日期選項要手動更新，機器人只負責發提醒。",
+        "補發：在 GitHub 這個工作的頁面按 Run workflow。",
+      ] },
+    { id: "monthly", floor: "hk", repo: "hopekids-tc", file: "monthly-update.yml", name: "月更君", role: "每月更新投影片與課程範例", color: "#2bb3a3",
+      work: { on: (y, m, d, w) => w === 6 && d >= 15 && d <= 21, h: 8, mi: 23 },
+      wake: { on: (y, m, d, w) => w === 6, h: 8, mi: 23 }, grace: 360, by: "github",
+      duty: "每月第三個週六，從教材連結表抓下個月的投影片、課程講義和故事圖，更新到服事夥伴專區網站。",
+      hours: "每週六 08:23 醒來點名，只有第三個週六真的動工。這是 GitHub 自己的排程，偶爾會晚幾個小時。",
+      manual: [
+        "失敗多半是教材連結表還沒有下個月的分頁，或分頁還是空的。填好後在 GitHub 這個工作的頁面按 Run workflow，可以指定月份。",
+        "教材連結表要維持「知道連結的人可檢視」，它才讀得到。",
+        "它改好網站檔案後，由小頁接手發布上線。",
+      ] },
+    { id: "pages", floor: "hk", repo: "hopekids-tc", file: "pages-build-deployment", name: "小頁", role: "網站發布", color: "#8b5cf6",
+      work: null, by: "push",
+      duty: "網站有新內容推上 GitHub，就把服事夥伴專區重新發布上線。",
+      hours: "沒有固定時間，有新內容就上工。",
+      manual: [ "失敗多半是 GitHub 暫時出狀況，在紀錄頁按 Re-run，或再推一次內容即可。" ] },
+    { id: "daily", floor: "ln", repo: "line-remind", file: "daily_plan.yml", name: "晨讀機", role: "每日靈修", color: "#f2a900",
+      work: { on: (y, m, d, w) => w >= 1 && w <= 5, h: 6, mi: 0 }, grace: 20, by: "clock", pat: "remind",
+      duty: "平日清晨截取當天的靈修內容，做成卡片發到小組群組。",
+      hours: "週一到週五 06:00，由 1F 打卡鐘準時叫醒。",
+      manual: [
+        "沒發、而且這裡完全沒有紀錄：點 1F 打卡鐘看金鑰 GH_PAT_LINE_REMIND 是否過期（10/13 就是這樣停了三天）。",
+        "截圖失敗：靈修內容來自外部網站，那個網站掛了這邊就拍不到。",
+        "補發：在 GitHub 這個工作的頁面按 Run workflow；勾選 dry run 只截圖、不發 LINE。",
+      ] },
+    { id: "remind", floor: "ln", repo: "line-remind", file: "remind.yml", name: "小聚", role: "聚會輪值提醒", color: "#06c755",
+      work: { on: (y, m, d, w) => w === 2, h: 19, mi: 0 }, grace: 20, by: "clock", pat: "remind",
+      duty: "每週二晚上查聚會輪值表，隔天有聚會就把帶點心、破冰、敬拜、代禱的人發到小組群組。",
+      hours: "每週二 19:00，由 1F 打卡鐘叫醒。隔天沒聚會、或輪值表寫「暫停」就不發，但仍算成功。",
+      manual: [
+        "沒發、而且這裡完全沒有紀錄：點 1F 打卡鐘看金鑰 GH_PAT_LINE_REMIND。",
+        "有成功紀錄但群組沒收到：檢查輪值表 Google Sheet 有沒有隔天的日期。",
+        "補發：在 GitHub 這個工作的頁面按 Run workflow。",
+      ] },
+  ];
+  const FLOORS = [
+    { id: "hk", lvl: "3F", name: "Hope Kids 事業部", sub: "服事群組與服事夥伴專區網站" },
+    { id: "ln", lvl: "2F", name: "小組部", sub: "小組 LINE 群組" },
+    { id: "srv", lvl: "1F", name: "機房", sub: "叫醒大家的打卡鐘與金鑰" },
+  ];
+  const byId = Object.fromEntries(JOBS.map(j => [j.id, j]));
+
+  // ---------- 資料 ----------
+  const state = { runs: {}, fetchedAt: null, error: null, rate: null, pauseUntil: 0, bMonths: [], skip: [], evals: {} };
+
+  async function fetchRepo(repo) {
+    const r = await fetch(`${API}/repos/${OWNER}/${repo}/actions/runs?per_page=100`, { cache: "no-cache", headers: { Accept: "application/vnd.github+json" } });
+    const rem = r.headers.get("x-ratelimit-remaining"), reset = r.headers.get("x-ratelimit-reset");
+    if (rem !== null) state.rate = { rem: +rem, reset: +reset * 1000 };
+    if ((r.status === 403 || r.status === 429) && rem === "0") { state.pauseUntil = +reset * 1000; throw new Error("rate"); }
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    state.runs[repo] = (await r.json()).workflow_runs || [];
+  }
+  async function fetchList(path) {
+    try { const r = await fetch(`${RAW}/${OWNER}/${path}`, { cache: "no-cache" });
+      return r.ok ? (await r.text()).split(/\r?\n/).map(l => l.split("#")[0].trim()).filter(Boolean) : null;
+    } catch { return null; }
+  }
+
+  let lastFetch = 0, busy = false;
+  async function refresh() {
+    if (busy) return;
+    if (Date.now() < state.pauseUntil) { render(); return; }
+    busy = true; lastFetch = Date.now();
+    const res = await Promise.allSettled(REPOS.map(fetchRepo));
+    const bad = res.filter(r => r.status === "rejected");
+    state.error = !bad.length ? null : bad.some(b => b.reason && b.reason.message === "rate") ? "rate" : "net";
+    if (bad.length < REPOS.length) state.fetchedAt = new Date();
+    const [b, s] = await Promise.all([fetchList("hopekids-bot/main/account_b_months.txt"), fetchList("hopekids-bot/main/skip_dates.txt")]);
+    if (b) state.bMonths = b;
+    if (s) state.skip = s;
+    busy = false;
+    render();
+  }
+
+  // ---------- 判斷每位的狀態 ----------
+  const runPath = r => (r.path || "").split("@")[0];
+  function runsOf(job) {
+    return (state.runs[job.repo] || []).filter(r => runPath(r).endsWith(job.file))
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  }
+  function evaluate(job, now) {
+    const loaded = Array.isArray(state.runs[job.repo]);
+    const all = state.runs[job.repo] || [];
+    const runs = runsOf(job);
+    const active = runs.find(r => r.status !== "completed");
+    const last = runs.find(r => r.status === "completed" && r.conclusion !== "cancelled" && r.conclusion !== "skipped");
+    const { prev, next } = job.work ? around(job.work, now) : {};
+    let missedAt = null;
+    const rule = job.wake || job.work;
+    if (rule && loaded) {
+      const p = around(rule, now).prev;
+      const oldest = all.length ? new Date(all[all.length - 1].created_at) : now;
+      if (p && now - p > job.grace * MIN && (all.length < 100 || oldest < p)) {
+        if (!runs.some(r => new Date(r.created_at) >= p - 10 * MIN)) missedAt = p;
+      }
+    }
+    let st;
+    if (!loaded) st = "unknown";
+    else if (active) st = "work";
+    else if (missedAt) st = "miss";
+    else if (last && FAIL.has(last.conclusion)) st = "fail";
+    else if (!runs.length) st = "unknown";
+    else if (next && next - now < 30 * MIN) st = "soon";
+    else st = "idle";
+    return { st, runs, active, last, prev, next, missedAt };
+  }
+  function evalClock(now) {
+    const jobs = JOBS.filter(j => j.by === "clock");
+    const ev = jobs.map(j => state.evals[j.id]);
+    const loaded = ev.every(e => e.st !== "unknown");
+    const missed = jobs.filter(j => state.evals[j.id].st === "miss");
+    const next = ev.map(e => e.next).filter(Boolean).sort((a, b) => a - b)[0] || null;
+    const lastPunch = ev.flatMap(e => e.runs).filter(r => r.event === "workflow_dispatch")
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
+    const st = !loaded ? "unknown" : missed.length ? "miss" : ev.some(e => e.st === "work") ? "work" : "idle";
+    return { st, missed, next, lastPunch };
+  }
+  const daysLeft = (p, now) => Math.floor((atTp(...p.expires.split("-").map(Number)) - now) / DAY);
+
+  const label = { work: "上班中", miss: "沒來上班", fail: "上次失敗", soon: "準備上工", idle: "休息中", unknown: "讀不到狀態" };
+  const result = r => !r ? "" : r.status !== "completed" ? "進行中" : r.conclusion === "success" ? "成功" : FAIL.has(r.conclusion) ? "失敗" : r.conclusion === "cancelled" ? "取消" : r.conclusion || "";
+  const resultCls = r => !r ? "" : r.status !== "completed" ? "run-t" : r.conclusion === "success" ? "ok-t" : FAIL.has(r.conclusion) ? "bad-t" : "";
+
+  function statLine(job, e, now) {
+    switch (e.st) {
+      case "work": return `上班中，${rel(new Date(e.active.run_started_at || e.active.created_at), now)}開始`;
+      case "miss": return `沒來上班：${fmt(e.missedAt)} 該上工`;
+      case "fail": return `上次失敗：${fmt(new Date(e.last.created_at))}`;
+      case "soon": return `準備上工，${rel(e.next, now)}`;
+      case "idle": return e.last ? `休息中，上次 ${fmt(new Date(e.last.created_at), false)}${result(e.last)}` : "休息中";
+      default: return state.error ? "讀不到 GitHub" : "讀取中";
+    }
+  }
+  const nextLine = (job, e, now) => job.work ? (e.next ? `下次上工 ${fmt(e.next)}，${rel(e.next, now)}` : "") : "有新內容推上來才上工";
+
+  // ---------- 畫面 ----------
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const botSVG = () => `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+    <ellipse class="glow" cx="80" cy="62" rx="74" ry="46"/>
+    <g class="chair"><rect x="94" y="46" width="40" height="38" rx="9"/><rect x="110" y="84" width="8" height="26"/></g>
+    <g class="bot">
+      <line class="ant-line" x1="113" y1="20" x2="113" y2="10"/><circle class="ant" cx="113" cy="8" r="4.5"/>
+      <rect class="head" x="95" y="20" width="36" height="28" rx="9"/>
+      <rect class="visor" x="100" y="26" width="26" height="15" rx="5"/>
+      <g class="eyes-open"><rect x="105" y="30" width="5" height="7" rx="2.5"/><rect x="116" y="30" width="5" height="7" rx="2.5"/></g>
+      <g class="eyes-shut"><path d="M104 34 q3 3.5 6 0 M115 34 q3 3.5 6 0"/></g>
+      <g class="eyes-x"><path d="M104 30 l6 7 M110 30 l-6 7 M115 30 l6 7 M121 30 l-6 7"/></g>
+      <rect class="body" x="99" y="50" width="28" height="28" rx="8"/>
+      <rect class="arm" x="82" y="62" width="20" height="7" rx="3.5"/>
+      <text class="zz" x="136" y="20">z</text><text class="zz zz2" x="145" y="10">z</text>
+      <g class="alarm"><circle cx="140" cy="16" r="9"/><text x="140" y="21">!</text></g>
+    </g>
+    <rect class="desk" x="12" y="76" width="136" height="8" rx="2"/>
+    <rect class="desk-leg" x="20" y="84" width="6" height="28"/><rect class="desk-leg" x="134" y="84" width="6" height="28"/>
+    <rect class="mon-frame" x="22" y="34" width="56" height="38" rx="4"/><rect class="mon-stand" x="46" y="72" width="8" height="4"/>
+    <rect class="screen" x="26" y="38" width="48" height="30" rx="2"/>
+    <g class="code"><rect x="30" y="43" width="22" height="3" rx="1.5"/><rect x="30" y="49" width="34" height="3" rx="1.5"/><rect x="34" y="55" width="18" height="3" rx="1.5"/><rect x="34" y="61" width="28" height="3" rx="1.5"/></g>
+    <text class="bang" x="50" y="61">!</text><text class="qq" x="113" y="70">?</text>
+    <g class="sticky" transform="rotate(-7 50 53)"><rect x="31" y="40" width="38" height="26" rx="1.5"/><text x="50" y="51">今天</text><text x="50" y="62">沒來</text></g>
+  </svg>`;
+
+  const clockSVG = () => { let ticks = "";
+    for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6, x1 = 80 + Math.sin(a) * 15, y1 = 40 - Math.cos(a) * 15, x2 = 80 + Math.sin(a) * 18, y2 = 40 - Math.cos(a) * 18;
+      ticks += `<line class="pc-tick" x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`; }
+    return `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+      <rect class="pc-body" x="50" y="12" width="60" height="86" rx="9"/>
+      <circle class="pc-face" cx="80" cy="40" r="21"/>${ticks}
+      <line class="hand-h" id="handH" x1="80" y1="40" x2="80" y2="29"/><line class="hand-m" id="handM" x1="80" y1="40" x2="80" y2="24"/>
+      <rect class="pc-slot" x="62" y="70" width="36" height="6" rx="2"/>
+      <rect class="pc-card" x="66" y="58" width="28" height="16" rx="1.5" transform="rotate(-4 80 66)"/>
+      <circle class="pc-led" cx="100" cy="88" r="4.5"/>
+      <rect class="shelf" x="36" y="98" width="88" height="8" rx="2"/>
+    </svg>`; };
+
+  const safeSVG = now => { const tags = Object.values(PATS).map((p, i) => { const dl = daysLeft(p, now);
+      const cls = dl < 0 ? "tag-bad" : dl <= 30 ? "tag-warn" : "tag-ok", y = 30 + i * 30;
+      return `<rect class="tag ${cls}" x="76" y="${y}" width="80" height="24" rx="4"/>
+        <text class="tag-t" x="116" y="${y + 10}" text-anchor="middle">${p.secret === "GH_PAT" ? "GH_PAT" : "LINE_REMIND"}</text>
+        <text class="tag-t" x="116" y="${y + 20}" text-anchor="middle">${dl < 0 ? "已過期" : `剩 ${dl} 天`}</text>`; }).join("");
+    return `<svg class="scene" viewBox="0 0 160 116" aria-hidden="true">
+      <rect class="safe-body" x="6" y="24" width="64" height="74" rx="6"/><rect class="safe-door" x="12" y="30" width="52" height="62" rx="4"/>
+      <circle class="safe-dial" cx="38" cy="61" r="11"/><line x1="38" y1="61" x2="38" y2="52" stroke="#5f6b7c" stroke-width="2.5"/>
+      ${tags}<rect class="shelf" x="0" y="98" width="160" height="8" rx="2"/></svg>`; };
+
+  function stationHTML(job, e, now) {
+    return `<button type="button" class="station st-${e.st}" data-open="${job.id}" style="--c:${job.color}"
+        aria-label="${esc(job.name)}，${esc(job.role)}，${label[e.st]}。打開工作說明">
+      ${botSVG()}
+      <span class="plate"><span class="nm">${esc(job.name)}</span><span class="rl">${esc(job.role)}</span></span>
+      <span class="stat">${esc(statLine(job, e, now))}</span>
+      <span class="meta">${esc(nextLine(job, e, now))}</span>
+    </button>`;
+  }
+  function srvHTML(now) {
+    const c = state.clock;
+    const stat = c.st === "miss" ? `叫不醒 ${c.missed.map(j => j.name).join("、")}` : c.st === "work" ? "剛叫醒機器人上工" : c.st === "unknown" ? (state.error ? "讀不到 GitHub" : "讀取中") : "準時打卡中";
+    const keyAlert = Object.values(PATS).some(p => daysLeft(p, now) <= 30);
+    return `<button type="button" class="station st-${c.st}" data-open="clock" aria-label="打卡鐘，${esc(stat)}。打開說明">
+        ${clockSVG()}
+        <span class="plate"><span class="nm">打卡鐘</span><span class="rl">Cloudflare 排程</span></span>
+        <span class="stat">${esc(stat)}</span>
+        <span class="meta">${c.next ? `下次響 ${fmt(c.next)}，${rel(c.next, now)}` : ""}</span>
+      </button>
+      <button type="button" class="station ${keyAlert ? "st-fail" : "st-idle"}" data-open="clock" aria-label="金鑰保險箱。打開說明">
+        ${safeSVG(now)}
+        <span class="plate"><span class="nm">金鑰保險箱</span><span class="rl">打卡鐘叫人用的 GitHub 金鑰</span></span>
+        <span class="stat">${keyAlert ? "有金鑰快到期了" : "兩把金鑰都還有效"}</span>
+        <span class="meta">${Object.values(PATS).map(p => `${p.secret} 到 ${p.expires.replace(/-/g, "/")}`).join("，")}</span>
+      </button>`;
+  }
+
+  function notes(now) {
+    const out = [], ev = state.evals;
+    for (const j of JOBS) { const e = ev[j.id];
+      if (e.st === "miss") out.push({ tone: "alert", target: j.by === "clock" ? "clock" : j.id,
+        text: j.by === "clock"
+          ? `${j.name}（${j.role}）${fmt(e.missedAt)} 該上工，卻沒有任何紀錄。多半是打卡鐘的金鑰 ${PATS[j.pat].secret} 失效，點這裡看處理步驟。`
+          : `${j.name}（${j.role}）${fmt(e.missedAt)} 該醒來，還沒有紀錄。GitHub 排程常晚到，過幾小時還沒來就手動執行。` });
+      if (e.st === "fail") out.push({ tone: "alert", target: j.id, text: `${j.name}（${j.role}）${fmt(new Date(e.last.created_at))} 執行失敗，點這裡看卡在哪一步。` });
+    }
+    // 服事推播的 LINE 帳號換月提醒
+    const t = tp(now), nm = t.m === 12 ? [t.y + 1, 1] : [t.y, t.m + 1];
+    const cur = `${t.y}-${pad(t.m)}`, nxt = `${nm[0]}-${pad(nm[1])}`;
+    const curB = state.bMonths.includes(cur), nxtB = state.bMonths.includes(nxt);
+    const monthEnd = atTp(nm[0], nm[1], 1);
+    if (curB !== nxtB && monthEnd - now <= 10 * DAY) {
+      const first = around(byId.weekly.work, new Date(monthEnd.getTime() - 1)).next;
+      out.push({ tone: "todo", target: "weekly", text: `服事推播本月用 ${curB ? "B" : "A"} 帳號，${nm[1]}/1 起改用 ${nxtB ? "B" : "A"} 帳號。${fmt(first, false)} 10:00 第一次推播前，要在服事群組把 ${curB ? "B" : "A"} 移出、把 ${nxtB ? "B" : "A"} 邀進來。` });
+    }
+    const wk = ev.weekly;
+    if (wk.next && state.skip.includes(ymd(wk.next))) out.push({ tone: "todo", target: "weekly", text: `${fmt(wk.next, false)} 的服事推播設定為停發，小週會醒來但不發訊息。` });
+    for (const p of Object.values(PATS)) { const dl = daysLeft(p, now);
+      if (dl <= 30) out.push({ tone: dl < 0 ? "alert" : "todo", target: "clock",
+        text: dl < 0 ? `金鑰 ${p.secret} 已過期，${p.serves}都叫不醒。點這裡看怎麼換新。` : `金鑰 ${p.secret} 再 ${dl} 天到期，到期前重新產生並貼回 Cloudflare。` }); }
+    if (!out.some(n => n.tone === "alert") && Object.keys(state.runs).length) out.unshift({ tone: "ok", text: "所有機器人都照表上工，沒有異常。" });
+    return out;
+  }
+
+  function summaryText(now) {
+    const ev = state.evals;
+    if (!Object.keys(state.runs).length) return state.error === "rate" ? "GitHub 查詢次數暫時用完，稍後自動再試。" : state.error ? "連不上 GitHub，請確認網路後按重新整理。" : "正在向 GitHub 查詢每位機器人的出勤紀錄…";
+    const trouble = JOBS.filter(j => ["miss", "fail"].includes(ev[j.id].st));
+    if (trouble.length) return `${trouble.length} 位需要處理：${trouble.map(j => `${j.name}${label[ev[j.id].st]}`).join("、")}。`;
+    const working = JOBS.filter(j => ev[j.id].st === "work");
+    if (working.length) return `${working.map(j => j.name).join("、")}正在上班，其他人都在休息。`;
+    const up = JOBS.filter(j => ev[j.id].next).sort((a, b) => ev[a.id].next - ev[b.id].next)[0];
+    return up ? `大家都在休息。下一位上工的是${up.name}，${fmt(ev[up.id].next)}（${rel(ev[up.id].next, now)}）。` : "大家都在休息。";
+  }
+
+  function tapeHTML(now) {
+    const all = Object.values(state.runs).flat().sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 14);
+    if (!all.length) return `<li><span>${state.error ? "讀不到紀錄" : "讀取中…"}</span></li>`;
+    return all.map(r => {
+      const job = JOBS.find(j => j.repo === r.repository.name && runPath(r).endsWith(j.file));
+      const who = job ? `${job.name}（${job.role}）` : runPath(r).includes("watchdog") ? "前保全（已離職）" : r.name;
+      return `<li><time>${fmt(new Date(r.created_at))}</time><span>${esc(who)}</span>
+        <a class="res ${resultCls(r)}" href="${esc(r.html_url)}" target="_blank" rel="noopener">${result(r)}</a></li>`;
+    }).join("");
+  }
+
+  function render() {
+    if (!tick.phase) tick();
+    const now = new Date();
+    for (const j of JOBS) state.evals[j.id] = evaluate(j, now);
+    if (DEMO) demo(now);
+    state.clock = evalClock(now);
+    const floorsEl = document.getElementById("floors");
+    floorsEl.innerHTML = FLOORS.map(f => {
+      const jobs = JOBS.filter(j => j.floor === f.id);
+      const lit = jobs.some(j => state.evals[j.id].st === "work") || (f.id === "srv" && state.clock.st === "work");
+      const dark = !lit && (tick.phase === "night" || tick.phase === "dusk");
+      return `<section class="floor floor-${f.id} ${dark ? "dim" : "lit"}" aria-label="${f.lvl} ${f.name}">
+        <h2 class="floor-sign"><span class="lvl">${f.lvl}</span>${f.name}<span class="sub">${f.sub}</span></h2>
+        <div class="stations">${f.id === "srv" ? srvHTML(now) : jobs.map(j => stationHTML(j, state.evals[j.id], now)).join("")}</div>
+      </section>`;
+    }).join("");
+    const board = document.getElementById("board");
+    board.innerHTML = `<h2>公告欄</h2>` + notes(now).map(n => n.target
+      ? `<button type="button" class="note ${n.tone}" data-open="${n.target}">${esc(n.text)}</button>`
+      : `<div class="note ${n.tone}">${esc(n.text)}</div>`).join("");
+    document.getElementById("summary").textContent = summaryText(now);
+    document.getElementById("tape").innerHTML = tapeHTML(now);
+    renderFresh(now);
+    tick();
+    if (openId) fillDrawer(openId, false);
+  }
+
+  function renderFresh(now) {
+    const parts = [];
+    if (state.fetchedAt) parts.push(`${rel(state.fetchedAt, now).replace("1 分鐘前", "剛剛")}更新`);
+    if (state.error === "rate") parts.push(`<span class="warn">GitHub 每小時免費查詢 60 次已用完，${fmt(new Date(state.pauseUntil))} 後恢復</span>`);
+    else if (state.error === "net") parts.push(`<span class="warn">有 repo 讀取失敗，顯示的是上次的資料</span>`);
+    else if (state.rate) parts.push(`GitHub 查詢額度剩 ${state.rate.rem} 次`);
+    document.getElementById("fresh").innerHTML = parts.join("<span aria-hidden=\"true\">／</span>");
+  }
+
+  // ---------- 時鐘與天空 ----------
+  function tick() {
+    const t = tp(new Date());
+    document.getElementById("clock").innerHTML = `${pad(t.h)}:${pad(t.mi)}<small>${pad(t.s)}</small>`;
+    document.getElementById("clockDate").textContent = `台北時間 ${t.y}/${t.m}/${t.d}（${WEEK[t.dow]}）`;
+    const hh = document.getElementById("handH"), mm = document.getElementById("handM");
+    if (hh) { hh.style.transform = `rotate(${(t.h % 12) * 30 + t.mi / 2}deg)`; mm.style.transform = `rotate(${t.mi * 6}deg)`; }
+    const hour = t.h + t.mi / 60;
+    const phase = hour >= 5 && hour < 6.5 ? "dawn" : hour >= 6.5 && hour < 16.5 ? "day" : hour >= 16.5 && hour < 18.5 ? "dusk" : "night";
+    if (phase !== tick.phase) {
+      tick.phase = phase;
+      const skies = { dawn: ["#f4a98a", "#a9c7e6", "#2b2f36"], day: ["#7fbde8", "#d4ebf8", "#22344a"], dusk: ["#3d4f86", "#f0a36c", "#fff6ea"], night: ["#141d36", "#33467a", "#eef2fb"] };
+      const [a, b, ink] = skies[phase], root = document.documentElement.style;
+      root.setProperty("--sky-top", a); root.setProperty("--sky-bot", b); root.setProperty("--sky-ink", ink);
+      document.getElementById("sky").className = `sky ${phase}`;
+      document.body.classList.toggle("daylight", phase === "day" || phase === "dawn");
+      document.body.classList.remove("ph-dawn", "ph-day", "ph-dusk", "ph-night");
+      document.body.classList.add(`ph-${phase}`);
+    }
+  }
+  (function stars() { let h = "";
+    for (let i = 0; i < 46; i++) h += `<i style="left:${(i * 37.7) % 100}%;top:${(i * 53.3) % 92}%;opacity:${.35 + (i % 5) / 8}"></i>`;
+    document.getElementById("stars").innerHTML = h; })();
+
+  // ---------- 詳細抽屜 ----------
+  const drawer = document.getElementById("drawer"), scrim = document.getElementById("scrim");
+  let openId = null, lastFocus = null;
+  const stepCache = {};
+  async function failedStep(run) {
+    if (run.id in stepCache) return stepCache[run.id];
+    stepCache[run.id] = null;
+    try {
+      const r = await fetch(`${API}/repos/${OWNER}/${run.repository.name}/actions/runs/${run.id}/jobs`, { headers: { Accept: "application/vnd.github+json" } });
+      if (r.ok) { const steps = ((await r.json()).jobs || []).flatMap(j => j.steps || []); const s = steps.find(x => FAIL.has(x.conclusion)); stepCache[run.id] = s ? s.name : null; }
+    } catch {}
+    return stepCache[run.id];
+  }
+  const wakeLabel = (job, r) => {
+    if (r.event === "schedule") return "GitHub 排程";
+    if (r.event === "dynamic" || r.event === "push") return "內容更新";
+    if (job.by === "clock" && job.work) { const c = new Date(r.created_at), p = around(job.work, new Date(c.getTime() + MIN)).prev;
+      return p && c - p >= -MIN && c - p < 10 * MIN ? "打卡鐘叫醒" : "手動執行"; }
+    return "手動執行";
+  };
+
+  function fillDrawer(id, focus) {
+    const now = new Date();
+    let html = `<button class="close" type="button" aria-label="關閉" data-close>×</button>`;
+    if (id === "clock") {
+      const c = state.clock;
+      html += `<h2 id="dTitle">打卡鐘</h2><span class="chip st-${c.st}">${c.st === "miss" ? "有機器人叫不醒" : c.st === "unknown" ? "讀不到狀態" : "準時打卡中"}</span>
+        <h3>工作內容</h3><p>Cloudflare 上的排程（Worker：hopekids-line-hook）。每天 06:00、10:00、19:00 準時醒來，依星期幾叫醒晨讀機、小週、表單姐、小聚。GitHub 自己的排程常晚好幾個小時，所以改由它負責叫人。</p>
+        <h3>最近叫醒情況</h3><ul class="runs">${JOBS.filter(j => j.by === "clock").map(j => { const e = state.evals[j.id];
+          return `<li><span>${j.name}　${e.missedAt ? `${fmt(e.missedAt)} 沒叫醒` : e.prev ? `${fmt(e.prev)} 有叫醒` : "還沒到上工日"}</span><span class="${e.missedAt ? "bad-t" : "ok-t"}">${e.missedAt ? "✗" : e.prev ? "✓" : ""}</span></li>`; }).join("")}</ul>
+        <h3>金鑰</h3><dl class="dl">${Object.values(PATS).map(p => { const dl = daysLeft(p, now);
+          return `<dt>${p.secret}</dt><dd>GitHub 金鑰「${p.token}」，叫醒${p.serves}。${p.expires.replace(/-/g, "/")} 到期（${dl < 0 ? "已過期" : `剩 ${dl} 天`}）</dd>`; }).join("")}</dl>
+        <h3>故障手冊</h3><ol class="manual">
+          <li>機器人「沒來上班」又完全沒有紀錄，多半是金鑰過期。到 GitHub 的 Fine-grained tokens 頁找對應的金鑰，按 Regenerate token，期限選最長，複製新金鑰。</li>
+          <li>Cloudflare → Workers &amp; Pages → hopekids-line-hook → Settings → Variables and Secrets，編輯對應的 secret，貼上新金鑰後按 Deploy。</li>
+          <li>金鑰沒過期但還是叫不醒：同一個 Worker 的 Settings → Trigger events，確認 0 22 * * *、0 2 * * *、0 11 * * * 三個排程都還在。</li>
+          <li>漏掉的訊息可以在各機器人的 GitHub 工作頁按 Run workflow 補發。</li>
+        </ol>
+        <div class="links"><a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">打開 GitHub 金鑰頁</a><a href="https://dash.cloudflare.com" target="_blank" rel="noopener">打開 Cloudflare</a></div>`;
+    } else {
+      const job = byId[id], e = state.evals[id];
+      const acct = job.line ? (state.bMonths.includes(`${tp(now).y}-${pad(tp(now).m)}`) ? "B 帳號（@605epctp）" : "A 帳號（原本那隻）") : null;
+      const recent = e.runs.slice(0, 8);
+      html += `<h2 id="dTitle">${esc(job.name)}</h2><p style="margin:2px 0 0;color:var(--muted)">${esc(job.role)}</p>
+        <span class="chip st-${e.st}">${esc(statLine(job, e, now))}</span>
+        <h3>工作內容</h3><p>${esc(job.duty)}</p>
+        <h3>上班時間</h3><p>${esc(job.hours)}</p>
+        <dl class="dl">${e.next ? `<dt>下次上工</dt><dd>${fmt(e.next)}（${rel(e.next, now)}）</dd>` : ""}${e.last ? `<dt>上次完成</dt><dd>${fmt(new Date(e.last.created_at))}，${result(e.last)}</dd>` : ""}${acct ? `<dt>LINE 帳號</dt><dd>本月用 ${acct}</dd>` : ""}</dl>
+        <h3>最近紀錄</h3>${recent.length ? `<ul class="runs">${recent.map(r => `<li data-run="${r.id}"><span>${fmt(new Date(r.created_at))}　${wakeLabel(job, r)}</span>
+          <a class="${resultCls(r)}" href="${esc(r.html_url)}" target="_blank" rel="noopener">${result(r)}</a>${FAIL.has(r.conclusion) ? `<span class="why">正在查卡在哪一步…</span>` : ""}</li>`).join("")}</ul>` : `<p>還沒有紀錄。</p>`}
+        <h3>故障手冊</h3><ol class="manual">${job.manual.map(m => `<li>${esc(m)}</li>`).join("")}</ol>
+        <div class="links"><a href="https://github.com/${OWNER}/${job.repo}/actions${job.work ? `/workflows/${job.file}` : ""}" target="_blank" rel="noopener">在 GitHub 打開這個工作</a></div>`;
+      recent.filter(r => FAIL.has(r.conclusion)).slice(0, 4).forEach(async r => {
+        const s = await failedStep(r), el = drawer.querySelector(`[data-run="${r.id}"] .why`);
+        if (el) el.textContent = s ? `卡在「${s}」這一步` : "沒查到是哪一步，點「失敗」看 GitHub 紀錄";
+      });
+    }
+    drawer.innerHTML = html;
+    if (focus) drawer.querySelector("[data-close]").focus();
+  }
+  function openDrawer(id) {
+    lastFocus = document.activeElement; openId = id; fillDrawer(id, true);
+    drawer.classList.add("open"); scrim.classList.add("open");
+  }
+  function closeDrawer() {
+    openId = null; drawer.classList.remove("open"); scrim.classList.remove("open");
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  }
+  document.addEventListener("click", ev => {
+    const o = ev.target.closest("[data-open]"); if (o) { openDrawer(o.dataset.open); return; }
+    if (ev.target.closest("[data-close]") || ev.target === scrim) closeDrawer();
+  });
+  document.addEventListener("keydown", ev => { if (ev.key === "Escape" && openId) closeDrawer(); });
+  document.getElementById("refresh").addEventListener("click", () => refresh());
+
+  // 網址加 ?demo 可預覽每種狀態的樣子（不是真實資料）
+  const DEMO = new URLSearchParams(location.search).has("demo");
+  function demo(now) {
+    const e = state.evals, fake = { status: "in_progress", created_at: new Date(now - 2 * MIN).toISOString() };
+    if (e.weekly.runs.length) Object.assign(e.weekly, { st: "work", active: fake });
+    if (e.form.last) Object.assign(e.form, { st: "fail", last: { ...e.form.last, conclusion: "failure" } });
+    Object.assign(e.daily, { st: "miss", missedAt: e.daily.prev || new Date(now - H) });
+    Object.assign(e.pages, { st: "unknown" });
+    Object.assign(e.remind, { st: "soon", next: new Date(now.getTime() + 12 * MIN) });
+  }
+
+  // ---------- 啟動 ----------
+  render(); refresh();
+  setInterval(tick, 1000);
+  setInterval(() => { if (!document.hidden) render(); }, 30e3);
+  setInterval(() => { if (!document.hidden) refresh(); }, POLL);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && Date.now() - lastFetch > POLL / 2) refresh(); });
+})();
+</script>
+</body>
+</html>
