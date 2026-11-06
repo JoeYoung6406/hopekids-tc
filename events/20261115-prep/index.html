@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11月備課日｜出席回覆 · Hope Kids 台中分部</title>
+<meta name="description" content="Hope Kids 台中分部 11月備課日：11/15（日）13:30–16:00 在 Kids Central，回覆出席或請假。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffc33b;          /* 品牌黃（同首頁） */
+    --sun-deep:#f2a900;
+    --ink:#4a3b22;
+    --muted:#85704b;        /* 比首頁的 muted 深一點，小字比較好讀 */
+    --bg:#fffdf6;
+    --card:#ffffff;
+    --line:#f3e6c8;
+    --coral:#ff7a59;
+    --teal:#2bb3a3;
+    --shadow:0 10px 26px rgba(242,169,0,.16);
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; color:var(--ink);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    background:
+      radial-gradient(900px 420px at 50% -120px, #fff3d1, transparent 72%),
+      var(--bg);
+    min-height:100dvh;
+  }
+  .page{max-width:500px; margin:0 auto; padding:18px 20px 46px;}
+
+  .backlink{display:inline-block; padding:6px 0; color:var(--sun-deep); font-weight:700; font-size:.9rem; text-decoration:none;}
+  .backlink:focus-visible{outline:3px solid var(--sun-deep); outline-offset:2px; border-radius:6px;}
+
+  /* ---------- 標題 ---------- */
+  .head{text-align:center; margin:8px 0 22px;}
+  .brand{font-family:"Chewy",cursive; color:var(--sun); font-size:1.9rem; line-height:1; margin:0; text-shadow:0 2px 0 rgba(242,169,0,.2);}
+  h1{font-size:2.2rem; font-weight:900; letter-spacing:.05em; margin:6px 0 0;}
+  .squiggle{width:130px; margin:6px auto 0; display:block;}
+
+  /* ---------- 活動資訊 ---------- */
+  .info{
+    margin:0; display:grid; grid-template-columns:1fr 1fr; gap:16px 14px;
+    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  .info dt{font-size:.8rem; font-weight:700; color:var(--muted);}
+  .info dd{margin:3px 0 0; font-size:1.12rem; font-weight:900; line-height:1.3;}
+  .info .hot dd{color:var(--coral);}
+  .info dd a{color:var(--teal); text-decoration:none; border-bottom:2px solid currentColor;}
+  .info dd .pending{color:var(--muted); font-weight:700; font-size:.95rem;}
+
+  /* ---------- 問卷 ---------- */
+  .tab{
+    display:inline-flex; align-items:center; gap:7px;
+    font-weight:900; font-size:.95rem; color:#fff; background:var(--coral);
+    padding:6px 16px; border-radius:12px 12px 12px 3px;
+    transform:rotate(-1.4deg); box-shadow:0 4px 10px rgba(0,0,0,.12); margin:28px 0 12px 4px;
+  }
+  .card{
+    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:20px 18px; box-shadow:var(--shadow);
+  }
+  .steph{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:0 0 14px;}
+  .step h2{font-size:1.3rem; font-weight:900; margin:0; outline:none;}
+  .stepno{font-size:.8rem; font-weight:700; color:var(--muted); flex:none;}
+
+  .choices{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .choice{position:relative;}
+  .choice input{position:absolute; opacity:0; pointer-events:none;}
+  .choice span{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+    min-height:100px; border:2px dashed var(--line); border-radius:16px; background:#fffaf0;
+    font-weight:900; font-size:1.15rem; cursor:pointer;
+    transition:transform .16s ease, background .16s, border-color .16s, color .16s;
+  }
+  .choice span i{font-style:normal; font-size:1.9rem; line-height:1.2;}
+  .choice:hover span{border-color:var(--sun);}
+  .choice input:checked + span{border-style:solid; color:#fff;}
+  .choice.go input:checked + span{background:var(--teal); border-color:var(--teal); transform:rotate(-1.5deg);}
+  .choice.off input:checked + span{background:var(--coral); border-color:var(--coral); transform:rotate(1.5deg);}
+  .choice input:focus-visible + span{outline:3px solid var(--sun-deep); outline-offset:3px;}
+
+  .field{display:block; font-weight:700; margin:18px 0 7px;}
+  textarea, select, input[type=text]{
+    display:block; width:100%; font:inherit; font-size:16px; color:var(--ink);
+    background:#fffdf8; border:1.5px solid var(--line); border-radius:12px; padding:11px 12px;
+  }
+  textarea{resize:vertical; min-height:70px;}
+  select{appearance:none; -webkit-appearance:none; padding-right:40px; cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--coral) 50%),linear-gradient(135deg,var(--coral) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 52%, calc(100% - 14px) 52%; background-size:6px 6px; background-repeat:no-repeat;}
+  #otherName{margin-top:10px;}
+  textarea:focus-visible, select:focus-visible, input[type=text]:focus-visible{
+    outline:none; border-color:var(--sun-deep); box-shadow:0 0 0 3px rgba(255,195,59,.45);
+  }
+
+  .thanks{margin:0 0 18px; padding:11px 14px; border-radius:12px; background:#fff0c6; font-weight:700; text-align:center; line-height:1.5;}
+  .summary{margin:14px 0 0; font-size:.9rem; color:var(--muted);}
+  .err{margin:12px 0 0; color:#c2410c; font-weight:700; font-size:.92rem;}
+  .err:empty{display:none;}
+
+  .btn{
+    display:block; width:100%; margin-top:20px; padding:14px; border:0; border-radius:14px;
+    font:inherit; font-size:1.1rem; font-weight:900; text-align:center; text-decoration:none;
+    background:var(--sun); color:#5a4200; cursor:pointer;
+    box-shadow:0 5px 0 var(--sun-deep); transition:transform .1s, box-shadow .1s;
+  }
+  .btn:active{transform:translateY(3px); box-shadow:0 2px 0 var(--sun-deep);}
+  .btn:focus-visible{outline:3px solid var(--ink); outline-offset:3px;}
+  .btn[disabled]{opacity:.65; cursor:wait;}
+  .btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line); box-shadow:none;}
+  .btn.ghost:active{transform:none;}
+  .row{display:grid; grid-template-columns:1fr 2fr; gap:10px;}
+  .row .btn{margin-top:20px;}
+
+  /* ---------- 完成 ---------- */
+  .done{text-align:center;}
+  .stamp{
+    width:78px; height:78px; margin:4px auto 12px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--teal); color:#fff; font-size:2.5rem; font-weight:900;
+    box-shadow:0 8px 18px rgba(43,179,163,.35);
+    animation:stamp .5s cubic-bezier(.2,1.4,.4,1) both;
+  }
+  .done.off .stamp{background:var(--coral); box-shadow:0 8px 18px rgba(255,122,89,.35);}
+  @keyframes stamp{from{transform:scale(.3) rotate(-25deg); opacity:0;} to{transform:none; opacity:1;}}
+  .done p{margin:6px 0 0; line-height:1.6;}
+  .done .note{color:var(--muted); font-size:.88rem; margin-top:10px;}
+
+  .closed{text-align:center; font-weight:700; line-height:1.7;}
+
+  footer{text-align:center; margin-top:34px; color:var(--muted); font-size:.82rem;}
+  footer .brand-sm{font-family:"Chewy",cursive; font-size:1.1rem; color:var(--sun-deep);}
+
+  @media (prefers-reduced-motion:reduce){
+    .choice span,.btn{transition:none;}
+    .stamp{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="backlink" href="../../">← 服事夥伴專區</a>
+
+  <header class="head">
+    <p class="brand">Hope Kids</p>
+    <h1>11月備課日</h1>
+    <svg class="squiggle" viewBox="0 0 150 14" aria-hidden="true">
+      <path d="M4 9 Q 24 2 44 8 T 84 8 T 124 8 T 146 6"
+            fill="none" stroke="#ffc33b" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </header>
+
+  <dl class="info">
+    <div class="hot"><dt>活動日期</dt><dd>11/15（日）</dd></div>
+    <div class="hot"><dt>活動時間</dt><dd>13:30–16:00</dd></div>
+    <div><dt>活動地點</dt><dd>Kids Central</dd></div>
+    <div><dt>教材資源</dt><dd id="materials"><span class="pending">整理中</span></dd></div>
+  </dl>
+
+  <div class="tab">✋ 出席回覆</div>
+
+  <div class="card closed" id="closed" hidden>
+    這個活動已經結束了<br>謝謝每一位夥伴的回覆！
+  </div>
+
+  <form class="card" id="rsvp" novalidate>
+
+    <!-- 第 1 步：出席或請假 -->
+    <section class="step" id="step1">
+      <div class="steph"><h2 tabindex="-1">是否出席？</h2><span class="stepno">1／2</span></div>
+      <div class="choices">
+        <label class="choice go"><input type="radio" name="status" value="出席"><span><i>🙋</i>出席</span></label>
+        <label class="choice off"><input type="radio" name="status" value="請假"><span><i>🙏</i>請假</span></label>
+      </div>
+      <div id="reasonBox" hidden>
+        <label class="field" for="reason">請假原因</label>
+        <textarea id="reason" rows="2" maxlength="200" placeholder="例如：家裡有事、出差"></textarea>
+      </div>
+      <p class="err" id="err1" role="alert"></p>
+      <button type="button" class="btn" id="next">下一步</button>
+    </section>
+
+    <!-- 第 2 步：確認名字後送出 -->
+    <section class="step" id="step2" hidden>
+      <p class="thanks">謝謝每一位陪伴孩子成長的<br>Hope Kids 夥伴</p>
+      <div class="steph"><h2 tabindex="-1">確認你的資料</h2><span class="stepno">2／2</span></div>
+      <label class="field" for="name">老師姓名</label>
+      <select id="name">
+        <option value="">請選擇</option>
+        <option value="__other">名單裡沒有我</option>
+      </select>
+      <input type="text" id="otherName" maxlength="30" placeholder="請輸入你的名字" aria-label="你的名字" hidden>
+      <p class="summary" id="summary"></p>
+      <p class="err" id="err2" role="alert"></p>
+      <div class="row">
+        <button type="button" class="btn ghost" id="back">上一步</button>
+        <button type="submit" class="btn" id="submit">送出</button>
+      </div>
+    </section>
+
+    <!-- 完成 -->
+    <section class="step done" id="done" hidden>
+      <div class="stamp" aria-hidden="true">✓</div>
+      <h2 tabindex="-1" style="margin-bottom:4px">填寫完成</h2>
+      <p id="doneMsg"></p>
+      <p class="note">想改的話，重新填一次就會更新原本的回覆。</p>
+      <a class="btn ghost" href="../../">回服事夥伴專區</a>
+    </section>
+  </form>
+
+  <footer>
+    <p><span class="brand-sm">Hope Kids</span> 台中分部</p>
+  </footer>
+</div>
+
+<script>
+// ===== 活動設定：下一次活動複製這個資料夾，改這裡就好 =====
+const CONFIG = {
+  event: '2026-11-15 11月備課日',   // 寫進試算表「活動」欄，每個活動要不一樣
+  lastDay: '2026-11-15',            // 過了這天（台北時間）就停止收回覆
+  materials: '',                    // 教材資源連結；空白會顯示「整理中」
+  // Google Apps Script 網頁應用程式網址（後台程式見 ../apps-script.gs，回覆寫進「Hope Kids活動名單」試算表）
+  scriptUrl: 'https://script.google.com/macros/s/AKfycbzU__gWu3CWKlUvL3WVMqwIUwjWJ3AWGUdbEAvikCGWzFj16mwdjGKQwspbOR3MIHXi/exec',
+};
+
+// 下拉選單的名單（取自 8～12 月班表）；不在名單上的人可以選「名單裡沒有我」自己輸入
+const NAMES = [
+  '奕瑄', '辰翰', '伊萬', '嘉柔', '育慈', '阿雯', '思涵', '小天', '幸典', '佳霓',
+  '秀秀', '泡芙', '以琳', '賴賴', '閔融', '淑慧', '意潔', '茹暄', '潔心', '游翔淄',
+  'Ab', 'Sunny', 'Cody', 'Deborah', 'Joe', 'Anita', 'Amy', 'Peter', 'Cindy', 'Elly',
+  'Kim', 'Tina', 'Yabu', 'Kiki', 'Gigi', 'Mina',
+];
+
+const $ = (id) => document.getElementById(id);
+const form = $('rsvp');
+const select = $('name');
+const otherName = $('otherName');
+const NAME_KEY = 'hk-teacher-name';
+
+NAMES.slice().sort(new Intl.Collator('zh-Hant-TW').compare)
+  .forEach((n) => select.insertBefore(new Option(n, n), select.lastElementChild));
+
+// 記住上次填的名字，下次不用再選
+let savedName = '';
+try { savedName = localStorage.getItem(NAME_KEY) || ''; } catch (e) {}
+if (savedName) {
+  if (NAMES.includes(savedName)) select.value = savedName;
+  else { select.value = '__other'; otherName.hidden = false; otherName.value = savedName; }
+}
+
+if (CONFIG.materials) {
+  const a = document.createElement('a');
+  a.href = CONFIG.materials; a.target = '_blank'; a.rel = 'noopener'; a.textContent = '打開連結';
+  $('materials').replaceChildren(a);
+}
+
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+if (today > CONFIG.lastDay) { form.hidden = true; $('closed').hidden = false; }
+
+const status = () => (form.querySelector('input[name=status]:checked') || {}).value || '';
+const reason = () => $('reason').value.trim();
+const say = (id, msg) => { $(id).textContent = msg; };
+
+function show(id) {
+  ['step1', 'step2', 'done'].forEach((s) => { $(s).hidden = s !== id; });
+  $(id).querySelector('h2').focus();
+}
+
+form.addEventListener('change', (e) => {
+  if (e.target.name === 'status') { $('reasonBox').hidden = status() !== '請假'; say('err1', ''); }
+  if (e.target === select) {
+    otherName.hidden = select.value !== '__other';
+    if (!otherName.hidden) otherName.focus();
+  }
+});
+
+$('next').addEventListener('click', () => {
+  if (!status()) return say('err1', '請先選擇出席或請假');
+  if (status() === '請假' && !reason()) { $('reason').focus(); return say('err1', '請寫一下請假原因'); }
+  say('err1', '');
+  $('summary').textContent = '你的回覆：' + status() + (status() === '請假' ? `（${reason()}）` : '');
+  show('step2');
+});
+
+$('back').addEventListener('click', () => show('step1'));
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = select.value === '__other' ? otherName.value.trim() : select.value;
+  if (!name) return say('err2', '請選擇或輸入你的名字');
+  if (!CONFIG.scriptUrl) return say('err2', '問卷還沒接上後台，請稍後再試');
+
+  const btn = $('submit');
+  btn.disabled = true; btn.textContent = '送出中…'; say('err2', '');
+  try {
+    // 用 text/plain 送，瀏覽器不會先發 CORS 預檢，Apps Script 才收得到
+    const res = await fetch(CONFIG.scriptUrl, {
+      method: 'POST',
+      body: JSON.stringify({ event: CONFIG.event, name, status: status(), reason: status() === '請假' ? reason() : '' }),
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error);
+    try { localStorage.setItem(NAME_KEY, name); } catch (err) {}
+    $('done').classList.toggle('off', status() === '請假');
+    $('doneMsg').textContent = `${name}，已收到你的回覆：${status()}`;
+    show('done');
+  } catch (err) {
+    say('err2', '沒有送出成功，請確認網路後再按一次「送出」');
+  } finally {
+    btn.disabled = false; btn.textContent = '送出';
+  }
+});
+</script>
+</body>
+</html>
