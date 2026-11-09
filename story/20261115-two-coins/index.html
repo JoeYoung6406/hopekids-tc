@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：馬可福音 12:41-44《兩個小錢》，FORWARD 奉獻系列第二課，主軸為響亮、安靜、看見、交託，含 15 幀分鏡台詞與 20 分鐘流程。">
+<title>兩個小錢｜馬可福音 12:41-44 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:22em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+/* ---------- 主軸鏈 ---------- */
+.axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;
+  padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
+.axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+
+.message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85}
+
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{display:grid;grid-template-columns:96px 104px 76px 1fr;gap:18px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.offering .key{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.06em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ember);
+  display:block;margin-bottom:10px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 反差對照 ---------- */
+.contrast{display:grid;gap:0}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.crow:first-child{border-top:1px solid var(--rule)}
+.crow p{margin:0;font-size:14.5px;line-height:1.8}
+.crow .said{color:var(--ink-3)}
+.crow .said b,.crow .truth b{display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.crow .said b{color:var(--ink-3)}
+.crow .truth b{color:var(--scarlet)}
+.crow .truth{color:var(--ink)}
+
+/* ---------- 帶走的話 ---------- */
+.takeaways{display:grid;gap:14px}
+.take{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:baseline;
+  padding:18px 24px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+.take span{font-family:var(--mono);font-size:13px;color:var(--ember)}
+.take p{font-family:var(--serif);font-size:17.5px;line-height:1.7;margin:0}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+  border-bottom:1px solid var(--rule-2)}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule)}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.axis-tag{border-color:var(--indigo);color:var(--indigo)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px}
+.guard{border-left:2px solid var(--scarlet);background:var(--surface-2);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
+.guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:80px 1fr;row-gap:4px}
+  .offering .key{grid-column:2}
+  .offering .q{grid-column:1/-1}
+  .crow{grid-template-columns:1fr;gap:12px}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note,.take{break-inside:avoid}
+}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+
+/* ---------- 11/15 新增：道具提示、四篇章 ---------- */
+.prop{font-size:14px;color:var(--ink-2);background:var(--surface-2);padding:10px 16px;
+  border-left:2px dashed var(--indigo);border-radius:0 6px 6px 0}
+.prop b{color:var(--indigo);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  display:block;margin-bottom:4px;font-weight:500}
+[data-mode="stage"] .prop{font-size:16px}
+.nodes.four{grid-template-columns:repeat(2,1fr)}
+@media (max-width:860px){.nodes.four{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.11.15</span>
+    <h1>兩個小錢</h1>
+    <p class="deck">馬可福音 12:41-44｜路加福音 21:1-4｜寡婦的小錢：真心與主權</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>系列</dt><dd>FORWARD 奉獻 2/4</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>經文</dt><dd>可 12:41-44</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>1 + 15 幀</dd></div>
+    </dl>
+
+    <div class="axis">
+      <em>本課主軸（課程範例四篇章）</em>
+      <b>響亮</b><i>→</i><b>安靜</b><i>→</i><b>看見</b><i>→</i><b>交託</b>
+    </div>
+
+    <p class="message">全場的人都在聽金幣有多響，只有耶穌在看投錢的人。一位窮寡婦把她僅有的兩個小錢全部放進去，沒有聲音、沒有人注意，耶穌卻說她投得比所有人都多。<mark>神看的不是金額有多少，而是心裡愛神有多深。</mark>奉獻不只是放錢，是把手打開，把心交給耶穌管。</p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 核心問題 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>核心問題</h2><span class="eyebrow">這四節經文在講什麼</span></div>
+    <div class="prose">
+      <p class="verse key">上帝不是看人給了「多少數字」，而是看人「留下了多少」，以及背後是否將生命的「主權」完全移交給神。<span class="src">11 月課程範例〈寡婦的小錢：真心與主權〉神學定位</span></p>
+      <p style="margin-top:22px">上週（第一課）孩子學到：<strong>萬物都從神而來，奉獻不是損失，是感謝。</strong>這週往深一層走：同樣是奉獻，耶穌怎麼「算」？財主投了很多，寡婦只投了兩個最小的銅板，耶穌卻說她投得最多——因為別人是從「有餘」裡拿，她是把「一切養生的」都交出去。</p>
+      <p>課程範例給的方向是：<mark>破除「數量至上」與「外在表演」的文化。即使年紀小、能力小，只要出於愛耶穌的真心，在神眼中都是寶貴的；奉獻的本質是全心信靠，把安全感從金錢轉到神的信實上。</mark></p>
+    </div>
+  </section>
+
+  <!-- ============ 神與人 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>神的屬性與人的回應</h2><span class="eyebrow">取自課程範例一、四、五</span></div>
+    <div class="offerings">
+      <div class="offering">
+        <span class="name">神看內心</span><span class="ref">撒上 16:7；可 12:43</span><span class="key">屬性</span>
+        <span class="q">人看金額和聲音，<strong>神看留下多少、背後是什麼心。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">神看見隱密的人</span><span class="ref">可 12:41-43</span><span class="key">屬性</span>
+        <span class="q">全場沒有人注意的寡婦，耶穌從頭看到尾，<strong>還特地把門徒叫過來看她。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">耶和華以勒</span><span class="ref">申 14；可 12:44</span><span class="key">屬性</span>
+        <span class="q">把一切養生的交出去，是把明天交給供應她的神。<strong>安全感從錢包移到神身上。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">翻轉世界的算法</span><span class="ref">可 12:38-44</span><span class="key">作為</span>
+        <span class="q">耶穌在聖殿的最後一週翻轉「誰最響誰最厲害」，<strong>同時警告侵吞寡婦家產的文士。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">真心・不比較・看見</span><span class="ref">課程範例應用節點</span><span class="key">回應</span>
+        <span class="q">把心和主權交給耶穌；不和別人比金額；<strong>學耶穌的眼睛，看見安靜付出的人。</strong></span>
+      </div>
+    </div>
+    <p style="margin-top:22px;color:var(--ink-2);font-size:14.5px;max-width:40em">這一課的 15 張圖，前半段是<strong>聲音</strong>（金幣噹啷響 vs. 兩個小錢沒有聲音），後半段是<strong>手</strong>：財主的手還握著錢，寡婦的手是打開的，最後一張是耶穌張開的手。<strong>講故事時可以請孩子「聽聲音」和「看手」。</strong></p>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>知道耶穌坐在奉獻箱對面，看見一位窮寡婦投了<strong>兩個小錢</strong>，那是她一切養生的。</p>
+        <p>知道耶穌說她投的<strong>比眾人都多</strong>，因為別人是有餘，她是不足。</p>
+        <p>記得上週：奉獻的東西要照顧孤兒寡婦——今天的寡婦本來是被照顧的人。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p><strong>不用跟別人比金額，我的一點點耶穌也看重。</strong></p>
+        <p>沒有人看見的時候，耶穌看見。</p>
+        <p>沒有零用錢也可以奉獻：時間、笑容、幫忙的手。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>神看的不是金額有多少，而是心裡愛神有多深。</mark></p>
+        <p><mark class="warm">握著的手說「這是我的」，打開的手說「耶穌，交給祢」。</mark></p>
+        <p>我是在看誰比較大聲，還是像耶穌一樣看見安靜的人？</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 四篇章 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>故事四篇章</h2><span class="eyebrow">取自課程範例三</span></div>
+    <div class="nodes four">
+      <div class="node">
+        <span class="num">篇章一 · 響亮｜可 12:41｜#01-04</span>
+        <h3>聖殿熱鬧的角落：<br>響亮的金幣</h3>
+        <ul>
+          <li>財主的金幣投進銅製奉獻箱，噹啷噹啷，大家都在看。</li>
+          <li>亮光：<strong>世界用外在的動靜和數字大小衡量一個人。</strong></li>
+          <li>道具：金屬罐＋一把硬幣，用力搖。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章二 · 安靜｜可 12:42｜#05-08</span>
+        <h3>人群中的微小身影：<br>兩個小錢</h3>
+        <ul>
+          <li>寡婦把掌心僅有的兩個小錢放進去，沒有聲音，沒有人注意。</li>
+          <li>亮光：<strong>這是她全部的財產，她沒有給自己留退路。</strong></li>
+          <li>道具：兩枚最小的銅板或兩文錢圖卡。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章三 · 看見｜可 12:43-44｜#09-12</span>
+        <h3>耶穌的眼目：<br>比眾人更多</h3>
+        <ul>
+          <li>耶穌叫門徒來：「這窮寡婦投入庫裡的，比眾人所投的更多。」</li>
+          <li>亮光：<strong>神算的不是給了多少，是留下多少、是不是真心。</strong></li>
+          <li>道具：兩個透明盒子，一盒拿 10 顆剩 90 顆，一盒拿 2 顆剩 0 顆。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章四 · 交託｜可 12:44 → 生活｜#13-15</span>
+        <h3>真心與主權：<br>把手打開</h3>
+        <ul>
+          <li>她不知道明天吃什麼，但她把明天交給神。</li>
+          <li>亮光：<strong>奉獻是主權的移交——不再緊握說「這是我的」。</strong></li>
+          <li>動作：全班雙手張開、手心向上，跟耶穌說「交給祢」。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2><span class="eyebrow">和合本 · 上課前請對照手邊譯本</span></div>
+    <div class="verses">
+      <p class="verse">耶穌對銀庫坐著，看眾人怎樣投錢入庫。有好些財主往裡投了若干的錢。有一個窮寡婦來，往裡投了兩個小錢，就是一個大錢。<span class="src">馬可福音 12:41-42</span></p>
+      <p class="verse key">我實在告訴你們，這窮寡婦投入庫裡的，比眾人所投的更多。因為，他們都是自己有餘，拿出來投在裡頭；但這寡婦是自己不足，把她一切養生的都投上了。<span class="src">馬可福音 12:43-44 · 課程範例主題經文</span></p>
+      <p class="verse">他們侵吞寡婦的家產，假意作很長的禱告。這些人要受更重的刑罰！<span class="src">馬可福音 12:40 · 緊接在故事前面</span></p>
+      <p class="verse">……並孤兒寡婦，都可以來，吃得飽足。<span class="src">申命記 14:29 · 上週故事</span></p>
+      <p class="verse">耶和華不像人看人：人是看外貌；耶和華是看內心。<span class="src">撒母耳記上 16:7</span></p>
+      <p class="verse">各人要隨本心所酌定的，不要作難，不要勉強，因為捐得樂意的人是神所喜愛的。<span class="src">哥林多後書 9:7 · 課程範例神學界線</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 教學界線 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>教學界線</h2><span class="eyebrow">課程範例七＋兩條補充</span></div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「要像寡婦一樣，把錢全部捐出來，才是真的愛神。」</p></div>
+        <div class="truth"><b>正確方向</b><p>耶穌不是在設立一條財務規定，而是讚賞寡婦對神沒有保留的信靠。<strong>課程範例明列：不可強迫給出最後一口飯。</strong>奉獻是甘心樂意（林後 9:7）。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「你奉獻越多，神就會給你越多。」</p></div>
+        <div class="truth"><b>正確方向</b><p>聖經沒有說寡婦後來變有錢。奉獻是感謝與信靠，<mark class="warm">不是用錢跟神交換祝福</mark>（第一課課程範例界線）。故事結尾請不要替她編一個好結局。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「沒有錢奉獻的人，就是不夠愛神。」</p></div>
+        <div class="truth"><b>正確方向</b><p>班上可能有孩子家裡經濟較緊、或沒有零用錢。<strong>神看的不是金額，是心。</strong>時間、笑容、幫忙的手、關心同學，在神眼中一樣寶貴（課程範例牧養提醒）。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「那些有錢人都在炫耀，他們很壞。」</p></div>
+        <div class="truth"><b>正確方向</b><p>經文只說「有好些財主往裡投了若干的錢」。耶穌比較的是「留下多少」，不是在罵他們。<mark>我們看不見別人的心，不要讓孩子拿這個故事去評斷誰捐得多、誰捐得少。</mark>（補充）</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p><strong>前後文是一把鑰匙。</strong>故事前一段（12:38-40），耶穌剛警告文士「侵吞寡婦的家產」；故事後一段（13:1-2），耶穌說這座聖殿要被拆毀。課程範例兩面都提到：讚賞寡婦無保留的信靠，也譴責宗教領袖剝削窮人。對大班孩子，台詞只用上週的申命記 14:29 帶一句「她本來應該是被照顧的人」（#05），不展開對文士的批判；<mark>但老師心裡要知道，這段經文不是在鼓勵窮人把最後的錢交出去。</mark></p>
+      <p><strong>「兩個」是重點。</strong>經文刻意寫「兩個小錢」——她大可以留一個，她沒有。#07 的提問就是這一點。小錢（lepton）是當時最小的銅幣，馬可特別向羅馬讀者註明「就是一個大錢」。對照馬太 10:29「兩個麻雀不是賣一分銀子嗎」，一分銀子等於八個小錢，所以兩個小錢大約是半隻麻雀的價錢——課程範例說「連買半隻麻雀都不夠」就是這樣來的。</p>
+      <p><strong>整個故事是從耶穌的眼睛看出去的。</strong>12:41 說耶穌「看眾人<em>怎樣</em>投錢」，不是看投了多少。台詞一路跟著祂的眼睛：#02 祂坐下來看、#09 只有祂看見、#10 祂把門徒叫來一起看。最後 #14 把這雙眼睛交給孩子：你也可以看見安靜的人。</p>
+      <p><strong>噹啷聲是故事畫面，不是經文。</strong>十三個號角形奉獻箱出自猶太口傳文獻（米示拿〈舍客勒篇〉）；金幣很響、大家轉頭看，是課程範例的故事畫面，馬可只寫「有好些財主往裡投了若干的錢」。所以台詞讓「旁邊的人」驚呼，不說財主在炫耀。</p>
+      <p><strong>「主權」怎麼跟孩子講。</strong>課程範例用「主權移交」，大班孩子聽得懂的說法是「交給耶穌管」。#15 用張開雙手表達：握著的手是「這是我的」，打開的手是「耶穌，交給祢」。這個動作也接回上週：亞設的爸爸捧出第一籃小麥。</p>
+      <p><strong>系列的位置。</strong>FORWARD 奉獻四課：十一奉獻（11/8）→ 寡婦的小錢（11/15）→ 五餅二魚（11/22）→ 全人活祭（11/29）。課程範例的 take-away 下半句「微小擺上成就無限祝福」，其實是下週五餅二魚的主題；<strong>今天不用強調「會得到祝福」</strong>，停在「耶穌看見、耶穌記得」就好，下週會接上「把僅有的交給耶穌」。</p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'00"</td><td class="unit">前情提要<br><span class="mono" style="font-size:11px;color:var(--ink-3)">#00 · 申 14</span></td>
+          <td>
+            <ul>
+              <li>放上週的故事圖〈分出十分之一〉，問：「十籃裡面，哪一籃先拿出來？拿去哪裡？」</li>
+              <li>帶出兩件事：<strong>奉獻是感謝，不是損失</strong>；獻上的東西要<strong>照顧孤兒寡婦</strong>（第二件在 #05 回收）。</li>
+              <li>接到今天：亞設家有十籃，拿出一籃；今天這個人只有兩個銅板。台詞見分鏡 #00。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:00</td><td class="dur">10'00"</td><td class="unit">經文故事<br><span class="mono" style="font-size:11px;color:var(--ink-3)">15 幀分鏡</span></td>
+          <td>
+            <ul>
+              <li>依序播放 15 張故事圖，台詞見下方，每幀標了時間預算與所屬篇章。</li>
+              <li><strong>四個必停的互動點：</strong>#07（她可以留一個）、#10（誰投得最多）、#12（糖果盒）、#14（安靜付出的人）。</li>
+              <li><strong>三個道具：</strong>#03 金屬罐搖硬幣、#07 兩個小銅板、#12 兩個透明盒子＋糖果。</li>
+              <li>來不及時砍 #04、#11（共省 65 秒）。<strong>#07、#12、#15 不能砍。</strong></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">11:00</td><td class="dur">9'00"</td><td class="unit">手作與禱告<br><span class="mono" style="font-size:11px;color:var(--ink-3)">課程範例六</span></td>
+          <td>
+            <ul>
+              <li>🪙〈窮寡婦的兩文錢〉信心金幣吊飾：剪下錢幣卡紙、在孔洞處打洞 → 塗色 → 黏貼處上膠水 → 穿上金色緞帶，可以掛在脖子上或書包上。</li>
+              <li><strong>銜接：</strong>故事 #13 已經預告「等一下我們也要做一個」，#15 用張開雙手的動作收尾。</li>
+              <li>建議：做的時候請孩子在金幣背面寫一件「我的兩個小錢」——時間、笑容、幫忙收拾……（補充，非課程範例）</li>
+              <li>課程結束禱告（課程範例）：<mark>「親愛的主耶穌，謝謝祢沒有用世俗的金額大小來衡量我們，而是溫柔地看著我們的真心。主啊，我知道我年紀還小，能給的看似微不足道，但我願學習那位寡婦，把我的心、我的時間、我的壓歲錢和我的生命主權，全部交在祢愛的手中。求祢親自成為我生命的依靠與供應者。奉主耶穌的名求，阿們！」</mark></li>
+              <li>本週任務（應用節點 3）：對一位默默幫忙的同學說「謝謝你默默幫大家做事」。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">教材：金屬罐與一把硬幣、兩枚最小的銅板（或兩文錢圖卡）、透明盒子兩個與糖果、錢幣卡紙、金色緞帶、打孔器、膠水、彩色筆</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">15 幀 · 10:00</span></div>
+
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/00.jpg" alt="上週故事圖：麥田裡一排裝滿小麥的木桶，爸爸和孩子一起捧起最前面的一桶">
+        <div>
+          <div class="fmeta"><span class="fnum">00</span><span class="ftc">0:50</span><span class="tag axis-tag">前情提要</span><span class="tag">申 14</span></div>
+          <h3>上禮拜，第一籃</h3>
+          <p>先看這張圖，還記得嗎？（讓孩子喊）上禮拜，小亞設家收成了十籃小麥。</p>
+          <p class="ask">★ 快問快答：十籃裡面，爸爸先把哪一籃拿出來？拿去哪裡？</p>
+          <p>（等一兩個回答）最好的第一籃，獻給神。亞設問：「少了一籃，不就變少了嗎？」爸爸說，這十籃全都是神給的。<strong>奉獻不是損失，是感謝。</strong></p>
+          <p>獻上去的小麥後來拿去給誰吃？給在聖殿服事的利未人，還有<strong>孤兒、寡婦</strong>、遠方來的客人。</p>
+          <p>今天的故事，主角就是一位寡婦。亞設家有十籃，拿出一籃；今天這個人，全身上下只有<strong>兩個小銅板</strong>。你猜，她會拿出幾個？</p>
+          <p class="cite">申命記 14:22-23, 28-29（上週故事）</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/01.jpg" alt="耶路撒冷聖殿的庭院人山人海，牆上一整排銅製號角形奉獻箱，幾個穿紫袍的有錢人站在中間">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:40</span><span class="tag axis-tag">響亮</span></div>
+          <h3>聖殿好熱鬧</h3>
+          <p>這裡是耶路撒冷的聖殿，人山人海。你看牆上那一整排，像什麼？（喇叭、號角）那是<strong>奉獻箱</strong>，開口窄窄的，下面像喇叭一樣。大家走過去，就把錢投進去。</p>
+          <p>你看中間那幾個穿紫色袍子的人。紫色的布在那時候非常貴，一看就知道他們很有錢。</p>
+          <p>這是耶穌在地上的最後一個禮拜。再過幾天，祂就要上十字架了。可是今天，祂特別在這裡停下來。</p>
+          <p class="cite">馬可福音 12:41；課程範例〈聖殿女院與號角奉獻箱〉</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02.jpg" alt="耶穌坐在石椅上，安靜望向遠處的奉獻箱和穿紫袍的人群">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:35</span><span class="tag axis-tag">響亮</span></div>
+          <h3>耶穌坐在對面</h3>
+          <p>耶穌找了一個位子坐下來，就坐在奉獻箱的<strong>對面</strong>。</p>
+          <p>聖經說，耶穌坐著，「看眾人<strong>怎樣</strong>投錢」。注意喔，不是看大家投了「多少」，是看大家「怎樣」投。</p>
+          <p><mark>今天大家都在看奉獻箱。只有一個人，在看投錢的人。</mark></p>
+          <p class="cite">馬可福音 12:41</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03.jpg" alt="穿紫金長袍的有錢人把一大罐金幣倒進銅製奉獻箱，旁邊的人張大嘴巴讚嘆">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:45</span><span class="tag axis-tag">響亮</span><span class="tag">道具</span></div>
+          <h3>噹啷！噹啷！</h3>
+          <p class="prop"><b>道具</b>拿出金屬罐和一把硬幣，用力搖、倒進罐子裡。</p>
+          <p>一個有錢人走過來，捧著一大罐錢，整罐倒進去——噹啷！噹啷！噹啷！奉獻箱是銅做的，錢越多，聲音越大。</p>
+          <p>你看旁邊的人，嘴巴張好大：「哇！他獻了好多！」</p>
+          <p>大家聽，這個聲音好響亮對不對？如果你站在旁邊，會不會也覺得這個人好厲害？（讓孩子舉手）</p>
+          <p><mark>人很容易用聲音的大小、錢的多少，決定誰比較厲害。</mark></p>
+          <p class="guard"><b>教學界線</b>經文只說「有好些財主往裡投了若干的錢」，沒有說他們在炫耀。驚呼的是「旁邊的人」，不要替有錢人加上壞心眼。</p>
+          <p class="cite">馬可福音 12:41</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04.jpg" alt="門徒在前景伸手指著倒金幣的有錢人，遠處耶穌坐在石階上">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:30</span><span class="tag">可略</span><span class="tag axis-tag">響亮</span></div>
+          <h3>門徒也看呆了</h3>
+          <p>耶穌的門徒也在旁邊。你看那個人的手指——「你看你看，又一個！那個人好有錢！」</p>
+          <p>門徒跟大家一樣，眼睛跟著最響、最亮的地方跑。</p>
+          <p>你找得到後面的耶穌嗎？祂還坐在那裡，<strong>還在看。</strong></p>
+          <p class="cite">馬可福音 12:41</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05.jpg" alt="一位穿破舊衣服的寡婦雙手握在胸前，低頭走過穿華麗長袍的人群">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:35</span><span class="tag axis-tag">安靜</span><span class="tag">接上週</span></div>
+          <h3>一個沒人注意的人</h3>
+          <p>熱鬧的人群裡，走進來一個很不一樣的人。你找得到她嗎？（讓孩子指）</p>
+          <p>她的衣服又舊又破，身邊沒有家人。她是一個<strong>寡婦</strong>，丈夫已經過世了。</p>
+          <p>還記得上禮拜嗎？神說，獻上去的東西要拿去照顧誰？（孤兒、寡婦）對。<mark>她本來應該是被照顧的那個人。</mark></p>
+          <p>她低著頭，雙手握在胸前，從那些穿紫袍的人旁邊走過去。沒有人轉頭看她。</p>
+          <p class="cite">馬可福音 12:42；申命記 14:29</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06.jpg" alt="寡婦獨自站在銅製號角奉獻箱前，慢慢伸出手">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:30</span><span class="tag axis-tag">安靜</span></div>
+          <h3>她走到奉獻箱前</h3>
+          <p>她走到奉獻箱前面，停了一下。</p>
+          <p>剛剛那個人倒了一大罐，噹啷噹啷的。你想，她心裡會不會怕？「我手上這一點點……會不會被笑？」</p>
+          <p>她慢慢把手伸出去。</p>
+          <p class="cite">馬可福音 12:42</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07.jpg" alt="一雙粗糙的手掌攤開，掌心只有兩枚小銅幣，旁邊是空空的布袋">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:50</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">安靜</span><span class="tag">全課核心</span><span class="tag">道具</span></div>
+          <h3>兩個小錢</h3>
+          <p class="prop"><b>道具</b>老師也把手打開，掌心放兩枚最小的銅板（或兩文錢圖卡）給孩子看。</p>
+          <p>她打開手。就這樣——<strong>兩個小錢</strong>。旁邊的布袋，已經空了。</p>
+          <p>這是那時候最小的銅板，兩個加起來，大概只能買半隻麻雀，連一包餅乾都買不到。可是聖經說，這是她「一切養生的」——就是她活下去要用的<strong>全部</strong>的錢。</p>
+          <p class="ask">★ 她有兩個喔。她可以留一個，晚上買東西吃。如果是你，你會怎麼做？</p>
+          <p>（等回答，讓孩子講完。說「留一個」很正常，老師也會這樣想。）</p>
+          <p class="cite">馬可福音 12:42, 44</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08.jpg" alt="一隻佈滿皺紋的手把銅幣輕輕放進號角形奉獻箱">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:35</span><span class="tag axis-tag">安靜</span></div>
+          <h3>兩個都放進去</h3>
+          <p>她把兩個都放進去了，<strong>一個都沒有留。</strong></p>
+          <p>你聽——（老師停兩、三秒，不出聲）……什麼聲音都沒有。銅板太小了，連「叮」一聲都聽不到。旁邊沒有人說「哇」，沒有人知道她做了什麼。</p>
+          <p>她今天晚上吃什麼？明天怎麼辦？聖經沒有告訴我們她心裡想什麼。可是一個把最後兩個銅板都交出去的人，<mark>她一定很相信：神會看顧我。</mark></p>
+          <p class="cite">馬可福音 12:42, 44</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09.jpg" alt="耶穌坐在石椅上，望著寡婦的背影慢慢走遠">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:35</span><span class="tag axis-tag">看見</span></div>
+          <h3>有一個人看見了</h3>
+          <p>她轉身走了，一樣沒有人注意。</p>
+          <p>可是你看這張圖——<strong>有一個人一直在看。</strong></p>
+          <p>從頭到尾，耶穌都坐在對面。響亮的金幣祂看見了，安靜的兩個小錢祂也看見了。</p>
+          <p><mark>沒有人看見的時候，耶穌看見了。</mark></p>
+          <p class="cite">馬可福音 12:41-42</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10.jpg" alt="耶穌笑著伸手指向離開的寡婦，門徒們一臉驚訝">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:45</span><span class="tag star">★ 必停</span><span class="tag axis-tag">看見</span></div>
+          <h3>誰投得最多？</h3>
+          <p>耶穌把門徒叫過來，指著那個正要離開的寡婦。</p>
+          <p class="ask">★ 你們猜，耶穌會說今天誰投得最多？</p>
+          <p>（等回答，各種答案都可以）耶穌說：<mark>「我實在告訴你們，這個窮寡婦投進去的，比所有的人都多。」</mark></p>
+          <p>你看門徒的臉——「蛤？怎麼可能？那些人倒了一大罐耶！她才兩個小銅板！」</p>
+          <p class="cite">馬可福音 12:43</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11.jpg" alt="耶穌坐著向圍在身邊的門徒解釋，門徒托著下巴思考">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:35</span><span class="tag">可略</span><span class="tag axis-tag">看見</span></div>
+          <h3>耶穌的算法</h3>
+          <p>門徒坐下來，聽耶穌解釋。耶穌的算術，跟我們在學校學的不一樣。</p>
+          <p>我們算的是：<strong>拿出來多少。</strong>耶穌算的是：<strong>留下來多少。</strong></p>
+          <p class="cite">馬可福音 12:44</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12.jpg" alt="左右對照：左邊有錢人手上拿著幾枚金幣，身後堆滿錢袋和寶箱；右邊寡婦雙手打開，抬頭望向光">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:55</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">看見</span><span class="tag">關鍵經文</span><span class="tag">道具</span></div>
+          <h3>有餘的，和全部的</h3>
+          <p>耶穌說：<mark>「他們都是自己有餘，拿出來投在裡頭；但這寡婦是自己不足，把她一切養生的都投上了。」</mark></p>
+          <p class="prop"><b>道具</b>兩個透明盒子：A 盒 100 顆糖拿出 10 顆；B 盒只有 2 顆，兩顆都拿出來。（數字可以縮小，重點是一盒剩很多、一盒剩 0。）</p>
+          <p>A 盒拿出 10 顆，還剩幾顆？（90）B 盒拿出 2 顆，還剩幾顆？（0）</p>
+          <p class="ask">★ 誰拿出來的比較多？誰把全部的心都給出來了？</p>
+          <p>（等回答）你看圖的左邊，有錢人手上拿著錢，後面還有好幾箱。右邊的寡婦，手是<strong>打開</strong>的，什麼都沒有了——可是她抬頭看著神。</p>
+          <p><strong>神看的不是金額有多少，而是心裡愛神有多深。</strong></p>
+          <p class="guard"><b>教學界線</b>有錢人不是壞人，拿出 10 顆也是真的奉獻了。耶穌是在教門徒怎樣「算」才對，不要讓孩子學會比較誰捐得多、誰捐得少。</p>
+          <p class="cite">馬可福音 12:43-44；路加福音 21:3-4</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13.jpg" alt="孩子們圍著圓桌做金幣愛心卡，中間的孩子舉起一張畫著愛心的金幣卡">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">0:30</span><span class="tag axis-tag">交託</span><span class="tag">接手作</span></div>
+          <h3>我的兩個小錢是什麼？</h3>
+          <p>那我們呢？我們年紀小，零用錢不多，有的人沒有零用錢。那怎麼辦？</p>
+          <p><mark>神要的不是錢的數字，是你的心。</mark>你的時間、你的笑容、你幫忙收拾的手、你願意分享的東西，都可以是你的「兩個小錢」。</p>
+          <p>等一下，我們也要做一個「兩個小錢」的金幣吊飾。</p>
+          <p class="cite">課程範例：牧養提醒、手作〈信心金幣吊飾〉</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14.jpg" alt="孩子們把畫著愛心的卡片放進籃子，老師蹲在旁邊微笑看著">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:45</span><span class="tag star">★ 必停</span><span class="tag axis-tag">交託</span></div>
+          <h3>像耶穌一樣看見</h3>
+          <p>今天故事裡，大家都在看最響的那個人，只有耶穌看見最安靜的那個人。</p>
+          <p class="ask">★ 在學校或教會，有沒有誰總是默默幫忙、很安靜，很少人誇獎他？（不用說名字也可以）</p>
+          <p>（等回答）這個禮拜，你可以學耶穌的眼睛：走過去跟他說一句「謝謝你默默幫大家做事」。</p>
+          <p><mark>耶穌看見安靜的人，我也可以。</mark></p>
+          <p class="cite">課程範例應用節點 3</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15.jpg" alt="孩子雙手捧著發光的愛心和卡片，遞向耶穌張開的雙手">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">0:55</span><span class="tag axis-tag">交託</span><span class="tag">禱告</span><span class="tag">收尾</span></div>
+          <h3>把手打開</h3>
+          <p>那個寡婦後來怎麼樣了？聖經沒有說。沒有說她變有錢，也沒有說她以後每天都有飯吃。可是兩千年後，我們還在講她的故事——<strong>耶穌記得她。</strong></p>
+          <p>你看這張圖，耶穌的手是打開的。奉獻不只是放錢，是把我們的手也打開，跟耶穌說：「我的東西、我的心，都交給祢管。」</p>
+          <p>（請孩子一起把雙手打開，手心向上）我們一句一句跟耶穌說：<strong>「耶穌，我能給的很少，但我把我的心交給祢。祢看見我，我相信祢。阿們。」</strong></p>
+          <p><mark>神看的不是金額有多少，而是心裡愛神有多深。</mark>等一下，我們就來做兩個小錢的金幣吊飾。</p>
+          <p class="cite">馬可福音 12:44；撒母耳記上 16:7</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 給孩子的話 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給孩子的話</h2><span class="eyebrow">依課程範例 take-away 與應用節點</span></div>
+    <p class="verse key" style="margin-bottom:18px">神看的不是金額有多少，而是心裡愛神有多深；把心和主權交給耶穌，微小擺上成就無限祝福！<span class="src">課程範例 · 課後 Take-away</span></p>
+    <div class="takeaways">
+      <div class="take"><span>01</span><p>真心｜神看的不是多少，是我的心！</p></div>
+      <div class="take"><span>02</span><p>不比較｜我的一點點，耶穌也看重！</p></div>
+      <div class="take"><span>03</span><p>看見｜像耶穌一樣，看見安靜付出的人！</p></div>
+      <div class="take"><span>04</span><p>交託｜把手打開，把心交給耶穌！</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2><span class="eyebrow">含教材的教學界線</span></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>第 07 幀是全課的核心。</b>問「她可以留一個，如果是你會怎麼做」之後要真的等。很多孩子會說「留一個」，請不要糾正——那是誠實的答案，老師也會這樣想。答案在 #08 揭曉，對比才會出來。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>第 08 幀的安靜要做出來。</b>講到兩個銅板放進去時，停兩、三秒不出聲。和 #03 的噹啷聲放在一起，比任何解釋都清楚。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>第 12 幀不能砍，它帶著主題經文和糖果盒。</b>100 顆糖太多的話，可以改成 20 顆拿 2 顆對 2 顆拿 2 顆。重點是一盒剩很多、一盒剩 0。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>「要把錢全部捐出來嗎？」</b>孩子可能這樣問。可以回答：「耶穌沒有這樣規定，祂在乎的是你的心。要奉獻多少，可以跟爸爸媽媽一起決定。」這是課程範例的第一條界線（不可強迫給出最後一口飯），也呼應林後 9:7 的甘心樂意。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>不要替寡婦編結局（第 15 幀）。</b>孩子會問「她後來有沒有餓肚子」「神有沒有給她很多錢」。照實說：聖經沒有說。我們知道的是耶穌看見她、記得她。說「後來神讓她變有錢」就變成用錢跟神交換，是第一課課程範例的界線。高年級可以多帶一句：所以教會要照顧有需要的人，就像上週說的。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>班上可能有沒有零用錢的孩子（第 13 幀）。</b>台詞特別加了「有的人沒有零用錢」。不要現場問孩子奉獻多少、不要比較，讓每個孩子都知道：時間、笑容、幫忙的手也是奉獻。</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>有錢人不是壞人（第 03、12 幀）。</b>孩子很容易說「有錢人很壞」。可以回：「他們也真的奉獻了。耶穌不是在罵他們，是在教門徒怎樣算才對。」也不要讓這個故事變成評斷同學捐多捐少的工具。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>第 14 幀不要點名。</b>問「有沒有誰默默幫忙」時先說「不用講名字也可以」，避免變成在全班面前指出誰被忽略。</p></div>
+      <div class="note"><span class="n mono">09</span><p><b>道具清單：</b>金屬罐＋一把硬幣（#03）、兩枚最小的銅板或兩文錢圖卡（#07）、兩個透明盒子＋糖果（#12）。三樣都取自課程範例的教師口語引導。</p></div>
+      <div class="note"><span class="n mono">10</span><p><b>第 15 幀的禱告要先跟帶手作的老師對好。</b>如果故事老師帶：用張開雙手跟唸那一句，再接手作。如果手作與禱告由另一位老師帶：把跟唸禱告改成一句預告「等一下我們來做兩個小錢的金幣吊飾」，課程範例的完整禱告文留給手作結束時用。</p></div>
+      <div class="note"><span class="n mono">11</span><p><b>前情提要只抓兩件事。</b>上週的「奉獻是感謝」和「獻上的東西要照顧孤兒寡婦」，第二件在 #05 回收。上週 take-away 的後半句「神必敞開天窗大大祝福我們」今天不提，避免孩子把今天聽成「投兩個，神會還你更多」。</p></div>
+      <div class="note"><span class="n mono">12</span><p><b>時間快超過時的取捨順序：</b>先砍第 04、11 幀（共省 65 秒）。<b>不要砍第 07、12 幀（核心與主題經文），也不要砍第 15 幀（張開手的收尾）。</b></p></div>
+      <div class="note"><span class="n mono">13</span><p><b>哪些是範例、哪些是另外編的。</b>四篇章、主題經文、三個道具、應用節點、take-away、教學界線、手作與禱告文取自 11 月課程範例。標題《兩個小錢》、「響亮 → 安靜 → 看見 → 交託」四個詞、#00 用 11/8 的故事圖、#05 接申命記 14:29、#07「她可以留一個」的提問、#08 的停頓、#15 不編結局的說法、半隻麻雀的算法，是依範例方向另外編的。這次沒有拿到生活應用老師的投影片，流程表後 9 分鐘先照課程範例的手作與禱告排。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 馬可福音 12:41-44 · 2026.11.15</span>
+    <span>響亮 → 安靜 → 看見 → 交託</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'two-coins-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>
