@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>11月備課日｜出席回覆 · Hope Kids 台中分部</title>
-<meta name="description" content="Hope Kids 台中分部 11月備課日：11/15（日）13:30–16:00 在 Kids Central，回覆出席或請假。">
+<title>11月備課日＆國隊聚集｜出席回覆 · Hope Kids 台中分部</title>
+<meta name="description" content="Hope Kids 台中分部 11/15（日）：下午 13:30–16:00 備課日在 Kids Central，晚上 18:00–20:00 國隊聚集，回覆出席與聚集人數。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -40,20 +40,26 @@
   /* ---------- 標題 ---------- */
   .head{text-align:center; margin:8px 0 22px;}
   .brand{font-family:"Chewy",cursive; color:var(--sun); font-size:1.9rem; line-height:1; margin:0; text-shadow:0 2px 0 rgba(242,169,0,.2);}
-  h1{font-size:2.2rem; font-weight:900; letter-spacing:.05em; margin:6px 0 0;}
+  h1{font-size:2.1rem; font-weight:900; letter-spacing:.04em; margin:6px 0 0; text-wrap:balance;}
   .squiggle{width:130px; margin:6px auto 0; display:block;}
+  .date{display:inline-block; margin:10px 0 0; padding:3px 14px; border-radius:999px;
+    background:#fff0c6; color:var(--coral); font-weight:900; font-size:1.05rem;}
 
-  /* ---------- 活動資訊 ---------- */
-  .info{
-    margin:0; display:grid; grid-template-columns:1fr 1fr; gap:16px 14px;
-    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
-    padding:16px 18px; box-shadow:var(--shadow);
+  /* ---------- 活動資訊：下午、晚上兩張卡 ---------- */
+  .info{margin:0; display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .info.single{grid-template-columns:1fr;}
+  .slot{
+    min-width:0; background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:14px 15px 15px; box-shadow:var(--shadow);
   }
-  .info dt{font-size:.8rem; font-weight:700; color:var(--muted);}
-  .info dd{margin:3px 0 0; font-size:1.12rem; font-weight:900; line-height:1.3;}
-  .info .hot dd{color:var(--coral);}
-  .info dd a{color:var(--teal); text-decoration:none; border-bottom:2px solid currentColor;}
-  .info dd .pending{color:var(--muted); font-weight:700; font-size:.95rem;}
+  .slot .when{display:inline-block; margin:0; padding:1px 10px; border-radius:999px;
+    background:var(--teal); color:#fff; font-size:.8rem; font-weight:700;}
+  .slot.night .when{background:var(--coral);}
+  .slot .what{font-size:1.25rem; font-weight:900; margin:8px 0 0; line-height:1.3;}
+  .slot .time{margin:2px 0 8px; font-weight:900; font-size:1.05rem; color:var(--coral);}
+  .slot p{margin:5px 0 0; font-size:.92rem; line-height:1.5;}
+  .slot a{color:var(--teal); font-weight:700; text-decoration:none; border-bottom:2px solid currentColor;}
+  .slot .pending{color:var(--muted); font-size:.85rem;}
 
   /* ---------- 問卷 ---------- */
   .tab{
@@ -87,6 +93,16 @@
   .choice input:focus-visible + span{outline:3px solid var(--sun-deep); outline-offset:3px;}
 
   .field{display:block; font-weight:700; margin:18px 0 7px;}
+  .field small{font-weight:500; color:var(--muted); margin-left:6px;}
+
+  .stepper{display:flex; align-items:center; gap:10px;}
+  .stepper button{
+    width:48px; height:48px; border-radius:14px; border:1.5px solid var(--line); background:#fffaf0;
+    font:inherit; font-size:1.5rem; font-weight:900; color:var(--coral); cursor:pointer;
+  }
+  .stepper button:disabled{opacity:.35; cursor:default;}
+  .stepper button:focus-visible{outline:3px solid var(--sun-deep); outline-offset:2px;}
+  .stepper output{min-width:4.5em; text-align:center; font-size:1.3rem; font-weight:900;}
   textarea, select, input[type=text]{
     display:block; width:100%; font:inherit; font-size:16px; color:var(--ink);
     background:#fffdf8; border:1.5px solid var(--line); border-radius:12px; padding:11px 12px;
@@ -101,7 +117,8 @@
   }
 
   .thanks{margin:0 0 18px; padding:11px 14px; border-radius:12px; background:#fff0c6; font-weight:700; text-align:center; line-height:1.5;}
-  .summary{margin:14px 0 0; font-size:.9rem; color:var(--muted);}
+  .summary{margin:14px 0 0; font-size:.9rem; color:var(--muted); white-space:pre-line;}
+  .done #doneMsg{white-space:pre-line;}
   .err{margin:12px 0 0; color:#c2410c; font-weight:700; font-size:.92rem;}
   .err:empty{display:none;}
 
@@ -151,19 +168,30 @@
 
   <header class="head">
     <p class="brand">Hope Kids</p>
-    <h1>11月備課日</h1>
+    <h1>備課日＆國隊聚集</h1>
     <svg class="squiggle" viewBox="0 0 150 14" aria-hidden="true">
       <path d="M4 9 Q 24 2 44 8 T 84 8 T 124 8 T 146 6"
             fill="none" stroke="#ffc33b" stroke-width="5" stroke-linecap="round"/>
     </svg>
+    <p class="date">11/15（日）</p>
   </header>
 
-  <dl class="info">
-    <div class="hot"><dt>活動日期</dt><dd>11/15（日）</dd></div>
-    <div class="hot"><dt>活動時間</dt><dd>13:30–16:00</dd></div>
-    <div><dt>活動地點</dt><dd>Kids Central</dd></div>
-    <div><dt>教材資源</dt><dd id="materials"><span class="pending">整理中</span></dd></div>
-  </dl>
+  <div class="info" id="info">
+    <section class="slot">
+      <p class="when">下午</p>
+      <h2 class="what">備課日</h2>
+      <p class="time">13:30–16:00</p>
+      <p>📍 Kids Central</p>
+      <p>📚 教材：<span id="materials"><span class="pending">整理中</span></span></p>
+    </section>
+    <section class="slot night" id="partyInfo">
+      <p class="when">晚上</p>
+      <h2 class="what">國隊聚集</h2>
+      <p class="time">18:00–20:00</p>
+      <p>🏠 Joe 的家<br><span class="pending">地址見群組公告</span></p>
+      <p>🍲 一家帶 1–2 道菜<br><span class="pending">3–4 人份</span></p>
+    </section>
+  </div>
 
   <div class="tab">✋ 出席回覆</div>
 
@@ -173,9 +201,9 @@
 
   <form class="card" id="rsvp" novalidate>
 
-    <!-- 第 1 步：出席或請假 -->
+    <!-- 第 1 步：下午備課日出席或請假 -->
     <section class="step" id="step1">
-      <div class="steph"><h2 tabindex="-1">是否出席？</h2><span class="stepno">1／2</span></div>
+      <div class="steph"><h2 tabindex="-1">下午備課日會出席嗎？</h2><span class="stepno"></span></div>
       <div class="choices">
         <label class="choice go"><input type="radio" name="status" value="出席"><span><i>🙋</i>出席</span></label>
         <label class="choice off"><input type="radio" name="status" value="請假"><span><i>🙏</i>請假</span></label>
@@ -188,10 +216,34 @@
       <button type="button" class="btn" id="next">下一步</button>
     </section>
 
-    <!-- 第 2 步：確認名字後送出 -->
+    <!-- 第 2 步：晚上聚集參加與人數（CONFIG.party 空白就跳過） -->
     <section class="step" id="step2" hidden>
+      <div class="steph"><h2 tabindex="-1">晚上國隊聚集會來嗎？</h2><span class="stepno"></span></div>
+      <div class="choices">
+        <label class="choice go"><input type="radio" name="party" value="參加"><span><i>🍲</i>參加</span></label>
+        <label class="choice off"><input type="radio" name="party" value="不參加"><span><i>🙏</i>不克參加</span></label>
+      </div>
+      <div id="partyBox" hidden>
+        <p class="field" id="peopleLabel">幾個人？<small>含自己、家人和小孩</small></p>
+        <div class="stepper" role="group" aria-labelledby="peopleLabel">
+          <button type="button" id="minus" aria-label="少一位">−</button>
+          <output id="people" aria-live="polite"></output>
+          <button type="button" id="plus" aria-label="多一位">＋</button>
+        </div>
+        <label class="field" for="dish">想帶什麼菜？<small>選填，避免大家帶重複</small></label>
+        <input type="text" id="dish" maxlength="60" placeholder="例如：炒米粉、水果">
+      </div>
+      <p class="err" id="err2" role="alert"></p>
+      <div class="row">
+        <button type="button" class="btn ghost" id="back2">上一步</button>
+        <button type="button" class="btn" id="next2">下一步</button>
+      </div>
+    </section>
+
+    <!-- 最後一步：確認名字後送出 -->
+    <section class="step" id="step3" hidden>
       <p class="thanks">謝謝每一位陪伴孩子成長的<br>Hope Kids 夥伴</p>
-      <div class="steph"><h2 tabindex="-1">確認你的資料</h2><span class="stepno">2／2</span></div>
+      <div class="steph"><h2 tabindex="-1">確認你的資料</h2><span class="stepno"></span></div>
       <label class="field" for="name">老師姓名</label>
       <select id="name">
         <option value="">請選擇</option>
@@ -199,7 +251,7 @@
       </select>
       <input type="text" id="otherName" maxlength="30" placeholder="請輸入你的名字" aria-label="你的名字" hidden>
       <p class="summary" id="summary"></p>
-      <p class="err" id="err2" role="alert"></p>
+      <p class="err" id="err3" role="alert"></p>
       <div class="row">
         <button type="button" class="btn ghost" id="back">上一步</button>
         <button type="submit" class="btn" id="submit">送出</button>
@@ -225,6 +277,7 @@
 // ===== 活動設定：下一次活動複製這個資料夾，改這裡就好 =====
 const CONFIG = {
   event: '2026-11-15 11月備課日',   // 寫進試算表「活動」欄，每個活動要不一樣
+  party: '2026-11-15 11月國隊聚集', // 同一天晚上的聚集；沒有聚集就改成 ''，會跳過第 2 步並藏起晚上那張卡
   lastDay: '2026-11-15',            // 過了這天（台北時間）就停止收回覆
   materials: '',                    // 教材資源連結；空白會顯示「整理中」
   // Google Apps Script 網頁應用程式網址（後台程式見 ../apps-script.gs，回覆寫進「Hope Kids活動名單」試算表）
@@ -238,12 +291,18 @@ const NAMES = [
   'Ab', 'Sunny', 'Cody', 'Deborah', 'Joe', 'Anita', 'Amy', 'Peter', 'Cindy', 'Elly',
   'Kim', 'Tina', 'Yabu', 'Kiki', 'Gigi', 'Mina',
 ];
+const MAX_PEOPLE = 12;
 
 const $ = (id) => document.getElementById(id);
 const form = $('rsvp');
 const select = $('name');
 const otherName = $('otherName');
 const NAME_KEY = 'hk-teacher-name';
+
+// 沒有晚上聚集的活動：只剩兩步
+const STEPS = CONFIG.party ? ['step1', 'step2', 'step3'] : ['step1', 'step3'];
+STEPS.forEach((id, i) => { $(id).querySelector('.stepno').textContent = `${i + 1}／${STEPS.length}`; });
+if (!CONFIG.party) { $('partyInfo').remove(); $('info').classList.add('single'); }
 
 NAMES.slice().sort(new Intl.Collator('zh-Hant-TW').compare)
   .forEach((n) => select.insertBefore(new Option(n, n), select.lastElementChild));
@@ -266,16 +325,46 @@ const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).form
 if (today > CONFIG.lastDay) { form.hidden = true; $('closed').hidden = false; }
 
 const status = () => (form.querySelector('input[name=status]:checked') || {}).value || '';
+const party = () => (form.querySelector('input[name=party]:checked') || {}).value || '';
 const reason = () => $('reason').value.trim();
+const dish = () => $('dish').value.trim();
 const say = (id, msg) => { $(id).textContent = msg; };
 
+let people = 1;
+function setPeople(n) {
+  people = Math.min(MAX_PEOPLE, Math.max(1, n));
+  $('people').textContent = `${people} 人`;
+  $('minus').disabled = people <= 1;
+  $('plus').disabled = people >= MAX_PEOPLE;
+}
+setPeople(1);
+$('minus').addEventListener('click', () => setPeople(people - 1));
+$('plus').addEventListener('click', () => setPeople(people + 1));
+
 function show(id) {
-  ['step1', 'step2', 'done'].forEach((s) => { $(s).hidden = s !== id; });
+  ['step1', 'step2', 'step3', 'done'].forEach((s) => { $(s).hidden = s !== id; });
   $(id).querySelector('h2').focus();
+}
+
+// 兩行摘要：確認頁和完成頁都用
+function summary() {
+  const lines = ['備課日：' + status() + (status() === '請假' ? `（${reason()}）` : '')];
+  if (CONFIG.party) {
+    lines.push('國隊聚集：' + (party() === '參加'
+      ? `參加 ${people} 人` + (dish() ? `，帶${dish()}` : '')
+      : '不克參加'));
+  }
+  return lines.join('\n');
+}
+
+function toConfirm() {
+  $('summary').textContent = '你的回覆：\n' + summary();
+  show('step3');
 }
 
 form.addEventListener('change', (e) => {
   if (e.target.name === 'status') { $('reasonBox').hidden = status() !== '請假'; say('err1', ''); }
+  if (e.target.name === 'party') { $('partyBox').hidden = party() !== '參加'; say('err2', ''); }
   if (e.target === select) {
     otherName.hidden = select.value !== '__other';
     if (!otherName.hidden) otherName.focus();
@@ -286,34 +375,44 @@ $('next').addEventListener('click', () => {
   if (!status()) return say('err1', '請先選擇出席或請假');
   if (status() === '請假' && !reason()) { $('reason').focus(); return say('err1', '請寫一下請假原因'); }
   say('err1', '');
-  $('summary').textContent = '你的回覆：' + status() + (status() === '請假' ? `（${reason()}）` : '');
-  show('step2');
+  if (CONFIG.party) show('step2'); else toConfirm();
 });
 
-$('back').addEventListener('click', () => show('step1'));
+$('next2').addEventListener('click', () => {
+  if (!party()) return say('err2', '請先選擇參加或不克參加');
+  say('err2', '');
+  toConfirm();
+});
+
+$('back2').addEventListener('click', () => show('step1'));
+$('back').addEventListener('click', () => show(STEPS[STEPS.length - 2]));
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = select.value === '__other' ? otherName.value.trim() : select.value;
-  if (!name) return say('err2', '請選擇或輸入你的名字');
-  if (!CONFIG.scriptUrl) return say('err2', '問卷還沒接上後台，請稍後再試');
+  if (!name) return say('err3', '請選擇或輸入你的名字');
+  if (!CONFIG.scriptUrl) return say('err3', '問卷還沒接上後台，請稍後再試');
+
+  // 每個活動各一筆，試算表裡分開算人數
+  const records = [{ event: CONFIG.event, name, status: status(), reason: status() === '請假' ? reason() : '' }];
+  if (CONFIG.party) {
+    const going = party() === '參加';
+    records.push({ event: CONFIG.party, name, status: party(), people: going ? people : 0, note: going ? dish() : '' });
+  }
 
   const btn = $('submit');
-  btn.disabled = true; btn.textContent = '送出中…'; say('err2', '');
+  btn.disabled = true; btn.textContent = '送出中…'; say('err3', '');
   try {
     // 用 text/plain 送，瀏覽器不會先發 CORS 預檢，Apps Script 才收得到
-    const res = await fetch(CONFIG.scriptUrl, {
-      method: 'POST',
-      body: JSON.stringify({ event: CONFIG.event, name, status: status(), reason: status() === '請假' ? reason() : '' }),
-    });
+    const res = await fetch(CONFIG.scriptUrl, { method: 'POST', body: JSON.stringify({ records }) });
     const data = await res.json();
     if (!data.ok) throw new Error(data.error);
     try { localStorage.setItem(NAME_KEY, name); } catch (err) {}
-    $('done').classList.toggle('off', status() === '請假');
-    $('doneMsg').textContent = `${name}，已收到你的回覆：${status()}`;
+    $('done').classList.toggle('off', status() === '請假' && party() !== '參加');
+    $('doneMsg').textContent = `${name}，已收到你的回覆\n` + summary();
     show('done');
   } catch (err) {
-    say('err2', '沒有送出成功，請確認網路後再按一次「送出」');
+    say('err3', '沒有送出成功，請確認網路後再按一次「送出」');
   } finally {
     btn.disabled = false; btn.textContent = '送出';
   }
