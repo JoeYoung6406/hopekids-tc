@@ -230,8 +230,6 @@
           <output id="people" aria-live="polite"></output>
           <button type="button" id="plus" aria-label="多一位">＋</button>
         </div>
-        <label class="field" for="dish">想帶什麼菜？<small>選填，避免大家帶重複</small></label>
-        <input type="text" id="dish" maxlength="60" placeholder="例如：炒米粉、水果">
       </div>
       <p class="err" id="err2" role="alert"></p>
       <div class="row">
@@ -327,7 +325,6 @@ if (today > CONFIG.lastDay) { form.hidden = true; $('closed').hidden = false; }
 const status = () => (form.querySelector('input[name=status]:checked') || {}).value || '';
 const party = () => (form.querySelector('input[name=party]:checked') || {}).value || '';
 const reason = () => $('reason').value.trim();
-const dish = () => $('dish').value.trim();
 const say = (id, msg) => { $(id).textContent = msg; };
 
 let people = 1;
@@ -350,9 +347,7 @@ function show(id) {
 function summary() {
   const lines = ['備課日：' + status() + (status() === '請假' ? `（${reason()}）` : '')];
   if (CONFIG.party) {
-    lines.push('團隊聚集：' + (party() === '參加'
-      ? `參加 ${people} 人` + (dish() ? `，帶${dish()}` : '')
-      : '不克參加'));
+    lines.push('團隊聚集：' + (party() === '參加' ? `參加 ${people} 人` : '不克參加'));
   }
   return lines.join('\n');
 }
@@ -396,8 +391,7 @@ form.addEventListener('submit', async (e) => {
   // 每個活動各一筆，試算表裡分開算人數
   const records = [{ event: CONFIG.event, name, status: status(), reason: status() === '請假' ? reason() : '' }];
   if (CONFIG.party) {
-    const going = party() === '參加';
-    records.push({ event: CONFIG.party, name, status: party(), people: going ? people : 0, note: going ? dish() : '' });
+    records.push({ event: CONFIG.party, name, status: party(), people: party() === '參加' ? people : 0 });
   }
 
   const btn = $('submit');
