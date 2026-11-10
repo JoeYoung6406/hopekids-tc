@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>11月備課日＆國隊聚集｜出席回覆 · Hope Kids 台中分部</title>
-<meta name="description" content="Hope Kids 台中分部 11/15（日）：下午 13:30–16:00 備課日在 Kids Central，晚上 18:00–20:00 國隊聚集，回覆出席與聚集人數。">
+<title>11月備課日＆團隊聚集｜出席回覆 · Hope Kids 台中分部</title>
+<meta name="description" content="Hope Kids 台中分部 11/15（日）：下午 13:30–16:00 備課日在 Kids Central，晚上 18:00–20:00 團隊聚集，回覆出席與聚集人數。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -168,7 +168,7 @@
 
   <header class="head">
     <p class="brand">Hope Kids</p>
-    <h1>備課日＆國隊聚集</h1>
+    <h1>備課日＆團隊聚集</h1>
     <svg class="squiggle" viewBox="0 0 150 14" aria-hidden="true">
       <path d="M4 9 Q 24 2 44 8 T 84 8 T 124 8 T 146 6"
             fill="none" stroke="#ffc33b" stroke-width="5" stroke-linecap="round"/>
@@ -186,7 +186,7 @@
     </section>
     <section class="slot night" id="partyInfo">
       <p class="when">晚上</p>
-      <h2 class="what">國隊聚集</h2>
+      <h2 class="what">團隊聚集</h2>
       <p class="time">18:00–20:00</p>
       <p>🏠 Joe 的家<br><span class="pending">地址見群組公告</span></p>
       <p>🍲 一家帶 1–2 道菜<br><span class="pending">3–4 人份</span></p>
@@ -218,7 +218,7 @@
 
     <!-- 第 2 步：晚上聚集參加與人數（CONFIG.party 空白就跳過） -->
     <section class="step" id="step2" hidden>
-      <div class="steph"><h2 tabindex="-1">晚上國隊聚集會來嗎？</h2><span class="stepno"></span></div>
+      <div class="steph"><h2 tabindex="-1">晚上團隊聚集會來嗎？</h2><span class="stepno"></span></div>
       <div class="choices">
         <label class="choice go"><input type="radio" name="party" value="參加"><span><i>🍲</i>參加</span></label>
         <label class="choice off"><input type="radio" name="party" value="不參加"><span><i>🙏</i>不克參加</span></label>
@@ -277,7 +277,7 @@
 // ===== 活動設定：下一次活動複製這個資料夾，改這裡就好 =====
 const CONFIG = {
   event: '2026-11-15 11月備課日',   // 寫進試算表「活動」欄，每個活動要不一樣
-  party: '2026-11-15 11月國隊聚集', // 同一天晚上的聚集；沒有聚集就改成 ''，會跳過第 2 步並藏起晚上那張卡
+  party: '2026-11-15 11月團隊聚集', // 同一天晚上的聚集；沒有聚集就改成 ''，會跳過第 2 步並藏起晚上那張卡
   lastDay: '2026-11-15',            // 過了這天（台北時間）就停止收回覆
   materials: '',                    // 教材資源連結；空白會顯示「整理中」
   // Google Apps Script 網頁應用程式網址（後台程式見 ../apps-script.gs，回覆寫進「Hope Kids活動名單」試算表）
@@ -350,7 +350,7 @@ function show(id) {
 function summary() {
   const lines = ['備課日：' + status() + (status() === '請假' ? `（${reason()}）` : '')];
   if (CONFIG.party) {
-    lines.push('國隊聚集：' + (party() === '參加'
+    lines.push('團隊聚集：' + (party() === '參加'
       ? `參加 ${people} 人` + (dish() ? `，帶${dish()}` : '')
       : '不克參加'));
   }
