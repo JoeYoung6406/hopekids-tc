@@ -150,7 +150,11 @@
   .done p{margin:6px 0 0; line-height:1.6;}
   .done .note{color:var(--muted); font-size:.88rem; margin-top:10px;}
 
-  .closed{text-align:center; font-weight:700; line-height:1.7;}
+  /* 活動結束後只留這張卡 */
+  .closed{text-align:center; padding:30px 18px 22px;}
+  .closed-icon{margin:0; font-size:2.6rem; line-height:1;}
+  .closed-msg{margin:14px 0 0; font-size:1.6rem; font-weight:900; line-height:1.45; text-wrap:balance; white-space:pre-line;}
+  .closed .btn{margin-top:24px;}
 
   footer{text-align:center; margin-top:34px; color:var(--muted); font-size:.82rem;}
   footer .brand-sm{font-family:"Chewy",cursive; font-size:1.1rem; color:var(--sun-deep);}
@@ -193,10 +197,13 @@
     </section>
   </div>
 
-  <div class="tab">✋ 出席回覆</div>
+  <div class="tab" id="rsvpTab">✋ 出席回覆</div>
 
   <div class="card closed" id="closed" hidden>
-    這個活動已經結束了<br>謝謝每一位夥伴的回覆！
+    <p class="closed-icon" aria-hidden="true">🎉</p>
+    <p class="closed-msg" id="closedMsg">這個活動已經結束了
+謝謝每一位夥伴的回覆！</p>
+    <a class="btn ghost" href="../../">回服事夥伴專區</a>
   </div>
 
   <form class="card" id="rsvp" novalidate>
@@ -277,6 +284,7 @@ const CONFIG = {
   event: '2026-11-15 11月備課日',   // 寫進試算表「活動」欄，每個活動要不一樣
   party: '2026-11-15 11月團隊聚集', // 同一天晚上的聚集；沒有聚集就改成 ''，會跳過第 2 步並藏起晚上那張卡
   lastDay: '2026-11-15',            // 過了這天（台北時間）就停止收回覆
+  closedMsg: '期待下次一月聚集～',   // 活動結束後點進來看到的話；空白就顯示「這個活動已經結束了」
   materials: '',                    // 教材資源連結；空白會顯示「整理中」
   // Google Apps Script 網頁應用程式網址（後台程式見 ../apps-script.gs，回覆寫進「Hope Kids活動名單」試算表）
   scriptUrl: 'https://script.google.com/macros/s/AKfycbzU__gWu3CWKlUvL3WVMqwIUwjWJ3AWGUdbEAvikCGWzFj16mwdjGKQwspbOR3MIHXi/exec',
@@ -320,7 +328,12 @@ if (CONFIG.materials) {
 }
 
 const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
-if (today > CONFIG.lastDay) { form.hidden = true; $('closed').hidden = false; }
+// 活動結束後：收起活動資訊和問卷，只留一句話
+if (today > CONFIG.lastDay) {
+  ['info', 'rsvpTab', 'rsvp'].forEach((id) => { $(id).hidden = true; });
+  if (CONFIG.closedMsg) $('closedMsg').textContent = CONFIG.closedMsg;
+  $('closed').hidden = false;
+}
 
 const status = () => (form.querySelector('input[name=status]:checked') || {}).value || '';
 const party = () => (form.querySelector('input[name=party]:checked') || {}).value || '';
