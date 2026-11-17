@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聖誕佈置及手作協助｜時段登記 · Hope Kids 台中分部</title>
+<meta name="description" content="Hope Kids 台中分部聖誕佈置及手作協助：11/24–11/29 的時段，勾選你可以來幫忙的時間（可以複選）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sun:#ffc33b;          /* 品牌黃（同首頁） */
+    --sun-deep:#f2a900;
+    --ink:#4a3b22;
+    --muted:#85704b;
+    --bg:#fffdf6;
+    --card:#ffffff;
+    --line:#f3e6c8;
+    --coral:#ff7a59;
+    --teal:#2bb3a3;
+    --shadow:0 10px 26px rgba(242,169,0,.16);
+  }
+  *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; color:var(--ink);
+    font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
+    background:
+      radial-gradient(900px 420px at 50% -120px, #fff3d1, transparent 72%),
+      var(--bg);
+    min-height:100dvh;
+  }
+  .page{max-width:500px; margin:0 auto; padding:18px 20px 46px;}
+
+  .backlink{display:inline-block; padding:6px 0; color:var(--sun-deep); font-weight:700; font-size:.9rem; text-decoration:none;}
+  .backlink:focus-visible{outline:3px solid var(--sun-deep); outline-offset:2px; border-radius:6px;}
+
+  /* ---------- 標題 ---------- */
+  .head{text-align:center; margin:8px 0 14px;}
+  .brand{font-family:"Chewy",cursive; color:var(--sun); font-size:1.9rem; line-height:1; margin:0; text-shadow:0 2px 0 rgba(242,169,0,.2);}
+  h1{font-size:2.1rem; font-weight:900; letter-spacing:.04em; margin:6px 0 0; text-wrap:balance;}
+  .squiggle{width:130px; margin:6px auto 0; display:block;}
+  .date{display:inline-block; margin:10px 0 0; padding:3px 14px; border-radius:999px;
+    background:#fff0c6; color:var(--coral); font-weight:900; font-size:1.05rem;}
+  .lead{margin:0; text-align:center; line-height:1.7; font-weight:500;}
+
+  /* ---------- 問卷 ---------- */
+  .tab{
+    display:inline-flex; align-items:center; gap:7px;
+    font-weight:900; font-size:.95rem; color:#fff; background:var(--coral);
+    padding:6px 16px; border-radius:12px 12px 12px 3px;
+    transform:rotate(-1.4deg); box-shadow:0 4px 10px rgba(0,0,0,.12); margin:24px 0 12px 4px;
+  }
+  .card{
+    background:var(--card); border:1.5px solid var(--line); border-radius:18px;
+    padding:20px 18px; box-shadow:var(--shadow);
+  }
+  .steph{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:0 0 4px;}
+  .step h2{font-size:1.3rem; font-weight:900; margin:0; outline:none;}
+  .stepno{font-size:.8rem; font-weight:700; color:var(--muted); flex:none;}
+  .hint{margin:0 0 14px; color:var(--muted); font-size:.88rem; font-weight:500; line-height:1.5;}
+
+  /* ---------- 時段：一天一列，日期在左、時段在右 ---------- */
+  .days{display:grid; gap:10px;}
+  .day{display:grid; grid-template-columns:3.4em 1fr 1fr; gap:8px;}
+  .dlabel{margin:0; display:flex; flex-direction:column; justify-content:center; line-height:1.2;}
+  .dlabel b{font-size:1.05rem; font-weight:900;}
+  .dlabel small{font-size:.78rem; font-weight:700; color:var(--muted);}
+
+  .pick{position:relative; display:flex; min-width:0;}
+  .pick.wide{grid-column:span 2;}
+  .pick input{position:absolute; opacity:0; pointer-events:none;}
+  .pick span{
+    flex:1; display:flex; flex-direction:column; justify-content:center;
+    min-height:58px; padding:7px 10px 7px 12px; border:2px dashed var(--line); border-radius:14px;
+    background:#fffaf0; cursor:pointer; line-height:1.25;
+    transition:transform .16s ease, background .16s, border-color .16s, color .16s;
+  }
+  .pick span b{font-size:1rem; font-weight:900;}
+  .pick span small{font-size:.8rem; font-weight:700; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  /* 右上角的勾選圈 */
+  .pick span::after{
+    content:""; position:absolute; top:7px; right:7px; width:18px; height:18px;
+    border:2px solid var(--line); border-radius:50%; background:#fff;
+    font-size:.72rem; font-weight:900; line-height:14px; text-align:center;
+  }
+  .pick:hover span{border-color:var(--sun);}
+  .pick input:checked + span{border-style:solid; border-color:var(--teal); background:var(--teal); color:#fff; transform:rotate(-1deg);}
+  .pick input:checked + span small{color:rgba(255,255,255,.9);}
+  .pick input:checked + span::after{content:"✓"; border-color:#fff; color:var(--teal);}
+  .pick input:focus-visible + span{outline:3px solid var(--sun-deep); outline-offset:3px;}
+
+  .or{display:flex; align-items:center; gap:10px; margin:16px 0 12px; color:var(--muted); font-size:.85rem; font-weight:700;}
+  .or::before,.or::after{content:""; flex:1; border-top:1.5px dashed var(--line);}
+  .pick.later input:checked + span{border-color:var(--coral); background:var(--coral); transform:rotate(1deg);}
+  .pick.later input:checked + span::after{color:var(--coral);}
+
+  .count{margin:14px 0 0; text-align:center; font-weight:700; color:var(--teal);}
+  .count:empty{display:none;}
+
+  /* 很窄的手機：日期改放在時段上面 */
+  @media (max-width:350px){
+    .day{grid-template-columns:1fr 1fr; gap:6px 8px;}
+    .dlabel{grid-column:1 / -1; flex-direction:row; justify-content:flex-start; align-items:baseline; gap:6px;}
+  }
+
+  .field{display:block; font-weight:700; margin:18px 0 7px;}
+  select, input[type=text]{
+    display:block; width:100%; font:inherit; font-size:16px; color:var(--ink);
+    background:#fffdf8; border:1.5px solid var(--line); border-radius:12px; padding:11px 12px;
+  }
+  select{appearance:none; -webkit-appearance:none; padding-right:40px; cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--coral) 50%),linear-gradient(135deg,var(--coral) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 52%, calc(100% - 14px) 52%; background-size:6px 6px; background-repeat:no-repeat;}
+  #otherName{margin-top:10px;}
+  select:focus-visible, input[type=text]:focus-visible{
+    outline:none; border-color:var(--sun-deep); box-shadow:0 0 0 3px rgba(255,195,59,.45);
+  }
+
+  .thanks{margin:0 0 18px; padding:11px 14px; border-radius:12px; background:#fff0c6; font-weight:700; text-align:center; line-height:1.5;}
+  .summary{margin:14px 0 0; font-size:.9rem; color:var(--muted); white-space:pre-line; line-height:1.6;}
+  .done #doneMsg{white-space:pre-line;}
+  .err{margin:12px 0 0; color:#c2410c; font-weight:700; font-size:.92rem;}
+  .err:empty{display:none;}
+
+  .btn{
+    display:block; width:100%; margin-top:20px; padding:14px; border:0; border-radius:14px;
+    font:inherit; font-size:1.1rem; font-weight:900; text-align:center; text-decoration:none;
+    background:var(--sun); color:#5a4200; cursor:pointer;
+    box-shadow:0 5px 0 var(--sun-deep); transition:transform .1s, box-shadow .1s;
+  }
+  .btn:active{transform:translateY(3px); box-shadow:0 2px 0 var(--sun-deep);}
+  .btn:focus-visible{outline:3px solid var(--ink); outline-offset:3px;}
+  .btn[disabled]{opacity:.65; cursor:wait;}
+  .btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--line); box-shadow:none;}
+  .btn.ghost:active{transform:none;}
+  .row{display:grid; grid-template-columns:1fr 2fr; gap:10px;}
+  .row .btn{margin-top:20px;}
+
+  /* ---------- 完成 ---------- */
+  .done{text-align:center;}
+  .stamp{
+    width:78px; height:78px; margin:4px auto 12px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--teal); color:#fff; font-size:2.5rem; font-weight:900;
+    box-shadow:0 8px 18px rgba(43,179,163,.35);
+    animation:stamp .5s cubic-bezier(.2,1.4,.4,1) both;
+  }
+  .done.off .stamp{background:var(--coral); box-shadow:0 8px 18px rgba(255,122,89,.35);}
+  @keyframes stamp{from{transform:scale(.3) rotate(-25deg); opacity:0;} to{transform:none; opacity:1;}}
+  .done p{margin:6px 0 0; line-height:1.6;}
+  .done .note{color:var(--muted); font-size:.88rem; margin-top:10px;}
+
+  .closed{text-align:center; font-weight:700; line-height:1.7;}
+
+  footer{text-align:center; margin-top:34px; color:var(--muted); font-size:.82rem;}
+  footer .brand-sm{font-family:"Chewy",cursive; font-size:1.1rem; color:var(--sun-deep);}
+
+  @media (prefers-reduced-motion:reduce){
+    .pick span,.btn{transition:none;}
+    .pick input:checked + span{transform:none;}
+    .stamp{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="backlink" href="../../">← 服事夥伴專區</a>
+
+  <header class="head">
+    <p class="brand">Hope Kids</p>
+    <h1>聖誕佈置及手作協助</h1>
+    <svg class="squiggle" viewBox="0 0 150 14" aria-hidden="true">
+      <path d="M4 9 Q 24 2 44 8 T 84 8 T 124 8 T 146 6"
+            fill="none" stroke="#ffc33b" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <p class="date">11/24 – 11/29</p>
+  </header>
+
+  <p class="lead">聖誕節快到了，佈置和手作<br>需要大家一起來幫忙！</p>
+
+  <div class="tab">🎄 時段登記</div>
+
+  <div class="card closed" id="closed" hidden>
+    11 月的時段登記已經結束了<br>謝謝每一位夥伴的幫忙！
+  </div>
+
+  <form class="card" id="signup" novalidate>
+
+    <!-- 第 1 步：勾選時段（時段清單由下面的 DAYS 產生） -->
+    <section class="step" id="step1">
+      <div class="steph"><h2 tabindex="-1">哪些時段可以來？</h2><span class="stepno">1／2</span></div>
+      <p class="hint">可以複選</p>
+      <p class="hint" id="again" hidden>已經帶入你上次登記的時段，改好再送出一次就會更新。</p>
+      <div class="days" id="days"></div>
+      <p class="or">或</p>
+      <label class="pick later"><input type="checkbox" id="later"><span><b>11 月時間目前沒辦法配合</b><small>但 12 月可以參與</small></span></label>
+      <p class="count" id="count" aria-live="polite"></p>
+      <p class="err" id="err1" role="alert"></p>
+      <button type="button" class="btn" id="next">下一步</button>
+    </section>
+
+    <!-- 第 2 步：確認名字後送出 -->
+    <section class="step" id="step2" hidden>
+      <p class="thanks">謝謝每一位願意來幫忙的<br>Hope Kids 夥伴</p>
+      <div class="steph"><h2 tabindex="-1">確認你的資料</h2><span class="stepno">2／2</span></div>
+      <label class="field" for="name">你的名字</label>
+      <select id="name">
+        <option value="">請選擇</option>
+        <option value="__other">名單裡沒有我</option>
+      </select>
+      <input type="text" id="otherName" maxlength="30" placeholder="請輸入你的名字" aria-label="你的名字" hidden>
+      <p class="summary" id="summary"></p>
+      <p class="err" id="err2" role="alert"></p>
+      <div class="row">
+        <button type="button" class="btn ghost" id="back">上一步</button>
+        <button type="submit" class="btn" id="submit">送出</button>
+      </div>
+    </section>
+
+    <!-- 完成 -->
+    <section class="step done" id="done" hidden>
+      <div class="stamp" aria-hidden="true">✓</div>
+      <h2 tabindex="-1" style="margin-bottom:4px">填寫完成</h2>
+      <p id="doneMsg"></p>
+      <p class="note">想改的話，重新填一次就會更新原本的登記。</p>
+      <a class="btn ghost" href="../../">回服事夥伴專區</a>
+    </section>
+  </form>
+
+  <footer>
+    <p><span class="brand-sm">Hope Kids</span> 台中分部</p>
+  </footer>
+</div>
+
+<script>
+// ===== 活動設定：下一次時段登記（例如 12 月）複製這個資料夾，改 CONFIG、DAYS、LATER 就好 =====
+const CONFIG = {
+  title: '聖誕佈置及手作協助',   // 試算表「活動」欄 = 日期＋時段＋這個名稱，每個時段各算人數
+  lastDay: '2026-11-29',        // 過了這天（台北時間）就停止收登記；已經過了的日子會自動不顯示
+  // 和 11/15 備課日共用同一個後台（程式見 ../apps-script.gs，登記寫進「Hope Kids活動名單」試算表）
+  scriptUrl: 'https://script.google.com/macros/s/AKfycbzU__gWu3CWKlUvL3WVMqwIUwjWJ3AWGUdbEAvikCGWzFj16mwdjGKQwspbOR3MIHXi/exec',
+};
+
+// 時段表：一天一列；只有一個時段的日子會佔滿整列
+const PM = { part: '下午', time: '14:00–17:00' };
+const EVE = { part: '晚上', time: '18:00–20:00' };
+const DAYS = [
+  { date: '2026-11-24', wd: '二', slots: [PM, EVE] },
+  { date: '2026-11-25', wd: '三', slots: [PM, EVE] },
+  { date: '2026-11-27', wd: '五', slots: [PM, EVE] },
+  { date: '2026-11-28', wd: '六', slots: [{ part: '白天', time: '10:00–16:00' }] },
+  { date: '2026-11-29', wd: '日', slots: [{ part: '下午', time: '16:00–17:00' }] },
+];
+// 11 月都不行的人選這個（和上面的時段只能二選一）
+const LATER = { event: '2026-12 聖誕佈置及手作協助（11月不行、12月可以）', text: '11 月時間目前沒辦法配合，但 12 月可以參與' };
+
+// 下拉選單的名單（取自 8～12 月班表）；不在名單上的人可以選「名單裡沒有我」自己輸入
+const NAMES = [
+  '奕瑄', '辰翰', '伊萬', '嘉柔', '育慈', '阿雯', '思涵', '小天', '幸典', '佳霓',
+  '秀秀', '泡芙', '以琳', '賴賴', '閔融', '淑慧', '意潔', '茹暄', '潔心', '游翔淄',
+  'Ab', 'Sunny', 'Cody', 'Deborah', 'Joe', 'Anita', 'Amy', 'Peter', 'Cindy', 'Elly',
+  'Kim', 'Tina', 'Yabu', 'Kiki', 'Gigi', 'Mina',
+];
+const BATCH = 5; // 後台一次最多收 5 筆
+
+const $ = (id) => document.getElementById(id);
+const form = $('signup');
+const select = $('name');
+const otherName = $('otherName');
+const later = $('later');
+const NAME_KEY = 'hk-teacher-name';                     // 和其他活動頁共用，名字只要選一次
+const PICK_KEY = 'hk-slots-' + CONFIG.lastDay.slice(0, 7); // 這台裝置上次勾的時段
+
+function el(tag, cls, kids) {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (kids != null) n.append(...[].concat(kids));
+  return n;
+}
+
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+if (today > CONFIG.lastDay) { form.hidden = true; $('closed').hidden = false; }
+
+// 畫出還沒過的時段
+const SLOTS = [];
+DAYS.filter((d) => d.date >= today).forEach((d) => {
+  const [, m, dd] = d.date.split('-');
+  const day = `${+m}/${+dd}`;
+  const row = el('div', 'day', el('p', 'dlabel', [el('b', '', day), el('small', '', '週' + d.wd)]));
+  row.setAttribute('role', 'group');
+  row.setAttribute('aria-label', `${day}（${d.wd}）`);
+  d.slots.forEach((s, i) => {
+    const input = el('input');
+    input.type = 'checkbox';
+    input.name = 'slot';
+    row.append(el('label', d.slots.length > 1 ? 'pick' : 'pick wide',
+      [input, el('span', '', [el('b', '', s.part), el('small', '', s.time)])]));
+    SLOTS.push({
+      id: `${m}${dd}-${i}`,
+      event: `${d.date}(${d.wd}) ${s.part}${s.time.replace('–', '-')} ${CONFIG.title}`,
+      text: `${day}（${d.wd}）${s.part} ${s.time}`,
+      input,
+    });
+  });
+  $('days').append(row);
+});
+
+NAMES.slice().sort(new Intl.Collator('zh-Hant-TW').compare)
+  .forEach((n) => select.insertBefore(new Option(n, n), select.lastElementChild));
+
+// 記住上次填的名字和時段，回來修改時不用重勾
+let savedName = '';
+let savedPick = null;
+try {
+  savedName = localStorage.getItem(NAME_KEY) || '';
+  savedPick = JSON.parse(localStorage.getItem(PICK_KEY) || 'null');
+} catch (e) {}
+if (savedName) {
+  if (NAMES.includes(savedName)) select.value = savedName;
+  else { select.value = '__other'; otherName.hidden = false; otherName.value = savedName; }
+}
+if (savedPick && Array.isArray(savedPick.slots)) {
+  later.checked = !!savedPick.later;
+  SLOTS.forEach((s) => { s.input.checked = !later.checked && savedPick.slots.includes(s.id); });
+  $('again').hidden = false;
+}
+
+const picked = () => SLOTS.filter((s) => s.input.checked);
+const say = (id, msg) => { $(id).textContent = msg; };
+const summary = () => (later.checked ? LATER.text : picked().map((s) => s.text).join('\n'));
+
+function updateCount() {
+  const n = picked().length;
+  $('count').textContent = n ? `已勾選 ${n} 個時段` : '';
+}
+updateCount();
+
+function show(id) {
+  ['step1', 'step2', 'done'].forEach((s) => { $(s).hidden = s !== id; });
+  $(id).querySelector('h2').focus();
+}
+
+form.addEventListener('change', (e) => {
+  const t = e.target;
+  if (t === select) {
+    otherName.hidden = select.value !== '__other';
+    if (!otherName.hidden) otherName.focus();
+    return;
+  }
+  // 勾了時段就取消「12 月可以」，反過來也一樣
+  if (t.name === 'slot' && t.checked) later.checked = false;
+  if (t === later && later.checked) SLOTS.forEach((s) => { s.input.checked = false; });
+  updateCount();
+  say('err1', '');
+});
+
+$('next').addEventListener('click', () => {
+  if (!picked().length && !later.checked) return say('err1', '請至少勾選一個時段；11 月都不行的話，選最下面那個');
+  say('err1', '');
+  $('summary').textContent = (later.checked ? '你的登記：\n' : '你登記的時段：\n') + summary();
+  show('step2');
+});
+
+$('back').addEventListener('click', () => show('step1'));
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if ($('step2').hidden) return;
+  const name = select.value === '__other' ? otherName.value.trim() : select.value;
+  if (!name) return say('err2', '請選擇或輸入你的名字');
+  if (!CONFIG.scriptUrl) return say('err2', '問卷還沒接上後台，請稍後再試');
+
+  // 每個時段各一筆：勾了寫「參加」、沒勾寫「不參加」，重填時取消的時段才會跟著改掉
+  const records = SLOTS.map((s) => ({ event: s.event, name, status: s.input.checked ? '參加' : '不參加' }));
+  records.push({ event: LATER.event, name, status: later.checked ? '參加' : '不參加' });
+
+  const btn = $('submit');
+  btn.disabled = true; btn.textContent = '送出中…'; say('err2', '');
+  try {
+    // 分批依序送；中途失敗就再按一次，同一人同一時段會更新原本那一列，不會重複
+    for (let i = 0; i < records.length; i += BATCH) {
+      // 用 text/plain 送，瀏覽器不會先發 CORS 預檢，Apps Script 才收得到
+      const res = await fetch(CONFIG.scriptUrl, { method: 'POST', body: JSON.stringify({ records: records.slice(i, i + BATCH) }) });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error);
+    }
+    try {
+      localStorage.setItem(NAME_KEY, name);
+      localStorage.setItem(PICK_KEY, JSON.stringify({ later: later.checked, slots: picked().map((s) => s.id) }));
+    } catch (err) {}
+    $('done').classList.toggle('off', later.checked);
+    $('doneMsg').textContent = `${name}，已收到你的登記\n` + summary();
+    show('done');
+  } catch (err) {
+    say('err2', '沒有送出成功，請確認網路後再按一次「送出」');
+  } finally {
+    btn.disabled = false; btn.textContent = '送出';
+  }
+});
+</script>
+</body>
+</html>
