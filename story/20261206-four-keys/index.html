@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事教案：《四把金鑰匙》舊約四個約與耶穌降生的預言（創世記 6-17、撒母耳記下 7、以賽亞書 9:6），Jesus 耶穌系列第一課，主軸為彩虹、星星、石版、王冠、耶穌，含 15 幀分鏡台詞、四道關卡與應許寶盒、20 分鐘流程。">
+<title>四把金鑰匙｜四個約與耶穌降生的預言 大班教案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+TC:wght@500;700&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --scarlet:#a81f32; --indigo:#2b4577; --purple:#5b3568; --ember:#b06410;
+  --ember-bg:#f7ead6; --mark:#fbeaa8; --mark-2:#f6d9b6;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+    --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --scarlet:#e9707c; --indigo:#8aaee8; --purple:#bb92c9; --ember:#e3a44c;
+  --ember-bg:#33261a; --mark:#4b4020; --mark-2:#48301c;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 28px 96px}
+.prose{max-width:36em}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+a{color:var(--indigo)}
+mark{background:var(--mark);color:var(--ink);padding:.1em .25em;border-radius:2px}
+mark.warm{background:var(--mark-2)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+
+/* ---------- 報頭 ---------- */
+.masthead{padding:64px 0 0}
+.masthead .eyebrow{display:block;margin-bottom:20px}
+.masthead h1{font-size:clamp(46px,9vw,76px);line-height:1.02;letter-spacing:.04em}
+.masthead .deck{
+  font-family:var(--serif);font-size:clamp(18px,2.6vw,22px);line-height:1.6;
+  color:var(--ink-2);margin-top:18px;max-width:22em;
+}
+.flame{display:block;height:3px;width:96px;margin:30px 0 0;
+  background:linear-gradient(90deg,var(--scarlet),var(--ember));border-radius:2px}
+
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spec{padding:14px 26px 14px 0;margin-right:26px;border-right:1px solid var(--rule)}
+.spec:last-child{border-right:0;margin-right:0;padding-right:0}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:3px}
+.spec dd{margin:0;font-size:15px;font-weight:600;line-height:1.4}
+
+/* ---------- 主軸鏈 ---------- */
+.axis{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0 0;
+  padding:18px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.axis b{font-family:var(--serif);font-size:17px;font-weight:700;white-space:nowrap}
+.axis i{font-style:normal;color:var(--ember);font-family:var(--mono);font-size:13px}
+.axis em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);width:100%;margin-bottom:-4px}
+
+.message{margin:26px 0 0;padding:26px 30px;border-left:3px solid var(--scarlet);
+  background:var(--surface);border-radius:0 10px 10px 0;box-shadow:var(--shadow);
+  font-family:var(--serif);font-size:18px;line-height:1.85}
+
+.modebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 0}
+.seg{display:inline-flex;border:1px solid var(--rule-2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{font-family:var(--mono);font-size:12px;letter-spacing:.1em;font-weight:500;
+  padding:7px 18px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);
+  cursor:pointer;transition:background .18s,color .18s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.seg button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.modehint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- 章節 ---------- */
+section{margin-top:76px}
+.sechead{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:12px;
+  border-bottom:1px solid var(--rule-2);margin-bottom:32px}
+.sechead h2{font-size:25px;letter-spacing:.03em}
+.sechead .eyebrow{margin-left:auto}
+
+/* ---------- 五祭一覽 ---------- */
+.offerings{display:grid;gap:0}
+.offering{display:grid;grid-template-columns:96px 104px 76px 1fr;gap:18px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule)}
+.offering:first-child{border-top:1px solid var(--rule)}
+.offering .name{font-family:var(--serif);font-size:17px;font-weight:700}
+.offering .ref{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.offering .key{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.06em}
+.offering .q{color:var(--ink-2);font-size:14.5px;line-height:1.7}
+
+/* ---------- 指標 / 節點 ---------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.col > .eyebrow{display:block;padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--ink)}
+.col.k > .eyebrow{border-color:var(--indigo);color:var(--indigo)}
+.col.a > .eyebrow{border-color:var(--purple);color:var(--purple)}
+.col.r > .eyebrow{border-color:var(--scarlet);color:var(--scarlet)}
+.col p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:.9em}
+
+.nodes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.node{background:var(--surface);border-radius:12px;padding:26px 24px;box-shadow:var(--shadow)}
+.node .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ember);
+  display:block;margin-bottom:10px}
+.node h3{font-size:17px;line-height:1.55;margin-bottom:14px}
+.node ul{margin:0;padding-left:1.1em;font-size:14px;line-height:1.8;color:var(--ink-2)}
+.node li{margin-bottom:9px}
+.node li:last-child{margin-bottom:0}
+
+/* ---------- 經文 ---------- */
+.verses{display:grid;gap:16px}
+.verse{padding:20px 24px;border:1px solid var(--rule);border-radius:10px;
+  font-family:var(--serif);font-size:16.5px;line-height:1.85;background:var(--surface)}
+.verse .src{display:block;margin-top:10px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.04em;color:var(--ink-3)}
+.verse.key{border:0;background:var(--ember-bg);border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;font-size:19px;font-weight:500}
+.verse.key .src{color:var(--ember)}
+
+/* ---------- 反差對照 ---------- */
+.contrast{display:grid;gap:0}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.crow:first-child{border-top:1px solid var(--rule)}
+.crow p{margin:0;font-size:14.5px;line-height:1.8}
+.crow .said{color:var(--ink-3)}
+.crow .said b,.crow .truth b{display:block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;font-weight:500}
+.crow .said b{color:var(--ink-3)}
+.crow .truth b{color:var(--scarlet)}
+.crow .truth{color:var(--ink)}
+
+/* ---------- 帶走的話 ---------- */
+.takeaways{display:grid;gap:14px}
+.take{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:baseline;
+  padding:18px 24px;background:var(--surface);border-radius:10px;box-shadow:var(--shadow)}
+.take span{font-family:var(--mono);font-size:13px;color:var(--ember)}
+.take p{font-family:var(--serif);font-size:17.5px;line-height:1.7;margin:0}
+
+/* ---------- 流程表 ---------- */
+.runwrap{overflow-x:auto}
+.run{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+.run th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 16px 10px 0;
+  border-bottom:1px solid var(--rule-2)}
+.run td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.75}
+.run .tc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ember);
+  white-space:nowrap;width:64px;font-size:13px}
+.run .dur{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink-3);
+  white-space:nowrap;width:52px;font-size:13px}
+.run .unit{font-family:var(--serif);font-weight:700;white-space:nowrap;width:104px;font-size:15.5px}
+.run td:last-child{padding-right:0}
+.run ul{margin:0;padding-left:1.1em}
+.run li{margin-bottom:7px}
+.run li:last-child{margin-bottom:0}
+.run ul ul{margin-top:7px}
+.run .total td{border-bottom:0;padding-top:14px;font-family:var(--mono);color:var(--ink-3);font-size:13px}
+
+/* ---------- 分鏡 ---------- */
+.frames{display:grid;gap:0}
+.frame{display:grid;grid-template-columns:340px 1fr;gap:30px;align-items:start;
+  padding:34px 0;border-bottom:1px solid var(--rule)}
+.frame:first-child{border-top:1px solid var(--rule-2)}
+.frame img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:var(--shadow)}
+.fmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.fnum{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.ftc{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ember)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:3px 9px;border-radius:3px;
+  border:1px solid var(--rule-2);color:var(--ink-3)}
+.tag.axis-tag{border-color:var(--indigo);color:var(--indigo)}
+.tag.star{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame h3{font-size:21px;line-height:1.4;margin-bottom:14px}
+.frame p{font-size:16px;line-height:1.92;margin-bottom:.85em}
+.ask{border-left:2px solid var(--ember);background:var(--ember-bg);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-weight:600;font-size:15.5px}
+.guard{border-left:2px solid var(--scarlet);background:var(--surface-2);
+  padding:11px 16px;border-radius:0 6px 6px 0;font-size:14px;color:var(--ink-2)}
+.guard b{color:var(--scarlet);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+.cite{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.03em}
+
+/* ---------- Notes ---------- */
+.notes{display:grid;gap:20px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.note:last-child{border-bottom:0;padding-bottom:0}
+.note .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:5px}
+.note p{font-size:15px;line-height:1.85;color:var(--ink-2)}
+.note b{color:var(--ink)}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+
+[data-mode="stage"] .prep{display:none}
+[data-mode="stage"] .frame{grid-template-columns:400px 1fr;gap:36px;padding:44px 0}
+[data-mode="stage"] .frame h3{font-size:25px}
+[data-mode="stage"] .frame p{font-size:19px;line-height:1.95}
+[data-mode="stage"] .ask{font-size:18.5px}
+[data-mode="stage"] .masthead{padding-top:44px}
+[data-mode="stage"] .page{max-width:1040px}
+
+@media (max-width:860px){
+  .cols,.nodes{grid-template-columns:1fr;gap:26px}
+  .frame,[data-mode="stage"] .frame{grid-template-columns:1fr;gap:18px}
+  .offering{grid-template-columns:80px 1fr;row-gap:4px}
+  .offering .key{grid-column:2}
+  .offering .q{grid-column:1/-1}
+  .crow{grid-template-columns:1fr;gap:12px}
+  .page{padding:0 20px 72px}
+  .spec{padding-right:18px;margin-right:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .modebar{display:none}
+  body{background:#fff}
+  .frame,.node,.verse,.note,.take{break-inside:avoid}
+}
+.backlink{display:inline-flex;align-items:center;gap:8px;margin:26px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:7px 16px;transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media print{.backlink{display:none}}
+
+/* ---------- 11/15 新增：道具提示、四篇章 ---------- */
+.prop{font-size:14px;color:var(--ink-2);background:var(--surface-2);padding:10px 16px;
+  border-left:2px dashed var(--indigo);border-radius:0 6px 6px 0}
+.prop b{color:var(--indigo);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  display:block;margin-bottom:4px;font-weight:500}
+[data-mode="stage"] .prop{font-size:16px}
+.nodes.four{grid-template-columns:repeat(2,1fr)}
+@media (max-width:860px){.nodes.four{grid-template-columns:1fr}}
+
+/* ---------- 闖關：關卡提示、密碼、準備清單 ---------- */
+.tag.game-tag{border-color:var(--purple);color:var(--purple)}
+.game{font-size:14px;color:var(--ink-2);background:var(--surface-2);padding:10px 16px;
+  border-left:3px solid var(--purple);border-radius:0 6px 6px 0}
+.game b{color:var(--purple);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  display:block;margin-bottom:4px;font-weight:500}
+[data-mode="stage"] .game{font-size:16px}
+.frame p.code{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.7;color:var(--ink-2)}
+.code .d{flex:none;width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--purple);
+  border-radius:6px;font-family:var(--mono);font-weight:600;font-size:18px;color:var(--purple)}
+.code b{color:var(--purple);font-family:var(--mono)}
+.code > span:last-child{min-width:0}
+[data-mode="stage"] .frame p.code{font-size:17px}
+.lede{margin-bottom:24px}
+.lock{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.lock > div{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:18px 20px;min-width:0}
+.lock .d{display:block;font-family:var(--mono);font-size:40px;font-weight:600;line-height:1;color:var(--purple);margin-bottom:10px}
+.lock .src{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:4px}
+.lock p{font-size:14px;line-height:1.7;color:var(--ink-2)}
+.lock p b{color:var(--ink)}
+.kit{margin-top:28px;padding:22px 24px;background:var(--surface);border-radius:12px;box-shadow:var(--shadow)}
+.kit h3{font-size:16px;margin-bottom:10px}
+.kit ul{margin:0;padding-left:1.1em;font-size:14.5px;line-height:1.85;color:var(--ink-2)}
+.kit li{margin-bottom:6px}
+.kit li:last-child{margin-bottom:0}
+@media (max-width:560px){.lock{grid-template-columns:1fr}}
+
+/* ---------- 12/6 新增：四把金鑰匙、應許之路 ---------- */
+.tag.key-tag{border-color:var(--ember);color:var(--ember);background:var(--ember-bg)}
+.frame p.keyget{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.7;color:var(--ink-2);
+  background:var(--ember-bg);border-radius:8px;padding:10px 14px}
+.keyget .d{flex:none;width:38px;height:38px;display:grid;place-items:center;border:1.5px solid var(--ember);
+  border-radius:50%;color:var(--ember);background:var(--surface)}
+.keyget .d svg{width:22px;height:22px;display:block}
+.keyget b{color:var(--ember);margin-right:.4em}
+.keyget > span:last-child{min-width:0}
+[data-mode="stage"] .frame p.keyget{font-size:17px}
+.recap{list-style:none;margin:0 0 .85em;padding:0;display:grid;gap:8px}
+.recap li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;font-size:16px;line-height:1.75}
+.recap .ic{color:var(--ember);padding-top:2px}
+.recap .ic svg{width:22px;height:22px;display:block}
+[data-mode="stage"] .recap li{font-size:19px}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+.keys > div{background:var(--surface);border-radius:12px;box-shadow:var(--shadow);padding:18px 18px 20px;min-width:0;
+  border-top:3px solid var(--ember)}
+.keys .ic{display:block;width:40px;height:40px;color:var(--ember);margin-bottom:10px}
+.keys .ic svg{width:100%;height:100%;display:block}
+.keys .src{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);margin-bottom:2px}
+.keys h3{font-size:18px;margin-bottom:8px}
+.keys p{font-size:14px;line-height:1.7;color:var(--ink-2);margin-bottom:.7em}
+.keys p:last-child{margin-bottom:0}
+.keys .ans{color:var(--ink-3);font-size:13px}
+.keys p.on{font-family:var(--serif);color:var(--ink);font-size:14.5px;padding-top:10px;border-top:1px dashed var(--rule-2)}
+.keys .ref{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ember);margin-top:2px}
+.road{display:flex;align-items:flex-start;margin:0 0 28px;padding:18px 12px 16px;background:var(--surface);
+  border-radius:12px;box-shadow:var(--shadow)}
+.road .stop{flex:1 1 0;min-width:0;position:relative;padding:24px 4px 0;text-align:center}
+.road .stop::before{content:"";position:absolute;top:9px;left:0;right:0;height:3px;background:var(--ember);opacity:.4}
+.road .stop:first-child::before{left:50%}
+.road .stop:last-child::before{right:50%}
+.road .stop::after{content:"";position:absolute;top:3px;left:50%;width:15px;height:15px;margin-left:-7.5px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--ember)}
+.road .stop.k::after{background:var(--ember)}
+.road .stop.end::after{background:var(--scarlet);border-color:var(--scarlet)}
+.road b{display:block;font-family:var(--serif);font-size:15px;line-height:1.4}
+.road span{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.45;margin-top:3px}
+.road-note{font-size:14px;color:var(--ink-2);margin:-14px 0 28px}
+.nodes.three{grid-template-columns:repeat(3,1fr);margin-top:28px}
+@media (max-width:860px){.keys{grid-template-columns:repeat(2,1fr)}.nodes.three{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .road{flex-direction:column;padding:16px 18px 6px}
+  .road .stop{text-align:left;padding:0 0 12px 30px;width:100%}
+  .road .stop::before{top:0;bottom:0;left:6px;right:auto;width:3px;height:auto}
+  .road .stop:first-child::before{left:6px;top:9px}
+  .road .stop:last-child::before{right:auto;bottom:auto;height:9px}
+  .road .stop::after{top:2px;left:0;margin-left:0}
+  .road b,.road span{display:inline}
+  .road span{margin-left:.6em}
+}
+@media (max-width:560px){.keys{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="page" id="root" data-mode="prep">
+
+  <a class="backlink" href="../../">&#8592; Hope Kids 台中分部</a>
+
+
+  <div class="masthead">
+    <span class="eyebrow">HopeKids 大班主日學 · 2026.12.06</span>
+    <h1>四把金鑰匙</h1>
+    <p class="deck">舊約的故事：四個約與耶穌降生的預言<br>創世記 6-17｜撒母耳記下 7｜以賽亞書 9:6</p>
+    <span class="flame"></span>
+
+    <dl class="specs">
+      <div class="spec"><dt>對象</dt><dd>國小 3-6 年級</dd></div>
+      <div class="spec"><dt>系列</dt><dd>Jesus 耶穌 1/4</dd></div>
+      <div class="spec"><dt>時間</dt><dd>20 分鐘</dd></div>
+      <div class="spec"><dt>主題經文</dt><dd>賽 9:6</dd></div>
+      <div class="spec"><dt>分鏡</dt><dd>1 + 15 幀</dd></div>
+      <div class="spec"><dt>闖關</dt><dd>4 關＋應許寶盒</dd></div>
+    </dl>
+
+    <div class="axis">
+      <em>本課主軸（課程範例：四把金鑰匙）</em>
+      <b>彩虹</b><i>→</i><b>星星</b><i>→</i><b>石版</b><i>→</i><b>王冠</b><i>→</i><b>耶穌</b>
+    </div>
+
+    <p class="message">挪亞的彩虹、亞伯拉罕的星星、摩西的石版、大衛的王冠：人一次又一次跌倒，神卻一次又一次和人立約，從來沒有忘記。這四把鑰匙最後打開的，是同一個人：耶穌。<mark>天父的應許永不落空，千代守約愛不改變。</mark></p>
+
+    <div class="modebar">
+      <div class="seg" role="group" aria-label="閱讀模式">
+        <button type="button" id="btnPrep" aria-pressed="true">準備</button>
+        <button type="button" id="btnStage" aria-pressed="false">開講</button>
+      </div>
+      <span class="modehint" id="hint">完整教案 · 備課用</span>
+    </div>
+  </div>
+
+  <!-- ============ 核心問題 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>核心問題</h2><span class="eyebrow">這一課在講什麼</span></div>
+    <div class="prose">
+      <p class="verse key">上帝是信實守約的天父。雖然人類一次又一次因罪而跌倒破壞關係，但神藉著立約與先知預言，一步步推進拯救計畫，最終在耶穌基督降生時成就了永不落空的救贖。<span class="src">12 月課程範例〈舊約的故事：四個約與耶穌降生的預言〉神學定位</span></p>
+      <p style="margin-top:22px">上週（11/29，Forward 第四課）孩子看到耶穌「本有神的形像……反倒虛己，取了奴僕的形像，成為人的樣式」（腓 2:6-7）。這週是《Jesus 耶穌系列》第一課，倒帶回到好幾千年前：<strong>耶穌要來，不是突然決定的。</strong>神透過挪亞、亞伯拉罕、摩西、大衛四個約，和以賽亞等先知的預言，一路預備祂的來臨。</p>
+      <p>課程範例給的方向是：<mark>破除「上帝離我很遠」或「神會忘記承諾」的疑惑，建立對天父信實守約的信心；並學習成為「守信用、有信實」的小勇士。</mark></p>
+    </div>
+  </section>
+
+  <!-- ============ 神與人 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>神的屬性與人的回應</h2><span class="eyebrow">取自課程範例一、三、五</span></div>
+    <div class="offerings">
+      <div class="offering">
+        <span class="name">守約的神</span><span class="ref">創 9:16；申 7:9</span><span class="key">屬性</span>
+        <span class="q">彩虹出現時神說「我看見，就要記念」。<strong>祂說到，就做到，直到千代。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">全能的神</span><span class="ref">創 17:1</span><span class="key">屬性</span>
+        <span class="q">亞伯蘭沒有孩子、年紀老邁，神說「我是全能的神」。<strong>人做不到的，神做得到。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">先救我們</span><span class="ref">出 20:2</span><span class="key">作為</span>
+        <span class="q">神先把以色列人從埃及救出來，才給他們十誡。<strong>律法是愛的保護，不是換取愛的條件。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">永遠的王</span><span class="ref">撒下 7:16</span><span class="key">作為</span>
+        <span class="q">大衛的家要出一位國位直到永遠的王，以賽亞說祂是一個嬰孩。<strong>這位王就是耶穌。</strong></span>
+      </div>
+      <div class="offering">
+        <span class="name">信靠守信</span><span class="ref">範例應用</span><span class="key">回應</span>
+        <span class="q">相信天父的應許；等候的時候不放棄禱告；<strong>學天父說話算話。</strong></span>
+      </div>
+    </div>
+    <p style="margin-top:22px;color:var(--ink-2);font-size:14.5px;max-width:40em">這一課的 15 張圖是一條路：#01 金色的路通向遠方的一顆星，#14、#15 那顆星停在伯利恆上空。中間每個約都有一樣看得見的東西：<strong>彩虹（#04-05）、星星（#06）、石版（#09）、寶座（#10-11）</strong>。講故事時可以請孩子「找記號」。</p>
+  </section>
+
+  <!-- ============ 課程指標 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程指標</h2></div>
+    <div class="cols">
+      <div class="col k">
+        <span class="eyebrow">知識</span>
+        <p>說得出四個約和它們的記號：<strong>彩虹（挪亞）、星星（亞伯拉罕）、石版（摩西）、王冠（大衛）</strong>。</p>
+        <p>知道以賽亞在耶穌出生前大約七百年，就寫下「有一嬰孩為我們而生」，記得這嬰孩的四個名字。</p>
+        <p>知道這四個約最後都指向<strong>耶穌</strong>。</p>
+      </div>
+      <div class="col a">
+        <span class="eyebrow">態度</span>
+        <p><strong>天父說話算話，我可以放心信靠祂。</strong></p>
+        <p>等候的時候，我不放棄禱告。</p>
+        <p>我也學天父，答應的事認真做到。</p>
+      </div>
+      <div class="col r">
+        <span class="eyebrow">反思</span>
+        <p><mark>天父應許永不落空，千代守約愛不改變。</mark></p>
+        <p><mark class="warm">神的應許，不論有多少，在基督都是是的。</mark></p>
+        <p>我有沒有覺得神忘記我了？我答應別人的事，有沒有做到？</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 四篇章 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>故事四篇章</h2><span class="eyebrow">取自課程範例三</span></div>
+    <div class="nodes four">
+      <div class="node">
+        <span class="num">篇章一 · 彩虹與星星｜創 6-17｜#01-07</span>
+        <h3>彩虹與大族：<br>挪亞與亞伯拉罕</h3>
+        <ul>
+          <li>大水過後，神用彩虹和挪亞立約；神帶亞伯蘭數星星，應許後裔像星那樣多、萬國因他得福。</li>
+          <li>亮光：<strong>神主動跨出第一步與人立約，展現永不放棄的愛。</strong></li>
+          <li>第一關〈方舟有多大？〉、第二關〈數星星〉；鑰匙 1 彩虹、鑰匙 2 星星。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章二 · 石版與王冠｜出 19-20；撒下 7｜#08-11</span>
+        <h3>西奈山與榮耀國度：<br>摩西與大衛</h3>
+        <ul>
+          <li>神先救以色列人出埃及，在西奈山頒布十誡；神應許大衛的國位直到永遠。</li>
+          <li>亮光：<strong>律法是出於愛的保護；大衛之約預告一位永恆的君王。</strong></li>
+          <li>第三關〈保護還是綁住？〉、第四關〈誰蓋房子給誰？〉；鑰匙 3 石版、鑰匙 4 王冠。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章三 · 黑暗中的光｜賽 9；彌 5:2｜#12-14</span>
+        <h3>先知的預言：<br>在黑暗中仰望</h3>
+        <ul>
+          <li>以賽亞預言「有一嬰孩為我們而生」，彌迦說救主生在伯利恆；之後四百年沒有新的先知。</li>
+          <li>亮光：<strong>先知的預言是黑暗中的明燈；漫長的等待中，神的計畫仍一步步進行。</strong></li>
+          <li>互動〈七百年前的劇透〉、〈四百年的安靜〉（關燈）。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">篇章四 · 應許永不落空｜林後 1:20｜#15</span>
+        <h3>四個約：<br>完美指向耶穌</h3>
+        <ul>
+          <li>四把鑰匙打開寶盒，裡面是耶穌降生。舊約的故事不是結束，是預備好舞台，迎接耶穌。</li>
+          <li>亮光：<strong>耶穌是所有應許的總解答。</strong></li>
+          <li>終關〈打開應許寶盒〉，全班高呼「天父的應許，永不落空！耶穌來了！」</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 關聯經文 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>關聯經文</h2><span class="eyebrow">和合本 · 上課前請對照手邊譯本</span></div>
+    <div class="verses">
+      <p class="verse key">因有一嬰孩為我們而生；有一子賜給我們。政權必擔在他的肩頭上；他名稱為「奇妙策士、全能的神、永在的父、和平的君」。<span class="src">以賽亞書 9:6 · 課程範例主題經文</span></p>
+      <p class="verse">我把虹放在雲彩中，這就可作我與地立約的記號了。……虹必現在雲彩中，我看見，就要記念我與地上各樣有血肉的活物所立的永約。<span class="src">創世記 9:13, 16 · 鑰匙 1</span></p>
+      <p class="verse">於是領他走到外邊，說：「你向天觀看，數算眾星，能數得過來嗎？」又對他說：「你的後裔將要如此。」亞伯蘭信耶和華，耶和華就以此為他的義。<span class="src">創世記 15:5-6 · 第二關</span></p>
+      <p class="verse">我與你立約：你要作多國的父。從此以後，你的名不再叫亞伯蘭，要叫亞伯拉罕，因為我已立你作多國的父。<span class="src">創世記 17:4-5 · 鑰匙 2</span></p>
+      <p class="verse">我是耶和華—你的神，曾將你從埃及地為奴之家領出來。<span class="src">出埃及記 20:2 · 十誡的第一句 · 鑰匙 3</span></p>
+      <p class="verse">你壽數滿足、與你列祖同睡的時候，我必使你的後裔接續你的位；我也必堅定他的國。……你的家和你的國必在我面前永遠堅立。你的國位也必堅定，直到永遠。<span class="src">撒母耳記下 7:12, 16 · 鑰匙 4</span></p>
+      <p class="verse">在黑暗中行走的百姓看見了大光；住在死蔭之地的人有光照耀他們。……他必在大衛的寶座上治理他的國，……從今直到永遠。<span class="src">以賽亞書 9:2, 7 · #14 關燈、#11 → #12 的橋</span></p>
+      <p class="verse">伯利恆以法他啊，你在猶大諸城中為小，將來必有一位從你那裡出來，在以色列中為我作掌權的。<span class="src">彌迦書 5:2 · 劇透一</span></p>
+      <p class="verse">神的應許，不論有多少，在基督都是是的。<span class="src">哥林多後書 1:20 · #15</span></p>
+      <p class="verse">亞伯拉罕的後裔，大衛的子孫，耶穌基督的家譜。<span class="src">馬太福音 1:1 · 新約的第一句</span></p>
+      <p class="verse">他要為大，稱為至高者的兒子；主神要把他祖大衛的位給他。他要作雅各家的王，直到永遠；他的國也沒有窮盡。<span class="src">路加福音 1:32-33 · 12/13 的經文，#11 先預告</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 教學界線 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>教學界線</h2><span class="eyebrow">課程範例七＋兩條補充</span></div>
+    <div class="contrast">
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「你要乖乖守規矩，神才會愛你，才會遵守祂的約。」</p></div>
+        <div class="truth"><b>正確方向</b><p>約的根基是神無條件的恩典與愛。<strong>神先把以色列人從埃及救出來，才給他們十誡</strong>（出 20:2）。律法是愛的保護，不是換取愛的條件（課程範例界線 1）。</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「神會忘記，所以要彩虹提醒祂。」</p></div>
+        <div class="truth"><b>正確方向</b><p>「我看見，就要記念」（創 9:16）是神用人聽得懂的話保證：我一定做到。<mark class="warm">彩虹是給我們看的記號：神沒有忘記。</mark>（補充）</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「你爸爸媽媽答應你的事沒做到，就是不好。」</p></div>
+        <div class="truth"><b>正確方向</b><p>有的孩子經歷過大人失約、家庭變故。不評斷孩子的家人，而是告訴他：<mark>「地上的承諾可能會變，但天父對你的愛與承諾永遠不會改變。」</mark>（課程範例牧養提醒）</p></div>
+      </div>
+      <div class="crow">
+        <div class="said"><b>不要這樣講</b><p>「那四百年，神都不管他們了。」</p></div>
+        <div class="truth"><b>正確方向</b><p>四百年沒有新的先知，不代表神不在。「及至時候滿足，神就差遣他的兒子」（加 4:4）。<strong>等候的時候，神的計畫仍在進行</strong>（課程範例第三章亮光；補充）。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 重點剖析 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>重點剖析</h2><span class="eyebrow">給老師的背景</span></div>
+    <div class="prose">
+      <p><strong>「約」是神主動的約定。</strong>創世記 15 章立約時，只有「冒煙的爐並燒著的火把」從劈開的肉塊中間經過（15:17），亞伯蘭沒有走：等於神自己擔保這個約。聖經分成「舊約」「新約」，用的就是這個字；先知預告神要「另立新約」（耶 31:31），耶穌在最後的晚餐說「這杯是用我血所立的新約」（路 22:20）。今天的四個約，是一路走向新約的路。</p>
+      <p><strong>四個記號的出處。</strong>彩虹是經文明說的「記號」（創 9:12-13）。星星是應許的比喻（創 15:5）。石版上寫的是「約的話」（出 34:28），申命記直接叫它「立約的版」（申 9:9）。王冠是我們替大衛之約選的記號，經文說的是「國位」（撒下 7:13, 16）。</p>
+      <p><strong>經文範圍和故事圖不完全一樣。</strong>課程範例列的經文是創 6、9、15、17、撒下 7、賽 9:6；摩西之約不在經文範圍裡，但範例第二章有講，故事圖 #08-09 也有，所以照範例講。#02-03 的創造和離開伊甸園，台詞用創 3:15「女人的後裔」當作應許之路的起點。#13（撫摸小羊的老人）沒有對應的範例段落，台詞用賽 53:7 的羊羔、彌 5:2 的伯利恆來講。#10-11 背景裡的聖殿是畫家的想像：大衛時代聖殿還沒蓋，是他的兒子所羅門後來蓋的（撒下 7:13）。</p>
+      <p><strong>「後裔」是單數。</strong>保羅讀創世記的應許，說神「並不是說『眾子孫』，指著許多人，乃是說『你那一個子孫』，指著一個人，就是基督」（加 3:16）；又說屬基督的人「就是亞伯拉罕的後裔」（加 3:29）。#07「你和我也算在那片星星裡」就是從這裡來的。</p>
+      <p><strong>大衛的「家」是雙關。</strong>大衛想為神蓋「殿」，神說要為大衛建立「家室」，就是王朝，希伯來文是同一個字。所羅門蓋了聖殿，但「直到永遠」的國位最後指向耶穌：天使說「主神要把他祖大衛的位給他……他的國也沒有窮盡」（路 1:32-33）；新約第一句就是「亞伯拉罕的後裔，大衛的子孫，耶穌基督的家譜」（太 1:1）。</p>
+      <p><strong>以賽亞書 9 章的前後文。</strong>9:2「在黑暗中行走的百姓看見了大光」是 #14 關燈、#15 開箱見光的根據，馬太福音 4:16 引用它，說應驗在耶穌身上。9:7「他必在大衛的寶座上……直到永遠」把以賽亞的嬰孩和大衛之約接起來，是 #11 到 #12 的橋。</p>
+      <p><strong>系列的位置。</strong>《Jesus 耶穌系列》12 月四週：四個約與預言（12/6）→ 施洗約翰出生與天使報信（12/13，路 1）→ 耶穌降生（12/20）→ 耶穌受洗、開始傳道（12/27）。<strong>今天是序曲</strong>：#15 先讓孩子看見「答案是耶穌」，降生的故事 12/20 再完整講。</p>
+    </div>
+  </section>
+
+  <!-- ============ 流程 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>課程流程</h2><span class="eyebrow">20:00 總長</span></div>
+    <div class="runwrap">
+    <table class="run">
+      <thead><tr><th>起</th><th>長度</th><th>單元</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="tc">00:00</td><td class="dur">1'00"</td><td class="unit">開場與前情提要<br><span class="mono" style="font-size:11px;color:var(--ink-3)">#00 · 腓 2:6-7</span></td>
+          <td>
+            <ul>
+              <li>拿出用四條封條封住的<strong>應許寶盒</strong>，白板畫好金色的「應許之路」：「要打開它，需要四把金鑰匙，鑰匙藏在今天的故事裡。」</li>
+              <li>放上週的故事圖〈耶穌謙卑成為人〉，問：「耶穌為什麼要來到世界上？」</li>
+              <li>帶出：<strong>耶穌要來，是神好幾千年前就約好的。</strong>台詞見分鏡 #00。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">01:00</td><td class="dur">11'55"</td><td class="unit">經文故事＋闖關<br><span class="mono" style="font-size:11px;color:var(--ink-3)">15 幀 · 4 關</span></td>
+          <td>
+            <ul>
+              <li>依序播放 15 張故事圖，台詞見下方，每幀標了時間預算和屬於哪一把鑰匙。</li>
+              <li><strong>四道關卡：</strong>#04〈方舟有多大？〉、#06〈數星星〉、#09〈保護還是綁住？〉、#10〈誰蓋房子給誰？〉；<strong>兩個互動：</strong>#13〈七百年前的劇透〉、#14〈四百年的安靜〉。玩法見下方「四把金鑰匙」。</li>
+              <li><strong>四把鑰匙：</strong>#05 彩虹、#07 星星、#09 石版、#11 王冠。每把都是一個 ★ 鑰匙問題，答對的孩子上台貼鑰匙、撕一條封條。</li>
+              <li><strong>#15 開箱：</strong>燈還暗著時打開寶盒，LED 燈亮起，拿出耶穌降生圖卡；可接<a href="summary/">故事總結頁</a>，最後全班一起喊「天父的應許，永不落空！耶穌來了！」</li>
+              <li>來不及時砍 #02、#08（共省 45 秒）。<strong>#05、#07、#09、#11、#12、#14、#15 不能砍</strong>，鑰匙、關燈和開箱是一條線。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="tc">13:00</td><td class="dur">7'00"</td><td class="unit">手作與禱告<br><span class="mono" style="font-size:11px;color:var(--ink-3)">課程範例六</span></td>
+          <td>
+            <ul>
+              <li>🌈〈彩虹永約〉立體相框：彩虹底板<strong>從剛打開的寶盒裡拿出來發</strong> → 黏土搓成長條，沿彩虹弧線貼上 → 兩端黏上棉花雲 → 中間寫上「天父應許，永不落空！」→ 立起來，帶回家放在床頭。</li>
+              <li><strong>只有 7 分鐘，底板請先剪好、黏土先分成小球</strong>（或改用彩色紙條），金句可以先印成貼紙。</li>
+              <li>課程結束禱告（課程範例）：<mark>「親愛的天父，謝謝祢是那位守約施慈愛的神！從挪亞的彩虹、亞伯拉罕的繁星、摩西的十誡到大衛的王國，祢千百年來從來沒有忘記對我們的愛。主耶穌，謝謝祢來到世上，成就了天父所有的應許，讓我能成為祢最寶貴的孩子。求聖靈幫助我，學習祢的信實，做一個說話算話、有愛心、不放棄禱告的小勇士。奉主耶穌的名求，阿們！」</mark></li>
+              <li>帶孩子一句一句跟唸的短版（補充）：「天父，謝謝祢說話算話。謝謝祢差耶穌來。求祢幫助我，也學祢說話算話。阿們。」</li>
+              <li>本週任務（課程範例應用 1、2）：每天早上跟天父說「謝謝祢應許永遠不離開我」；練習<strong>說話算話</strong>，答應幫忙的事認真做到。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr class="total"><td class="tc">20:00</td><td class="dur">—</td><td colspan="2">教材：應許寶盒（盒子＋四條封條＋LED 電子蠟燭＋耶穌降生圖卡）、四把金鑰匙、白板與金色筆（或緞帶、黃色紙膠帶）、劇透卡三張、手電筒、彩虹底板、超輕黏土、棉花、彩色筆、白膠或雙面膠。道具都在<a href="props.pdf">道具檔</a>裡，可以直接印。</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ============ 四把金鑰匙 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>四把金鑰匙</h2><span class="eyebrow">課程範例第四章的寶盒 · 鑰匙藏在故事裡</span></div>
+    <p class="prose lede">課程範例說：「這四個約就像四把金鑰匙，最終通通指向同一個人：主耶穌基督！」開場拿出一個用四條封條封住的<strong>應許寶盒</strong>。故事每講完一個約，就問一個鑰匙問題，答對的孩子上台唸鑰匙、把鑰匙貼在白板的應許之路上，撕掉一條封條。四條都撕掉了，寶盒卻要等到「黑暗中的大光」出現才打開，裡面是耶穌。</p>
+
+    <div class="keys" aria-label="四把金鑰匙">
+      <div>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M3 17.5a9 9 0 0 1 18 0"/><path d="M6.5 17.5a5.5 5.5 0 0 1 11 0"/><path d="M10 17.5a2 2 0 0 1 4 0"/></svg></span>
+        <span class="src">第一把 · #05 · 挪亞之約</span>
+        <h3>彩虹</h3>
+        <p>★ 神跟挪亞約定了什麼？<br><span class="ans">答案：不再用洪水毀滅大地</span></p>
+        <p class="on">鑰匙上的字：「不再有洪水毀壞地了。」<span class="ref">創 9:11</span></p>
+      </div>
+      <div>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.8l-5.3 2.9 1.1-6-4.4-4.2 6-.8z"/></svg></span>
+        <span class="src">第二把 · #07 · 亞伯拉罕之約</span>
+        <h3>星星</h3>
+        <p>★ 神應許亞伯拉罕什麼？<br><span class="ans">答案：後代像星星一樣多／作多國的父／賜給他一塊地</span></p>
+        <p class="on">鑰匙上的字：「數算眾星……你的後裔將要如此。」<span class="ref">創 15:5</span></p>
+      </div>
+      <div>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M12.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M6 11h3M6 14h3M15 11h3M15 14h3"/></svg></span>
+        <span class="src">第三把 · #09 · 摩西之約</span>
+        <h3>石版</h3>
+        <p>★ 神先做了什麼，才給他們十誡？<br><span class="ans">答案：把他們從埃及救出來</span></p>
+        <p class="on">鑰匙上的字：「我是耶和華你的神，曾將你從埃及地為奴之家領出來。」<span class="ref">出 20:2</span></p>
+      </div>
+      <div>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5h16"/><path d="M5 18.5 3.5 8l5 3.8L12 5l3.5 6.8 5-3.8L19 18.5"/></svg></span>
+        <span class="src">第四把 · #11 · 大衛之約</span>
+        <h3>王冠</h3>
+        <p>★ 神應許大衛什麼？<br><span class="ans">答案：他的家要出一位永遠的王</span></p>
+        <p class="on">鑰匙上的字：「你的國位也必堅定，直到永遠。」<span class="ref">撒下 7:16</span></p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;margin:0 0 12px">白板上的應許之路</h3>
+    <div class="road" aria-label="應許之路"><div class="stop "><b>創造</b><span>起點 · 創 3:15</span></div><div class="stop k"><b>挪亞</b><span>很久以前</span></div><div class="stop k"><b>亞伯拉罕</b><span>主前約 2000 年</span></div><div class="stop k"><b>摩西</b><span>主前約 1400 年</span></div><div class="stop k"><b>大衛</b><span>主前約 1000 年</span></div><div class="stop "><b>以賽亞</b><span>主前約 700 年</span></div><div class="stop "><b>四百年</b><span>沒有新的先知</span></div><div class="stop end"><b>耶穌</b><span>應許成就</span></div></div>
+    <p class="road-note">每貼一把鑰匙，就在下面寫上年代。跟孩子說「耶穌出生前兩千年」比「主前」好懂。孩子會看到：這條路走了兩千多年，神一次都沒有忘記。</p>
+
+    <div class="nodes four">
+      <div class="node">
+        <span class="num">第一關 · 彩虹｜#04｜約 25 秒</span>
+        <h3>方舟有多大？</h3>
+        <ul>
+          <li>玩法：老師伸出手臂示範「一肘」（手肘到中指尖），問方舟 300 肘有多長：A 一間教室　B 一台遊覽車　C 比一個足球場還長。</li>
+          <li>揭曉：<strong>答案是 C：長約 135 公尺，高約四層樓。</strong></li>
+          <li>帶出：一滴雨都還沒下，挪亞就照神的話造方舟（創 6:22）。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">第二關 · 星星｜#06｜約 20 秒</span>
+        <h3>數星星</h3>
+        <ul>
+          <li>玩法：放 #06 星空圖，全班 10 秒數星星。</li>
+          <li>揭曉：<strong>數不完。這正是神出給亞伯蘭的題目：「你向天觀看，數算眾星，能數得過來嗎？」（創 15:5）</strong></li>
+          <li>帶出：那時候他一個孩子都沒有，還是相信神（創 15:6）。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">第三關 · 石版｜#09｜約 20 秒</span>
+        <h3>保護還是綁住？</h3>
+        <ul>
+          <li>玩法：老師說三個規定，覺得是「保護」就打開手掌、「綁住」就握拳：山路旁的護欄、游泳池「不可奔跑」、過馬路要牽手。</li>
+          <li>揭曉：<strong>三個都是保護。</strong></li>
+          <li>帶出：十誡第一句是「我曾將你從埃及地為奴之家領出來」：神先救，再教怎麼活（出 20:2）。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">第四關 · 王冠｜#10｜約 20 秒</span>
+        <h3>誰蓋房子給誰？</h3>
+        <ul>
+          <li>玩法：大衛想為神蓋房子，神怎麼回答？A「好啊」　B「不用了」　C「我要為你建立一個家」，孩子用手指比 1、2、3 投票。</li>
+          <li>揭曉：<strong>答案是 C：「我耶和華應許你，必為你建立家室。」（撒下 7:11）</strong></li>
+          <li>帶出：神送大衛的「家」，是一個直到永遠的王國。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nodes three">
+      <div class="node">
+        <span class="num">互動 · 預言｜#13｜約 40 秒</span>
+        <h3>七百年前的劇透</h3>
+        <ul>
+          <li>玩法：老師唸三張劇透卡，全班搶答是聖誕故事的哪一部分。</li>
+          <li>揭曉：<strong>伯利恆（彌 5:2）、童女生子（賽 7:14）、羊羔（賽 53:7）。</strong></li>
+          <li>帶出：神的計畫幾百年前就寫好了，一步一步照著發生。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">互動 · 等候｜#14｜約 15 秒</span>
+        <h3>四百年的安靜</h3>
+        <ul>
+          <li>玩法：助教關燈、拉上窗簾，全班安靜 10 秒。</li>
+          <li>揭曉：<strong>10 秒就很久，他們等了四百年。</strong></li>
+          <li>帶出：等候的時候，他們還是一直抬頭看（賽 9:2）。</li>
+        </ul>
+      </div>
+      <div class="node">
+        <span class="num">終關 · 耶穌｜#15｜約 40 秒</span>
+        <h3>打開應許寶盒</h3>
+        <ul>
+          <li>玩法：燈還暗著，請四位拿過鑰匙的孩子一起掀開盒蓋，LED 燈亮起，老師拿出耶穌降生圖卡。</li>
+          <li>揭曉：<strong>四把鑰匙打開的是耶穌。</strong></li>
+          <li>帶出：「在黑暗中行走的百姓看見了大光」（賽 9:2）；神的應許「在基督都是是的」（林後 1:20）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kit">
+      <h3>準備清單</h3>
+      <ul>
+        <li><strong>應許寶盒：</strong>鞋盒或禮物盒，包上金色或聖誕包裝紙，盒蓋用四條封條封住（<a href="props.pdf">道具檔</a>第 2 頁）。</li>
+        <li><strong>寶盒裡：</strong>LED 電子蠟燭一盞（上課前打開再蓋上）、耶穌降生圖卡（故事圖 #15 彩色印 A4）、手作用的彩虹底板。<strong>不要放糖果或禮物</strong>，寶盒裡最好的是耶穌。</li>
+        <li><strong>四把金鑰匙：</strong>道具檔第 1 頁，最好印在黃色或金色紙上，沿外框剪下，背面先貼好紙膠帶。</li>
+        <li><strong>應許之路：</strong>白板從左到右畫一條長路，終點畫一顆星（或貼金色緞帶、黃色紙膠帶），下方留位置寫年代。</li>
+        <li><strong>劇透卡三張：</strong>道具檔第 2 頁，答案倒著印在卡片下緣。第一到第四關不需要道具。</li>
+        <li><strong>燈和窗簾：</strong>先找好開關，請一位助教負責；手電筒一支備用，教室太亮時用它照著開箱。</li>
+        <li><strong>手作：</strong>彩虹底板（道具檔第 3 頁印在西卡紙上，一張兩個，先剪好）、超輕黏土（先分成小球，或改用彩色紙條）、棉花、彩色筆、白膠或雙面膠、立架（卡紙對摺即可）。</li>
+      </ul>
+      <p style="margin:14px 0 0;font-size:14px;color:var(--ink-2)"><a href="props.pdf">下載道具檔（PDF，3 頁）</a>：第 1 頁四把金鑰匙，第 2 頁寶盒封條和劇透卡，第 3 頁彩虹相框底板。</p>
+    </div>
+  </section>
+
+  <!-- ============ 分鏡台詞 ============ -->
+  <section>
+    <div class="sechead"><h2>分鏡台詞</h2><span class="eyebrow">15 幀 · 4 關 · 11:55</span></div>
+
+    <div class="frames">
+
+      <article class="frame">
+        <img src="img/00.jpg" alt="上週故事圖：馬槽裡的嬰孩耶穌，馬利亞和約瑟在旁邊，牛、驢和小羊圍著，屋外夜空有一顆亮星" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">00</span><span class="ftc">1:00</span><span class="tag axis-tag">前情提要</span><span class="tag">腓 2:6-7</span><span class="tag star">★ 快問快答</span><span class="tag game-tag">寶盒登場</span></div>
+          <h3>上禮拜，耶穌來了</h3>
+          <p class="game"><b>開場｜應許寶盒</b>桌上放一個用四條封條封住的寶盒。白板從左到右畫一條長長的金色「應許之路」，終點畫一顆星。</p>
+          <p>（指寶盒）今天這裡有一個<strong>應許寶盒</strong>，被四條封條封住了。要打開它，需要<strong>四把金鑰匙</strong>。鑰匙就藏在今天的故事裡，要仔細聽才找得到。</p>
+          <p>先看這張圖，記得嗎？上禮拜我們看到：耶穌本來是神，住在天上，可是祂願意放下一切，變成一個小嬰孩，躺在馬槽裡。</p>
+          <p class="ask">★ 快問快答：耶穌為什麼要來到世界上？</p>
+          <p>（等一兩個回答）你們知道嗎？耶穌要來，不是突然決定的。<mark>神在好幾千年前就約好了，</mark>而且說了一次又一次。今天我們就倒帶回去，把證據一個一個找出來。</p>
+          <p class="cite">腓立比書 2:6-7（上週故事）</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/01.jpg" alt="一條發著金光的小路彎彎曲曲穿過橄欖樹林，一直通到遠方地平線上的一顆亮星" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">01</span><span class="ftc">0:30</span><span class="tag axis-tag">應許之路</span></div>
+          <h3>一條很長的路</h3>
+          <p>你看這條路，金色的，彎彎曲曲，一直走到好遠好遠，盡頭有一顆好亮的星星。這條路叫做<strong>應許之路</strong>。（指白板上的長路）</p>
+          <p>聖經分成哪兩大部分？（舊約、新約）「約」就是<strong>約定</strong>。今天我們走舊約這一段，路上神跟人做了四個很重要的約定，就是四把金鑰匙。路的盡頭是什麼？走完就知道。</p>
+          <p class="cite">課程範例〈前情提要：四個神秘金鑰〉</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/02.jpg" alt="伊甸園裡有瀑布、小溪和開滿花的樹，幾隻小鹿在陽光下吃草" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">02</span><span class="ftc">0:20</span><span class="tag">可略</span><span class="tag axis-tag">應許之路</span></div>
+          <h3>起點：美好的世界</h3>
+          <p>路的起點在很久很久以前。神創造了一個好美的世界：有河、有花、有小鹿。神看著一切都<strong>甚好</strong>。那時候，人和神好親近。</p>
+          <p class="cite">創世記 1:31；2:8-10</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/03.jpg" alt="亞當拄著木杖、夏娃掩面哭泣，兩人從明亮的園子走向陰暗的樹林" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">03</span><span class="ftc">0:35</span><span class="tag axis-tag">應許之路</span><span class="tag">第一個應許</span></div>
+          <h3>神沒有放棄</h3>
+          <p>可是後來，人沒有聽神的話，罪進到世界裡，人和神的關係破掉了。你看，亞當和夏娃要離開這個園子，夏娃在哭，前面的路好暗。</p>
+          <p>但是神沒有放棄。就在那時候，神說了第一個應許：<mark>有一天，女人的後代會打敗那條騙人的蛇。</mark>意思是：有一天，會有一位救主來。應許之路，就從這裡開始。</p>
+          <p class="cite">創世記 3:15, 23</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/04.jpg" alt="挪亞一家人站在山坡上仰望天空，身後的方舟停在山頂，天上掛著一道彩虹" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">04</span><span class="ftc">0:50</span><span class="tag axis-tag">彩虹</span><span class="tag game-tag">第一關</span></div>
+          <h3>方舟有多大？</h3>
+          <p>過了很多年，地上的人越來越壞，到處欺負人、打架，神很難過。只有一個人不一樣，他叫<strong>挪亞</strong>。神對他說：「你要造一艘大船，叫方舟。<strong>我要與你立約。</strong>」這是聖經裡第一次出現「約」這個字！</p>
+          <p class="game"><b>第一關｜方舟有多大？</b>老師伸出手臂，指著手肘到中指尖：「這就是一肘。」神說方舟要長 300 肘。請孩子猜：A 像一間教室　B 像一台遊覽車　C 比一個足球場還長。</p>
+          <p>答案是 <strong>C</strong>！長大約 135 公尺，比一個足球場還長；高大約有四層樓。</p>
+          <p>那時候，一滴雨都還沒下喔。可是聖經說：<mark>「凡神所吩咐的，他都照樣行了。」</mark>挪亞相信神說的話。</p>
+          <p class="cite">創世記 6:13-22</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/05.jpg" alt="挪亞舉起雙手，一家人跪在草地上感謝神，彩虹橫跨停在山上的方舟" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">05</span><span class="ftc">0:50</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">彩虹</span><span class="tag key-tag">鑰匙 1</span></div>
+          <h3>彩虹是神的印章</h3>
+          <p>大水來了。方舟裡，挪亞一家八個人和動物都平安。大水退了，他們走出方舟，第一件事就是感謝神。</p>
+          <p>這時候天上出現了……（彩虹！）神說：「我把虹放在雲彩中，這就可作我與地立約的記號了。」<strong>以後不再有洪水毀壞地了。</strong>神還說，虹出現的時候，「我看見，就要記念」。</p>
+          <p><mark>彩虹就像神蓋的印章：我說到，就做到。</mark></p>
+          <p class="ask">★ 鑰匙問題：神跟挪亞約定了什麼？</p>
+          <p class="keyget"><span class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M3 17.5a9 9 0 0 1 18 0"/><path d="M6.5 17.5a5.5 5.5 0 0 1 11 0"/><path d="M10 17.5a2 2 0 0 1 4 0"/></svg></span><span><b>第一把鑰匙｜彩虹</b>請答對的孩子上來，唸鑰匙上的字，把鑰匙貼在白板的應許之路上，再撕掉寶盒上的彩虹封條。</span></p>
+          <p class="cite">創世記 7:13；8:20；9:11-16</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/06.jpg" alt="亞伯蘭站在帳棚外，張開雙手抬頭望著滿天星斗和銀河" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">06</span><span class="ftc">0:50</span><span class="tag axis-tag">星星</span><span class="tag game-tag">第二關</span></div>
+          <h3>數得完嗎？</h3>
+          <p>又過了很多年，神揀選了一個人，叫<strong>亞伯蘭</strong>。有一天晚上，神帶他走到帳棚外面。</p>
+          <p class="game"><b>第二關｜數星星</b>放這張星空圖，給全班 10 秒數天上的星星：「預備，開始！」</p>
+          <p>（10 秒）數完的舉手？數不完，對不對？其實神就是這樣考亞伯蘭的：<mark>「你向天觀看，數算眾星，能數得過來嗎？……你的後裔將要如此。」</mark></p>
+          <p>可是那時候，亞伯蘭有幾個孩子？<strong>一個都沒有</strong>，而且他已經很老了。聖經說：<strong>亞伯蘭信耶和華。</strong></p>
+          <p class="cite">創世記 15:2-6</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/07.jpg" alt="亞伯拉罕帶著家人和駱駝，在日出時望向一片有河流和田野的土地" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">07</span><span class="ftc">0:45</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">星星</span><span class="tag key-tag">鑰匙 2</span></div>
+          <h3>多國的父</h3>
+          <p>神跟他立約：「這一大片地，我要賜給你的後代。」到他九十九歲，神又說：「我是全能的神，你要作<strong>多國的父</strong>。」還把他的名字改成<strong>亞伯拉罕</strong>，意思就是「多國的父」。</p>
+          <p>神說，地上萬國都要因他的後代得福。這個後代，後來指的就是<strong>耶穌</strong>。所以今天信耶穌的你和我，也算在那片星星裡面喔！</p>
+          <p class="ask">★ 鑰匙問題：神應許亞伯拉罕什麼？</p>
+          <p class="keyget"><span class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.8l-5.3 2.9 1.1-6-4.4-4.2 6-.8z"/></svg></span><span><b>第二把鑰匙｜星星</b>答對的孩子上來唸鑰匙、貼上應許之路，撕掉星星封條。</span></p>
+          <p class="cite">創世記 15:18；17:1-8；22:18；加拉太書 3:16, 29</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/08.jpg" alt="摩西拄著杖登上西奈山，山頂被金色的光和雲包圍" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">08</span><span class="ftc">0:25</span><span class="tag">可略</span><span class="tag axis-tag">石版</span></div>
+          <h3>老鷹的翅膀</h3>
+          <p>亞伯拉罕的後代真的越來越多，成了以色列人。後來他們在埃及當奴隸，被欺負了好久。神早就告訴過亞伯拉罕會這樣，也說會救他們出來。</p>
+          <p>神派<strong>摩西</strong>帶他們走出埃及，來到西奈山。神說：「我如鷹將你們背在翅膀上，帶來歸我。」</p>
+          <p class="cite">創世記 15:13-14；出埃及記 19:4</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/09.jpg" alt="摩西雙手抱著兩塊石版，背後是發光的山" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">09</span><span class="ftc">0:55</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">石版</span><span class="tag game-tag">第三關</span><span class="tag key-tag">鑰匙 3</span></div>
+          <h3>保護還是綁住？</h3>
+          <p>在西奈山上，神把<strong>十條誡命</strong>寫在兩塊石版上，交給摩西。這就是神和以色列人立的約。</p>
+          <p class="game"><b>第三關｜保護還是綁住？</b>老師說三個規定，覺得是「保護」就打開手掌，覺得是「綁住」就握拳：山路旁的護欄／游泳池「不可奔跑」／過馬路要牽手。</p>
+          <p>都是保護，對不對？十誡也一樣。注意聽十誡的第一句：<mark>「我是耶和華你的神，曾將你從埃及地為奴之家領出來。」</mark><strong>神先救他們，才教他們怎麼活。</strong>不是「守規矩，神才愛你」，是「神愛你，所以告訴你怎樣活最好」。</p>
+          <p class="ask">★ 鑰匙問題：神先做了什麼，才給他們十誡？</p>
+          <p class="keyget"><span class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M12.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M6 11h3M6 14h3M15 11h3M15 14h3"/></svg></span><span><b>第三把鑰匙｜石版</b>答對的孩子上來唸鑰匙、貼上應許之路，撕掉石版封條。</span></p>
+          <p class="cite">出埃及記 20:1-2；31:18；34:28</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/10.jpg" alt="頭戴王冠的大衛抱著豎琴，仰望天上發光的寶座，遠處是耶路撒冷城" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">10</span><span class="ftc">0:45</span><span class="tag axis-tag">王冠</span><span class="tag game-tag">第四關</span></div>
+          <h3>誰蓋房子給誰？</h3>
+          <p>又過了好幾百年，以色列有一位很有名的王：<strong>大衛</strong>。還記得嗎？他小時候是放羊的。神說：「我從羊圈中將你召來，立你作王。」</p>
+          <p>有一天大衛想：「我住在漂亮的宮殿，神的約櫃卻在帳棚裡。我要為神蓋一間房子！」</p>
+          <p class="game"><b>第四關｜誰蓋房子給誰？</b>「你猜神怎麼回答？」A「好啊，謝謝你！」　B「不用了。」　C「不，是我要為你建立一個家。」請孩子用手指比 1、2、3 投票。</p>
+          <p>答案是 <strong>C</strong>！神說：<mark>「我耶和華應許你，必為你建立家室。」</mark>大衛想送神一間房子，神反過來送大衛一個「家」。</p>
+          <p class="cite">撒母耳記下 7:1-2, 8, 11</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/11.jpg" alt="雲中金色的寶座射下一道光，照在山丘上的耶路撒冷城" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">11</span><span class="ftc">0:40</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">王冠</span><span class="tag key-tag">鑰匙 4</span></div>
+          <h3>直到永遠的王</h3>
+          <p>神說的「家」，不是房子，是大衛的<strong>家族</strong>：「你的後代會接續你作王，<strong>你的國位也必堅定，直到永遠。</strong>」</p>
+          <p>直到永遠喔！可是大衛後來死了，後面的王也一個一個死了。那位「永遠的王」到底是誰？先記住這個問題。偷偷告訴你們：<strong>下禮拜，天使會對一個女孩說一句話，跟這句幾乎一模一樣。</strong></p>
+          <p class="ask">★ 鑰匙問題：神應許大衛什麼？</p>
+          <p class="keyget"><span class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5h16"/><path d="M5 18.5 3.5 8l5 3.8L12 5l3.5 6.8 5-3.8L19 18.5"/></svg></span><span><b>第四把鑰匙｜王冠</b>答對的孩子上來唸鑰匙、貼上應許之路，撕掉最後一條封條。</span></p>
+          <p class="cite">撒母耳記下 7:12-16；路加福音 1:32-33（12/13 預告）</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/12.jpg" alt="以賽亞坐在桌前用羽毛筆寫書卷，窗外的光中浮現一位母親抱著嬰孩" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">12</span><span class="ftc">0:55</span><span class="tag star">★ 必停．不可略</span><span class="tag axis-tag">黑暗中的光</span><span class="tag">主題經文</span></div>
+          <h3>一個嬰孩，四個名字</h3>
+          <p>四條封條都撕掉了！可是寶盒還不能開，因為神應許的那一位還沒有來。後來神派了很多<strong>先知</strong>對大家說話，其中一位叫<strong>以賽亞</strong>。在耶穌出生前大約七百年，他寫下了一段很驚人的話：</p>
+          <p><mark>「因有一嬰孩為我們而生；有一子賜給我們。……他名稱為奇妙策士、全能的神、永在的父、和平的君。」</mark></p>
+          <p class="ask">★ 這個嬰孩有四個名字，跟我做動作記起來：奇妙策士（手指點點頭）、全能的神（雙手舉起比力氣）、永在的父（雙手抱住自己）、和平的君（雙手合起來放胸口）。再快一次！</p>
+          <p>以賽亞還說，這個孩子要坐在<strong>大衛的寶座</strong>上，直到永遠。跟第四把鑰匙接起來了！</p>
+          <p class="cite">以賽亞書 9:6-7（課程範例主題經文）</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/13.jpg" alt="一位老人跪在地上，溫柔地撫摸一隻小羊，遠處山坡上是伯利恆小城" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">13</span><span class="ftc">1:00</span><span class="tag axis-tag">黑暗中的光</span><span class="tag game-tag">互動</span><span class="tag">劇透卡</span></div>
+          <h3>七百年前的劇透</h3>
+          <p>先知們還寫了好多「劇透」，在耶穌出生前好幾百年，就把聖誕故事的重點先說出來了！</p>
+          <p class="game"><b>互動｜七百年前的劇透</b>老師唸三張劇透卡，全班搶答：這是聖誕故事的哪一部分？</p>
+          <p>劇透一：「伯利恆啊……將來必有一位從你那裡出來。」（耶穌出生的地方！）你看圖的後面，那個小城就是伯利恆。</p>
+          <p>劇透二：「必有童女懷孕生子，給他起名叫以馬內利。」（馬利亞生耶穌！）以馬內利的意思是「神與我們同在」。</p>
+          <p>劇透三：「他像羊羔……」你看這隻小羊，好溫柔、好安靜。<mark>神要派來的王，不是兇巴巴的王，是像小羊一樣溫柔、願意為我們受苦的王。</mark></p>
+          <p class="cite">彌迦書 5:2；以賽亞書 7:14；53:7；馬太福音 1:23</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/14.jpg" alt="夜裡牧羊人和一家大小坐在山坡上，抬頭望著伯利恆上空一顆明亮的星" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">14</span><span class="ftc">0:40</span><span class="tag">不可略</span><span class="tag axis-tag">黑暗中的光</span><span class="tag game-tag">互動</span><span class="tag">關燈</span></div>
+          <h3>四百年的安靜</h3>
+          <p>先知說完這些話以後，就再也沒有新的先知了。整整<strong>四百年</strong>，沒有人再聽到神新的話。</p>
+          <p class="game"><b>互動｜四百年的安靜</b>請助教關燈、拉上窗簾。全班安靜 10 秒，一點聲音都不出。</p>
+          <p>（默數 10 秒）才 10 秒就好久，對不對？他們等了四百年。可是你看這些人，他們沒有放棄，一直抬頭看，一直等。以賽亞說過：<mark>「在黑暗中行走的百姓，看見了大光。」</mark></p>
+          <p>（燈先不要開）四把鑰匙都找齊了。我們來打開寶盒！</p>
+          <p class="cite">以賽亞書 9:2；加拉太書 4:4</p>
+        </div>
+      </article>
+
+      <article class="frame">
+        <img src="img/15.jpg" alt="伯利恆的馬槽裡，馬利亞和約瑟看著嬰孩耶穌，旁邊有驢和小羊，天上一顆亮星" loading="lazy">
+        <div>
+          <div class="fmeta"><span class="fnum">15</span><span class="ftc">1:55</span><span class="tag">不可略</span><span class="tag axis-tag">耶穌</span><span class="tag game-tag">終關</span><span class="tag">收尾</span></div>
+          <h3>寶盒裡的光</h3>
+          <p class="game"><b>終關｜打開應許寶盒</b>燈還暗著。請四位拿過鑰匙的孩子一起掀開盒蓋，盒子裡的 LED 燈亮起來；老師拿出耶穌降生圖卡。</p>
+          <p>（開箱）哇，有光！四把鑰匙打開的寶盒裡，是誰？（耶穌！）</p>
+          <p>（開燈，放這張圖）原來，神的應許一個一個都實現在耶穌身上：</p>
+          <ul class="recap"><li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M3 17.5a9 9 0 0 1 18 0"/><path d="M6.5 17.5a5.5 5.5 0 0 1 11 0"/><path d="M10 17.5a2 2 0 0 1 4 0"/></svg></span><span><strong>彩虹</strong>：神不放棄這個世界。耶穌來，因為神愛世人。</span></li><li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.8l-5.3 2.9 1.1-6-4.4-4.2 6-.8z"/></svg></span><span><strong>星星</strong>：萬國要因亞伯拉罕的後代得福。那個後代就是耶穌。</span></li><li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M12.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M6 11h3M6 14h3M15 11h3M15 14h3"/></svg></span><span><strong>石版</strong>：神的話刻在石頭上。耶穌來，要把神的話寫在我們心裡。</span></li><li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5h16"/><path d="M5 18.5 3.5 8l5 3.8L12 5l3.5 6.8 5-3.8L19 18.5"/></svg></span><span><strong>王冠</strong>：大衛的家要出一位永遠的王。就是耶穌。</span></li></ul>
+          <p>聖經說：<mark>「神的應許，不論有多少，在基督都是是的。」</mark>神答應過的每一件事，在耶穌身上都說「是！」新約聖經的第一句話就是：「亞伯拉罕的後裔，大衛的子孫，耶穌基督……」今天的兩把鑰匙，就寫在新約的第一句話裡！</p>
+          <p>我們一起大聲說：<strong>「天父的應許，永不落空！耶穌來了！」</strong></p>
+          <p>寶盒裡還有東西……（拿出彩虹底板）每次看到彩虹，就記得：天父說話算話。我們來做彩虹相框！</p>
+          <p class="prop"><b>可以投影〈故事總結〉頁</b>四把鑰匙那一段可以直接用<a href="summary/">故事總結頁</a>帶：四個記號一次點亮一個，最後全班一起喊。</p>
+          <p class="cite">約翰福音 3:16；加拉太書 3:16；哥林多後書 3:3；路加福音 1:32-33；哥林多後書 1:20；馬太福音 1:1</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ 給孩子的話 ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給孩子的話</h2><span class="eyebrow">依課程範例 take-away 與應用</span></div>
+    <p class="verse key" style="margin-bottom:18px">天父應許永不落空，千代守約愛不改變；緊緊抓住耶穌的愛，做個信實勇敢的小勇士！<span class="src">課程範例 · 課後 Take-away</span></p>
+    <div class="takeaways">
+      <div class="take"><span>01</span><p>信實｜天父說話算話，祂的應許永不落空！</p></div>
+      <div class="take"><span>02</span><p>指向耶穌｜四把鑰匙，都指向同一個人——耶穌！</p></div>
+      <div class="take"><span>03</span><p>說話算話｜我也學天父，答應的事認真做到！</p></div>
+      <div class="take"><span>04</span><p>不放棄｜等候的時候，我繼續禱告、繼續仰望！</p></div>
+    </div>
+  </section>
+
+  <!-- ============ Notes ============ -->
+  <section class="prep">
+    <div class="sechead"><h2>給大班老師的引導建議</h2><span class="eyebrow">含教材的教學界線</span></div>
+    <div class="notes">
+      <div class="note"><span class="n mono">01</span><p><b>四把鑰匙，讓四個不同的孩子上台。</b>四次鑰匙問題是四次上台的機會，優先給還沒發言的孩子。答案說得不完整也算，例如「不會再淹水」就可以。鑰匙上的字比較長，老師可以陪著一起唸。</p></div>
+      <div class="note"><span class="n mono">02</span><p><b>應許之路要一路留在白板上。</b>每貼一把鑰匙，就在下面寫上年代：亞伯拉罕約兩千年、摩西約一千四百年、大衛約一千年、以賽亞約七百年（都是「耶穌出生前」），最後是四百年的安靜，終點是耶穌。下課前整條路還在，孩子一眼就看得到：這條路走了兩千多年，神一次都沒有忘記。</p></div>
+      <div class="note"><span class="n mono">03</span><p><b>第 12 幀不能砍。</b>主題經文以賽亞書 9:6 和四個名字的動作在這裡。手作時可以再做一次動作，下課前再一次，孩子就記住了。</p></div>
+      <div class="note"><span class="n mono">04</span><p><b>關燈前先確認場地。</b>請一位助教負責燈和窗簾。有怕黑的孩子，就不要全暗，留一盞小燈；安靜 10 秒就好，不要拉長。教室太亮關不暗的話，改用手電筒照著開箱那一刻。</p></div>
+      <div class="note"><span class="n mono">05</span><p><b>開箱的光要先準備好。</b>LED 電子蠟燭上課前先打開，再蓋上盒蓋，放二十分鐘沒問題。開箱前先說「看到的人先不要說」，讓四位拿鑰匙的孩子一起掀開。</p></div>
+      <div class="note"><span class="n mono">06</span><p><b>寶盒裡不放糖果或禮物。</b>只放 LED 燈、耶穌降生圖卡和彩虹底板，免得孩子聽成「答對就有獎品」。寶盒裡最好的東西，是耶穌。</p></div>
+      <div class="note"><span class="n mono">07</span><p><b>孩子問「洪水淹死那麼多人和動物，神是不是很兇？」</b>照聖經說：地上滿了強暴，神心中憂傷（創 6:6, 11）；神容忍等待了很久（彼前 3:20），也為挪亞一家預備了方舟；而且神親口應許以後不再這樣做，這就是彩虹。洪水的經過簡短帶過，不需要描述細節。</p></div>
+      <div class="note"><span class="n mono">08</span><p><b>孩子問「神會忘記嗎？為什麼要彩虹提醒祂？」</b>可以說：「神不會忘記。神用我們聽得懂的話告訴我們：我一定會做到。彩虹是讓我們每次看見，都想起神沒有忘記。」若孩子提到生活中其他的彩虹圖案，簡單說「聖經裡彩虹第一次出現，是神立約的記號」就好，不展開討論。</p></div>
+      <div class="note"><span class="n mono">09</span><p><b>「說話算話」的應用不要變成檢討大會。</b>班上可能有孩子經歷過大人失約、父母離異。不要問「誰的爸媽說話不算話」。用課程範例的牧養提醒：「地上的承諾可能會變，但天父對你的愛與承諾永遠不會改變，神是你最堅固的避難所。」</p></div>
+      <div class="note"><span class="n mono">10</span><p><b>第 13 幀的羔羊點到為止。</b>說到「願意為我們受苦」就好，十字架的細節留給受難節。12/27 的經文（約 1:29）會出現「看哪，神的羔羊」，到時候可以接回來。</p></div>
+      <div class="note"><span class="n mono">11</span><p><b>前情提要只抓一件事。</b>上週的「耶穌願意放下一切，成為人」（腓 2:6-7）。上週講的「活祭」今天不用重講，開場控制在一分鐘。</p></div>
+      <div class="note"><span class="n mono">12</span><p><b>時間快超過時的取捨順序：</b>先砍第 02、08 幀（共省 45 秒）；再不夠，第三關只說一個例子、第一關直接公布答案。<b>不要砍第 05、07、09、11（四把鑰匙）、12（主題經文）、14、15（關燈和開箱）。</b></p></div>
+      <div class="note"><span class="n mono">13</span><p><b>跟下週接起來。</b>12/13 的經文是路加福音 1 章。天使對馬利亞說「主神要把他祖大衛的位給他……他的國也沒有窮盡」（路 1:32-33），就是第四把鑰匙；撒迦利亞唱「記念他的聖約，就是他對我們祖宗亞伯拉罕所起的誓」（路 1:72-73），就是第二把鑰匙。#11 已經先預告，可以告訴 12/13 的故事老師。</p></div>
+      <div class="note"><span class="n mono">14</span><p><b>手作只有 7 分鐘。</b>彩虹底板先剪好，超輕黏土先分成小球；七個顏色太多的話，用三、四個顏色或彩色紙條也可以。金句「天父應許，永不落空！」可以先印成貼紙。</p></div>
+      <div class="note"><span class="n mono">15</span><p><b>哪些是範例、哪些是另外編的。</b>四個約、四大篇章、主題經文、四把金鑰匙打開寶盒、關燈點燈、全班高呼、應用、take-away、教學界線、手作與禱告文取自 12 月課程範例。標題《四把金鑰匙》、「彩虹 → 星星 → 石版 → 王冠 → 耶穌」、#00 用 11/29 的故事圖、#03 的創 3:15、應許之路和封條、四道關卡、七百年前的劇透、#13 的羊羔與伯利恆、#15 的林後 1:20 與太 1:1、短版禱告，是依範例方向另外編的。Canva 上 12/6 大班的投影片目前內容還是舊的〈建造會幕〉，所以流程表後 7 分鐘先照課程範例的手作與禱告排；投影片改好後，再把 #15 的交棒句對齊。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 創世記 6-17；撒母耳記下 7；以賽亞書 9:6 · 2026.12.06</span>
+    <span>彩虹 → 星星 → 石版 → 王冠 → 耶穌</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('root');
+  var bp = document.getElementById('btnPrep');
+  var bs = document.getElementById('btnStage');
+  var hint = document.getElementById('hint');
+  var KEY = 'four-keys-lesson-mode';
+
+  function set(mode, persist){
+    root.dataset.mode = mode;
+    var stage = mode === 'stage';
+    bp.setAttribute('aria-pressed', String(!stage));
+    bs.setAttribute('aria-pressed', String(stage));
+    hint.textContent = stage ? '只留分鏡台詞 · 放大字級' : '完整教案 · 備課用';
+    if (persist) { try { localStorage.setItem(KEY, mode); } catch (e) {} }
+  }
+
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'stage' || saved === 'prep') set(saved, false);
+  } catch (e) {}
+
+  bp.addEventListener('click', function(){ set('prep', true); });
+  bs.addEventListener('click', function(){ set('stage', true); window.scrollTo({top: 0}); });
+})();
+</script>
+
+</body>
+</html>

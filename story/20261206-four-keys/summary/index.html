@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hope Kids 台中分部 大班故事總結：《四把金鑰匙》舊約四個約與耶穌降生的預言。講完故事後，用彩虹、星星、石版、王冠四把鑰匙帶孩子回顧，最後指向耶穌；投影用一頁加帶領台詞。">
+<title>四把金鑰匙｜故事總結</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;700;900&display=swap">
+<style>
+:root{
+  --ground:#faf9f6; --surface:#ffffff; --surface-2:#f2f0ea;
+  --ink:#1b1822; --ink-2:#4a4556; --ink-3:#7c7689;
+  --rule:#e3e0d8; --rule-2:#cec9be;
+  --ember:#b06410; --ember-bg:#f7ead6; --mark:#fbeaa8; --shine:#fff1bd;
+  --r1:#d4433a; --r2:#e7862a; --r3:#d9a91c; --r4:#3d9554; --r5:#3473bd; --r6:#7550ad;
+  --shadow:0 1px 2px rgba(27,24,34,.06), 0 8px 24px -12px rgba(27,24,34,.18);
+
+  --serif:"Noto Serif TC",Georgia,"Songti TC","PMingLiU",serif;
+  --sans:-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+    --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+    --rule:#312c3d; --rule-2:#463f55;
+    --ember:#e3a44c; --ember-bg:#33261a; --mark:#4b4020; --shine:#fff8de;
+    --r1:#f07468; --r2:#f6a452; --r3:#f1cd52; --r4:#6cc283; --r5:#72a8ea; --r6:#ad89df;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141119; --surface:#1d1a25; --surface-2:#262130;
+  --ink:#eee9f2; --ink-2:#b4adc0; --ink-3:#827b92;
+  --rule:#312c3d; --rule-2:#463f55;
+  --ember:#e3a44c; --ember-bg:#33261a; --mark:#4b4020; --shine:#fff8de;
+  --r1:#f07468; --r2:#f6a452; --r3:#f1cd52; --r4:#6cc283; --r5:#72a8ea; --r6:#ad89df;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:0 auto;padding:0 28px 96px}
+
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:26px 0 18px}
+.backlink{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--ink-3);
+  text-decoration:none;border:1px solid var(--rule-2);border-radius:999px;padding:6px 16px;transition:color .16s,border-color .16s}
+.backlink:hover,.backlink:focus-visible{color:var(--ember);border-color:var(--ember)}
+.backlink:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.top p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* ---------- 投影畫面：所有尺寸用 cqw，跟著畫面寬度等比縮放 ---------- */
+.frame{container-type:inline-size;width:100%;margin:0 auto}
+.stage{position:relative;aspect-ratio:16/9;background:var(--surface);border-radius:14px;box-shadow:var(--shadow);
+  padding:2.6cqw 3.4cqw 2.5cqw;display:flex;flex-direction:column;overflow:hidden;cursor:pointer;
+  -webkit-user-select:none;user-select:none}
+
+.head{display:flex;align-items:baseline;gap:1.2cqw}
+.head h1{font-family:var(--serif);font-weight:700;font-size:2.4cqw;line-height:1.2;margin:0;letter-spacing:.06em}
+.head .ref{font-size:1.15cqw;color:var(--ink-3);letter-spacing:.04em}
+.dots{margin:0 0 0 auto;padding:0;list-style:none;display:flex;gap:.55cqw;align-self:center}
+.dots li{width:.62cqw;height:.62cqw;border-radius:50%;background:var(--rule-2);transition:background .3s}
+.dots li.on{background:var(--ember)}
+
+.steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;grid-template-rows:repeat(4,auto);
+  column-gap:1.3cqw;margin-top:2.1cqw}
+.step{display:grid;grid-row:1 / span 4;grid-template-rows:subgrid;align-content:start;opacity:.2;transition:opacity .45s ease}
+.s1{grid-column:1}.s2{grid-column:3}.s3{grid-column:5}.s4{grid-column:7}
+
+.pic{margin:0;aspect-ratio:16/9;border-radius:.8cqw;background:var(--surface-2);overflow:hidden;
+  outline:.22cqw solid transparent;outline-offset:.35cqw;transition:outline-color .3s}
+.pic img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+
+.word{font-family:var(--serif);font-size:5.4cqw;line-height:1.1;margin:1.2cqw 0 0;font-weight:700;letter-spacing:.02em;
+  display:flex;align-items:center;gap:.16em;white-space:nowrap}
+.word .wi{flex:none;width:.66em;height:.66em;color:var(--ember)}
+.word .wi svg{display:block;width:100%;height:100%}
+.word .t{display:inline-block}
+.story{font-size:1.75cqw;line-height:1.5;color:var(--ink-2);margin:.8cqw 0 0;
+  opacity:0;transform:translateY(.6cqw);transition:opacity .45s ease,transform .45s ease}
+.me{position:relative;font-size:1.75cqw;line-height:1.5;font-weight:700;margin:1cqw 0 0;padding-top:1cqw;
+  opacity:0;transform:translateY(.6cqw);transition:opacity .45s ease,transform .45s ease}
+.me::before{content:"";position:absolute;left:0;top:0;width:2.6cqw;height:.18cqw;border-radius:1px;background:var(--ember)}
+.me .to{display:block;font-size:1.1cqw;line-height:1.6;letter-spacing:.14em;color:var(--ember);font-weight:700}
+
+.arrow{grid-row:2;align-self:center;width:2.2cqw;margin-top:1.2cqw;color:var(--ink-3);opacity:.25;transition:opacity .4s}
+.arrow svg{display:block;width:100%;height:auto}
+.arrow.on{opacity:1}
+.a1{grid-column:2}.a2{grid-column:4}.a3{grid-column:6}
+
+.step.on{opacity:1}
+.step.on .pic img{opacity:1}
+.step.on .story,.step.on .me{opacity:1;transform:none}
+.step.on .me{transition-delay:.2s}
+.step.now .pic{outline-color:var(--ember)}
+
+/* 四個詞自己演出意思：彩虹被一道七彩畫過去；星星閃一下；石版很重、落下來；王冠閃出金光 */
+.s1.on .word .t{background:linear-gradient(90deg,var(--r1),var(--r2),var(--r3),var(--r4),var(--r5),var(--r6));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.s1.now .word .t{animation:sweep 1.1s ease}
+@keyframes sweep{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.s2 .word .wi{transform-origin:50% 55%}
+.s2.now .word .wi{animation:twinkle 1s ease}
+@keyframes twinkle{0%{transform:scale(.3) rotate(-40deg);opacity:0}55%{transform:scale(1.35) rotate(12deg);opacity:1}100%{transform:none}}
+.s2 .word .t{transition:letter-spacing .8s ease}
+.s2.on .word .t{letter-spacing:.12em}
+.s3 .word{font-weight:900}
+.s3.now .word{animation:thud .55s cubic-bezier(.3,.7,.3,1)}
+@keyframes thud{0%{transform:translateY(-1.2cqw);opacity:.4}60%{transform:translateY(.25cqw)}80%{transform:translateY(-.08cqw)}100%{transform:none}}
+.s4.on .word .t{background:linear-gradient(100deg,var(--ember) 42%,var(--shine) 50%,var(--ember) 58%) 100% 0 / 260% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.s4.now .word .t{animation:shine 1.3s ease .15s both}
+@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+
+.foot{margin:auto 0;display:grid;text-align:center}
+.foot > *{grid-area:1 / 1;margin:0;transition:opacity .5s ease,transform .5s ease}
+.cue{font-size:1.9cqw;color:var(--ink-3);opacity:0;align-self:center}
+.cue.on{opacity:1}
+.key{display:flex;align-items:center;justify-content:center;gap:1.8cqw;opacity:0;transform:translateY(1cqw)}
+.key.on{opacity:1;transform:none}
+.key img{flex:none;height:7cqw;aspect-ratio:16/9;object-fit:cover;border-radius:.7cqw;box-shadow:var(--shadow)}
+.key .kt{font-family:var(--serif);font-weight:700;font-size:2.7cqw;line-height:1.35;text-align:left}
+.key .kt > span{display:block}
+.key .kt > span:first-child{font-size:.62em;color:var(--ink-2);letter-spacing:.06em}
+.key .kt .nb{display:inline-block}
+
+/* ---------- 全螢幕投影 ---------- */
+.screen:fullscreen{display:flex;align-items:center;justify-content:center;width:100vw;height:100vh;background:var(--surface)}
+.screen:fullscreen .frame{width:min(100vw,calc(100vh * 16 / 9))}
+.screen:fullscreen .stage{border-radius:0;box-shadow:none}
+.screen:-webkit-full-screen{display:flex;align-items:center;justify-content:center;width:100vw;height:100vh;background:var(--surface)}
+.screen:-webkit-full-screen .frame{width:min(100vw,calc(100vh * 16 / 9))}
+.screen:-webkit-full-screen .stage{border-radius:0;box-shadow:none}
+
+/* ---------- 操作列 ---------- */
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
+.controls button,.controls a{font:inherit;font-size:14px;line-height:1.4;padding:8px 16px;border-radius:999px;
+  border:1px solid var(--rule-2);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none}
+.controls button:hover,.controls a:hover{border-color:var(--ember);color:var(--ember)}
+.controls button:focus-visible,.controls a:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.controls button:disabled{opacity:.4;cursor:default;border-color:var(--rule-2);color:var(--ink)}
+.controls .primary{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.controls .primary:hover{background:var(--ember);border-color:var(--ember);color:#fff}
+.controls .primary:disabled{background:var(--surface);color:var(--ink);border-color:var(--rule-2)}
+.controls .status{font-size:14px;color:var(--ink-2);margin-right:auto;padding-left:4px}
+.hint{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
+
+/* ---------- 帶領台詞 ---------- */
+.script{margin-top:56px;max-width:46em}
+.script h2{font-family:var(--serif);font-size:24px;margin:0 0 8px;letter-spacing:.03em}
+.script .when{color:var(--ink-2);font-size:15px;line-height:1.85;margin:0 0 22px}
+.beats{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.beats li{display:grid;grid-template-columns:6em 1fr;gap:16px;padding:16px 12px;border-bottom:1px solid var(--rule);
+  transition:background .3s}
+.beats li.now{background:var(--ember-bg)}
+.beats .bn{font:inherit;text-align:left;background:none;border:0;padding:0;color:var(--ink);cursor:pointer;align-self:start}
+.beats .bn b{display:block;font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.5}
+.beats .bn span{display:block;font-size:12px;color:var(--ink-3)}
+.beats .bn:hover b{color:var(--ember)}
+.beats .bn:focus-visible{outline:2px solid var(--ember);outline-offset:4px;border-radius:4px}
+.beats p{margin:0 0 6px;font-size:15.5px;line-height:1.85}
+.beats p:last-child{margin-bottom:0}
+.beats p > b{display:inline-block;min-width:2.8em;color:var(--ember)}
+.beats .guard{font-size:13.5px;color:var(--ink-3)}
+
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em;color:var(--ink-3)}
+
+/* ---------- 手機：改成直排，字級改用固定大小 ---------- */
+@media (max-width:760px){
+  .page{padding:0 16px 72px}
+  .stage{aspect-ratio:auto;padding:22px 18px 26px;border-radius:12px}
+  .head{flex-wrap:wrap;row-gap:2px}
+  .head h1{font-size:24px}
+  .head .ref{font-size:13px}
+  .dots{gap:6px}
+  .dots li{width:7px;height:7px}
+  .steps{display:block;margin-top:18px}
+  .step{display:block}
+  .arrow{display:block;width:22px;margin:14px auto;transform:rotate(90deg)}
+  .pic{border-radius:8px;outline-width:2px;outline-offset:3px}
+  .word{font-size:40px;margin-top:12px}
+  .story,.me{font-size:17px}
+  .story{margin-top:6px}
+  .me{margin-top:10px;padding-top:10px}
+  .me::before{width:24px;height:2px}
+  .me .to{font-size:12px}
+  .foot{margin-top:24px}
+  .cue{font-size:16px}
+  .key{flex-direction:column;gap:12px}
+  .key img{height:auto;width:100%;border-radius:8px}
+  .key .kt{font-size:22px;text-align:center}
+  .beats li{grid-template-columns:1fr;gap:6px}
+}
+
+/* ---------- 截圖用（?shot）、直接全部顯示（?all） ---------- */
+html.shot body{background:var(--surface)}
+html.shot .page{max-width:none;padding:0}
+html.shot .top,html.shot .controls,html.shot .hint,html.shot .script,html.shot footer{display:none}
+html.shot .stage{border-radius:0;box-shadow:none}
+html.shot .dots{visibility:hidden}
+html.instant *,html.instant *::before{transition:none!important;animation:none!important}
+
+@media (prefers-reduced-motion:reduce){*,*::before{transition:none!important;animation:none!important}}
+@media print{
+  body{background:#fff}
+  .top,.controls,.hint{display:none}
+  .stage{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+  .step,.step .pic img,.step .story,.step .me,.key,.arrow{opacity:1!important;transform:none!important}
+  .word .t{background:none!important;-webkit-text-fill-color:currentColor!important}
+  .cue{display:none}
+  .beats li{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="top">
+    <a class="backlink" href="../">&#8592; 回到《四把金鑰匙》教案</a>
+    <p>講完故事後的總結：四把鑰匙一次點亮一把，最後打開的是耶穌，全班一起喊。</p>
+  </div>
+
+  <div class="screen" id="screen">
+    <div class="frame">
+      <div class="stage" id="stage" data-step="0">
+
+        <div class="head">
+          <h1>四把金鑰匙</h1>
+          <span class="ref">創世記 9、15、17 · 出埃及記 20 · 撒母耳記下 7 · 以賽亞書 9:6</span>
+          <ol class="dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+        </div>
+
+        <div class="steps">
+          <div class="step s1">
+            <figure class="pic"><img src="../img/05.jpg" alt="挪亞舉起雙手，一家人跪在草地上感謝神，彩虹橫跨停在山上的方舟"></figure>
+            <h2 class="word"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M3 17.5a9 9 0 0 1 18 0"/><path d="M6.5 17.5a5.5 5.5 0 0 1 11 0"/><path d="M10 17.5a2 2 0 0 1 4 0"/></svg></span><span class="t">彩虹</span></h2>
+            <p class="story">神說：以後不再有<br>洪水毀壞地了</p>
+            <p class="me"><span class="to">指向耶穌</span>神不放棄這個世界，<br>因為神愛世人</p>
+          </div>
+          <span class="arrow a1" aria-hidden="true"><svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h38M31 2l9 8-9 8"/></svg></span>
+          <div class="step s2">
+            <figure class="pic"><img src="../img/06.jpg" alt="亞伯蘭站在帳棚外，張開雙手抬頭望著滿天星斗和銀河"></figure>
+            <h2 class="word"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 16.8l-5.3 2.9 1.1-6-4.4-4.2 6-.8z"/></svg></span><span class="t">星星</span></h2>
+            <p class="story">你的後代要像<br>星星那麼多</p>
+            <p class="me"><span class="to">指向耶穌</span>萬國因耶穌得福，<br>也包括我</p>
+          </div>
+          <span class="arrow a2" aria-hidden="true"><svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h38M31 2l9 8-9 8"/></svg></span>
+          <div class="step s3">
+            <figure class="pic"><img src="../img/09.jpg" alt="摩西雙手抱著兩塊石版，背後是發光的山"></figure>
+            <h2 class="word"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M12.5 20V8.5a4 4 0 0 1 8 0V20z"/><path d="M6 11h3M6 14h3M15 11h3M15 14h3"/></svg></span><span class="t">石版</span></h2>
+            <p class="story">神先救他們，<br>再給他們十誡</p>
+            <p class="me"><span class="to">指向耶穌</span>耶穌把神的話<br>寫在我心裡</p>
+          </div>
+          <span class="arrow a3" aria-hidden="true"><svg viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10h38M31 2l9 8-9 8"/></svg></span>
+          <div class="step s4">
+            <figure class="pic"><img src="../img/11.jpg" alt="雲中金色的寶座射下一道光，照在山丘上的耶路撒冷城"></figure>
+            <h2 class="word"><span class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18.5h16"/><path d="M5 18.5 3.5 8l5 3.8L12 5l3.5 6.8 5-3.8L19 18.5"/></svg></span><span class="t">王冠</span></h2>
+            <p class="story">大衛的國位，<br>直到永遠</p>
+            <p class="me"><span class="to">指向耶穌</span>耶穌就是那位<br>永遠的王</p>
+          </div>
+        </div>
+
+        <div class="foot">
+          <p class="cue on">四把鑰匙，一把一把點亮</p>
+          <div class="key">
+            <img src="../img/15.jpg" alt="伯利恆的馬槽裡，馬利亞和約瑟看著嬰孩耶穌，旁邊有驢和小羊，天上一顆亮星">
+            <p class="kt"><span>四把鑰匙，都指向耶穌</span><span>天父的應許，永不落空！<span class="nb">耶穌來了！</span></span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button type="button" id="prev">&#8592; 上一步</button>
+    <button type="button" id="next" class="primary">下一步 &#8594;</button>
+    <span class="status" id="status" aria-live="polite">還沒開始：四把鑰匙都是暗的</span>
+    <button type="button" id="all">全部顯示</button>
+    <button type="button" id="theme">換深色</button>
+    <button type="button" id="fs">全螢幕投影</button>
+    <a href="summary.png" download="四把金鑰匙-故事總結.png">下載圖片</a>
+  </div>
+  <p class="hint">投影時按 F 進入全螢幕。→、空白鍵或點一下畫面是下一步，← 是上一步，簡報遙控器也能用。「下載圖片」是全部顯示的 1920×1080 圖，可以直接放進簡報。</p>
+
+  <section class="script">
+    <h2>怎麼帶</h2>
+    <p class="when">放在 #15 開箱之後、開始手作之前，約 1 分鐘。#15 台詞裡「四把鑰匙都實現在耶穌身上」那一段，可以直接用這頁帶。時間不夠時，照教案先砍 #02、#08。</p>
+    <ol class="beats" id="beats">
+      <li>
+        <button type="button" class="bn" data-go="0"><b>開始</b><span>四把鑰匙都是暗的</span></button>
+        <div>
+          <p><b>說</b>「寶盒打開了，裡面是耶穌。我們把四把鑰匙再走一遍，看看每一把怎樣指向耶穌。」</p>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="bn" data-go="1"><b>彩虹</b><span>第 1 步</span></button>
+        <div>
+          <p><b>問</b>「第一把鑰匙是什麼記號？神跟挪亞約定了什麼？」（彩虹；以後不再有洪水毀壞地）</p>
+          <p><b>說</b>「神不放棄這個世界。後來祂差耶穌來，因為神愛世人。」</p>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="bn" data-go="2"><b>星星</b><span>第 2 步</span></button>
+        <div>
+          <p><b>問</b>「亞伯拉罕數得完星星嗎？那時候他有幾個孩子？」（數不完；一個都沒有）</p>
+          <p><b>說</b>「神說萬國要因他的後代得福，那個後代就是耶穌。信耶穌的我們，也在那片星星裡。」</p>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="bn" data-go="3"><b>石版</b><span>第 3 步</span></button>
+        <div>
+          <p><b>問</b>「神先做了什麼，才給他們十誡？」（把他們從埃及救出來）</p>
+          <p><b>說</b>「神的話刻在石頭上。耶穌來了，要把神的話寫在我們心裡。」</p>
+          <p class="guard">不說「守規矩，神才愛你」。順序是神先救，再教我們怎麼活。</p>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="bn" data-go="4"><b>王冠</b><span>第 4 步</span></button>
+        <div>
+          <p><b>問</b>「神應許大衛什麼？」（他的家要出一位永遠的王）</p>
+          <p><b>說</b>「大衛死了，後面的王也死了。永遠的王是誰？就是耶穌。下禮拜，天使會親口說出來。」</p>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="bn" data-go="5"><b>一起喊</b><span>第 5 步</span></button>
+        <div>
+          <p><b>全班</b>「天父的應許，永不落空！耶穌來了！」</p>
+          <p>喊完從寶盒裡拿出彩虹底板，開始手作。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>HopeKids 大班 · 創世記 6-17；撒母耳記下 7；以賽亞書 9:6 · 2026.12.06</span>
+    <span>彩虹 → 星星 → 石版 → 王冠 → 耶穌</span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var screen = document.getElementById('screen');
+  var stage = document.getElementById('stage');
+  var steps = stage.querySelectorAll('.step');
+  var arrows = stage.querySelectorAll('.arrow');
+  var dots = stage.querySelectorAll('.dots li');
+  var cue = stage.querySelector('.cue');
+  var key = stage.querySelector('.key');
+  var status = document.getElementById('status');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var all = document.getElementById('all');
+  var fs = document.getElementById('fs');
+  var beats = document.querySelectorAll('#beats li');
+  var NAMES = ['開始', '彩虹', '星星', '石版', '王冠', '一起喊'];
+  var MAX = 5;
+  var step = 0;
+
+  function render(){
+    stage.setAttribute('data-step', step);
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].classList.toggle('on', i < step);
+      steps[i].classList.toggle('now', i === step - 1 && step < MAX);
+    }
+    for (var j = 0; j < arrows.length; j++) arrows[j].classList.toggle('on', step >= j + 2);
+    for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('on', k < step);
+    for (var b = 0; b < beats.length; b++) beats[b].classList.toggle('now', b === step);
+    cue.classList.toggle('on', step === 0);
+    key.classList.toggle('on', step === MAX);
+    status.textContent = step === 0 ? '還沒開始：四把鑰匙都是暗的' : '第 ' + step + ' 步／共 ' + MAX + ' 步：' + NAMES[step];
+    prev.disabled = step === 0;
+    next.disabled = step === MAX;
+    all.textContent = step === MAX ? '從頭開始' : '全部顯示';
+  }
+  function go(n){ step = Math.max(0, Math.min(MAX, n)); render(); }
+
+  var q = location.search;
+  var themeBtn = document.getElementById('theme');
+  var THEME_KEY = 'four-keys-summary-theme';
+  function isDark(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function syncTheme(){ themeBtn.textContent = isDark() ? '換淺色' : '換深色'; }
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) {}
+  var forced = q.match(/[?&](light|dark)\b/);
+  if (forced) root.setAttribute('data-theme', forced[1]);
+  else if (savedTheme === 'light' || savedTheme === 'dark') root.setAttribute('data-theme', savedTheme);
+  syncTheme();
+  themeBtn.addEventListener('click', function(){
+    var t = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', t);
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+    syncTheme();
+  });
+
+  if (/[?&]shot\b/.test(q)) root.classList.add('shot', 'instant');
+  if (/[?&](all|shot)\b/.test(q)) { root.classList.add('instant'); step = MAX; }
+  var m = q.match(/[?&]step=(\d)/);
+  if (m) { root.classList.add('instant'); step = Math.min(MAX, +m[1]); }
+  // 手機是拿來看、不是拿來投影：沒指定時直接全部顯示
+  else if (!/[?&](all|shot)\b/.test(q) && window.matchMedia && window.matchMedia('(max-width: 760px)').matches) {
+    root.classList.add('instant'); step = MAX;
+  }
+  render();
+  if (root.classList.contains('instant') && !root.classList.contains('shot')) {
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ root.classList.remove('instant'); }); });
+  }
+
+  prev.addEventListener('click', function(){ go(step - 1); });
+  next.addEventListener('click', function(){ go(step + 1); });
+  all.addEventListener('click', function(){ go(step === MAX ? 0 : MAX); });
+  stage.addEventListener('click', function(){ go(step === MAX ? MAX : step + 1); });
+  for (var b = 0; b < beats.length; b++) {
+    beats[b].querySelector('.bn').addEventListener('click', function(){ go(+this.getAttribute('data-go')); });
+  }
+
+  var canFs = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+  function isFs(){ return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function toggleFs(){
+    if (isFs()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = screen.requestFullscreen || screen.webkitRequestFullscreen;
+    if (req) { var p = req.call(screen); if (p && p.catch) p.catch(function(){}); }
+  }
+  if (!canFs) fs.hidden = true;
+  fs.addEventListener('click', toggleFs);
+  function syncFs(){ fs.textContent = isFs() ? '離開全螢幕' : '全螢幕投影'; }
+  document.addEventListener('fullscreenchange', syncFs);
+  document.addEventListener('webkitfullscreenchange', syncFs);
+
+  document.addEventListener('keydown', function(e){
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var t = e.target, onControl = t && (t.tagName === 'BUTTON' || t.tagName === 'A');
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === 'ArrowDown' && isFs() || (k === ' ' || k === 'Enter') && !onControl) {
+      e.preventDefault(); go(step + 1);
+    } else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'ArrowUp' && isFs()) {
+      e.preventDefault(); go(step - 1);
+    } else if (k === 'Home') { e.preventDefault(); go(0); }
+    else if (k === 'End') { e.preventDefault(); go(MAX); }
+    else if ((k === 'f' || k === 'F') && canFs) { e.preventDefault(); toggleFs(); }
+  });
+})();
+</script>
+
+</body>
+</html>
