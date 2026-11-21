@@ -2,9 +2,10 @@ name: 每月更新投影片PPT與課程範例
 
 on:
   schedule:
-    # 每週六 UTC 00:23（台北 08:23）觸發；腳本只在台北時間「當月第三個週六」（15~21 號）才更新。
+    # 每週五 UTC 00:23（台北 08:23）觸發；腳本只在台北時間「當月第二、第三個週五」（8~21 號）才檢查。
+    # 第二個週五教材表還沒好就先略過（不算失敗），第三個週五再檢查；那時還沒好，這次執行會失敗並寄信通知。
     # 分鐘避開整點，減少 GitHub 排程延遲。
-    - cron: '23 0 * * 6'
+    - cron: '23 0 * * 5'
   workflow_dispatch:
     inputs:
       month:
@@ -31,7 +32,7 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: |
           args=()
-          if [ "$EVENT" = "schedule" ]; then args+=(--third-saturday-only); fi
+          if [ "$EVENT" = "schedule" ]; then args+=(--scheduled); fi
           if [ -n "$MONTH" ]; then args+=(--month "$MONTH"); fi
           python3 .github/scripts/monthly_update.py "${args[@]}"
 

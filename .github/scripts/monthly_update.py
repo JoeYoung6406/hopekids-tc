@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每月第三個週六：把「下個月」的教材從教材連結表同步到首頁 index.html。
+"""每月第二、第三個週五：把「下個月」的教材從教材連結表同步到首頁 index.html。
 
 更新兩個區塊（最新月份放最上層，前兩個月各自收合，更早的刪除）：
   - 本月投影片PPT：每週小班／大班（或合班）的教材 PPT
@@ -19,7 +19,7 @@ index.html 裡由本腳本管理的範圍：
 用法：
   python .github/scripts/monthly_update.py                        # 上架下個月（台北時間）
   python .github/scripts/monthly_update.py --month 2026-10        # 指定月份
-  python .github/scripts/monthly_update.py --third-saturday-only  # 排程用：不是第三個週六就直接結束
+  python .github/scripts/monthly_update.py --scheduled            # 排程用：只在第二、第三個週五執行
   python .github/scripts/monthly_update.py --dry-run              # 只印出差異，不寫檔
 """
 import argparse
@@ -261,14 +261,29 @@ def update_region(page, name, key, items):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--month", help="要上架的月份 YYYY-MM（預設：台北時間的下個月）")
-    ap.add_argument("--third-saturday-only", action="store_true", help="不是第三個週六就直接結束（排程用）")
+    ap.add_argument("--scheduled", action="store_true",
+                    help="排程用：只在當月第二、第三個週五執行；第二個週五表格還沒好就先略過，等第三個週五")
     ap.add_argument("--dry-run", action="store_true", help="只印出差異，不寫檔")
     args = ap.parse_args()
 
     today = dt.datetime.now(TAIPEI).date()
-    if args.third_saturday_only and not (today.weekday() == 5 and 15 <= today.day <= 21):
-        print(f"今天（台北 {today}）不是當月第三個週六，略過。")
-        return
+    if args.scheduled:
+        if not (today.weekday() == 4 and 8 <= today.day <= 21):
+            print(f"今天（台北 {today}）不是當月第二或第三個週五，略過。")
+            return
+        if today.day <= 14:
+            # 第二個週五：教材表還沒建好不算失敗，第三個週五會再檢查一次
+            try:
+                run(args, today)
+            except SystemExit as e:
+                if e.code in (None, 0):
+                    raise
+                warn(f"{e.code}（第三個週五會再檢查一次）")
+            return
+    run(args, today)
+
+
+def run(args, today):
 
     if args.month:
         if not re.fullmatch(r"\d{4}-(0[1-9]|1[0-2])", args.month):
